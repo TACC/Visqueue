@@ -1,6 +1,10 @@
 # SCWAT: A Visualization tool for displaying supercomputer resource project information
 
-SCWAT(SuperComputer Web Analytics Toolset) is toolset to display project information related to supercomputing resources. It is built on top of [D3.js](https://d3js.org/), using [Bootstrap](https://getbootstrap.com/), [jQuery](https://jquery.com/), and [tether](http://tether.io/).
+SCWAT(SuperComputer Web Analytics Toolset) is toolset to display project information related to supercomputing resources.
+It is built on top of [D3.js](https://d3js.org/), using [Bootstrap](https://getbootstrap.com/), [jQuery](https://jquery.com/), and [tether](http://tether.io/).
+SCWAT has been primarily developed by Andrew Solis, Latrell Gaither, and Briana Bradshaw.
+
+You can view an example of the jobs being ran on Stampede2 at http://vislab-projects.tacc.utexas.edu/SCWAT.
 
 
 SCWAT is licensed under the Apache License, Version 2.0 (the "License");

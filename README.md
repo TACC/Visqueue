@@ -1,4 +1,4 @@
-# SCWAT: A Visualization tool for displaying supercomputer resource project information
+ # SCWAT: A Visualization tool for displaying supercomputer resource project information
 
 SCWAT(SuperComputer Web Analytics Toolset) is toolset to display project information related to supercomputing resources.
 It is built on top of [D3.js](https://d3js.org/), using [Bootstrap](https://getbootstrap.com/), [jQuery](https://jquery.com/), and [tether](http://tether.io/).

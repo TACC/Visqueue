@@ -1,0 +1,57 @@
+#title_holder {
+  display: flex;
+  justify-content: center;
+}
+
+#container {
+  height: 100%;
+  min-width: 50%;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+#institutions {
+  position: absolute;
+  z-index: 9;
+  background-color: #f1f1f1;
+  border: 1px solid #d3d3d3;
+  text-align: center;
+  display: none;
+}
+
+#institutionsheader{
+  padding: 10px;
+  cursor: move;
+  z-index: 10;
+  background-color: #2196F3;
+  color: #fff;
+}
+
+#institlist{
+	max-height: 300px;
+	overflow-y: scroll;
+
+}
+
+#singleschool {
+  position: absolute;
+  z-index: 9;
+  background-color: #f1f1f1;
+  border: 1px solid #d3d3d3;
+  text-align: center;
+  display: none;
+}
+
+#schoolheader{
+  padding: 10px;
+  cursor: move;
+  z-index: 10;
+  background-color: #2196F3;
+  color: #fff;
+}
+
+#joblist{
+  max-height: 300px;
+  overflow-y: scroll;
+
+}

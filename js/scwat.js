@@ -53,7 +53,6 @@ class SCWAT
             .innerRadius(   d => d.y0 * this.radius  )
             .outerRadius(   d => Math.max( d.y0 * this.radius, d.y1 * this.radius - 1 ));
 
-        console.log('scwat was constructed!');
     }
 
 
@@ -79,7 +78,12 @@ class SCWAT
 
             this.root.each(d => d.current = d);
 
+
+            console.log(this.parentType + '    ' + this.parentID);
+
             const svg = d3.select(this.parentType +  '#' + this.parentID )
+                          .style( "width",  this.width  + 'px' )
+                          .style( "height", this.height + 'px' )
                           .append("svg")
                           .attr('viewBox', [ 0, 0, this.width, this.height ] );
 

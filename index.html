@@ -1,6 +1,6 @@
 <!--
   ==========================================================================
-  Copyright (c) 2017-2018 The University of Texas at Austin.
+  Copyright (c) 2017-2019 The University of Texas at Austin.
   All rights reserved.
 
   Licensed under the Apache License, Version 2.0 (the "License");
@@ -25,89 +25,25 @@
 
     <head>
 
-        <title>Stampede2</title>
+        <title>SCWAT</title>
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-        <!-- external css -->
-        <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.min.css">
-
-        <!-- custom css -->
-        <link rel="stylesheet" type="text/css" href="css/partition.css">
 
     </head>
 
     <body>
 
-        <div class="container-fluid">
-
-            <div class="row">
-
-                <div id="sunburst-container" class="col-9"></div>
-
-                <div id="buttons-container" class="col-3"></div>
-
-
-            </div>
+        <div id="stampede2sunburst">
 
         </div>
 
-        <!-- Modal -->
-        <div class="modal fade" id="info_modal" tabindex="-1" role="dialog" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <table class="modal_table">
-
-                        <tr>
-
-                            <th id="modal_title"></th>
-
-                        </tr>
-
-                        <tr>
-
-                            <th id="modal_cores"></th>
-
-                        </tr>
-
-                        <tr>
-
-                            <th id="modal_institution"></th>
-                        </tr>
-
-                        <tr>
-
-                            <th id="modal_PI"></th>
-
-                        </tr>
-
-                    </table>
-
-                    <hr>
-
-                    <div id="modal_abstract"></div>
-
-                </div>
-                <div class="modal-footer">
-
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
-                </div>
-            </div>
-          </div>
-        </div>
 
     </body>
 
-    <!-- external libraries -->
-    <script type="text/javascript" src="js/jQuery/jquery-3.2.1.min.js"> </script>
-    <script type="text/javascript" src="js/d3/d3.min.js">               </script>
-    <script type="text/javascript" src="js/tether/tether.min.js">       </script>
-    <script type="text/javascript" src="js/bootstrap/bootstrap.min.js"> </script>
+    <script src="./js/d3/d3.min.js"></script>
 
     <!-- custom js -->
-    <script type="text/javascript" src="js/partition.js"></script>
+    <script type="module" src="js/index.js"></script>
 
 </html>

@@ -1,6 +1,6 @@
 /*
 * ==========================================================================
-* Copyright (c) 2017-2018 The University of Texas at Austin.
+* Copyright (c) 2017-2019 The University of Texas at Austin.
 * All rights reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,68 +19,3 @@
 *
 * ==========================================================================
 */
-
-div.container-fluid
-{
-	height: 100vh;
-}
-
-div.row,
-div#sunburst-container
-{
-	height: 99%;
-}
-
-div#buttons-container
-{
-	height: 90%;
-}
-
-div#buttons-container
-{
-	overflow-y: scroll;
-}
-
-path.visible,
-button
-{
-    cursor: pointer;
-}
-
-button.btn-primary
-{
-	white-space: normal;
-}
-
-table.info-table tr th:empty
-{
-	display: none;
-}
-
-div#abstract_info
-{
-	text-align: left;
-}
-
-div.modal-dialog
-{
-	max-width: 50%;
-}
-
-button:disabled
-{
-	cursor: default !important;
-}
-
-a:hover
-{
-	color: #6699ff !important;
-}
-
-.modal-footer
-{
-    -webkit-box-pack: 		 start;
-    -webkit-justify-content: flex-start;
-    -ms-flex-pack: 			 start;
-    justify-content: 		 flex-start;
-}

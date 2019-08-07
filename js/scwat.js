@@ -33,6 +33,9 @@ class SCWAT
     height;
     radius;
     partition;
+    svg;
+    g;
+    path;
 
     constructor( filepath, parentID, parentType, width, height )
     {
@@ -81,39 +84,84 @@ class SCWAT
 
             console.log(this.parentType + '    ' + this.parentID);
 
-            const svg = d3.select(this.parentType +  '#' + this.parentID )
+            this.svg = d3.select(this.parentType +  '#' + this.parentID )
                           .style( "width",  this.width  + 'px' )
                           .style( "height", this.height + 'px' )
                           .append("svg")
                           .attr('viewBox', [ 0, 0, this.width, this.height ] );
 
-            const g = svg.append("g")
+            this.g = this.svg.append("g")
                          .attr("transform", `translate(${ this.width / 2},${ this.height / 2})`);
 
-            const path = g.append("g")
+            this.path = this.g.append("g")
                           .selectAll("path")
                           .data(this.root.descendants().slice( 1 ) )
                           .join("path")
-                          .attr("fill", d =>
-                          {
-                              while( d.depth > 1 )
-                              {
-                                  d = d.parent;
-                              }
+                            .attr("fill", d =>
+                            {
+                                while( d.depth > 1 )
+                                {
+                                    d = d.parent;
+                                }
 
-                              return this.color( d.data.name );
+                                return this.color( d.data.name );
 
-                          })
-                          .attr("fill-opacity", d => 0.6 )
-                          .attr("d", d => { return this.arc( d.current ) } );
+                            })
+                            .attr("fill-opacity", d => 0.6 )
+                            .attr("d", d => { return this.arc( d.current ) } );
 
+            this.path.filter( d => d.children )
+                     .style( 'cursor', 'pointer' )
+                     .on('click', this.clickHandler.bind( this ) );
 
-
+            this.parent = this.g.append('circle')
+                                .datum( this.root )
+                                .attr('r', this.radius )
+                                .attr('fill', 'none')
+                                .attr('pointer-events', 'all')
+                                .on('click', this.clickHandler.bind( this ) );
 
         }).catch( error =>
         {
             console.log( error );
         })
+    }
+
+    arcVisible( d )
+    {
+        return ( d.y1 <= 2 ) && ( d.y0 >= 1 ) && ( d.x1 > d.x0 );
+    }
+
+    clickHandler( p )
+    {
+        
+        this.parent.datum( p.parent || this.root );
+
+        this.root.each(d => d.target = {
+            x0: Math.max(0, Math.min(1, (d.x0 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
+            x1: Math.max(0, Math.min(1, (d.x1 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
+            y0: Math.max(0, d.y0 - p.depth),
+            y1: Math.max(0, d.y1 - p.depth)
+        });
+
+        const t = this.g.transition().duration(750);
+
+        // Transition the data on all arcs, even the ones that aren’t visible,
+        // so that if this transition is interrupted, entering arcs will start
+        // the next transition from the desired position.
+        this.path.transition( t )
+            .tween("data", d => 
+            {
+            const i = d3.interpolate(d.current, d.target);
+            return t => d.current = i(t);
+            })
+        .filter(function(d) 
+        {
+            return +this.getAttribute("fill-opacity") || arcVisible(d.target);
+        })
+            // .attr("fill-opacity", d => arcVisible(d.target) ? (d.children ? 0.6 : 0.4) : 0)
+            .attrTween("d", d => () => this.arc(d.current));
+        
     }
 
 }

@@ -82,16 +82,18 @@ class SCWAT
             this.root.each(d => d.current = d);
 
 
-            console.log(this.parentType + '    ' + this.parentID);
+            let viewboxWidth  = this.width * 9 / 13;
+            let viewboxHeight = this.height * 9 / 13;
+            
 
             this.svg = d3.select(this.parentType +  '#' + this.parentID )
                           .style( "width",  this.width  + 'px' )
                           .style( "height", this.height + 'px' )
                           .append("svg")
-                          .attr('viewBox', [ 0, 0, this.width, this.height ] );
+                          .attr('viewBox', [ 0, 0, viewboxWidth, viewboxHeight ] );
 
             this.g = this.svg.append("g")
-                         .attr("transform", `translate(${ this.width / 2},${ this.height / 2})`);
+                         .attr("transform", `translate(${ viewboxWidth / 2},${ viewboxHeight / 2})`);
 
             this.path = this.g.append("g")
                           .selectAll("path")

@@ -3,7 +3,7 @@
 * Copyright (c) 2017-2019 The University of Texas at Austin.
 * All rights reserved.
 *
-* Licensed under the Apache License, Version 2.0 (the "License");
+* Licensed under the Apache License, Version 2.0 (the 'License');
 * you may not use this file except in compliance with the License.
 * A copy of the License is included with this software in the file LICENSE.
 * If your copy does not contain the License, you may obtain a copy of the
@@ -12,7 +12,7 @@
 *  https://www.apache.org/licenses/LICENSE-2.0
 *
 * Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+* distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT
 * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 * See the License for the specific language governing permissions and
 * limitations under the License.
@@ -32,10 +32,17 @@ class SCWAT
     width;
     height;
     radius;
+    
     partition;
+    
     svg;
     g;
     path;
+
+    circle_text;
+    title_text;
+    percentage_text;
+    jobs_text;
 
     constructor( filepath, parentID, parentType, width, height )
     {
@@ -75,7 +82,7 @@ class SCWAT
                          ( tmpRoot );
             }
 
-            this.color = d3.scaleOrdinal(d3.quantize(d3.interpolateRainbow, data.children.length + 1))
+            this.color = d3.scaleOrdinal( d3.schemeCategory10 );
 
             this.root = this.partition( data );
 
@@ -87,19 +94,33 @@ class SCWAT
             
 
             this.svg = d3.select(this.parentType +  '#' + this.parentID )
-                          .style( "width",  this.width  + 'px' )
-                          .style( "height", this.height + 'px' )
-                          .append("svg")
+                          .style( 'width',  this.width  + 'px' )
+                          .style( 'height', this.height + 'px' )
+                          .append('svg')
                           .attr('viewBox', [ 0, 0, viewboxWidth, viewboxHeight ] );
 
-            this.g = this.svg.append("g")
-                         .attr("transform", `translate(${ viewboxWidth / 2},${ viewboxHeight / 2})`);
+            this.g = this.svg.append('g')
+                         .attr('transform', `translate(${ viewboxWidth / 2},${ viewboxHeight / 2})`);
 
-            this.path = this.g.append("g")
-                          .selectAll("path")
+            this.circle_text = this.g.append('g')
+                                     .attr('id', 'circle_text')
+                                     .append('text')
+                                     .style('text-anchor', 'middle')
+                                     .style('font-family', 'Arial')
+                                     .style('fill', '#767f84')
+                                     .style('font-size', '1vw');
+
+            this.title_text = this.circle_text.append('tspan')
+                                              .attr('id', 'title');
+                                              
+
+            this.title_text.text( data.name );
+
+            this.path = this.g.append('g')
+                          .selectAll('path')
                           .data(this.root.descendants().slice( 1 ) )
-                          .join("path")
-                            .attr("fill", d =>
+                          .join('path')
+                            .attr('fill', d =>
                             {
                                 while( d.depth > 1 )
                                 {
@@ -109,8 +130,8 @@ class SCWAT
                                 return this.color( d.data.name );
 
                             })
-                            .attr("fill-opacity", ( d ) =>  this.arcVisible( d.current ) ? 0.6 : 0 )
-                            .attr("d", d => { return this.arc( d.current ) } );
+                            .attr('fill-opacity', ( d ) =>  this.arcVisible( d.current ) ? 0.6 : 0 )
+                            .attr('d', d => { return this.arc( d.current ) } );
 
             this.path.filter( d => d.children )
                      .style( 'cursor', 'pointer' )
@@ -152,17 +173,17 @@ class SCWAT
         // so that if this transition is interrupted, entering arcs will start
         // the next transition from the desired position.
         thisRef.path.transition( t )
-            .tween("data", d => 
+            .tween('data', d => 
             {
             const i = d3.interpolate(d.current, d.target);
             return t => d.current = i(t);
             })
         .filter(function(d) 
         {
-            return +this.getAttribute("fill-opacity") || thisRef.arcVisible( d.target );
+            return +this.getAttribute('fill-opacity') || thisRef.arcVisible( d.target );
         })
-            .attr("fill-opacity", d => thisRef.arcVisible( d.target ) ? 0.6 : 0)
-            .attrTween("d", d => () => this.arc( d.current ) );
+            .attr('fill-opacity', d => thisRef.arcVisible( d.target ) ? 0.6 : 0)
+            .attrTween('d', d => () => this.arc( d.current ) );
         
     }
 

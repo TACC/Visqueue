@@ -122,7 +122,7 @@ class SCWAT
                           .join('path')
                             .attr('fill', d =>
                             {
-                                while( d.depth > 1 )
+                                while( d.depth > 2 )
                                 {
                                     d = d.parent;
                                 }

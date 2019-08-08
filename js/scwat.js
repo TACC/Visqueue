@@ -130,7 +130,7 @@ class SCWAT
                                 return this.color( d.data.name );
 
                             })
-                            .attr('fill-opacity', ( d ) =>  this.arcVisible( d.current ) ? 0.6 : 0 )
+                            .attr('fill-opacity', ( d ) =>  this.arcVisible( d.current ) ? 1 : 0 )
                             .attr('d', d => { return this.arc( d.current ) } );
 
             this.path.filter( d => d.children )
@@ -167,7 +167,7 @@ class SCWAT
             y1: Math.max(0, d.y1 - p.depth)
         });
 
-        const t = thisRef.g.transition().duration(750);
+        const t = thisRef.g.transition().duration( 1250 );
 
         // Transition the data on all arcs, even the ones that aren’t visible,
         // so that if this transition is interrupted, entering arcs will start
@@ -182,7 +182,7 @@ class SCWAT
         {
             return +this.getAttribute('fill-opacity') || thisRef.arcVisible( d.target );
         })
-            .attr('fill-opacity', d => thisRef.arcVisible( d.target ) ? 0.6 : 0)
+            .attr('fill-opacity', d => thisRef.arcVisible( d.target ) ? 1 : 0)
             .attrTween('d', d => () => this.arc( d.current ) );
         
     }

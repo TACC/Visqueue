@@ -184,6 +184,14 @@ class SCWAT
         })
             .attr('fill-opacity', d => thisRef.arcVisible( d.target ) ? 1 : 0)
             .attrTween('d', d => () => this.arc( d.current ) );
+
+        this.title_text.transition()
+                       .duration( 750 )
+                       .style('opacity', 0)
+                       .transition()
+                       .duration(750)
+                       .style('opacity', 1)
+                       .text( p.data.name );
         
     }
 

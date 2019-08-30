@@ -41,7 +41,7 @@ class SCWAT
 
     circle_text;
     title_text;
-    percentage_text;
+    projects_text;
     jobs_text;
 
     constructor( filepath, parentID, parentType, width, height )
@@ -89,7 +89,7 @@ class SCWAT
             this.root.each(d => d.current = d);
 
 
-            let viewboxWidth  = this.width * 9 / 13;
+            let viewboxWidth  = this.width  * 9 / 13;
             let viewboxHeight = this.height * 9 / 13;
             
 
@@ -111,7 +111,13 @@ class SCWAT
                                      .style('font-size', '1vw');
 
             this.title_text = this.circle_text.append('tspan')
+                                              .attr('dy', '-1.5em')
                                               .attr('id', 'title');
+
+            this.jobs = this.circle_text.append('tspan')
+                                        .attr('id', 'projects')
+                                        .attr('x', 0);
+                                        // .attr('dy', '1.5em');
                                               
 
             this.title_text.text( data.name );

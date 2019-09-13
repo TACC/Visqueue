@@ -20,6 +20,7 @@
 * ==========================================================================
 */
 
+
 class SCWAT
 {
 
@@ -44,7 +45,8 @@ class SCWAT
     projects_text;
     jobs_text;
 
-    constructor( filepath, parentID, parentType, width, height )
+
+    constructor( filepath, graphType, parentID, parentType, width, height )
     {
         this.filepath   = filepath;
         this.parent     = parent;
@@ -113,11 +115,6 @@ class SCWAT
             this.title_text = this.circle_text.append('tspan')
                                               .attr('dy', '-1.5em')
                                               .attr('id', 'title');
-
-            this.jobs = this.circle_text.append('tspan')
-                                        .attr('id', 'projects')
-                                        .attr('x', 0);
-                                        // .attr('dy', '1.5em');
                                               
 
             this.title_text.text( data.name );

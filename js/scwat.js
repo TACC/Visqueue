@@ -182,8 +182,8 @@ class SCWAT
             .endAngle(      d => d.x1   )
             .padAngle(      d => Math.min( ( d.x1 - d.x0 ) / 2, 0.005 ) )
             .padRadius(     this.radius * 1.5   )
-            .innerRadius(   d => d.y0 * this.radius  )
-            .outerRadius(   d => Math.max( d.y0 * this.radius, d.y1 * this.radius - 1 ));
+            .innerRadius(   d => ( d.y0 * this.radius ) + 50  )
+            .outerRadius(   d => Math.max( ( d.y0 * this.radius ) + 50, d.y1 * this.radius - 1 ));
 
     }
 
@@ -257,7 +257,6 @@ class SCWAT
 
             // add a tspan element to write title's inside the sunburst
             this.title_text = this.circle_text.append('tspan')
-                                              .attr('dy', '-1.5em')
                                               .attr('id', 'title');
                                               
             // set the current title of the sunburst equal to the name

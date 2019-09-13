@@ -164,16 +164,17 @@ class SCWAT
     /**
      * @constructor
      * @description creates an instance of SCWAT Class
-     * @param {string} filepath   - path to json file of job information
-     * @param {string} graphType  - graph type to render (sunburst)
-     * @param {number} totalCpu   - the amount of total CPU for a system
-     * @param {number} stopDepth  - depth to stop allowing users to navigate sunburst
-     * @param {string} parentID   - ID of HTML element to render graph inside
-     * @param {string} parentType - Type of HTML element that will render graph
-     * @param {number} width      - width of graph
-     * @param {number} height     - height of graph to render
+     * @param {string}  filepath   - path to json file of job information
+     * @param {string}  graphType  - graph type to render (sunburst)
+     * @param {number}  totalCpu   - the amount of total CPU for a system
+     * @param {number}  stopDepth  - depth to stop allowing users to navigate sunburst
+     * @param {string}  parentID   - ID of HTML element to render graph inside
+     * @param {string}  parentType - Type of HTML element that will render graph
+     * @param {boolean} animation  - animate sunburst
+     * @param {number}  width      - width of graph
+     * @param {number}  height     - height of graph to render
      */
-    constructor( filepath, graphType, totalCpu, stopDepth, parentID, parentType, width, height )
+    constructor( filepath, graphType, totalCpu, stopDepth, parentID, parentType, animation, width, height )
     {
         
         // set the appropriate class members to the parameters passed
@@ -186,6 +187,7 @@ class SCWAT
         this.parentType = parentType;
         this.totalCpu   = totalCpu;
         this.stopDepth  = stopDepth;
+        this.animation  = animation;
 
         // sets the radius of the chart
         this.radius = this.width / 6;
@@ -303,6 +305,7 @@ class SCWAT
             // choose to only render those arcs that are one level below
             // the root
             this.path = this.g.append('g')
+                          .attr('id', 'paths')
                           .selectAll('path')
                           .data(this.root.descendants().slice( 1 ) )
                           .join('path')
@@ -332,6 +335,12 @@ class SCWAT
                                 .attr('fill', 'none')
                                 .attr('pointer-events', 'all')
                                 .on('click', (d) => this.clickHandler( d, this ) );
+
+
+            if( this.animation )
+            {
+                this.animate();
+            }
 
         // catch and print out any errors
         }).catch( error =>
@@ -437,6 +446,14 @@ class SCWAT
 
     }
 
+
+    animate()
+    {
+        setTimeout( () => 
+        {
+            anime({targets : '#paths', rotate : 360, duration : 50000, easing : 'linear', loop : true});
+        }, 1000 );
+    }
 }
 
 export { SCWAT };

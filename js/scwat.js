@@ -171,17 +171,15 @@ class SCWAT
      * @param {string}  parentID   - ID of HTML element to render graph inside
      * @param {string}  parentType - Type of HTML element that will render graph
      * @param {boolean} animation  - animate sunburst
-     * @param {number}  width      - width of graph
      * @param {number}  height     - height of graph to render
      */
-    constructor( filepath, graphType, totalCpu, stopDepth, parentID, parentType, animation, width, height )
+    constructor( filepath, graphType, totalCpu, stopDepth, parentID, parentType, animation, height )
     {
         
         // set the appropriate class members to the parameters passed
         // in through the constructor
         this.filepath   = filepath;
         this.parent     = parent;
-        this.width      = width;
         this.height     = height;
         this.parentID   = parentID;
         this.parentType = parentType;
@@ -190,7 +188,7 @@ class SCWAT
         this.animation  = animation;
 
         // sets the radius of the chart
-        this.radius = this.width / 6;
+        this.radius = this.height / 6;
 
         // creates a new arc generator for generating sectors of the sunburst chart
         this.arc = d3.arc()
@@ -244,7 +242,7 @@ class SCWAT
 
 
             // set the HTML SVG Viewbox width and height
-            let viewboxWidth  = this.width  * 9 / 13;
+            let viewboxWidth  = this.height  * 9 / 13;
             let viewboxHeight = this.height * 9 / 13;
             
 
@@ -252,9 +250,8 @@ class SCWAT
             // to the HTML element based off the values passed in to the constructor
             // while also setting the viewbox
             this.svg = d3.select(this.parentType +  '#' + this.parentID )
-                          .style( 'width',  this.width  + 'px' )
-                          .style( 'height', this.height + 'px' )
                           .append('svg')
+                          .style('max-height', this.height + 'px')
                           .attr('viewBox', [ 0, 0, viewboxWidth, viewboxHeight ] );
 
             // create container HTML element and translate view of graph to be centered

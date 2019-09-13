@@ -129,39 +129,51 @@ class SCWAT
     circle_text;
 
     /**
-     * @member {object} title_text
-     * @description reference to title text container object
+     * @member {object} middleText
+     * @description reference to middle text container object
      * @memberof SCWAT
      */
-    title_text;
+    middleText;
 
     /**
-     * @member {object} projects_text
-     * @description reference to projects text container object
+     * @member {object} upperText
+     * @description reference to upper text container object
      * @memberof SCWAT
      */
-    projects_text;
+    upperText;
 
     /**
-     * @member {object} jobs_text
+     * @member {object} lowerText
      * @description reference to jobs text container object
      * @memberof SCWAT
      */
-    jobs_text;
+    lowerText;
 
+    /**
+     * @member {number} totalCpu
+     * @description total CPU available on a system
+     * @memberof SCWAT
+     */
+    totalCpu;
+    
+    formatPercentage = d3.format('.2%');
+    formatNumbers    = d3.format(',');  
 
+    depthToStop;
 
     /**
      * @constructor
      * @description creates an instance of SCWAT Class
      * @param {string} filepath   - path to json file of job information
      * @param {string} graphType  - graph type to render (sunburst)
+     * @param {number} totalCpu   - the amount of total CPU for a system
+     * @param {number} stopDepth  - depth to stop allowing users to navigate sunburst
      * @param {string} parentID   - ID of HTML element to render graph inside
      * @param {string} parentType - Type of HTML element that will render graph
      * @param {number} width      - width of graph
      * @param {number} height     - height of graph to render
      */
-    constructor( filepath, graphType, parentID, parentType, width, height )
+    constructor( filepath, graphType, totalCpu, stopDepth, parentID, parentType, width, height )
     {
         
         // set the appropriate class members to the parameters passed
@@ -172,6 +184,8 @@ class SCWAT
         this.height     = height;
         this.parentID   = parentID;
         this.parentType = parentType;
+        this.totalCpu   = totalCpu;
+        this.stopDepth  = stopDepth;
 
         // sets the radius of the chart
         this.radius = this.width / 6;
@@ -253,14 +267,37 @@ class SCWAT
                                      .style('text-anchor', 'middle')
                                      .style('font-family', 'Arial')
                                      .style('fill', '#767f84')
-                                     .style('font-size', '1vw');
+                                     .style('font-size', '1.5em');
+            
+            // add a tspan element to write text in the middle of the sunburst
+            this.middleText = this.circle_text.append('tspan')
+                                            .attr('x', 0)
+                                            .attr('dy', 0)
+                                            .attr('id', 'middle'); 
 
-            // add a tspan element to write title's inside the sunburst
-            this.title_text = this.circle_text.append('tspan')
-                                              .attr('id', 'title');
-                                              
-            // set the current title of the sunburst equal to the name
-            this.title_text.text( data.name );
+            // add a tspan element to write text in the lower part of the sunburst
+            this.lowerText = this.circle_text.append('tspan')
+                                            .attr('x', 0)
+                                            .attr('dy', "1.5em")
+                                            .attr('id', 'lower');
+
+            // add a tspan element to write text in the upper part of the sunburst
+            this.upperText = this.circle_text.append('tspan')
+                                            .attr('x', 0)
+                                            .attr('dy', "-3em")
+                                            .attr('id', 'upper');
+
+               
+            // set the current upper text of the sunburst equal to the name
+            this.upperText.text( data.name );
+
+            this.middleText.text( this.formatPercentage( this.root.value / this.totalCpu ) );
+            
+            this.lowerText.text( this.formatNumbers( this.root.copy().count().value ) + ' fields of science' );
+            
+
+
+
 
             // render the sunburst usind the data from the root object and
             // choose to only render those arcs that are one level below
@@ -328,6 +365,11 @@ class SCWAT
      */
     clickHandler( p, thisRef )
     {
+
+        if( p.depth >= this.stopDepth )
+        {
+            return;
+        }
         
         // if the current arc has a parent set the parent object to it,
         // otherwise we have selected to root of the data with no parent
@@ -362,8 +404,8 @@ class SCWAT
             .attr('fill-opacity', d => thisRef.arcVisible( d.target ) ? 1 : 0)
             .attrTween('d', d => () => this.arc( d.current ) );
 
-        // transition the title of the inside of the arc to the new title
-        this.title_text.transition()
+        // transition the upper text of the inside of the arc to the new upper text
+        this.upperText.transition()
                        .duration( 750 )
                        .style('opacity', 0)
                        .transition()
@@ -371,6 +413,28 @@ class SCWAT
                        .style('opacity', 1)
                        .text( p.data.name );
         
+        // transition the middle text of the inside of the arc to the new middle text
+        this.middleText.transition()
+                       .duration( 750 )
+                       .style('opacity', 0)
+                       .transition()
+                       .duration(750)
+                       .style('opacity', 1)
+                       .text( this.formatPercentage( p.value / this.totalCpu ) );
+
+
+        let lowerTextString = p.copy().count().value + ' ';
+
+        // transition the lower text of the inside of the arc to the new lower text
+        this.lowerText.transition()
+                       .duration( 750 )
+                       .style('opacity', 0)
+                       .transition()
+                       .duration( 750 )
+                       .style('opacity', 1)
+                       .text( lowerTextString + ( p.depth == 0 ? 'fields of science' : 'projects' ) );
+
+
     }
 
 }

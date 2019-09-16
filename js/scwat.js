@@ -266,7 +266,7 @@ class SCWAT
                                      .style('text-anchor', 'middle')
                                      .style('font-family', 'Arial')
                                      .style('fill', '#767f84')
-                                     .style('font-size', '1.5em');
+                                     .style('font-size', '1.2em');
             
             // add a tspan element to write text in the middle of the sunburst
             this.middleText = this.circle_text.append('tspan')
@@ -289,8 +289,6 @@ class SCWAT
                
             // set the current upper text of the sunburst equal to the name
             this.upperText.text( data.name );
-
-            this.middleText.text( this.formatPercentage( this.root.value / this.totalCpu ) );
             
             this.lowerText.text( this.formatNumbers( this.root.copy().count().value ) + ' fields of science' );
             
@@ -328,7 +326,7 @@ class SCWAT
             // that is the root of the sunburst
             this.parent = this.g.append('circle')
                                 .datum( this.root )
-                                .attr('r', this.radius )
+                                .attr('r', this.radius + 50 )
                                 .attr('fill', 'none')
                                 .attr('pointer-events', 'all')
                                 .on('click', (d) => this.clickHandler( d, this ) );
@@ -410,14 +408,18 @@ class SCWAT
             .attr('fill-opacity', d => thisRef.arcVisible( d.target ) ? 1 : 0)
             .attrTween('d', d => () => this.arc( d.current ) );
 
+        
+        // calculate where text should be placed if title is too long
+        let titleText = this.calculateText( p.data.name ); 
+
         // transition the upper text of the inside of the arc to the new upper text
         this.upperText.transition()
                        .duration( 750 )
                        .style('opacity', 0)
                        .transition()
-                       .duration(750)
+                       .duration( 750 )
                        .style('opacity', 1)
-                       .text( p.data.name );
+                       .text( titleText.upper );
         
         // transition the middle text of the inside of the arc to the new middle text
         this.middleText.transition()
@@ -426,7 +428,7 @@ class SCWAT
                        .transition()
                        .duration(750)
                        .style('opacity', 1)
-                       .text( this.formatPercentage( p.value / this.totalCpu ) );
+                       .text( titleText.middle );
 
 
         let lowerTextString = p.copy().count().value + ' ';
@@ -456,6 +458,49 @@ class SCWAT
             anime({targets : '#' + this.parentID + ' #paths', rotate : 360, duration : 50000, easing : 'linear', loop : true});
         }, 1000 );
     }
+
+    
+    /**
+     *
+     * @function calculateText
+     * @param {string} text
+     * @returns {obj.upper, obj.lower}
+     * @description calculates if text should go inside the upper or middle tspan of the sunburst and returns resulting object
+     * @memberof SCWAT
+     */
+    calculateText( text )
+    {
+        let result = { upper : '', middle : '' };
+
+        if( text.length < 20 )
+        {
+            result.upper = text;
+        }
+        else
+        {
+            let words = text.split(' ');
+            
+            for( let index = 0; index < words.length; index++ )
+            {
+                let newUpperSize = words[index].length + result.upper.length + 1;
+
+                if( result.upper >= 20 || newUpperSize >= 20 )
+                {
+                    result.middle += ' ' + words[ index ];
+                }
+                else
+                {
+                    result.upper += ' ' + words[ index ];
+                }
+                
+            }
+
+        }
+
+        return result;
+    }
+
+
 }
 
 export { SCWAT };

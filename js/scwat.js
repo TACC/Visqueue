@@ -443,12 +443,17 @@ class SCWAT
 
     }
 
-
+    
+    /**
+     * @function animate
+     * @description animate sunburst by rotating
+     * @memberof SCWAT
+     */
     animate()
     {
         setTimeout( () => 
         {
-            anime({targets : '#paths', rotate : 360, duration : 50000, easing : 'linear', loop : true});
+            anime({targets : '#' + this.parentID + ' #paths', rotate : 360, duration : 50000, easing : 'linear', loop : true});
         }, 1000 );
     }
 }

@@ -272,7 +272,8 @@ class SCWAT
             this.middleText = this.circle_text.append('tspan')
                                             .attr('x', 0)
                                             .attr('dy', 0)
-                                            .attr('id', 'middle'); 
+                                            .attr('id', 'middle')
+                                            .attr('font-weight', 'bold'); 
 
             // add a tspan element to write text in the lower part of the sunburst
             this.lowerText = this.circle_text.append('tspan')
@@ -284,6 +285,7 @@ class SCWAT
             this.upperText = this.circle_text.append('tspan')
                                             .attr('x', 0)
                                             .attr('dy', "-3em")
+                                            .attr('font-weight', 'bold')
                                             .attr('id', 'upper');
 
                
@@ -472,7 +474,7 @@ class SCWAT
     {
         let result = { upper : '', middle : '' };
 
-        if( text.length < 20 )
+        if( text.length < 25 )
         {
             result.upper = text;
         }
@@ -484,7 +486,7 @@ class SCWAT
             {
                 let newUpperSize = words[index].length + result.upper.length + 1;
 
-                if( result.upper >= 20 || newUpperSize >= 20 )
+                if( result.upper >= 25 || newUpperSize >= 25 )
                 {
                     result.middle += ' ' + words[ index ];
                 }

@@ -149,6 +149,8 @@ class SCWAT
      */
     lowerText;
 
+    bottomText;
+
     /**
      * @member {number} totalCpu
      * @description total CPU available on a system
@@ -270,23 +272,28 @@ class SCWAT
             
             // add a tspan element to write text in the middle of the sunburst
             this.middleText = this.circle_text.append('tspan')
-                                            .attr('x', 0)
-                                            .attr('dy', 0)
-                                            .attr('id', 'middle')
-                                            .attr('font-weight', 'bold'); 
+                                    .attr('x', 0)
+                                    .attr('dy', 0)
+                                    .attr('id', 'middle')
+                                    .attr('font-weight', 'bold'); 
 
             // add a tspan element to write text in the lower part of the sunburst
             this.lowerText = this.circle_text.append('tspan')
-                                            .attr('x', 0)
-                                            .attr('dy', "1.5em")
-                                            .attr('id', 'lower');
+                                    .attr('x', 0)
+                                    .attr('dy', "1.5em")
+                                    .attr('id', 'lower');
+            
+            this.bottomText = this.circle_text.append('tspan')
+                                    .attr('x', 0)
+                                    .attr('dy', "1.5em")
+                                    .attr('id', 'bottom');
 
             // add a tspan element to write text in the upper part of the sunburst
             this.upperText = this.circle_text.append('tspan')
-                                            .attr('x', 0)
-                                            .attr('dy', "-3em")
-                                            .attr('font-weight', 'bold')
-                                            .attr('id', 'upper');
+                                    .attr('x', 0)
+                                    .attr('dy', "-4.5em")
+                                    .attr('font-weight', 'bold')
+                                    .attr('id', 'upper');
 
                
             // set the current upper text of the sunburst equal to the name
@@ -294,7 +301,7 @@ class SCWAT
             
             this.lowerText.text( this.formatNumbers( this.root.children.length ) + ' fields of science' );
             
-
+            this.bottomText.text( this.formatNumbers( this.root.copy().count().value ) + ' jobs' );
 
 
 
@@ -443,6 +450,16 @@ class SCWAT
                        .duration( 750 )
                        .style('opacity', 1)
                        .text( lowerTextString + ( p.depth == 0 ? ' fields of science' : ' projects' ) );
+
+        // transition the lower text of the inside of the arc to the new lower text
+        this.bottomText.transition()
+                       .duration( 750 )
+                       .style('opacity', 0)
+                       .transition()
+                       .duration( 750 )
+                       .style('opacity', 1)
+                       .text( this.formatNumbers( p.copy().count().value ) + ' jobs' );
+
 
 
     }

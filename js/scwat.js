@@ -292,7 +292,7 @@ class SCWAT
             // set the current upper text of the sunburst equal to the name
             this.upperText.text( data.name );
             
-            this.lowerText.text( this.formatNumbers( this.root.copy().count().value ) + ' fields of science' );
+            this.lowerText.text( this.formatNumbers( this.root.children.length ) + ' fields of science' );
             
 
 
@@ -433,7 +433,7 @@ class SCWAT
                        .text( titleText.middle );
 
 
-        let lowerTextString = p.copy().count().value + ' ';
+        let lowerTextString = this.formatNumbers( p.children.length );
 
         // transition the lower text of the inside of the arc to the new lower text
         this.lowerText.transition()
@@ -442,7 +442,7 @@ class SCWAT
                        .transition()
                        .duration( 750 )
                        .style('opacity', 1)
-                       .text( lowerTextString + ( p.depth == 0 ? 'fields of science' : 'projects' ) );
+                       .text( lowerTextString + ( p.depth == 0 ? ' fields of science' : ' projects' ) );
 
 
     }

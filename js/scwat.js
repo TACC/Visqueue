@@ -37,6 +37,8 @@ class SCWAT
      */
     color;
 
+    colorScale;
+
     /**
      * @member {object} root
      * @description member variable to keep track of the current root of the sunburst
@@ -166,16 +168,26 @@ class SCWAT
     /**
      * @constructor
      * @description creates an instance of SCWAT Class
-     * @param {string}  filepath   - path to json file of job information
-     * @param {string}  graphType  - graph type to render (sunburst)
-     * @param {number}  totalCpu   - the amount of total CPU for a system
-     * @param {number}  stopDepth  - depth to stop allowing users to navigate sunburst
-     * @param {string}  parentID   - ID of HTML element to render graph inside
-     * @param {string}  parentType - Type of HTML element that will render graph
-     * @param {boolean} animation  - animate sunburst
-     * @param {number}  height     - height of graph to render
+     * @param {string}   filepath   - path to json file of job information
+     * @param {string}   graphType  - graph type to render (sunburst)
+     * @param {number}   totalCpu   - the amount of total CPU for a system
+     * @param {number}   stopDepth  - depth to stop allowing users to navigate sunburst
+     * @param {string}   parentID   - ID of HTML element to render graph inside
+     * @param {string}   parentType - Type of HTML element that will render graph
+     * @param {boolean}  animation  - animate sunburst
+     * @param {number}   height     - height of graph to render
+     * @param {d3.color} colorScale - colorScale to use for sunburst
      */
-    constructor( filepath, graphType, totalCpu, stopDepth, parentID, parentType, animation, height )
+    constructor( 
+        filepath, 
+        graphType, 
+        totalCpu, 
+        stopDepth, 
+        parentID, 
+        parentType, 
+        animation, 
+        height,
+        colorScale )
     {
         
         // set the appropriate class members to the parameters passed
@@ -188,6 +200,7 @@ class SCWAT
         this.totalCpu   = totalCpu;
         this.stopDepth  = stopDepth;
         this.animation  = animation;
+        this.colorScale = colorScale;
 
         // sets the radius of the chart
         this.radius = this.height / 6;
@@ -234,7 +247,7 @@ class SCWAT
             }
 
             // set color scheme to use for sunburst
-            this.color = d3.scaleOrdinal( d3.schemeSet2 );
+            this.color = d3.scaleOrdinal( this.colorScale );
 
             // calculate partition object of data
             this.root = this.partition( data );

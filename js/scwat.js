@@ -234,7 +234,7 @@ class SCWAT
             }
 
             // set color scheme to use for sunburst
-            this.color = d3.scaleOrdinal( d3.schemeCategory10 );
+            this.color = d3.scaleOrdinal( d3.schemeSet2 );
 
             // calculate partition object of data
             this.root = this.partition( data );
@@ -315,12 +315,34 @@ class SCWAT
                           .join('path')
                             .attr('fill', d =>
                             {
-                                while( d.depth > 2 )
+                                // figure out how deep sunburst goes and assign
+                                // temporary p variable to be parent of current
+                                // datum d
+                                let p = d;
+
+                                while( p.depth > 1 )
                                 {
-                                    d = d.parent;
+                                    p = p.parent;
                                 }
 
-                                return this.color( d.data.name );
+                                // assign the colors to be used for the range of the 
+                                // color interpolator to be the same for now
+                                let topColor = d3.color( this.color( p.data.name ) );
+                                let lowColor = d3.color( this.color( p.data.name ) );
+                                
+                                // change the opacty of the lower color for those jobs
+                                // that have smaller sizes for their value
+                                lowColor.opacity = 0.5;
+                                
+                                // create color scale where the domain is 1 to the parents
+                                // value (top) and the range is the lowColor with low
+                                // opacity to topColor with high Opacity
+                                let colorScale = d3.scaleLinear().domain( [ 1, p.value ] )
+                                                   .range( [ lowColor, topColor ] );
+
+                                // return the color to fill in the arc of the sunburst
+                                return colorScale( d.value );
+
 
                             })
                             .attr('fill-opacity', ( d ) =>  this.arcVisible( d.current ) ? 1 : 0 )

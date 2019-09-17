@@ -264,7 +264,7 @@ class SCWAT
             // set svg member variable to be the new svg object that is appended
             // to the HTML element based off the values passed in to the constructor
             // while also setting the viewbox
-            this.svg = d3.select(this.parentType +  '#' + this.parentID )
+            this.svg = d3.select(this.parentType +  '#' + this.parentID + ' div.graphContainer')
                           .append('svg')
                           .style('max-height', this.height + 'px')
                           .attr('viewBox', [ 0, 0, viewboxWidth, viewboxHeight ] );

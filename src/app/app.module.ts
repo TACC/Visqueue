@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { SunburstComponent } from './sunburst/sunburst.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SunburstComponent
   ],
   imports: [
     BrowserModule,
@@ -18,6 +20,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FlexLayoutModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

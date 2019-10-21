@@ -42,6 +42,8 @@ export class SunburstComponent implements OnInit, AfterViewInit
     private upperText  : any;
     private topText    : any;
 
+    private imageCenter : any;
+
     private formatNumbers = d3.format(',');
     private formatPercentage = d3.format('.0%');
 
@@ -73,7 +75,7 @@ export class SunburstComponent implements OnInit, AfterViewInit
         // Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
         // Add 'implements AfterViewInit' to the class.
 
-        d3.json( 'assets/' + this.dataSrc )
+        d3.json( 'assets/datasets/' + this.dataSrc )
         .then( data =>
         {
 
@@ -104,8 +106,6 @@ export class SunburstComponent implements OnInit, AfterViewInit
 
             // set the currentArc to be the root starting out
             this.currentArc = this.root;
-
-            console.log( this.id );
 
             // set svg member variable to be the new svg object that is appended
             // to the HTML element based off the values passed in to the constructor
@@ -159,7 +159,7 @@ export class SunburstComponent implements OnInit, AfterViewInit
                                     .attr('x', 0)
                                     .attr('y', '1em')
                                     .attr('id', 'middle')
-                                    .attr('font-weight', 'bold'); 
+                                    .attr('font-weight', 'bold');
 
             this.lowerText.text( this.formatNumbers( this.root.children.length ) + ' fields of science' );
 
@@ -194,9 +194,16 @@ export class SunburstComponent implements OnInit, AfterViewInit
                             });
 
             // set the cursor to be a pointer on those arcs that are visible
+            // and apply clickHandler
             this.path.filter( d => d.children )
                      .style( 'cursor', 'pointer' )
                      .on('click', ( d ) => this.clickHandler( d, false ) );
+
+            this.imageCenter = this.g.append('svg:image')
+                                    .attr('xlink:href', `../assets/${this.id}.png`)
+                                    .attr('transform', `translate(-${ this.viewboxWidth / 4},-${ this.viewboxHeight / 3 })`)
+                                    .attr('height', '250' )
+                                    .attr('width', '250'  );
 
             // set the current parent object to equal the current node
             // that is the root of the sunburst
@@ -208,19 +215,6 @@ export class SunburstComponent implements OnInit, AfterViewInit
                                 .on('click', ( d ) => this.clickHandler( d, false ) );
         });
 
-    }
-
-    /**
-     *
-     * @function arcVisible
-     * @param {object} d - single arc object
-     * @returns boolean
-     * @description calculates if an arc is visible or not and returns true or false
-     * @memberof SCWAT
-     */
-    arcVisible( d )
-    {
-        return ( d.y1 <= 2 ) && ( d.y0 >= 1 ) && ( d.x1 > d.x0 );
     }
 
     /**
@@ -267,8 +261,130 @@ export class SunburstComponent implements OnInit, AfterViewInit
             .attr('fill-opacity', d => this.arcVisible( d.target ) ? 1 : 0)
             .attrTween('d', d => () => this.arc( d.current ) );
 
+        let titleText = { upper : '', middle : '' };
+
+        if( p.depth > 0 )
+        {
+            // calculate where text should be placed if title is too long
+            titleText = this.calculateText( p.data.name );
+
+            // transition the lower text of the inside of the arc to the new lower text
+            this.floorText.transition()
+                .duration( 750 )
+                .style('opacity', 0)
+                .transition()
+                .duration( 750 )
+                .style('opacity', 1)
+                .text( );
+
+        }
+        else
+        {
+            // transition the lower text of the inside of the arc to the new lower text
+            this.floorText.transition()
+                .duration( 750 )
+                .style('opacity', 0)
+                .transition()
+                .duration( 750 )
+                .style('opacity', 1)
+                .text( this.formatPercentage( this.root.data.load ) );
+        }
+
+        // transition the middle text of the inside of the arc to the new middle text
+        this.topText.transition()
+                       .duration( 750 )
+                       .style('opacity', 0)
+                       .transition()
+                       .duration(750)
+                       .style('opacity', 1)
+                       .text( titleText.upper );
+
+        // transition the upper text of the inside of the arc to the new upper text
+        this.upperText.transition()
+                       .duration( 750 )
+                       .style('opacity', 0)
+                       .transition()
+                       .duration( 750 )
+                       .style('opacity', 1)
+                       .text( titleText.middle );
+
+
+
+        const lowerTextString = this.formatNumbers( p.children.length );
+
+        // transition the lower text of the inside of the arc to the new lower text
+        this.lowerText.transition()
+                       .duration( 750 )
+                       .style('opacity', 0)
+                       .transition()
+                       .duration( 750 )
+                       .style('opacity', 1)
+                       .text( lowerTextString + ( p.depth == 0 ? ' fields of science' : ' projects' ) );
+
+        // transition the lower text of the inside of the arc to the new lower text
+        this.bottomText.transition()
+                       .duration( 750 )
+                       .style('opacity', 0)
+                       .transition()
+                       .duration( 750 )
+                       .style('opacity', 1)
+                       .text( this.formatNumbers( p.copy().count().value ) + ' jobs' );
+
         this.currentArc = p;
 
     }
 
+
+    /**
+     *
+     * @function calculateText
+     * @param {string} text
+     * @returns {obj.upper, obj.lower}
+     * @description calculates if text should go inside the upper or middle tspan of the sunburst and returns resulting object
+     * @memberof SCWAT
+     */
+    calculateText( text )
+    {
+        let result = { upper : '', middle : '' };
+
+        if( text.length < 25 )
+        {
+            result.upper = text;
+        }
+        else
+        {
+            let words = text.split(' ');
+
+            for (const iterator of words)
+            {
+                const newUpperSize = iterator.length + result.upper.length + 1;
+
+                if( result.upper.length >= 25 || newUpperSize >= 25 )
+                {
+                    result.middle += ' ' + iterator;
+                }
+                else
+                {
+                    result.upper += ' ' + iterator;
+                }
+
+            }
+
+        }
+
+        return result;
+    }
+
+    /**
+     *
+     * @function arcVisible
+     * @param {object} d - single arc object
+     * @returns boolean
+     * @description calculates if an arc is visible or not and returns true or false
+     * @memberof SCWAT
+     */
+    arcVisible( d )
+    {
+        return ( d.y1 <= 2 ) && ( d.y0 >= 1 ) && ( d.x1 > d.x0 );
+    }
 }

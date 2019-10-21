@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 import * as d3 from 'd3';
 
@@ -28,8 +28,9 @@ export class SunburstComponent implements OnInit, AfterViewInit
 
     private radius : number;
 
-    private root : any;
+    private root       : any;
     private currentArc : any;
+    private parent     : any;
 
     constructor() { }
 
@@ -107,10 +108,10 @@ export class SunburstComponent implements OnInit, AfterViewInit
             // choose to only render those arcs that are one level below
             // the root
             this.path = this.g.append('g')
-                          .attr('id', 'paths')
-                          .selectAll('path')
-                          .data(this.root.descendants().slice( 1 ) )
-                          .join('path')
+                            .attr('id', 'paths')
+                            .selectAll('path')
+                            .data(this.root.descendants().slice( 1 ) )
+                            .join('path')
                             .attr('fill', d =>
                             {
 
@@ -128,6 +129,20 @@ export class SunburstComponent implements OnInit, AfterViewInit
                             {
                                 return d.data.name;
                             });
+
+            // set the cursor to be a pointer on those arcs that are visible
+            this.path.filter( d => d.children )
+                     .style( 'cursor', 'pointer' )
+                     .on('click', ( d ) => this.clickHandler( d, false ) );
+
+            // set the current parent object to equal the current node
+            // that is the root of the sunburst
+            this.parent = this.g.append('circle')
+                                .datum( this.root )
+                                .attr('r', this.radius + 50 )
+                                .attr('fill', 'none')
+                                .attr('pointer-events', 'all')
+                                .on('click', ( d ) => this.clickHandler( d, false ) );
         });
 
     }
@@ -143,6 +158,54 @@ export class SunburstComponent implements OnInit, AfterViewInit
     arcVisible( d )
     {
         return ( d.y1 <= 2 ) && ( d.y0 >= 1 ) && ( d.x1 > d.x0 );
+    }
+
+    /**
+     *
+     * @function clickHandler
+     * @param {object}  p         - single arc that was selected
+     * @param {object}  thisRef   - reference to current class
+     * @param {boolean} tableBool - true or false if clicked from the table
+     * @description function to handle when an arc has been clicked
+     * @memberof SCWAT
+     */
+    clickHandler( p, tableBool )
+    {
+        // if the current arc has a parent set the parent object to it,
+        // otherwise we have selected to root of the data with no parent
+        // so set the root to itself
+        this.parent.datum( p.parent || this.root );
+
+        // calculate the new target locations for each arc
+        this.root.each(d => d.target = {
+            x0: Math.max(0, Math.min(1, (d.x0 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
+            x1: Math.max(0, Math.min(1, (d.x1 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
+            y0: Math.max(0, d.y0 - p.depth),
+            y1: Math.max(0, d.y1 - p.depth)
+        });
+
+        // set the transition from the current layout to the new layout given
+        // a certain amount of time that has passed
+        const t = this.g.transition().duration( 1250 );
+
+        // Transition the data on all arcs, even the ones that aren’t visible,
+        // so that if this transition is interrupted, entering arcs will start
+        // the next transition from the desired position.
+        this.path.transition( t )
+            .tween('data', d =>
+            {
+            const i = d3.interpolate(d.current, d.target);
+            return t => d.current = i(t);
+            })
+        .filter( ( d ) =>
+        {
+            return +document.getElementById( d.data.name ).getAttribute( 'fill-opacity' ) || this.arcVisible( d.target );
+        })
+            .attr('fill-opacity', d => this.arcVisible( d.target ) ? 1 : 0)
+            .attrTween('d', d => () => this.arc( d.current ) );
+
+        this.currentArc = p;
+
     }
 
 }

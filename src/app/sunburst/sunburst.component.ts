@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, ViewChild } from '@angular/core';
 
 import * as d3 from 'd3';
 
@@ -11,6 +11,9 @@ interface ArcType { x0 : any, x1 : any, y0 : any, y1 : any }
 })
 export class SunburstComponent implements OnInit, AfterViewInit
 {
+
+    @Input() dataSrc : string;
+    @Input()      id : string;
 
     private partition : any;
     private arc       : any;
@@ -70,7 +73,7 @@ export class SunburstComponent implements OnInit, AfterViewInit
         // Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
         // Add 'implements AfterViewInit' to the class.
 
-        d3.json( 'assets/stampede2.json' )
+        d3.json( 'assets/' + this.dataSrc )
         .then( data =>
         {
 
@@ -102,11 +105,13 @@ export class SunburstComponent implements OnInit, AfterViewInit
             // set the currentArc to be the root starting out
             this.currentArc = this.root;
 
+            console.log( this.id );
+
             // set svg member variable to be the new svg object that is appended
             // to the HTML element based off the values passed in to the constructor
             // while also setting the viewbox
-            this.svg = d3.select('div#stampede2')
-                          .append('svg')
+            this.svg = d3.select( '#' + this.id )
+                          .append( 'svg' )
                           .attr('height', this.heightCont )
                           .attr('width', '100%')
                           .attr('viewBox', '0,0,' + this.viewboxWidth + ',' + this.viewboxHeight );

@@ -1,1122 +1,487 @@
 {
-    "timestamp": "10/11/2019 13:54:10", 
-    "name": "Frontera", 
+    "name": "Frontera",
+    "timestamp": "10/21/2019 15:17:13",
     "children": [
         {
-            "name": "Biophysics", 
+            "name": "TACC",
             "children": [
                 {
-                    "name": "FTA-Roux", 
-                    "principal_investigator": "Benoit Roux", 
-                    "project_abstract": "Frontera Early Access.", 
-                    "pi_institution": "University of Chicago", 
+                    "name": "default",
+                    "principal_investigator": "TACC",
+                    "project_abstract": "TACC",
+                    "pi_institution": "TACC",
                     "children": [
                         {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 4
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 4
-                        }, 
-                        {
-                            "name": "NAMD", 
-                            "size": 2
-                        }
-                    ]
-                }, 
-                {
-                    "name": "FTA-YingLi", 
-                    "principal_investigator": "Ying Li", 
-                    "project_abstract": "Frontera Early Access.", 
-                    "pi_institution": "University of Connecticut", 
-                    "children": [
-                        {
-                            "name": "RO6", 
-                            "size": 112
-                        }, 
-                        {
-                            "name": "H100E14", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "N100E16", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "H100E16", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "N20012", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "N20014", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "H200E14", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "N20016", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "H200E16", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "N500E12", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "H500E12", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "N500E14", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "H500E14", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "N60E14", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "H60E14", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "N60E16", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "H60E16", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "N80E14", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "H80E14", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "N80E16", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "H80E16", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "N100E14", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "H40E16", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "N40E16", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "H40E14", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "E14", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "E16", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "H20E16", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "N40E14", 
-                            "size": 2
-                        }, 
-                        {
-                            "name": "RO8", 
-                            "size": 112
-                        }, 
-                        {
-                            "name": "RO9", 
-                            "size": 112
-                        }, 
-                        {
-                            "name": "RO10", 
-                            "size": 112
-                        }, 
-                        {
-                            "name": "RO11", 
-                            "size": 112
-                        }, 
-                        {
-                            "name": "RO12", 
-                            "size": 112
-                        }, 
-                        {
-                            "name": "RO5", 
-                            "size": 112
-                        }, 
-                        {
-                            "name": "RO7", 
-                            "size": 112
+                            "name": "1_equil_40",
+                            "size": 2000.0
+                        },
+                        {
+                            "name": "run.slurm",
+                            "size": 2048.0
+                        },
+                        {
+                            "name": "idv61505",
+                            "size": 1.0
+                        },
+                        {
+                            "name": "idv37915",
+                            "size": 2.0
+                        },
+                        {
+                            "name": "idv38861",
+                            "size": 2.0
+                        },
+                        {
+                            "name": "idv66530",
+                            "size": 24.0
+                        },
+                        {
+                            "name": "idv05606",
+                            "size": 8.0
+                        },
+                        {
+                            "name": "Mt_grad1",
+                            "size": 293.0
+                        },
+                        {
+                            "name": "mpi_job",
+                            "size": 1.0
+                        },
+                        {
+                            "name": "orca_tddft",
+                            "size": 30.0
+                        },
+                        {
+                            "name": "sub1",
+                            "size": 256.0
+                        },
+                        {
+                            "name": "orca_tddft",
+                            "size": 30.0
+                        },
+                        {
+                            "name": "test",
+                            "size": 4.0
+                        },
+                        {
+                            "name": "1ir_equil_39",
+                            "size": 256.0
+                        },
+                        {
+                            "name": "1r_equil_44",
+                            "size": 256.0
+                        },
+                        {
+                            "name": "56r_equil_31",
+                            "size": 256.0
+                        },
+                        {
+                            "name": "PostProc_EuropaMF",
+                            "size": 1.0
+                        },
+                        {
+                            "name": "idv31974",
+                            "size": 2.0
+                        },
+                        {
+                            "name": "idv39779",
+                            "size": 128.0
+                        },
+                        {
+                            "name": "global",
+                            "size": 96.0
+                        },
+                        {
+                            "name": "Mt_grad1",
+                            "size": 74.0
+                        },
+                        {
+                            "name": "global",
+                            "size": 96.0
+                        },
+                        {
+                            "name": "Mt_grad1",
+                            "size": 74.0
+                        },
+                        {
+                            "name": "process_cap",
+                            "size": 1.0
+                        },
+                        {
+                            "name": "2C_5",
+                            "size": 25.0
+                        },
+                        {
+                            "name": "NaCl",
+                            "size": 15.0
+                        },
+                        {
+                            "name": "KCl",
+                            "size": 15.0
+                        },
+                        {
+                            "name": "NAI",
+                            "size": 15.0
+                        },
+                        {
+                            "name": "KI",
+                            "size": 15.0
+                        },
+                        {
+                            "name": "command",
+                            "size": 1.0
+                        },
+                        {
+                            "name": "post",
+                            "size": 1.0
                         }
                     ]
                 }
             ]
-        }, 
+        },
         {
-            "name": "TACC", 
+            "name": "Gravitational Physics",
             "children": [
                 {
-                    "name": "TACC", 
-                    "principal_investigator": "TACC", 
-                    "project_abstract": "TACC", 
-                    "pi_institution": "TACC", 
+                    "name": "FTA-Teukolsky",
+                    "principal_investigator": "Saul A. Teukolsky",
+                    "project_abstract": "Frontera Early Access.",
+                    "pi_institution": "Cornell University",
                     "children": [
                         {
-                            "name": "R140", 
-                            "size": 1171
-                        }
-                    ]
-                }, 
-                {
-                    "name": "TACC", 
-                    "principal_investigator": "TACC", 
-                    "project_abstract": "TACC", 
-                    "pi_institution": "TACC", 
-                    "children": [
+                            "name": "q15Sur004_Ecc0_Ev.3",
+                            "size": 1.0
+                        },
                         {
-                            "name": "56ir_equil_30", 
-                            "size": 256
-                        }
-                    ]
-                }, 
-                {
-                    "name": "TACC", 
-                    "principal_investigator": "TACC", 
-                    "project_abstract": "TACC", 
-                    "pi_institution": "TACC", 
-                    "children": [
+                            "name": "RD_q15Sur004_Ecc0_Ev.3",
+                            "size": 1.0
+                        },
                         {
-                            "name": "test", 
-                            "size": 512
-                        }
-                    ]
-                }, 
-                {
-                    "name": "TACC", 
-                    "principal_investigator": "TACC", 
-                    "project_abstract": "TACC", 
-                    "pi_institution": "TACC", 
-                    "children": [
+                            "name": "RD_q15Sur004_Ecc0_Ev.3",
+                            "size": 1.0
+                        },
                         {
-                            "name": "Yeq1600", 
-                            "size": 2
-                        }
-                    ]
-                }, 
-                {
-                    "name": "TACC", 
-                    "principal_investigator": "TACC", 
-                    "project_abstract": "TACC", 
-                    "pi_institution": "TACC", 
-                    "children": [
+                            "name": "RD_q15Sur004_Ecc0_Ev.3",
+                            "size": 1.0
+                        },
                         {
-                            "name": "test", 
-                            "size": 1
-                        }
-                    ]
-                }, 
-                {
-                    "name": "TACC", 
-                    "principal_investigator": "TACC", 
-                    "project_abstract": "TACC", 
-                    "pi_institution": "TACC", 
-                    "children": [
+                            "name": "RD_q15Sur004_Ecc0_Ev.3",
+                            "size": 1.0
+                        },
                         {
-                            "name": "PostProc_HALL", 
-                            "size": 1
-                        }
-                    ]
-                }, 
-                {
-                    "name": "TACC", 
-                    "principal_investigator": "TACC", 
-                    "project_abstract": "TACC", 
-                    "pi_institution": "TACC", 
-                    "children": [
+                            "name": "RD_q15Sur004_Ecc0_Ev.3",
+                            "size": 1.0
+                        },
                         {
-                            "name": "56r_equil_22", 
-                            "size": 256
-                        }
-                    ]
-                }, 
-                {
-                    "name": "TACC", 
-                    "principal_investigator": "TACC", 
-                    "project_abstract": "TACC", 
-                    "pi_institution": "TACC", 
-                    "children": [
+                            "name": "mgiesler_q30_Ev_Rmax.3",
+                            "size": 1.0
+                        },
                         {
-                            "name": "1ir_equil_29", 
-                            "size": 256
-                        }
-                    ]
-                }, 
-                {
-                    "name": "TACC", 
-                    "principal_investigator": "TACC", 
-                    "project_abstract": "TACC", 
-                    "pi_institution": "TACC", 
-                    "children": [
-                        {
-                            "name": "56i_equil_29", 
-                            "size": 256
-                        }
-                    ]
-                }, 
-                {
-                    "name": "TACC", 
-                    "principal_investigator": "TACC", 
-                    "project_abstract": "TACC", 
-                    "pi_institution": "TACC", 
-                    "children": [
-                        {
-                            "name": "2S_7A", 
-                            "size": 20
-                        }
-                    ]
-                }, 
-                {
-                    "name": "TACC", 
-                    "principal_investigator": "TACC", 
-                    "project_abstract": "TACC", 
-                    "pi_institution": "TACC", 
-                    "children": [
-                        {
-                            "name": "mpi_job", 
-                            "size": 1
-                        }
-                    ]
-                }, 
-                {
-                    "name": "TACC", 
-                    "principal_investigator": "TACC", 
-                    "project_abstract": "TACC", 
-                    "pi_institution": "TACC", 
-                    "children": [
-                        {
-                            "name": "test", 
-                            "size": 1
-                        }
-                    ]
-                }, 
-                {
-                    "name": "TACC", 
-                    "principal_investigator": "TACC", 
-                    "project_abstract": "TACC", 
-                    "pi_institution": "TACC", 
-                    "children": [
-                        {
-                            "name": "ITP", 
-                            "size": 4
-                        }
-                    ]
-                }, 
-                {
-                    "name": "TACC", 
-                    "principal_investigator": "TACC", 
-                    "project_abstract": "TACC", 
-                    "pi_institution": "TACC", 
-                    "children": [
-                        {
-                            "name": "idv56364", 
-                            "size": 1
-                        }
-                    ]
-                }, 
-                {
-                    "name": "TACC", 
-                    "principal_investigator": "TACC", 
-                    "project_abstract": "TACC", 
-                    "pi_institution": "TACC", 
-                    "children": [
-                        {
-                            "name": "idv76727", 
-                            "size": 2
-                        }
-                    ]
-                }, 
-                {
-                    "name": "TACC", 
-                    "principal_investigator": "TACC", 
-                    "project_abstract": "TACC", 
-                    "pi_institution": "TACC", 
-                    "children": [
-                        {
-                            "name": "HALL", 
-                            "size": 100
-                        }
-                    ]
-                }, 
-                {
-                    "name": "TACC", 
-                    "principal_investigator": "TACC", 
-                    "project_abstract": "TACC", 
-                    "pi_institution": "TACC", 
-                    "children": [
-                        {
-                            "name": "idv23300", 
-                            "size": 1
-                        }
-                    ]
-                }, 
-                {
-                    "name": "TACC", 
-                    "principal_investigator": "TACC", 
-                    "project_abstract": "TACC", 
-                    "pi_institution": "TACC", 
-                    "children": [
-                        {
-                            "name": "run4_7168.sh", 
-                            "size": 128
-                        }
-                    ]
-                }, 
-                {
-                    "name": "TACC", 
-                    "principal_investigator": "TACC", 
-                    "project_abstract": "TACC", 
-                    "pi_institution": "TACC", 
-                    "children": [
-                        {
-                            "name": "h516", 
-                            "size": 40
-                        }
-                    ]
-                }, 
-                {
-                    "name": "TACC", 
-                    "principal_investigator": "TACC", 
-                    "project_abstract": "TACC", 
-                    "pi_institution": "TACC", 
-                    "children": [
-                        {
-                            "name": "2S_4A", 
-                            "size": 20
-                        }
-                    ]
-                }, 
-                {
-                    "name": "TACC", 
-                    "principal_investigator": "TACC", 
-                    "project_abstract": "TACC", 
-                    "pi_institution": "TACC", 
-                    "children": [
-                        {
-                            "name": "run4_1792.sh", 
-                            "size": 32
-                        }
-                    ]
-                }, 
-                {
-                    "name": "TACC", 
-                    "principal_investigator": "TACC", 
-                    "project_abstract": "TACC", 
-                    "pi_institution": "TACC", 
-                    "children": [
-                        {
-                            "name": "idv94864", 
-                            "size": 1
-                        }
-                    ]
-                }, 
-                {
-                    "name": "TACC", 
-                    "principal_investigator": "TACC", 
-                    "project_abstract": "TACC", 
-                    "pi_institution": "TACC", 
-                    "children": [
-                        {
-                            "name": "run4_448.sh", 
-                            "size": 8
-                        }
-                    ]
-                }, 
-                {
-                    "name": "TACC", 
-                    "principal_investigator": "TACC", 
-                    "project_abstract": "TACC", 
-                    "pi_institution": "TACC", 
-                    "children": [
-                        {
-                            "name": "Plume_02", 
-                            "size": 83
-                        }
-                    ]
-                }, 
-                {
-                    "name": "TACC", 
-                    "principal_investigator": "TACC", 
-                    "project_abstract": "TACC", 
-                    "pi_institution": "TACC", 
-                    "children": [
-                        {
-                            "name": "Plume_01", 
-                            "size": 83
-                        }
-                    ]
-                }, 
-                {
-                    "name": "TACC", 
-                    "principal_investigator": "TACC", 
-                    "project_abstract": "TACC", 
-                    "pi_institution": "TACC", 
-                    "children": [
-                        {
-                            "name": "m10q80pc", 
-                            "size": 16
-                        }
-                    ]
-                }, 
-                {
-                    "name": "TACC", 
-                    "principal_investigator": "TACC", 
-                    "project_abstract": "TACC", 
-                    "pi_institution": "TACC", 
-                    "children": [
-                        {
-                            "name": "m10q160pc", 
-                            "size": 16
-                        }
-                    ]
-                }, 
-                {
-                    "name": "TACC", 
-                    "principal_investigator": "TACC", 
-                    "project_abstract": "TACC", 
-                    "pi_institution": "TACC", 
-                    "children": [
-                        {
-                            "name": "OMB", 
-                            "size": 32
-                        }
-                    ]
-                }, 
-                {
-                    "name": "TACC", 
-                    "principal_investigator": "TACC", 
-                    "project_abstract": "TACC", 
-                    "pi_institution": "TACC", 
-                    "children": [
-                        {
-                            "name": "m10q40pc", 
-                            "size": 8
-                        }
-                    ]
-                }, 
-                {
-                    "name": "TACC", 
-                    "principal_investigator": "TACC", 
-                    "project_abstract": "TACC", 
-                    "pi_institution": "TACC", 
-                    "children": [
-                        {
-                            "name": "idv21922", 
-                            "size": 16
+                            "name": "RD_q15Sur004_Ecc0_Ev.3",
+                            "size": 1.0
                         }
                     ]
                 }
             ]
-        }, 
+        },
         {
-            "name": "Climate Dynamics", 
+            "name": "Magnetospheric Physics",
             "children": [
                 {
-                    "name": "FTA-Chang", 
-                    "principal_investigator": "Ping Chang", 
-                    "project_abstract": "Frontera Early Access.", 
-                    "pi_institution": "Texas A&M University", 
+                    "name": "FTA-Toth",
+                    "principal_investigator": "Gabor Toth",
+                    "project_abstract": "Frontera Early Access.",
+                    "pi_institution": "University of Michigan",
                     "children": [
                         {
-                            "name": "b.e13.B1950C5.ne120_t12.cesm-ihesp-1950cntl-nanrTEST.01.run", 
-                            "size": 806
+                            "name": "myjob",
+                            "size": 40.0
+                        },
+                        {
+                            "name": "myjob",
+                            "size": 1.0
                         }
                     ]
                 }
             ]
-        }, 
+        },
         {
-            "name": "Earth Sciences (EAR)", 
+            "name": "Fluid, Particulate, and Hyrdaulic Systems",
             "children": [
                 {
-                    "name": "FTA-Morin", 
-                    "principal_investigator": "Paul J Morin", 
-                    "project_abstract": "Frontera Early Access.", 
-                    "pi_institution": "University of Minnesota", 
+                    "name": "FTA-DD-Bodony",
+                    "principal_investigator": "Daniel Bodony",
+                    "project_abstract": "Director discretionary project created by Tim Cockerill per Dan Stanzione for early access to Frontera.",
+                    "pi_institution": "University of Illinois",
                     "children": [
                         {
-                            "name": "parsl.auto.1570726263.4239655", 
-                            "size": 100
-                        }, 
-                        {
-                            "name": "parsl.auto.1570726263.4646726", 
-                            "size": 100
-                        }, 
-                        {
-                            "name": "parsl.auto.1570726263.3814", 
-                            "size": 100
-                        }, 
-                        {
-                            "name": "parsl.auto.1570726258.601148", 
-                            "size": 100
-                        }, 
-                        {
-                            "name": "parsl.auto.1570726258.5623329", 
-                            "size": 100
-                        }, 
-                        {
-                            "name": "parsl.auto.1570726258.5229676", 
-                            "size": 100
-                        }, 
-                        {
-                            "name": "parsl.auto.1570726257.296034", 
-                            "size": 100
-                        }, 
-                        {
-                            "name": "parsl.auto.1570726258.3616247", 
-                            "size": 100
-                        }, 
-                        {
-                            "name": "parsl.auto.1570726258.4450767", 
-                            "size": 100
-                        }, 
-                        {
-                            "name": "parsl.auto.1570726258.4838483", 
-                            "size": 100
-                        }, 
-                        {
-                            "name": "W117010734B7012", 
-                            "size": 1
+                            "name": "0018",
+                            "size": 128.0
                         }
                     ]
                 }
             ]
-        }, 
+        },
         {
-            "name": "Stellar Astronomy and Astrophysics", 
+            "name": "Nuclear Physics",
             "children": [
                 {
-                    "name": "FTA-Campanelli", 
-                    "principal_investigator": "Manuela Campanelli", 
-                    "project_abstract": "Frontera Early Access.", 
-                    "pi_institution": "Rochester Institute of Technology", 
+                    "name": "FTA-Riedl",
+                    "principal_investigator": "Caroline Riedl",
+                    "project_abstract": "Frontera Early Access.",
+                    "pi_institution": "University of Illinois",
                     "children": [
                         {
-                            "name": "hydroGGfx", 
-                            "size": 32
-                        }, 
+                            "name": "tmp_PQVA_0.slurm",
+                            "size": 10.0
+                        },
                         {
-                            "name": "D8.00_q0.0313_a0.00_0.00_8th_opt_n100-58", 
-                            "size": 8
-                        }, 
+                            "name": "tmp_Gb8zKa.slurm",
+                            "size": 10.0
+                        },
                         {
-                            "name": "D7.00_q0.0156_a0.00_0.00_8th_opt_n100-58", 
-                            "size": 8
-                        }, 
+                            "name": "tmp_uiRpAC.slurm",
+                            "size": 10.0
+                        },
                         {
-                            "name": "D7.00_q0.0078_a0.00_0.00_8th_opt_n100-58", 
-                            "size": 8
-                        }, 
+                            "name": "tmp_u1ZvFs.slurm",
+                            "size": 10.0
+                        },
                         {
-                            "name": "BSSN_lb_d150_gv5.00_288_rl13_n120-1", 
-                            "size": 10
-                        }, 
+                            "name": "tmp_nO4j98.slurm",
+                            "size": 10.0
+                        },
                         {
-                            "name": "D9.00_q0.3333_a0.0_0.0_Eta0_d0_opt_n140-6", 
-                            "size": 6
+                            "name": "tmp_i14OuR.slurm",
+                            "size": 10.0
+                        },
+                        {
+                            "name": "tmp_OVz5o6.slurm",
+                            "size": 10.0
+                        },
+                        {
+                            "name": "tmp_Ma6gP2.slurm",
+                            "size": 10.0
+                        },
+                        {
+                            "name": "tmp_DFL0gc.slurm",
+                            "size": 10.0
+                        },
+                        {
+                            "name": "tmp_ZuK8gu.slurm",
+                            "size": 10.0
+                        },
+                        {
+                            "name": "tmp_LC2_DY.slurm",
+                            "size": 10.0
+                        },
+                        {
+                            "name": "tmp_7pyxqz.slurm",
+                            "size": 10.0
+                        },
+                        {
+                            "name": "tmp_2CA445.slurm",
+                            "size": 10.0
+                        },
+                        {
+                            "name": "tmp_FtNe8g.slurm",
+                            "size": 10.0
+                        },
+                        {
+                            "name": "tmp_Mj8Amg.slurm",
+                            "size": 10.0
+                        },
+                        {
+                            "name": "tmp_z3TtYD.slurm",
+                            "size": 10.0
                         }
                     ]
                 }
             ]
-        }, 
+        },
         {
-            "name": "Gravitational Physics", 
+            "name": "Biophysics",
             "children": [
                 {
-                    "name": "FTA-Teukolsky", 
-                    "principal_investigator": "Saul A. Teukolsky", 
-                    "project_abstract": "Frontera Early Access.", 
-                    "pi_institution": "Cornell University", 
+                    "name": "FTA-YingLi",
+                    "principal_investigator": "Ying Li",
+                    "project_abstract": "Frontera Early Access.",
+                    "pi_institution": "University of Connecticut",
                     "children": [
                         {
-                            "name": "RD_q15Sur010_Ecc0_Ev.3", 
-                            "size": 1
-                        }, 
+                            "name": "Inner",
+                            "size": 1.0
+                        },
                         {
-                            "name": "q15Sur001_Ecc0_Ev.3", 
-                            "size": 1
-                        }, 
+                            "name": "N100E14",
+                            "size": 2.0
+                        },
                         {
-                            "name": "mgiesler_q30_Ev_Rmax.3", 
-                            "size": 1
-                        }, 
+                            "name": "N20014",
+                            "size": 2.0
+                        },
                         {
-                            "name": "q15Sur006_Ecc0_Ev.3", 
-                            "size": 1
-                        }, 
+                            "name": "N500E14",
+                            "size": 2.0
+                        },
                         {
-                            "name": "RD_q15Sur005_Ecc0_Ev.3", 
-                            "size": 1
-                        }, 
+                            "name": "H500E14",
+                            "size": 2.0
+                        },
                         {
-                            "name": "q15Sur003_Ecc0_Ev.3", 
-                            "size": 1
-                        }, 
+                            "name": "N60E14",
+                            "size": 2.0
+                        },
                         {
-                            "name": "q15Sur015_Ecc0_Ev.3", 
-                            "size": 1
-                        }, 
+                            "name": "R60E14",
+                            "size": 1.0
+                        },
                         {
-                            "name": "ass_nsns", 
-                            "size": 10
-                        }, 
+                            "name": "R60E14",
+                            "size": 1.0
+                        },
                         {
-                            "name": "RD_q15Sur016_Ecc0_Ev.3", 
-                            "size": 1
-                        }, 
+                            "name": "R60E14",
+                            "size": 1.0
+                        },
                         {
-                            "name": "q8_7d0101_Ecc0_Ev.2", 
-                            "size": 1
-                        }
-                    ]
-                }
-            ]
-        }, 
-        {
-            "name": "Astronomical Sciences (AST)", 
-            "children": [
-                {
-                    "name": "FTA-Hopkins", 
-                    "principal_investigator": "Philip Hopkins", 
-                    "project_abstract": "Frontera Early Access.", 
-                    "pi_institution": "California Institute of Technology", 
-                    "children": [
+                            "name": "R60E14",
+                            "size": 1.0
+                        },
                         {
-                            "name": "2048", 
-                            "size": 360
-                        }, 
+                            "name": "R60E14",
+                            "size": 1.0
+                        },
                         {
-                            "name": "a", 
-                            "size": 8
-                        }, 
+                            "name": "R60E14",
+                            "size": 1.0
+                        },
                         {
-                            "name": "b", 
-                            "size": 8
-                        }, 
+                            "name": "R60E14",
+                            "size": 1.0
+                        },
                         {
-                            "name": "c", 
-                            "size": 8
-                        }, 
+                            "name": "R60E14",
+                            "size": 1.0
+                        },
                         {
-                            "name": "e", 
-                            "size": 8
-                        }, 
+                            "name": "R60E14",
+                            "size": 1.0
+                        },
                         {
-                            "name": "f", 
-                            "size": 8
-                        }, 
+                            "name": "R60E14",
+                            "size": 1.0
+                        },
                         {
-                            "name": "L172_r9_HL3_r14", 
-                            "size": 30
-                        }, 
+                            "name": "R60E14",
+                            "size": 1.0
+                        },
                         {
-                            "name": "f11", 
-                            "size": 8
-                        }, 
+                            "name": "R60E14",
+                            "size": 1.0
+                        },
                         {
-                            "name": "f12", 
-                            "size": 8
-                        }, 
+                            "name": "R60E14",
+                            "size": 1.0
+                        },
                         {
-                            "name": "f10", 
-                            "size": 8
-                        }
-                    ]
-                }
-            ]
-        }, 
-        {
-            "name": "Geophysics", 
-            "children": [
-                {
-                    "name": "FTA-Kellogg", 
-                    "principal_investigator": "Magali Billen", 
-                    "project_abstract": "Frontera Early Access.", 
-                    "pi_institution": "University of California, Davis", 
-                    "children": [
+                            "name": "R60E14",
+                            "size": 1.0
+                        },
                         {
-                            "name": "MHD", 
-                            "size": 8
-                        }
-                    ]
-                }
-            ]
-        }, 
-        {
-            "name": "Advanced Scientific Computing (ASC)", 
-            "children": [
-                {
-                    "name": "A-ccsc", 
-                    "principal_investigator": "Bill Barth", 
-                    "project_abstract": "TACC Research  and Consulting Support.  This project is to be used by TACC consultants in the day-to-day operations of supporting external users.", 
-                    "pi_institution": "Texas Advanced Computing Center", 
-                    "children": [
+                            "name": "R60E14",
+                            "size": 1.0
+                        },
                         {
-                            "name": "bash", 
-                            "size": 1
-                        }
-                    ]
-                }
-            ]
-        }, 
-        {
-            "name": "Theoretical Physics", 
-            "children": [
-                {
-                    "name": "FTA-Carlson", 
-                    "principal_investigator": "Carl Carlson", 
-                    "project_abstract": "Frontera Early Access.", 
-                    "pi_institution": "William & Mary", 
-                    "children": [
+                            "name": "R60E14",
+                            "size": 1.0
+                        },
                         {
-                            "name": "testmg", 
-                            "size": 14
-                        }
-                    ]
-                }
-            ]
-        }, 
-        {
-            "name": "Chemistry (CHE)", 
-            "children": [
-                {
-                    "name": "FTA-Voth", 
-                    "principal_investigator": "Gregory Voth", 
-                    "project_abstract": "Frontera Early Access.", 
-                    "pi_institution": "University of Chicago", 
-                    "children": [
+                            "name": "R60E14",
+                            "size": 1.0
+                        },
                         {
-                            "name": "ucg0.01C*", 
-                            "size": 1
-                        }, 
+                            "name": "R60E14",
+                            "size": 1.0
+                        },
                         {
-                            "name": "ucg0.1C*", 
-                            "size": 1
-                        }, 
+                            "name": "R60E14",
+                            "size": 1.0
+                        },
                         {
-                            "name": "ucg0.01C*", 
-                            "size": 1
-                        }, 
+                            "name": "R60E14",
+                            "size": 1.0
+                        },
                         {
-                            "name": "ucg0.01C*", 
-                            "size": 1
-                        }, 
+                            "name": "R60E14",
+                            "size": 1.0
+                        },
                         {
-                            "name": "ucg0.01C*", 
-                            "size": 1
-                        }, 
+                            "name": "R60E14",
+                            "size": 1.0
+                        },
                         {
-                            "name": "ucg0.01C*", 
-                            "size": 1
-                        }, 
+                            "name": "R60E14",
+                            "size": 1.0
+                        },
                         {
-                            "name": "ucg0.01C*", 
-                            "size": 1
-                        }, 
+                            "name": "R60E14",
+                            "size": 1.0
+                        },
                         {
-                            "name": "ucg0.01C*", 
-                            "size": 1
-                        }, 
+                            "name": "R60E14",
+                            "size": 1.0
+                        },
                         {
-                            "name": "ucg0.01C*", 
-                            "size": 1
-                        }, 
+                            "name": "R60E14",
+                            "size": 1.0
+                        },
                         {
-                            "name": "ucg0.01C*", 
-                            "size": 1
-                        }, 
+                            "name": "R60E14",
+                            "size": 1.0
+                        },
                         {
-                            "name": "ucg0.01C*", 
-                            "size": 1
-                        }, 
+                            "name": "R60E14",
+                            "size": 1.0
+                        },
                         {
-                            "name": "ucg0.01C*", 
-                            "size": 1
-                        }, 
+                            "name": "R60E14",
+                            "size": 1.0
+                        },
                         {
-                            "name": "ucg0.01C*", 
-                            "size": 1
-                        }, 
+                            "name": "R60E14",
+                            "size": 1.0
+                        },
                         {
-                            "name": "ucg0.01C*", 
-                            "size": 1
-                        }, 
+                            "name": "R60E14",
+                            "size": 1.0
+                        },
                         {
-                            "name": "ucg0.01C*", 
-                            "size": 1
-                        }, 
+                            "name": "H20E16",
+                            "size": 1.0
+                        },
                         {
-                            "name": "ucg0.01C*", 
-                            "size": 1
-                        }, 
+                            "name": "E16",
+                            "size": 1.0
+                        },
                         {
-                            "name": "ucg0.01C*", 
-                            "size": 1
-                        }, 
+                            "name": "N40E14",
+                            "size": 2.0
+                        },
                         {
-                            "name": "ucg0.01C*", 
-                            "size": 1
-                        }, 
+                            "name": "N40E16",
+                            "size": 2.0
+                        },
                         {
-                            "name": "ucg0.01C*", 
-                            "size": 1
-                        }, 
-                        {
-                            "name": "ucg0.01C*", 
-                            "size": 1
-                        }, 
-                        {
-                            "name": "ucg0.01C*", 
-                            "size": 1
-                        }, 
-                        {
-                            "name": "DPP", 
-                            "size": 1
-                        }
-                    ]
-                }
-            ]
-        }, 
-        {
-            "name": "Integrative Biology and Neuroscience (IBN)", 
-            "children": [
-                {
-                    "name": "FTA-Janusonis", 
-                    "principal_investigator": "Skirmantas Janusonis", 
-                    "project_abstract": "Frontera Early Access.", 
-                    "pi_institution": "University of California, Santa Barbara", 
-                    "children": [
-                        {
-                            "name": "normal", 
-                            "size": 250
+                            "name": "H40E16",
+                            "size": 2.0
                         }
                     ]
                 }
             ]
         }
-    ]
+    ],
+    "usedCpu": 366688,
+    "totalCpu": 448448,
+    "load": 0.8176823176823177
 }

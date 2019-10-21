@@ -32,6 +32,18 @@ export class SunburstComponent implements OnInit, AfterViewInit
     private currentArc : any;
     private parent     : any;
 
+    private circleText : any;
+    private lowerText  : any;
+    private bottomText : any;
+    private floorText  : any;
+    private upperText  : any;
+    private topText    : any;
+
+    private formatNumbers = d3.format(',');
+    private formatPercentage = d3.format('.0%');
+
+
+
     constructor() { }
 
     ngOnInit()
@@ -103,6 +115,52 @@ export class SunburstComponent implements OnInit, AfterViewInit
             // with the width and height of the viewbox
             this.g = this.svg.append('g')
                          .attr('transform', `translate(${ this.viewboxWidth / 2},${ this.viewboxHeight / 2})`);
+
+            // create a container to write text in the middle of the sunburst
+            this.circleText = this.g.append('g')
+                                     .attr('id', 'circle_text')
+                                     .append('text')
+                                     .style('text-anchor', 'middle')
+                                     .style('fill', '#767f84')
+                                     .style('font-size', '1.2em');
+
+
+            // add a tspan element to write text in the lower part of the sunburst
+            this.lowerText = this.circleText.append('tspan')
+                                    .attr('x', 0)
+                                    .attr('y', '4em')
+                                    .attr('id', 'lower');
+
+            this.bottomText = this.circleText.append('tspan')
+                                    .attr('x', 0)
+                                    .attr('y', '5.5em')
+                                    .attr('id', 'bottom');
+
+            this.floorText  = this.circleText.append('tspan')
+                                    .attr('x', 0)
+                                    .attr('y', '7em')
+                                    .attr('id', 'bottom');
+
+            // add a tspan element to write text in the upper part of the sunburst
+            this.upperText = this.circleText.append('tspan')
+                                    .attr('x', 0)
+                                    .attr('y', '2.5em')
+                                    .attr('id', 'upper')
+                                    .attr('font-weight', 'bold');
+
+
+            // add a tspan element to write text in the middle of the sunburst
+            this.topText = this.circleText.append('tspan')
+                                    .attr('x', 0)
+                                    .attr('y', '1em')
+                                    .attr('id', 'middle')
+                                    .attr('font-weight', 'bold'); 
+
+            this.lowerText.text( this.formatNumbers( this.root.children.length ) + ' fields of science' );
+
+            this.bottomText.text( this.formatNumbers( this.root.copy().count().value ) + ' jobs' );
+
+            this.floorText.text( this.formatPercentage( this.root.data.load ) );
 
             // render the sunburst usind the data from the root object and
             // choose to only render those arcs that are one level below

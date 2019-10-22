@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SunburstComponent } from './sunburst/sunburst.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SunburstComponent
+    SunburstComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,

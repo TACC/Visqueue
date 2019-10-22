@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
 
 import * as d3 from 'd3';
 
@@ -200,7 +200,7 @@ export class SunburstComponent implements OnInit, AfterViewInit
                      .on('click', ( d ) => this.clickHandler( d, false ) );
 
             this.imageCenter = this.g.append('svg:image')
-                                    .attr('xlink:href', `../assets/${this.id}.png`)
+                                    .attr('xlink:href', `../assets/images/${this.id}.png`)
                                     .attr('transform', `translate(-${ this.viewboxWidth / 4},-${ this.viewboxHeight / 3 })`)
                                     .attr('height', '250' )
                                     .attr('width', '250'  );

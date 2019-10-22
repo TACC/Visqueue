@@ -47,7 +47,7 @@ export class SunburstComponent implements OnInit, AfterViewInit
     private formatNumbers = d3.format(',');
     private formatPercentage = d3.format('.0%');
 
-
+    public timestamp : string;
 
     constructor() { }
 
@@ -78,6 +78,8 @@ export class SunburstComponent implements OnInit, AfterViewInit
         d3.json( 'assets/datasets/' + this.dataSrc )
         .then( data =>
         {
+
+            this.timestamp = data.timestamp;
 
             // create partition function to create hierarchical data object
             this.partition = inputData =>
@@ -110,7 +112,7 @@ export class SunburstComponent implements OnInit, AfterViewInit
             // set svg member variable to be the new svg object that is appended
             // to the HTML element based off the values passed in to the constructor
             // while also setting the viewbox
-            this.svg = d3.select( '#' + this.id )
+            this.svg = d3.select( '#' + this.id + ' div.graphContainer')
                           .append( 'svg' )
                           .attr('height', this.heightCont )
                           .attr('width', '100%')

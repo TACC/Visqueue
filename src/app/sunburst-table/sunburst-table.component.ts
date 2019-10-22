@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { SunburstService } from '../sunburst.service';
-
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
 
 
 @Component({
@@ -14,6 +15,8 @@ export class SunburstTableComponent implements OnInit
     dataSource : any;
 
     @Input() dataSrc : string;
+
+    @ViewChild( MatSort, { static : true } ) sort : MatSort;
 
     displayedColumns: string[] = [ 'name', 'science', 'institution', 'jobs', 'nodes' ];
 
@@ -46,6 +49,8 @@ export class SunburstTableComponent implements OnInit
                     for( const tJob of tProject.children )
                     {
 
+                        newProject.jobs  += 1;
+                        newProject.nodes += tJob.size;
 
                     }
 
@@ -53,7 +58,8 @@ export class SunburstTableComponent implements OnInit
                 }
             }
 
-            this.dataSource = result;
+            this.dataSource = new MatTableDataSource( result );
+            this.dataSource.sort = this.sort;
 
         });
   }

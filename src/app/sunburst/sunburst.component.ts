@@ -78,158 +78,167 @@ export class SunburstComponent implements OnInit, AfterViewInit
         d3.json( 'assets/datasets/' + this.dataSrc )
         .then( data =>
         {
-
-            this.timestamp = data.timestamp;
-
-            // create partition function to create hierarchical data object
-            this.partition = inputData =>
-            {
-                // construct a root node from the data passed in hierachical format
-                // and sort by size
-                const tmpRoot = d3.hierarchy( inputData )
-                               .sum( d => d.size )
-                               .sort( ( a, b ) => b.value - a.value );
-
-                // create partition object of calculated arc angles for each arc
-                // of the sunburst
-                return d3.partition()
-                         .size( [ 2 * Math.PI, tmpRoot.height + 1 ] )
-                         ( tmpRoot );
-            }
-
-            // set color scheme to use for sunburst
-            this.color =  d3.scaleOrdinal( d3.schemeSet2 );
-
-            // calculate partition object of data
-            this.root = this.partition( data );
-
-            // set the current objects d variable a reference to itself
-            this.root.each(d => d.current = d);
-
-            // set the currentArc to be the root starting out
-            this.currentArc = this.root;
-
-            // set svg member variable to be the new svg object that is appended
-            // to the HTML element based off the values passed in to the constructor
-            // while also setting the viewbox
-            this.svg = d3.select( '#' + this.id + ' div.graphContainer')
-                          .append( 'svg' )
-                          .attr('height', this.heightCont )
-                          .attr('width', '100%')
-                          .attr('viewBox', '0,0,' + this.viewboxWidth + ',' + this.viewboxHeight );
-
-                          // create container HTML element and translate view of graph to be centered
-            // with the width and height of the viewbox
-            this.g = this.svg.append('g')
-                         .attr('transform', `translate(${ this.viewboxWidth / 2},${ this.viewboxHeight / 2})`);
-
-            // create a container to write text in the middle of the sunburst
-            this.circleText = this.g.append('g')
-                                     .attr('id', 'circle_text')
-                                     .append('text')
-                                     .style('text-anchor', 'middle')
-                                     .style('fill', '#767f84')
-                                     .style('font-size', '1.2em');
-
-
-            // add a tspan element to write text in the lower part of the sunburst
-            this.lowerText = this.circleText.append('tspan')
-                                    .attr('x', 0)
-                                    .attr('y', '4em')
-                                    .attr('id', 'lower');
-
-            this.bottomText = this.circleText.append('tspan')
-                                    .attr('x', 0)
-                                    .attr('y', '5.5em')
-                                    .attr('id', 'bottom');
-
-            this.floorText  = this.circleText.append('tspan')
-                                    .attr('x', 0)
-                                    .attr('y', '7em')
-                                    .attr('id', 'bottom');
-
-            // add a tspan element to write text in the upper part of the sunburst
-            this.upperText = this.circleText.append('tspan')
-                                    .attr('x', 0)
-                                    .attr('y', '2.5em')
-                                    .attr('id', 'upper')
-                                    .attr('font-weight', 'bold');
-
-
-            // add a tspan element to write text in the middle of the sunburst
-            this.topText = this.circleText.append('tspan')
-                                    .attr('x', 0)
-                                    .attr('y', '1em')
-                                    .attr('id', 'middle')
-                                    .attr('font-weight', 'bold');
-
-            this.lowerText.text( this.formatNumbers( this.root.children.length ) + ' fields of science' );
-
-            this.bottomText.text( this.formatNumbers( this.root.copy().count().value ) + ' jobs' );
-
-            this.floorText.text( this.formatPercentage( this.root.data.load ) );
-
-            // render the sunburst usind the data from the root object and
-            // choose to only render those arcs that are one level below
-            // the root
-            this.path = this.g.append('g')
-                            .attr('id', 'paths')
-                            .selectAll('path')
-                            .data(this.root.descendants().slice( 1 ) )
-                            .join('path')
-                            .attr('fill', d =>
-                            {
-
-                                while( d.depth > 1 )
-                                {
-                                    d = d.parent;
-                                }
-
-                                return this.color( d.data.name );
-
-                            })
-                            .attr('fill-opacity', ( d ) =>  this.arcVisible( d.current ) ? 1 : 0 )
-                            .attr('d', d => this.arc( d.current ) )
-                            .attr('id', ( d ) =>
-                            {
-                                return d.data.name;
-                            });
-
-            // set the cursor to be a pointer on those arcs that are visible
-            // and apply clickHandler
-            this.path.filter( d => d.children )
-                     .style( 'cursor', 'pointer' )
-                     .on('click', ( d ) => this.clickHandler( d, false ) );
-
-            this.imageCenter = this.g.append('svg:image')
-                                    .attr('xlink:href', `../assets/images/${this.id}.png`)
-                                    .attr('transform', `translate(-${ this.viewboxWidth / 4},-${ this.viewboxHeight / 3 })`)
-                                    .attr('height', '250' )
-                                    .attr('width', '250'  );
-
-            // set the current parent object to equal the current node
-            // that is the root of the sunburst
-            this.parent = this.g.append('circle')
-                                .datum( this.root )
-                                .attr('r', this.radius + 50 )
-                                .attr('fill', 'none')
-                                .attr('pointer-events', 'all')
-                                .on('click', ( d ) => this.clickHandler( d, false ) );
+            this.render( data );
         });
 
+    }
+ 
+    render( data : any )
+    {
+        this.timestamp = data.timestamp;
+
+        // create partition function to create hierarchical data object
+        this.partition = inputData =>
+        {
+            // construct a root node from the data passed in hierachical format
+            // and sort by size
+            const tmpRoot = d3.hierarchy( inputData )
+                        .sum( d => d.size )
+                        .sort( ( a, b ) => b.value - a.value );
+
+            // create partition object of calculated arc angles for each arc
+            // of the sunburst
+            return d3.partition()
+                    .size( [ 2 * Math.PI, tmpRoot.height + 1 ] )
+                    ( tmpRoot );
+        }
+
+        // set color scheme to use for sunburst
+        this.color =  d3.scaleOrdinal( d3.schemeSet2 );
+
+        // calculate partition object of data
+        this.root = this.partition( data );
+
+        // set the current objects d variable a reference to itself
+        this.root.each(d => d.current = d);
+
+        // set the currentArc to be the root starting out
+        this.currentArc = this.root;
+
+        // set svg member variable to be the new svg object that is appended
+        // to the HTML element based off the values passed in to the constructor
+        // while also setting the viewbox
+        this.svg = d3.select( '#' + this.id + ' div.graphContainer')
+                        .append( 'svg' )
+                        .attr('height', this.heightCont )
+                        .attr('width', '100%')
+                        .attr('viewBox', '0,0,' + this.viewboxWidth + ',' + this.viewboxHeight );
+
+                        // create container HTML element and translate view of graph to be centered
+        // with the width and height of the viewbox
+        this.g = this.svg.append('g')
+                        .attr('transform', `translate(${ this.viewboxWidth / 2},${ this.viewboxHeight / 2})`);
+
+        // create a container to write text in the middle of the sunburst
+        this.circleText = this.g.append('g')
+                                    .attr('id', 'circle_text')
+                                    .append('text')
+                                    .style('text-anchor', 'middle')
+                                    .style('fill', '#767f84')
+                                    .style('font-size', '1.2em');
+
+
+        // add a tspan element to write text in the lower part of the sunburst
+        this.lowerText = this.circleText.append('tspan')
+                                .attr('x', 0)
+                                .attr('y', '4em')
+                                .attr('id', 'lower');
+
+        this.bottomText = this.circleText.append('tspan')
+                                .attr('x', 0)
+                                .attr('y', '5.5em')
+                                .attr('id', 'bottom');
+
+        this.floorText  = this.circleText.append('tspan')
+                                .attr('x', 0)
+                                .attr('y', '7em')
+                                .attr('id', 'bottom');
+
+        // add a tspan element to write text in the upper part of the sunburst
+        this.upperText = this.circleText.append('tspan')
+                                .attr('x', 0)
+                                .attr('y', '2.5em')
+                                .attr('id', 'upper')
+                                .attr('font-weight', 'bold');
+
+
+        // add a tspan element to write text in the middle of the sunburst
+        this.topText = this.circleText.append('tspan')
+                                .attr('x', 0)
+                                .attr('y', '1em')
+                                .attr('id', 'middle')
+                                .attr('font-weight', 'bold');
+
+        this.lowerText.text( this.formatNumbers( this.root.children.length ) + ' fields of science' );
+
+        this.bottomText.text( this.formatNumbers( this.root.copy().count().value ) + ' jobs' );
+
+        this.floorText.text( this.formatPercentage( this.root.data.load ) );
+
+        // render the sunburst usind the data from the root object and
+        // choose to only render those arcs that are one level below
+        // the root
+        this.path = this.g.append('g')
+                        .attr('id', 'paths')
+                        .selectAll('path')
+                        .data(this.root.descendants().slice( 1 ) )
+                        .join('path')
+                        .attr('fill', d =>
+                        {
+
+                            while( d.depth > 1 )
+                            {
+                                d = d.parent;
+                            }
+
+                            return this.color( d.data.name );
+
+                        })
+                        .attr('fill-opacity', ( d ) =>  this.arcVisible( d.current ) ? 1 : 0 )
+                        .attr('d', d => this.arc( d.current ) )
+                        .attr('id', ( d ) =>
+                        {
+                            return d.data.name;
+                        });
+
+        // set the cursor to be a pointer on those arcs that are visible
+        // and apply clickHandler
+        this.path.filter( d => d.children )
+                    .style( 'cursor', 'pointer' )
+                    .on('click', ( d ) => this.clickHandler( d, false ) );
+
+        this.imageCenter = this.g.append('svg:image')
+                                .attr('xlink:href', `../assets/images/${this.id}.png`)
+                                .attr('transform', `translate(-${ this.viewboxWidth / 4},-${ this.viewboxHeight / 3 })`)
+                                .attr('height', '250' )
+                                .attr('width', '250'  );
+
+        // set the current parent object to equal the current node
+        // that is the root of the sunburst
+        this.parent = this.g.append('circle')
+                            .datum( this.root )
+                            .attr('r', this.radius + 50 )
+                            .attr('fill', 'none')
+                            .attr('pointer-events', 'all')
+                            .on('click', ( d ) => this.clickHandler( d, false ) );
     }
 
     /**
      *
      * @function clickHandler
-     * @param {object}  p         - single arc that was selected
-     * @param {object}  thisRef   - reference to current class
-     * @param {boolean} tableBool - true or false if clicked from the table
+     * @param  p         - single arc that was selected
+     * @param  thisRef   - reference to current class
+     * @param  tableBool - true or false if clicked from the table
      * @description function to handle when an arc has been clicked
      * @memberof SCWAT
      */
     clickHandler( p, tableBool )
     {
+
+        if( p.depth >= 2 )
+        {
+            return;
+        }
         // if the current arc has a parent set the parent object to it,
         // otherwise we have selected to root of the data with no parent
         // so set the root to itself

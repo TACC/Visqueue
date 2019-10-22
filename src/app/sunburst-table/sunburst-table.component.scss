@@ -1,0 +1,35 @@
+.mat-column-name,
+.mat-column-science,
+.mat-column-institution,
+.mat-column-jobs,
+.mat-column-nodes
+{
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 20% !important;
+    width: 20% !important;
+    overflow-wrap: break-word;
+    word-break: break-word;
+
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+tr.mat-row
+{
+    height : 8vh !important;
+}
+
+th.mat-header-cell,
+td.mat-cell
+{
+    padding-right : 5px;
+    font-size: 0.75vw;
+}
+
+table
+{
+    width: 100%;
+}

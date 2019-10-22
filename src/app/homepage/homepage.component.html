@@ -1,7 +1,18 @@
-<div fxLayout="row" fxLayoutAlign="space-around center">
+<div fxLayout="row" fxLayoutAlign="space-around stretch">
     
-    <app-sunburst id="stampede2" dataSrc="stampede2.json" fxFlex="60vh"></app-sunburst>
-
-    <app-sunburst id="frontera" dataSrc="frontera.json" fxFlex="60vh"></app-sunburst>
+    <div fxLayout="column" fxFlex="90vh">
+    
+        <app-sunburst id="stampede2" dataSrc="stampede2.json"></app-sunburst>
+        <p class="divider"></p>
+        <app-sunburst-table fxFlex="30vh" dataSrc="stampede2.json"></app-sunburst-table>
+    </div>
+    
+    <div fxLayout="column" fxFlex="90vh">
+        
+        <app-sunburst id="frontera" dataSrc="frontera.json"></app-sunburst>
+        <p class="divider"></p>
+        <app-sunburst-table dataSrc="frontera.json"></app-sunburst-table>
+    
+    </div>
 
 </div>

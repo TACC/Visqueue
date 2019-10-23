@@ -12,8 +12,9 @@ interface ArcType { x0 : any, x1 : any, y0 : any, y1 : any }
 export class SunburstComponent implements OnInit, AfterViewInit
 {
 
-    @Input() dataSrc : string;
-    @Input()      id : string;
+    @Input() dataSrc    : string;
+    @Input()      id    : string;
+    @Input() heightCont : string;
 
     private partition : any;
     private arc       : any;
@@ -21,7 +22,6 @@ export class SunburstComponent implements OnInit, AfterViewInit
     private color : d3.ScaleOrdinal<string, string>;
 
     private height     = 700;
-    private heightCont = '60vh';
     private viewboxWidth  : number;
     private viewboxHeight : number;
 

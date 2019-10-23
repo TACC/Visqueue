@@ -3,14 +3,14 @@
     <div fxLayout="column" fxFlex="90vh">
     
         <app-sunburst id="stampede2" dataSrc="stampede2.json"></app-sunburst>
-        <p class="divider"></p>
+        <p class="divider" fxFlexAlign="center"> To explore stampede2 more click <a [routerLink]="[ '/stampede2' ]">here</a> </p>
         <app-sunburst-table fxFlex="30vh" dataSrc="stampede2.json"></app-sunburst-table>
     </div>
     
     <div fxLayout="column" fxFlex="90vh">
         
         <app-sunburst id="frontera" dataSrc="frontera.json"></app-sunburst>
-        <p class="divider"></p>
+        <p class="divider" fxFlexAlign="center"> To explore frontera more click <a [routerLink]="[ '/frontera' ]">here</a> </p>
         <app-sunburst-table fxFlex="30vh" dataSrc="frontera.json"></app-sunburst-table>
     
     </div>

@@ -10,13 +10,17 @@ import { SunburstComponent } from './sunburst/sunburst.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { SunburstTableComponent } from './sunburst-table/sunburst-table.component';
 import { AngularMaterialModule } from './shared/angular-material/angular-material.module';
+import { Stampede2Component } from './stampede2/stampede2.component';
+import { FronteraComponent } from './frontera/frontera.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SunburstComponent,
     HomepageComponent,
-    SunburstTableComponent
+    SunburstTableComponent,
+    Stampede2Component,
+    FronteraComponent
   ],
   imports: [
     BrowserModule,

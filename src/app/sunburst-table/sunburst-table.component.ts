@@ -2,66 +2,74 @@ import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { SunburstService } from '../sunburst.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
-  selector: 'app-sunburst-table',
-  templateUrl: './sunburst-table.component.html',
-  styleUrls: ['./sunburst-table.component.scss']
+    selector: 'app-sunburst-table',
+    templateUrl: './sunburst-table.component.html',
+    styleUrls: ['./sunburst-table.component.scss']
 })
 export class SunburstTableComponent implements OnInit
 {
 
-    dataSource : any;
+    dataSource: any;
 
-    @Input() dataSrc : string;
+    @Input() dataSrc: string;
 
-    @ViewChild( MatSort, { static : true } ) sort : MatSort;
+    @ViewChild( MatSort, { static: true } ) sort: MatSort;
 
-    displayedColumns: string[] = [ 'name', 'science', 'institution', 'jobs', 'nodes' ];
+    displayedColumns: string[] = ['name', 'science', 'institution', 'jobs', 'nodes'];
 
 
-    constructor( private sunburstService : SunburstService ) { }
+    constructor( private sunburstService : SunburstService,
+                 private route           : ActivatedRoute ) { }
 
-  ngOnInit()
-  {
-      this.sunburstService.getTestData( this.dataSrc )
-        .subscribe( ( data : any ) =>
+    ngOnInit()
+    {
+
+        if( this.route.snapshot.params.name )
         {
-            let result = [];
+            this.dataSrc = this.route.snapshot.params.name;
+        }
 
-            for ( const tFos of data.children )
+        this.sunburstService.getTestData(this.dataSrc + '.json')
+            .subscribe((data: any) =>
             {
+                let result = [];
 
-
-                for( const tProject of tFos.children )
+                for (const tFos of data.children)
                 {
 
-                    const newProject = 
-                    {
-                        name        : tProject.name,
-                        science     : tFos.name,
-                        institution : tProject.pi_institution,
-                        jobs        : 0,
-                        nodes       : 0
-                    };
 
-                    for( const tJob of tProject.children )
+                    for (const tProject of tFos.children)
                     {
 
-                        newProject.jobs  += 1;
-                        newProject.nodes += tJob.size;
+                        const newProject =
+                        {
+                            name: tProject.name,
+                            science: tFos.name,
+                            institution: tProject.pi_institution,
+                            jobs: 0,
+                            nodes: 0
+                        };
 
+                        for (const tJob of tProject.children)
+                        {
+
+                            newProject.jobs += 1;
+                            newProject.nodes += tJob.size;
+
+                        }
+
+                        result.push(newProject);
                     }
-
-                    result.push( newProject );
                 }
-            }
 
-            this.dataSource = new MatTableDataSource( result );
-            this.dataSource.sort = this.sort;
+                this.dataSource = new MatTableDataSource(result);
+                this.dataSource.sort = this.sort;
 
-        });
-  }
+            });
+    }
 
 }

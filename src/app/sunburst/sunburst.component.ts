@@ -1,6 +1,7 @@
-import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, ElementRef, ViewChild } from '@angular/core';
 
 import * as d3 from 'd3';
+import { ActivatedRoute } from '@angular/router';
 
 interface ArcType { x0 : any, x1 : any, y0 : any, y1 : any }
 
@@ -12,9 +13,10 @@ interface ArcType { x0 : any, x1 : any, y0 : any, y1 : any }
 export class SunburstComponent implements OnInit, AfterViewInit
 {
 
-    @Input() dataSrc    : string;
-    @Input()      id    : string;
-    @Input() heightCont : string;
+    @Input() dataSrc        : string;
+    @Input() heightCont     : string;
+
+    @ViewChild('graphCont', { static : false } ) graphCont : ElementRef;
 
     private partition : any;
     private arc       : any;
@@ -49,7 +51,7 @@ export class SunburstComponent implements OnInit, AfterViewInit
 
     public timestamp : string;
 
-    constructor() { }
+    constructor(private route : ActivatedRoute) { }
 
     ngOnInit()
     {
@@ -75,7 +77,12 @@ export class SunburstComponent implements OnInit, AfterViewInit
         // Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
         // Add 'implements AfterViewInit' to the class.
 
-        d3.json( 'assets/datasets/' + this.dataSrc )
+        if( this.route.snapshot.params.name )
+        {
+            this.dataSrc = this.route.snapshot.params.name;
+        }
+
+        d3.json( 'assets/datasets/' + this.dataSrc + '.json' )
         .then( data =>
         {
             this.render( data );
@@ -101,7 +108,7 @@ export class SunburstComponent implements OnInit, AfterViewInit
             return d3.partition()
                     .size( [ 2 * Math.PI, tmpRoot.height + 1 ] )
                     ( tmpRoot );
-        }
+        };
 
         // set color scheme to use for sunburst
         this.color =  d3.scaleOrdinal( d3.schemeSet2 );
@@ -118,7 +125,8 @@ export class SunburstComponent implements OnInit, AfterViewInit
         // set svg member variable to be the new svg object that is appended
         // to the HTML element based off the values passed in to the constructor
         // while also setting the viewbox
-        this.svg = d3.select( '#' + this.id + ' div.graphContainer')
+        // this.svg = d3.select( '#' + this.id + ' div.graphContainer')
+        this.svg = d3.select( this.graphCont.nativeElement )
                         .append( 'svg' )
                         .attr('height', this.heightCont )
                         .attr('width', '100%')
@@ -208,7 +216,7 @@ export class SunburstComponent implements OnInit, AfterViewInit
                     .on('click', ( d ) => this.clickHandler( d, false ) );
 
         this.imageCenter = this.g.append('svg:image')
-                                .attr('xlink:href', `../assets/images/${this.id}.png`)
+                                .attr('xlink:href', `../assets/images/${this.dataSrc}.png`)
                                 .attr('transform', `translate(-${ this.viewboxWidth / 4},-${ this.viewboxHeight / 3 })`)
                                 .attr('height', '250' )
                                 .attr('width', '250'  );

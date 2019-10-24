@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { SunburstComponent } from './sunburst/sunburst.component';
+import { SunburstComponent, SunburstDialog } from './sunburst/sunburst.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { SunburstTableComponent } from './sunburst-table/sunburst-table.component';
 import { AngularMaterialModule } from './shared/angular-material/angular-material.module';
@@ -18,7 +18,8 @@ import { DetailComponent } from './detail/detail.component';
     SunburstComponent,
     HomepageComponent,
     SunburstTableComponent,
-    DetailComponent
+    DetailComponent,
+    SunburstDialog
   ],
   imports: [
     BrowserModule,
@@ -28,6 +29,7 @@ import { DetailComponent } from './detail/detail.component';
     FlexLayoutModule,
     AngularMaterialModule
   ],
+  entryComponents: [DetailComponent, SunburstDialog],
   providers: [],
   bootstrap: [ AppComponent ]
 })

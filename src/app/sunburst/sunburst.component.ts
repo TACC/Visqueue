@@ -1,7 +1,8 @@
-import { Component, OnInit, AfterViewInit, Input, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, ElementRef, ViewChild, Inject } from '@angular/core';
 
 import * as d3 from 'd3';
 import { ActivatedRoute } from '@angular/router';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 
 interface ArcType { x0 : any, x1 : any, y0 : any, y1 : any }
 
@@ -15,6 +16,8 @@ export class SunburstComponent implements OnInit, AfterViewInit
 
     @Input() dataSrc        : string;
     @Input() heightCont     : string;
+
+    @Input() showDialog     = false;
 
     @ViewChild('graphCont', { static : false } ) graphCont : ElementRef;
 
@@ -51,7 +54,10 @@ export class SunburstComponent implements OnInit, AfterViewInit
 
     public timestamp : string;
 
-    constructor(private route : ActivatedRoute) { }
+    constructor(
+            private route  : ActivatedRoute,
+            private dialog : MatDialog
+        ) { }
 
     ngOnInit()
     {
@@ -213,7 +219,7 @@ export class SunburstComponent implements OnInit, AfterViewInit
         // and apply clickHandler
         this.path.filter( d => d.children )
                     .style( 'cursor', 'pointer' )
-                    .on('click', ( d ) => this.clickHandler( d, false ) );
+                    .on('click', ( d ) => this.clickHandler( d ) );
 
         this.imageCenter = this.g.append('svg:image')
                                 .attr('xlink:href', `../assets/images/${this.dataSrc}.png`)
@@ -228,7 +234,7 @@ export class SunburstComponent implements OnInit, AfterViewInit
                             .attr('r', this.radius + 50 )
                             .attr('fill', 'none')
                             .attr('pointer-events', 'all')
-                            .on('click', ( d ) => this.clickHandler( d, false ) );
+                            .on('click', ( d ) => this.clickHandler( d ) );
     }
 
     /**
@@ -236,15 +242,20 @@ export class SunburstComponent implements OnInit, AfterViewInit
      * @function clickHandler
      * @param  p         - single arc that was selected
      * @param  thisRef   - reference to current class
-     * @param  tableBool - true or false if clicked from the table
      * @description function to handle when an arc has been clicked
      * @memberof SCWAT
      */
-    clickHandler( p, tableBool )
+    clickHandler( p )
     {
 
         if( p.depth >= 2 )
         {
+
+            if( this.showDialog )
+            {
+                this.openDialog( p );
+            }
+
             return;
         }
         // if the current arc has a parent set the parent object to it,
@@ -357,14 +368,13 @@ export class SunburstComponent implements OnInit, AfterViewInit
     /**
      *
      * @function calculateText
-     * @param {string} text
-     * @returns {obj.upper, obj.lower}
+     * @param text 
      * @description calculates if text should go inside the upper or middle tspan of the sunburst and returns resulting object
      * @memberof SCWAT
      */
     calculateText( text )
     {
-        let result = { upper : '', middle : '' };
+        const result = { upper : '', middle : '' };
 
         if( text.length < 25 )
         {
@@ -372,7 +382,7 @@ export class SunburstComponent implements OnInit, AfterViewInit
         }
         else
         {
-            let words = text.split(' ');
+            const words = text.split(' ');
 
             for (const iterator of words)
             {
@@ -405,5 +415,31 @@ export class SunburstComponent implements OnInit, AfterViewInit
     arcVisible( d )
     {
         return ( d.y1 <= 2 ) && ( d.y0 >= 1 ) && ( d.x1 > d.x0 );
+    }
+
+    openDialog( p : any ) : void
+    {
+
+        const dialogRef = this.dialog.open( SunburstDialog,
+            {
+                width : '50vw',
+                data  : p
+            });
+    }
+}
+
+@Component({
+    selector: 'app-sunburst-dialog',
+    templateUrl: './sunburst-dialog.html'
+})
+export class SunburstDialog
+{
+    constructor(
+        public dialogRef : MatDialogRef<SunburstDialog>,
+        @Inject(MAT_DIALOG_DATA) public data : any ) {}
+
+    onNoClick() : void 
+    {
+        this.dialogRef.close();
     }
 }

@@ -96,12 +96,23 @@ export class SunburstComponent implements OnInit, AfterViewInit
             }
             else
             {
+                for( const iteratorI of this.root.children )
+                {
+                    for (const iteratorJ of iteratorI.children )
+                    {
+                        if( iteratorJ.data.name === cell.data.name )
+                        {
+                            this.clickHandler( iteratorJ );
+                            break;
+                        }
+                    }
 
+                }
             }
         });
     }
 
-    ngAfterViewInit(): void 
+    ngAfterViewInit(): void
     {
         // Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
         // Add 'implements AfterViewInit' to the class.
@@ -279,7 +290,14 @@ export class SunburstComponent implements OnInit, AfterViewInit
                 this.openDialog( p );
             }
 
-            return;
+            if( this.currentArc.depth === 0 || this.currentArc !== p.parent )
+            {
+                p = p.parent;
+            }
+            else
+            {
+                return;
+            }
         }
         // if the current arc has a parent set the parent object to it,
         // otherwise we have selected to root of the data with no parent

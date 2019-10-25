@@ -3,6 +3,7 @@ import { Component, OnInit, AfterViewInit, Input, ElementRef, ViewChild, Inject 
 import * as d3 from 'd3';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+import { SunburstService } from '../sunburst.service';
 
 interface ArcType { x0 : any, x1 : any, y0 : any, y1 : any }
 
@@ -56,7 +57,8 @@ export class SunburstComponent implements OnInit, AfterViewInit
 
     constructor(
             private route  : ActivatedRoute,
-            private dialog : MatDialog
+            private dialog : MatDialog,
+            private sunburstService : SunburstService
         ) { }
 
     ngOnInit()
@@ -76,6 +78,27 @@ export class SunburstComponent implements OnInit, AfterViewInit
             .padRadius(     this.radius * 1.5   )
             .innerRadius(   d => ( d.y0 * this.radius ) + 50  )
             .outerRadius(   d => Math.max( ( d.y0 * this.radius ) + 50, d.y1 * this.radius - 1 ));
+
+        this.sunburstService.currentArc.subscribe( ( cell ) =>
+        {
+
+            if( cell.cellName === 'science' )
+            {
+                for (const iterator of this.root.children)
+                {
+
+                    if( iterator.data.name === cell.data.science )
+                    {
+                        this.clickHandler( iterator );
+                        break;
+                    }
+                }
+            }
+            else
+            {
+
+            }
+        });
     }
 
     ngAfterViewInit(): void 

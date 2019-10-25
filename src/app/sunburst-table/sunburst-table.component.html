@@ -3,17 +3,18 @@
     <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Project Name </th>
-        <td mat-cell *matCellDef="let element"> {{ element.name }} </td>
-    </ng-container>
-
     <!-- Science Column -->
     <ng-container matColumnDef="science">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Domain Science </th>
-        <td mat-cell *matCellDef="let element"> {{ element.science }} </td>
+        <td mat-cell *matCellDef="let element" (click)="cellClick( element, 'science' )"> {{ element.science }} </td>
     </ng-container>
+    
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Project Name </th>
+        <td mat-cell *matCellDef="let element" (click)="cellClick( element, 'name' )"> {{ element.name }} </td>
+    </ng-container>
+
 
     <!-- Institution Column -->
     <ng-container matColumnDef="institution">

@@ -1,16 +1,26 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Subject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class SunburstService
 {
 
-  constructor( private http : HttpClient ){ }
+    private arcSource = new Subject<any>();
+    currentArc = this.arcSource.asObservable();
 
-  getTestData( filename : string )
-  {
-      return this.http.get( '/assets/datasets/' + filename );
-  }
+
+    constructor(private http: HttpClient) { }
+
+    getTestData(filename: string)
+    {
+        return this.http.get('/assets/datasets/' + filename);
+    }
+
+    setCellSelect( cell : any )
+    {
+        this.arcSource.next( cell );
+    }
 }

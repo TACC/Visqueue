@@ -70,6 +70,12 @@ export class SunburstTableComponent implements OnInit
                 this.dataSource.sort = this.sort;
 
             });
+
     }
 
+    cellClick( row : any, type : string )
+    {
+
+        this.sunburstService.setCellSelect( { data : row, cellName : type } );
+    }
 }

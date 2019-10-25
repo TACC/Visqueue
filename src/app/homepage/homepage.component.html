@@ -4,14 +4,14 @@
     
         <app-sunburst dataSrc="stampede2" heightCont="60vh"></app-sunburst>
         <p class="divider" fxFlexAlign="center"> To explore stampede2 more click <a [routerLink]="[ '/detail', 'stampede2' ]">here</a> </p>
-        <app-sunburst-table fxFlex="30vh" dataSrc="stampede2"></app-sunburst-table>
+        <app-sunburst-table fxFlex="30vh" dataSrc="stampede2" [searchActive]="false"></app-sunburst-table>
     </div>
     
     <div fxLayout="column" fxFlex="90vh">
         
         <app-sunburst dataSrc="frontera" heightCont="60vh"></app-sunburst>
         <p class="divider" fxFlexAlign="center"> To explore frontera more click <a [routerLink]="[ '/detail', 'frontera' ]">here</a> </p>
-        <app-sunburst-table fxFlex="30vh" dataSrc="frontera"></app-sunburst-table>
+        <app-sunburst-table fxFlex="30vh" dataSrc="frontera" [searchActive]="false"></app-sunburst-table>
     
     </div>
 

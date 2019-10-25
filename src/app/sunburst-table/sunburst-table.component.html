@@ -1,5 +1,8 @@
-<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z2">
+<mat-form-field *ngIf="searchActive">
+    <input matInput (keyup)="searchFilter($event.target.value)" placeholder="Search">
+</mat-form-field>
 
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z2">
     <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
 

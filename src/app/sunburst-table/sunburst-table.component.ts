@@ -16,6 +16,7 @@ export class SunburstTableComponent implements OnInit
     dataSource: any;
 
     @Input() dataSrc: string;
+    @Input() searchActive : boolean;
 
     @ViewChild( MatSort, { static: true } ) sort: MatSort;
 
@@ -82,5 +83,10 @@ export class SunburstTableComponent implements OnInit
 
         this.sunburstService.setCellSelect( { data : row, cellName : type, system : this.systemName } );
 
+    }
+
+    searchFilter( searchValue : string )
+    {
+        this.dataSource.filter = searchValue.trim().toLowerCase();
     }
 }

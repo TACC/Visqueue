@@ -3,6 +3,7 @@ import { MatTableModule } from '@angular/material/table';
 import { CdkTableModule } from '@angular/cdk/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [],
@@ -10,7 +11,8 @@ import { MatDialogModule } from '@angular/material/dialog';
       CdkTableModule,
       MatTableModule,
       MatSortModule,
-      MatDialogModule
+      MatDialogModule,
+      MatInputModule
   ]
 })
 export class AngularMaterialModule { }

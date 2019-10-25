@@ -19,6 +19,8 @@ export class SunburstTableComponent implements OnInit
 
     @ViewChild( MatSort, { static: true } ) sort: MatSort;
 
+    private systemName : string;
+
     displayedColumns: string[] = ['name', 'science', 'institution', 'jobs', 'nodes'];
 
 
@@ -36,7 +38,9 @@ export class SunburstTableComponent implements OnInit
         this.sunburstService.getTestData(this.dataSrc + '.json')
             .subscribe((data: any) =>
             {
-                let result = [];
+                const result = [];
+
+                this.systemName = data.name;
 
                 for (const tFos of data.children)
                 {
@@ -76,6 +80,7 @@ export class SunburstTableComponent implements OnInit
     cellClick( row : any, type : string )
     {
 
-        this.sunburstService.setCellSelect( { data : row, cellName : type } );
+        this.sunburstService.setCellSelect( { data : row, cellName : type, system : this.systemName } );
+
     }
 }

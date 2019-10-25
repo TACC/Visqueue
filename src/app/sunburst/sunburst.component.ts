@@ -82,6 +82,11 @@ export class SunburstComponent implements OnInit, AfterViewInit
         this.sunburstService.currentArc.subscribe( ( cell ) =>
         {
 
+            if( this.root.data.name !== cell.system )
+            {
+                return;
+            }
+
             if( cell.cellName === 'science' )
             {
                 for (const iterator of this.root.children)

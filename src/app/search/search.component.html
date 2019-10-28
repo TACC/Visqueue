@@ -1,0 +1,24 @@
+<div fxLayout="row" fxLayoutAlign="space-around center">
+    
+    <h1 class="mat-h1">Search</h1>
+
+</div>
+            
+<table mat-table [dataSource]="dataResult" matSort>
+    
+    <ng-container matColumnDef="starttime">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header > Start Time </th>
+        <td mat-cell *matCellDef="let row"> {{ row.starttime }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="endtime">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header > End Time </th>
+        <td mat-cell *matCellDef="let row"> {{ row.endtime }} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let row; columns : columnsToDisplay;"></tr>
+
+</table>
+
+<mat-paginator [pageSize]="10" [pageSizeOptions]='[10, 25, 50, 100]' showFirstLastButtons></mat-paginator>

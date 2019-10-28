@@ -12,6 +12,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { SunburstTableComponent } from './sunburst-table/sunburst-table.component';
 import { AngularMaterialModule } from './shared/angular-material/angular-material.module';
 import { DetailComponent } from './detail/detail.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { DetailComponent } from './detail/detail.component';
     HomepageComponent,
     SunburstTableComponent,
     DetailComponent,
-    SunburstDialog
+    SunburstDialog,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

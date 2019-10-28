@@ -36,7 +36,7 @@ export class SunburstTableComponent implements OnInit
             this.dataSrc = this.route.snapshot.params.name;
         }
 
-        this.sunburstService.getTestData(this.dataSrc + '.json')
+        this.sunburstService.getStaticData(this.dataSrc + '.json')
             .subscribe((data: any) =>
             {
                 const result = [];

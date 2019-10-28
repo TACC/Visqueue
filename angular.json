@@ -68,7 +68,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "visqueue:build"
+            "browserTarget": "visqueue:build",
+            "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "production": {

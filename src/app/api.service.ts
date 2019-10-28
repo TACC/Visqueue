@@ -13,7 +13,7 @@ export class ApiService
     private url      = 'api/';
     private jobs     = 'jobs';
 
-    constructor(private http : HttpClient) { }
+    constructor( private http : HttpClient ) { }
 
     getJobs( system : string ) : Observable<Job[]>
     {

@@ -15,7 +15,7 @@ export class SearchComponent implements OnInit
 
     dataResult : MatTableDataSource<Job>;
 
-    columnsToDisplay : string[] = [ 'starttime' , 'endtime' ];
+    columnsToDisplay : string[] = [ 'project', 'duration', 'nodes', 'starttime' , 'endtime', 'queue' ];
 
     @ViewChild( MatSort, { static : false } ) sort : MatSort;
     @ViewChild( MatPaginator, { static : false } ) paginator : MatPaginator;
@@ -33,6 +33,8 @@ export class SearchComponent implements OnInit
 
                 this.dataResult.paginator = this.paginator;
                 this.dataResult.sort = this.sort;
+
+                console.log( data );
             }
         );
     }

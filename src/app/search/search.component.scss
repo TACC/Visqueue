@@ -1,6 +1,7 @@
-table
+table,
+mat-paginator
 {
-    width: 100%;
+    width: 70%;
 }
 
 tr.mat-row:nth-child( even )

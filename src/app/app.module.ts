@@ -13,6 +13,7 @@ import { SunburstTableComponent } from './sunburst-table/sunburst-table.componen
 import { AngularMaterialModule } from './shared/angular-material/angular-material.module';
 import { DetailComponent } from './detail/detail.component';
 import { SearchComponent } from './search/search.component';
+import { JobDurationPipe } from './job-duration.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SearchComponent } from './search/search.component';
     SunburstTableComponent,
     DetailComponent,
     SunburstDialog,
-    SearchComponent
+    SearchComponent,
+    JobDurationPipe
   ],
   imports: [
     BrowserModule,

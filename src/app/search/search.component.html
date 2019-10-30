@@ -27,7 +27,7 @@
 
         <ng-container matColumnDef="duration">
             <th mat-header-cell *matHeaderCellDef mat-sort-header > Duration </th>
-            <td mat-cell *matCellDef="let row"> {{ row.duration }} </td>
+            <td mat-cell *matCellDef="let row"> {{ row.duration | jobDuration }} </td>
         </ng-container>
 
         <ng-container matColumnDef="nodes">

@@ -29,12 +29,16 @@ export class SearchComponent implements OnInit
         this.apiService.getJobs( 'stampede2' ).subscribe(
             (data : Job[] ) =>
             {
-                this.dataResult = new MatTableDataSource(data);
+                data.forEach( ( d ) =>
+                {
+                    d.name = d.project.name;
+                });
+
+                this.dataResult = new MatTableDataSource( data );
 
                 this.dataResult.paginator = this.paginator;
                 this.dataResult.sort = this.sort;
 
-                console.log( data );
             }
         );
     }

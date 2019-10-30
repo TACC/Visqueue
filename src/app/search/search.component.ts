@@ -15,7 +15,7 @@ export class SearchComponent implements OnInit
 
     dataResult : MatTableDataSource<Job>;
 
-    columnsToDisplay : string[] = [ 'project', 'duration', 'nodes', 'starttime' , 'endtime', 'queue' ];
+    columnsToDisplay : string[] = [ 'name', 'duration', 'nodes', 'starttime' , 'endtime', 'queue', 'state' ];
 
     @ViewChild( MatSort, { static : false } ) sort : MatSort;
     @ViewChild( MatPaginator, { static : false } ) paginator : MatPaginator;

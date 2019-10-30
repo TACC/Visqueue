@@ -10,19 +10,19 @@
             
     <table class="mat-elevation-z8" mat-table [dataSource]="dataResult" matSort>
         
-        <ng-container matColumnDef="project">
+        <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef mat-sort-header > Project </th>
             <td mat-cell *matCellDef="let row"> {{ row.project.name }} </td>
         </ng-container>
 
         <ng-container matColumnDef="starttime">
             <th mat-header-cell *matHeaderCellDef mat-sort-header > Start Time </th>
-            <td mat-cell *matCellDef="let row"> {{ row.starttime }} </td>
+            <td mat-cell *matCellDef="let row"> {{ row.starttime | date : 'medium' }} </td>
         </ng-container>
 
         <ng-container matColumnDef="endtime">
             <th mat-header-cell *matHeaderCellDef mat-sort-header > End Time </th>
-            <td mat-cell *matCellDef="let row"> {{ row.endtime }} </td>
+            <td mat-cell *matCellDef="let row"> {{ row.endtime | date : 'medium' }} </td>
         </ng-container>
 
         <ng-container matColumnDef="duration">
@@ -38,6 +38,11 @@
         <ng-container matColumnDef="queue">
             <th mat-header-cell *matHeaderCellDef mat-sort-header > Queue </th>
             <td mat-cell *matCellDef="let row"> {{ row.queue }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="state">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header > State </th>
+            <td mat-cell *matCellDef="let row"> {{ row.state }} </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>

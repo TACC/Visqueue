@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -34,6 +35,7 @@ import { JobDurationPipe } from './job-duration.pipe';
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
+    MatMomentDateModule,
     AngularMaterialModule
   ],
   entryComponents: [DetailComponent, SunburstDialog],

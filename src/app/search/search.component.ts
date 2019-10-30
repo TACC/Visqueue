@@ -4,14 +4,24 @@ import { Job } from 'models/job';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
+import { FormGroup, FormControl } from '@angular/forms';
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
+import { MomentDateAdapter, MAT_MOMENT_DATE_FORMATS } from '@angular/material-moment-adapter';
+
+import * as moment from 'moment';
 
 @Component({
     selector: 'app-search',
     templateUrl: './search.component.html',
-    styleUrls: ['./search.component.scss']
+    styleUrls: ['./search.component.scss'],
+    providers : [
+        { provide : DateAdapter, useClass : MomentDateAdapter, deps : [ MAT_DATE_LOCALE ] },
+        { provide : MAT_DATE_FORMATS, useValue : MAT_MOMENT_DATE_FORMATS }
+    ]
 })
 export class SearchComponent implements OnInit
 {
+    searchForm : FormGroup;
 
     dataResult : MatTableDataSource<Job>;
 
@@ -41,6 +51,16 @@ export class SearchComponent implements OnInit
 
             }
         );
+
+        this.searchForm = new FormGroup({
+            startdate : new FormControl( null ),
+            endate    : new FormControl( null )
+        });
+    }
+
+    onSearchSubmit()
+    {
+        console.log( this.searchForm );
     }
 
 }

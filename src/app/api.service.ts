@@ -10,8 +10,8 @@ import { Job } from 'models/job';
 export class ApiService
 {
 
-    private url      = 'api/';
-    private jobs     = 'jobs';
+    private url      = 'http://visqueue.tacc.utexas.edu/api';
+    private jobs     = '/jobs';
 
     constructor( private http : HttpClient ) { }
 

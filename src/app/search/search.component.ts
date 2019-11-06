@@ -8,20 +8,21 @@ import { FormGroup, FormControl } from '@angular/forms';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import { MomentDateAdapter, MAT_MOMENT_DATE_FORMATS } from '@angular/material-moment-adapter';
 
-import * as moment from 'moment';
-
 @Component({
     selector: 'app-search',
     templateUrl: './search.component.html',
     styleUrls: ['./search.component.scss'],
     providers : [
         { provide : DateAdapter, useClass : MomentDateAdapter, deps : [ MAT_DATE_LOCALE ] },
-        { provide : MAT_DATE_FORMATS, useValue : MAT_MOMENT_DATE_FORMATS }
+        { provide : MAT_DATE_FORMATS, useValue : MAT_MOMENT_DATE_FORMATS },
+        ApiService
     ]
 })
 export class SearchComponent implements OnInit
 {
     searchForm : FormGroup;
+
+    dataset : Job[];
 
     dataResult : MatTableDataSource<Job>;
 
@@ -39,6 +40,9 @@ export class SearchComponent implements OnInit
         this.apiService.getJobs( 'stampede2' ).subscribe(
             (data : Job[] ) =>
             {
+
+                this.dataset = data;
+
                 data.forEach( ( d ) =>
                 {
                     d.name = d.project.name;

@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,7 @@ import { AngularMaterialModule } from './shared/angular-material/angular-materia
 import { DetailComponent } from './detail/detail.component';
 import { SearchComponent } from './search/search.component';
 import { JobDurationPipe } from './job-duration.pipe';
+import { BarChartComponent } from './search/bar-chart/bar-chart.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { JobDurationPipe } from './job-duration.pipe';
     DetailComponent,
     SunburstDialog,
     SearchComponent,
-    JobDurationPipe
+    JobDurationPipe,
+    BarChartComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import { JobDurationPipe } from './job-duration.pipe';
     FormsModule,
     ReactiveFormsModule,
     MatMomentDateModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    HighchartsChartModule
   ],
   entryComponents: [DetailComponent, SunburstDialog],
   providers: [],

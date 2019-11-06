@@ -39,6 +39,7 @@ export class SunburstTableComponent implements OnInit
         this.sunburstService.getStaticData(this.dataSrc + '.json')
             .subscribe((data: any) =>
             {
+
                 const result = [];
 
                 this.systemName = data.name;

@@ -127,7 +127,7 @@ export class SunburstComponent implements OnInit, AfterViewInit
             this.dataSrc = this.route.snapshot.params.name;
         }
 
-        d3.json( 'assets/datasets/' + this.dataSrc + '.json' )
+        d3.json( 'http://visqueue.tacc.utexas.edu/static_data' + this.dataSrc + '.json' )
         .then( data =>
         {
             this.render( data );

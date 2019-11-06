@@ -15,7 +15,7 @@ export class SunburstService
 
     getStaticData(filename: string)
     {
-        return this.http.get('/assets/datasets/' + filename);
+        return this.http.get('http://visqueue.tacc.utexas.edu/static_data/' + filename);
     }
 
     setCellSelect( cell : any )

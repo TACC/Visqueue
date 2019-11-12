@@ -37,13 +37,16 @@ export class SearchComponent implements OnInit
     ngOnInit()
     {
 
-        this.apiService.getJobs( 'stampede2' ).subscribe(
+        this.apiService.getJobsRecent( 'stampede2' ).subscribe(
             (data : Job[] ) =>
             {
 
+                console.log('Data');
+                console.log( data );
+
                 this.dataset = data;
 
-                data.forEach( ( d ) =>
+                this.dataset.forEach( ( d ) =>
                 {
                     d.name = d.project.name;
                 });

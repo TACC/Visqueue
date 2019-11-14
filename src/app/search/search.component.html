@@ -12,19 +12,23 @@
         
         <mat-form-field>
         
-                <input 
-                    matInput 
-                    [matDatepicker]="startpicker" 
-                    placeholder="Choose Start Date"
-                    formControlName="startdate">
-                <mat-datepicker-toggle matSuffix [for]="startpicker"></mat-datepicker-toggle>
-                <mat-datepicker #startpicker></mat-datepicker> 
+            <input 
+                matInput 
+                [matDatepicker]="startpicker" 
+                placeholder="Choose Start Date"
+                formControlName="startdate">
+            <mat-datepicker-toggle matSuffix [for]="startpicker"></mat-datepicker-toggle>
+            <mat-datepicker #startpicker></mat-datepicker> 
                 
         </mat-form-field>
             
         <mat-form-field>
         
-            <input matInput [matDatepicker]="endpicker" placeholder="Choose End Date">
+            <input 
+                matInput 
+                [matDatepicker]="endpicker" 
+                placeholder="Choose End Date"
+                formControlName="enddate">
             <mat-datepicker-toggle matSuffix [for]="endpicker"></mat-datepicker-toggle>
             <mat-datepicker #endpicker></mat-datepicker> 
         
@@ -95,4 +99,4 @@
 
 </div>
 
-<app-bar-chart [dataset]="dataset"></app-bar-chart>
+<!-- <app-bar-chart [dataset]="dataset"></app-bar-chart> -->

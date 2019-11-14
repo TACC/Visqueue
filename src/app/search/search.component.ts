@@ -7,6 +7,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { FormGroup, FormControl } from '@angular/forms';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import { MomentDateAdapter, MAT_MOMENT_DATE_FORMATS } from '@angular/material-moment-adapter';
+import * as moment from 'moment';
 
 @Component({
     selector: 'app-search',
@@ -37,12 +38,18 @@ export class SearchComponent implements OnInit
     ngOnInit()
     {
 
+        this.searchForm = new FormGroup({
+            startdate  : new FormControl( null ),
+            enddate    : new FormControl( null )
+        });
+
         this.apiService.getJobsRecent( 'stampede2' ).subscribe(
             (data : Job[] ) =>
             {
 
-                console.log('Data');
-                console.log( data );
+                const recentDate = moment( data[0].endtime ).format( 'YYYY-MM-DD' );
+
+                this.searchForm.patchValue( { enddate : recentDate } );
 
                 this.dataset = data;
 
@@ -59,10 +66,6 @@ export class SearchComponent implements OnInit
             }
         );
 
-        this.searchForm = new FormGroup({
-            startdate : new FormControl( null ),
-            endate    : new FormControl( null )
-        });
     }
 
     onSearchSubmit()

@@ -6,44 +6,51 @@
 
 <div fxLayout="row" fxLayoutAlign="space-around center">
     
-<form [formGroup]="searchForm" (ngSubmit)='onSearchSubmit()' id="formContainer">
+    <form [formGroup]="searchForm" (ngSubmit)='onSearchSubmit()' id="formContainer">
 
-    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="200px">
-        
-        <mat-form-field>
-        
-            <input 
-                matInput 
-                [matDatepicker]="startpicker" 
-                placeholder="Choose Start Date"
-                formControlName="startdate">
-            <mat-datepicker-toggle matSuffix [for]="startpicker"></mat-datepicker-toggle>
-            <mat-datepicker #startpicker></mat-datepicker> 
-                
-        </mat-form-field>
+        <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="200px">
             
-        <mat-form-field>
+            <mat-form-field>
+            
+                <input 
+                    matInput 
+                    [matDatepicker]="startpicker" 
+                    placeholder="Choose Start Date"
+                    formControlName="startdate">
+                <mat-datepicker-toggle matSuffix [for]="startpicker"></mat-datepicker-toggle>
+                <mat-datepicker #startpicker></mat-datepicker> 
+                    
+            </mat-form-field>
+                
+            <mat-form-field>
+            
+                <input 
+                    matInput 
+                    [matDatepicker]="endpicker" 
+                    placeholder="Choose End Date"
+                    formControlName="enddate">
+                <mat-datepicker-toggle matSuffix [for]="endpicker"></mat-datepicker-toggle>
+                <mat-datepicker #endpicker></mat-datepicker> 
+            
+            </mat-form-field>
         
-            <input 
-                matInput 
-                [matDatepicker]="endpicker" 
-                placeholder="Choose End Date"
-                formControlName="enddate">
-            <mat-datepicker-toggle matSuffix [for]="endpicker"></mat-datepicker-toggle>
-            <mat-datepicker #endpicker></mat-datepicker> 
+        </div>
         
-        </mat-form-field>
-    
-    </div>
-    
-    <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="50px">
-        <button type="button" mat-raised-button color="accent">Clear</button>
-        <button type="submit" mat-raised-button color="primary">Search</button>
-    </div>
+        <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="50px">
+            <button type="button" mat-raised-button color="accent">Clear</button>
+            <button type="submit" mat-raised-button color="primary">Search</button>
+        </div>
 
-</form>
+    </form>
 
 </div>
+
+<div fxLayout="row" fxLayoutAlign="space-around center">
+
+    <mat-progress-bar [mode]="mode" fxFlex="70%"></mat-progress-bar>
+
+</div>
+
 
 
 <div fxLayout="row" fxLayoutAlign="space-around center">
@@ -98,5 +105,6 @@
     <mat-paginator [pageSize]="10" [pageSizeOptions]='[10, 25, 50, 100]' showFirstLastButtons></mat-paginator>
 
 </div>
+
 
 <!-- <app-bar-chart [dataset]="dataset"></app-bar-chart> -->

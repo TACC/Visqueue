@@ -29,6 +29,8 @@ export class SearchComponent implements OnInit
 
     columnsToDisplay : string[] = [ 'name', 'duration', 'nodes', 'starttime' , 'endtime', 'queue', 'state' ];
 
+    mode = 'indeterminate';
+
     @ViewChild( MatSort, { static : false } ) sort : MatSort;
     @ViewChild( MatPaginator, { static : false } ) paginator : MatPaginator;
 
@@ -62,6 +64,8 @@ export class SearchComponent implements OnInit
 
                 this.dataResult.paginator = this.paginator;
                 this.dataResult.sort = this.sort;
+
+                this.mode = 'determinate';
 
             }
         );

@@ -14,6 +14,7 @@ export class ApiService
     private url        = 'api';
     private recentJobs = '/jobs/recent';
     private searchJobs = '/jobs/search';
+    private systemInfo = '/info';
 
     constructor( private http : HttpClient ) { }
 
@@ -27,5 +28,10 @@ export class ApiService
 
         return this.http.post< Job[] >( this.url + this.searchJobs, queryParams );
 
+    }
+
+    postInfo( system : string )
+    {
+        return this.http.post( this.url + this.systemInfo, { system } );
     }
 }

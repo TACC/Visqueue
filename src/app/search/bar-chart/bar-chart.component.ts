@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import * as Highcharts from 'highcharts';
-import { Job } from 'models/job';
+import { Job } from 'src/app/models/job';
 
 @Component({
     selector: 'app-bar-chart',
@@ -30,7 +30,6 @@ export class BarChartComponent implements OnInit, OnChanges
     ngOnChanges(changes: SimpleChanges): void
     {
         console.log( this.dataset );
-        
     }
 
 }

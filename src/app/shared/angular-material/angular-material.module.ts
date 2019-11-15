@@ -9,6 +9,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [],
@@ -22,7 +23,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
       MatPaginatorModule,
       MatDatepickerModule,
       MatButtonModule,
-      MatProgressBarModule
+      MatProgressBarModule,
+      MatCardModule
   ]
 })
 export class AngularMaterialModule { }

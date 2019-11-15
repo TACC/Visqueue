@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Query } from '@angular/core';
 import { ApiService } from '../api.service';
-import { Job } from 'models/job';
+import { Job } from 'src/app/models/job';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
@@ -8,6 +8,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import { MomentDateAdapter, MAT_MOMENT_DATE_FORMATS } from '@angular/material-moment-adapter';
 import * as moment from 'moment';
+import { Search } from '../models/search';
 
 @Component({
     selector: 'app-search',
@@ -45,11 +46,11 @@ export class SearchComponent implements OnInit
             enddate    : new FormControl( null )
         });
 
-        this.apiService.getJobsRecent( 'stampede2' ).subscribe(
+        this.apiService.jobsGetRecent( 'stampede2' ).subscribe(
             (data : Job[] ) =>
             {
 
-                const recentDate = moment( data[0].endtime ).format( 'YYYY-MM-DD' );
+                const recentDate = moment( data[0].endtime );
 
                 this.searchForm.patchValue( { enddate : recentDate } );
 
@@ -75,6 +76,23 @@ export class SearchComponent implements OnInit
     onSearchSubmit()
     {
         console.log( this.searchForm );
+
+        const search = new Search();
+
+        search.startdate = this.searchForm.value.startdate.toISOString();
+        search.enddate = this.searchForm.value.enddate.toISOString();
+
+        console.log('search query');
+        console.log( search );
+
+
+        this.apiService.jobsSearch( search ).subscribe(
+            ( data : Job[] ) =>
+            {
+                console.log('data returned');
+                console.log( data );
+            }
+        );
     }
 
 }

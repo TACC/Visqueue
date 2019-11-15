@@ -17,6 +17,7 @@ import { DetailComponent } from './detail/detail.component';
 import { SearchComponent } from './search/search.component';
 import { JobDurationPipe } from './job-duration.pipe';
 import { BarChartComponent } from './search/bar-chart/bar-chart.component';
+import { InfoComponent } from './detail/info/info.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { BarChartComponent } from './search/bar-chart/bar-chart.component';
     SunburstDialog,
     SearchComponent,
     JobDurationPipe,
-    BarChartComponent
+    BarChartComponent,
+    InfoComponent
   ],
   imports: [
     BrowserModule,

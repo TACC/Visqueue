@@ -20,8 +20,11 @@ export class InfoComponent implements OnInit
         this.apiService.postInfo( 'stampede2' )
             .subscribe( ( data : any ) =>
             {
+                console.log( data );
+
                 this.projectsTotal = data.projectsCount;
                 this.jobsTotal     = data.jobsCount;
+                this.fosTotal      = data.fosCount;
             } );
     }
 

@@ -21,6 +21,7 @@ export class InfoComponent implements OnInit
             .subscribe( ( data : any ) =>
             {
                 this.projectsTotal = data.projectsCount;
+                this.jobsTotal     = data.jobsCount;
             } );
     }
 

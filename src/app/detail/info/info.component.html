@@ -11,7 +11,7 @@ jobsTotal     : number; -->
 <div fxLayout="row" fxLayoutAlign="space-around center">
     <mat-card fxFlex="20" class="mat-elevation-z2">
         <mat-card-title>
-            {{ fosTotal }}
+            {{ fosTotal | number }}
         </mat-card-title>
         <mat-card-subtitle>
             Fields of Science
@@ -19,7 +19,7 @@ jobsTotal     : number; -->
     </mat-card>
     <mat-card fxFlex="20" class="mat-elevation-z2">
         <mat-card-title>
-            {{ projectsTotal }}
+            {{ projectsTotal | number }}
         </mat-card-title>
         <mat-card-subtitle>
             Projects
@@ -27,7 +27,7 @@ jobsTotal     : number; -->
     </mat-card>
     <mat-card fxFlex="20" class="mat-elevation-z2">
         <mat-card-title>
-            {{ jobsTotal }}
+            {{ jobsTotal | number }}
         </mat-card-title>
         <mat-card-subtitle>
             Jobs

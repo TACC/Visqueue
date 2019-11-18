@@ -9,9 +9,10 @@ import { ApiService } from 'src/app/api.service';
 export class InfoComponent implements OnInit
 {
 
-    fosTotal      : number;
-    projectsTotal : number;
-    jobsTotal     : number;
+    fosTotal         : number;
+    projectsTotal    : number;
+    jobsTotal        : number;
+    institutionTotal : number;
 
     constructor(private apiService : ApiService) { }
 
@@ -22,9 +23,10 @@ export class InfoComponent implements OnInit
             {
                 console.log( data );
 
-                this.projectsTotal = data.projectsCount;
-                this.jobsTotal     = data.jobsCount;
-                this.fosTotal      = data.fosCount;
+                this.projectsTotal    = data.projectsCount;
+                this.jobsTotal        = data.jobsCount;
+                this.fosTotal         = data.fosCount;
+                this.institutionTotal = data.institutionCount;
             } );
     }
 

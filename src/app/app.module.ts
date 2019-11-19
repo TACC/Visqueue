@@ -5,7 +5,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
-import { HighchartsChartModule } from 'highcharts-angular';
+
+import { ChartsModule } from 'ng2-charts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -42,7 +43,7 @@ import { InfoComponent } from './detail/info/info.component';
     ReactiveFormsModule,
     MatMomentDateModule,
     AngularMaterialModule,
-    HighchartsChartModule
+    ChartsModule
   ],
   entryComponents: [DetailComponent, SunburstDialog],
   providers: [],

@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
-import * as Highcharts from 'highcharts';
 import { Job } from 'src/app/models/job';
 
 @Component({
@@ -11,14 +10,6 @@ export class BarChartComponent implements OnInit, OnChanges
 {
 
     @Input() dataset : Job[];
-
-    Highcharts: typeof Highcharts = Highcharts;
-    chartOptions: Highcharts.Options = {
-      series: [{
-        data: [1, 2, 3],
-        type: 'column'
-      }]
-    };
 
     constructor() { }
 

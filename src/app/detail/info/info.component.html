@@ -4,10 +4,6 @@
 
 </div>
 
-<!-- fosTotal      : number;
-projectsTotal : number;
-jobsTotal     : number; -->
-
 <div fxLayout="row" fxLayoutAlign="space-around center">
     <mat-card fxFlex="20" class="mat-elevation-z2">
         <mat-card-title>
@@ -41,4 +37,19 @@ jobsTotal     : number; -->
             Institutions
         </mat-card-subtitle>
     </mat-card>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="space-around center">
+
+    <div fxFlex="40" style="display: block">
+        <canvas baseChart
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [plugins]="barChartPlugins"
+            [legend]="barChartLegend"
+            [chartType]="barChartType">
+        </canvas>
+    </div>
+
 </div>

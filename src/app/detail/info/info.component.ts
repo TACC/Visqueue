@@ -11,7 +11,7 @@ import { Label } from 'ng2-charts';
 export class InfoComponent implements OnInit
 {
 
-    public barChartOptions : ChartOptions = 
+    public fosByProjBarChartOptions : ChartOptions = 
     {
         title : 
         { 
@@ -37,11 +37,42 @@ export class InfoComponent implements OnInit
         }
     };
 
-    public barChartLabels: Label[] = [];
-    public barChartType: ChartType = 'bar';
-    public barChartLegend = false;
 
-    public barChartData: ChartDataSets[] = [
+    public fosByJobBarChartOptions : ChartOptions = 
+    {
+        title : 
+        { 
+            display : true,
+            text    : 'Top 10 Field of Sciences Organized by # of Jobs'
+        },
+        responsive : true,
+        // We use these empty structures as placeholders for dynamic theming.
+        scales: {
+            xAxes: [ { } ],
+            yAxes: 
+            [ 
+                { ticks : { beginAtZero : true }, scaleLabel : { display : true, labelString : '# Jobs' } }
+            ]
+        },
+        plugins:
+        {
+            datalabels:
+            {
+                anchor: 'end',
+                align: 'end',
+            }
+        }
+    };
+
+    public fosByProjBarChartLabels: Label[] = [];
+    public fosByProjBarChartType: ChartType = 'bar';
+    public fosByProjBarChartLegend = false;
+
+    public fosByJobBarChartLabels: Label[] = [];
+    public fosByJobBarChartType: ChartType = 'bar';
+    public fosByJobBarChartLegend = false;
+
+    public fosByProjBarChartData: ChartDataSets[] = [
         {
             label : '# Projects',
             data : [],
@@ -59,7 +90,27 @@ export class InfoComponent implements OnInit
                 'rgba(186,176,171, 0.8)'
             ]
         }
-      ];
+    ];
+
+    public fosByJobBarChartData: ChartDataSets[] = [
+        {
+            label : '# Jobs',
+            data : [],
+            backgroundColor :
+            [
+                'rgba(77,121,168, 0.8)',
+                'rgba(242, 142, 48, 0.8)',
+                'rgba(225,87,88, 0.8)',
+                'rgba(118,183,178, 0.8)',
+                'rgba(89,161,78, 0.8)',
+                'rgba(237,201,72, 0.8)',
+                'rgba(175,122,161, 0.8)',
+                'rgba(242,156,166, 0.8)',
+                'rgba(156,117,95, 0.8)',
+                'rgba(186,176,171, 0.8)'
+            ]
+        }
+    ];
 
     fosTotal         : number;
     projectsTotal    : number;
@@ -78,12 +129,17 @@ export class InfoComponent implements OnInit
                 this.fosTotal         = data.fosCount;
                 this.institutionTotal = data.institutionCount;
 
+                console.log( data );
+
                 for ( let index = 0; index < 10; index++ )
                 {
                     console.log( data.fosByProj[ index ] );
 
-                    this.barChartLabels.push( data.fosByProj[ index ].name );
-                    this.barChartData[0].data.push( data.fosByProj[ index ].value );
+                    this.fosByProjBarChartLabels.push( data.fosByProj[ index ].name );
+                    this.fosByProjBarChartData[0].data.push( data.fosByProj[ index ].value );
+
+                    this.fosByJobBarChartLabels.push( data.fosByJob[ index ].name );
+                    this.fosByJobBarChartData[0].data.push( data.fosByJob[ index ].value );
                 }
 
             } );

@@ -43,12 +43,21 @@
 
     <div fxFlex="40" style="display: block">
         <canvas baseChart
-            [datasets]="barChartData"
-            [labels]="barChartLabels"
-            [options]="barChartOptions"
-            [plugins]="barChartPlugins"
-            [legend]="barChartLegend"
-            [chartType]="barChartType">
+            [datasets]="fosByProjBarChartData"
+            [labels]="fosByProjBarChartLabels"
+            [options]="fosByProjBarChartOptions"
+            [legend]="fosByProjBarChartLegend"
+            [chartType]="fosByProjBarChartType">
+        </canvas>
+    </div>
+
+    <div fxFlex="40" style="display: block">
+        <canvas baseChart
+            [datasets]="fosByJobBarChartData"
+            [labels]="fosByJobBarChartLabels"
+            [options]="fosByJobBarChartOptions"
+            [legend]="fosByJobBarChartLegend"
+            [chartType]="fosByJobBarChartType">
         </canvas>
     </div>
 

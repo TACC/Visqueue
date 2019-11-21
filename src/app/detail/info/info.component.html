@@ -62,3 +62,27 @@
     </div>
 
 </div>
+
+<div fxLayout="row" fxLayoutAlign="space-around center">
+
+    <div fxFlex="40" style="display: block">
+        <canvas baseChart
+            [datasets]="fosByNodesBarChartData"
+            [labels]="fosByNodesBarChartLabels"
+            [options]="fosByNodesBarChartOptions"
+            [legend]="fosByNodesBarChartLegend"
+            [chartType]="fosByNodesBarChartType">
+        </canvas>
+    </div>
+
+    <div fxFlex="40" style="display: block">
+        <canvas baseChart
+            [datasets]="fosByDurationBarChartData"
+            [labels]="fosByDurationBarChartLabels"
+            [options]="fosByDurationBarChartOptions"
+            [legend]="fosByDurationBarChartLegend"
+            [chartType]="fosByDurationBarChartType">
+        </canvas>
+    </div>
+
+</div>

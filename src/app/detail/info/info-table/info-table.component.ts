@@ -1,23 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 
-export interface PeriodicElement {
-  fos: string;
+export interface TableInfoElement
+{
+  fos      : string;
   projects : number;
-  weight: number;
-  symbol: string;
+  jobs     : number;
+  nodes    : number;
+  duration : number;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  { fos: 'Materials Research (DMR)', projects: 100,  weight: 1.0079, symbol: 'H' },
-  { fos: 'BioPhysics',               projects: 200,  weight: 4.0026, symbol: 'He' },
-  { fos: 'Fluid Dynamics',           projects: 300,  weight: 6.941, symbol: 'Li' },
-  { fos: 'Astronomical',             projects: 400,  weight: 9.0122, symbol: 'Be' },
-  { fos: 'Physics',                  projects: 500,  weight: 10.811, symbol: 'B' },
-  { fos: 'Engineering',              projects: 600,  weight: 12.0107, symbol: 'C' },
-  { fos: 'Training',                 projects: 700,  weight: 14.0067, symbol: 'N' },
-  { fos: 'Chemistry',                projects: 800,  weight: 15.9994, symbol: 'O' },
-  { fos: 'ASC',                      projects: 900,  weight: 18.9984, symbol: 'F' },
-  { fos: 'Visualization',            projects: 1000, weight: 20.1797, symbol: 'Ne' },
+const ELEMENT_DATA: TableInfoElement[] = [
+  { fos: 'Materials Research (DMR)', projects: 100,  jobs: 10000, nodes: 10000,  duration : 1000000 },
+  { fos: 'BioPhysics',               projects: 200,  jobs: 9000,  nodes: 20000,  duration : 900000 },
+  { fos: 'Fluid Dynamics',           projects: 300,  jobs: 8000,  nodes: 30000,  duration : 800000 },
+  { fos: 'Astronomical',             projects: 400,  jobs: 7000,  nodes: 40000,  duration : 700000 },
+  { fos: 'Physics',                  projects: 500,  jobs: 6000,  nodes: 50000,  duration : 600000 },
+  { fos: 'Engineering',              projects: 600,  jobs: 5000,  nodes: 60000,  duration : 500000 },
+  { fos: 'Training',                 projects: 700,  jobs: 4000,  nodes: 70000,  duration : 400000 },
+  { fos: 'Chemistry',                projects: 800,  jobs: 3000,  nodes: 80000,  duration : 300000 },
+  { fos: 'ASC',                      projects: 900,  jobs: 2000,  nodes: 90000,  duration : 200000 },
+  { fos: 'Visualization',            projects: 1000, jobs: 1000,  nodes: 100000, duration : 100000 }
 ];
 
 @Component({
@@ -27,7 +29,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class InfoTableComponent implements OnInit {
 
-  displayedColumns: string[] = ['fos', 'projects', 'weight', 'symbol'];
+  displayedColumns: string[] = ['fos', 'projects', 'jobs', 'nodes', 'duration' ];
   dataSource = ELEMENT_DATA;
 
   constructor() { }

@@ -19,6 +19,7 @@ import { SearchComponent } from './search/search.component';
 import { JobDurationPipe } from './job-duration.pipe';
 import { BarChartComponent } from './search/bar-chart/bar-chart.component';
 import { InfoComponent } from './detail/info/info.component';
+import { InfoTableComponent } from './detail/info/info-table/info-table.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { InfoComponent } from './detail/info/info.component';
     SearchComponent,
     JobDurationPipe,
     BarChartComponent,
-    InfoComponent
+    InfoComponent,
+    InfoTableComponent
   ],
   imports: [
     BrowserModule,

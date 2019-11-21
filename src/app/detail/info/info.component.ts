@@ -229,8 +229,6 @@ export class InfoComponent implements OnInit
                 this.fosTotal         = data.fosCount;
                 this.institutionTotal = data.institutionCount;
 
-                console.log( data );
-
                 for ( let index = 0; index < 10; index++ )
                 {
 

@@ -224,6 +224,7 @@ export class InfoComponent implements OnInit
         this.apiService.postInfo( 'stampede2' )
             .subscribe( ( data : any ) =>
             {
+                
                 this.projectsTotal    = data.projectsCount;
                 this.jobsTotal        = data.jobsCount;
                 this.fosTotal         = data.fosCount;
@@ -237,6 +238,10 @@ export class InfoComponent implements OnInit
 
                     this.fosByJobBarChartLabels.push( data.fosByJob[ index ].name );
                     this.fosByJobBarChartData[0].data.push( data.fosByJob[ index ].value );
+
+                    this.fosByNodesBarChartLabels.push( data.fosByNodes[ index ].name );
+                    this.fosByNodesBarChartData[0].data.push( data.fosByNodes[ index ].value );
+
                 }
 
             } );

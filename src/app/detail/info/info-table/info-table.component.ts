@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
@@ -49,7 +49,7 @@ const ELEMENT_DATA: TableInfoElement[] = [
   templateUrl: './info-table.component.html',
   styleUrls: ['./info-table.component.scss']
 })
-export class InfoTableComponent implements OnInit {
+export class InfoTableComponent implements OnInit, OnChanges {
 
   displayedColumns: string[] = ['fos', 'projects', 'jobs', 'nodes', 'duration'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
@@ -57,11 +57,17 @@ export class InfoTableComponent implements OnInit {
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
+  @Input() public tableData : any;
+
   constructor() { }
 
   ngOnInit() {
-    this.dataSource.sort = this.sort;
+    this.dataSource.sort      = this.sort;
     this.dataSource.paginator = this.paginator;
   }
 
+  ngOnChanges( changes : SimpleChanges ) : void
+  {
+    // console.log( this.tableData );
+  }
 }

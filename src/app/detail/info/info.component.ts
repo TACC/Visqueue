@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label } from 'ng2-charts';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { InfoTableComponent } from './info-table/info-table.component';
 
 @Component({
     selector: 'app-info',
@@ -11,6 +12,8 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class InfoComponent implements OnInit
 {
+
+    @ViewChild( InfoTableComponent, { static : false } ) infotable;
 
     public fosByProjBarChartOptions : ChartOptions = 
     {
@@ -218,6 +221,7 @@ export class InfoComponent implements OnInit
     jobsTotal        : number;
     institutionTotal : number;
 
+    fosInfo : any;
 
     constructor(
         private apiService : ApiService,
@@ -233,22 +237,55 @@ export class InfoComponent implements OnInit
                 .subscribe( ( data : any ) =>
                 {
 
+
                     this.projectsTotal    = data.projectsCount;
                     this.jobsTotal        = data.jobsCount;
                     this.fosTotal         = data.fosCount;
                     this.institutionTotal = data.institutionCount;
 
+                    this.fosInfo = data.fosInfo;
+
+                    const fosByProjData  = [ ...this.fosInfo ];
+                    const fosByJobData   = [ ...this.fosInfo ];
+                    const fosByNodesData = [ ...this.fosInfo ];
+
+
+                    fosByProjData.sort( ( a, b ) =>
+                    {
+                        return ( a.values.projects > b.values.projects ) ? -1 : 1;
+                    });
+
                     for ( let index = 0; index < 10; index++ )
                     {
 
-                        this.fosByProjBarChartLabels.push( data.fosByProj[ index ].name );
-                        this.fosByProjBarChartData[0].data.push( data.fosByProj[ index ].value );
+                        this.fosByProjBarChartLabels.push( fosByProjData[ index ].name);
+                        this.fosByProjBarChartData[0].data.push( fosByProjData[ index ].values.projects );
 
-                        this.fosByJobBarChartLabels.push( data.fosByJob[ index ].name );
-                        this.fosByJobBarChartData[0].data.push( data.fosByJob[ index ].value );
+                    }
 
-                        this.fosByNodesBarChartLabels.push( data.fosByNodes[ index ].name );
-                        this.fosByNodesBarChartData[0].data.push( data.fosByNodes[ index ].value );
+                    fosByJobData.sort( ( a, b ) =>
+                    {
+                        return ( a.values.jobs > b.values.jobs ) ? -1 : 1;
+                    });
+
+                    for ( let index = 0; index < 10; index++ )
+                    {
+
+                        this.fosByJobBarChartLabels.push( fosByJobData[ index ].name);
+                        this.fosByJobBarChartData[0].data.push( fosByJobData[ index ].values.jobs );
+
+                    }
+
+                    fosByNodesData.sort( ( a, b ) =>
+                    {
+                        return ( a.values.nodes > b.values.nodes ) ? -1 : 1;
+                    });
+
+                    for ( let index = 0; index < 10; index++ )
+                    {
+
+                        this.fosByNodesBarChartLabels.push( fosByNodesData[ index ].name );
+                        this.fosByNodesBarChartData[0].data.push( fosByNodesData[ index ].values.nodes );
 
                     }
 

@@ -4,45 +4,11 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 
 export interface TableInfoElement {
-  fos: string;
+  name: string;
   projects: number;
   jobs: number;
   nodes: number;
-  duration: number;
 }
-
-const ELEMENT_DATA: TableInfoElement[] = [
-  { fos: 'Materials Research (DMR)', projects: 100, jobs: 10000, nodes: 10000, duration: 1000000 },
-  { fos: 'BioPhysics', projects: 200, jobs: 9000, nodes: 20000, duration: 900000 },
-  { fos: 'Fluid Dynamics', projects: 300, jobs: 8000, nodes: 30000, duration: 800000 },
-  { fos: 'Astronomical', projects: 400, jobs: 7000, nodes: 40000, duration: 700000 },
-  { fos: 'Physics', projects: 500, jobs: 6000, nodes: 50000, duration: 600000 },
-  { fos: 'Engineering', projects: 600, jobs: 5000, nodes: 60000, duration: 500000 },
-  { fos: 'Training', projects: 700, jobs: 4000, nodes: 70000, duration: 400000 },
-  { fos: 'Chemistry', projects: 800, jobs: 3000, nodes: 80000, duration: 300000 },
-  { fos: 'ASC', projects: 900, jobs: 2000, nodes: 90000, duration: 200000 },
-  { fos: 'Visualization', projects: 1000, jobs: 1000, nodes: 100000, duration: 100000 },
-  { fos: 'Materials Research (DMR)', projects: 100, jobs: 10000, nodes: 10000, duration: 1000000 },
-  { fos: 'BioPhysics', projects: 200, jobs: 9000, nodes: 20000, duration: 900000 },
-  { fos: 'Fluid Dynamics', projects: 300, jobs: 8000, nodes: 30000, duration: 800000 },
-  { fos: 'Astronomical', projects: 400, jobs: 7000, nodes: 40000, duration: 700000 },
-  { fos: 'Physics', projects: 500, jobs: 6000, nodes: 50000, duration: 600000 },
-  { fos: 'Engineering', projects: 600, jobs: 5000, nodes: 60000, duration: 500000 },
-  { fos: 'Training', projects: 700, jobs: 4000, nodes: 70000, duration: 400000 },
-  { fos: 'Chemistry', projects: 800, jobs: 3000, nodes: 80000, duration: 300000 },
-  { fos: 'ASC', projects: 900, jobs: 2000, nodes: 90000, duration: 200000 },
-  { fos: 'Visualization', projects: 1000, jobs: 1000, nodes: 100000, duration: 100000 },
-  { fos: 'Materials Research (DMR)', projects: 100, jobs: 10000, nodes: 10000, duration: 1000000 },
-  { fos: 'BioPhysics', projects: 200, jobs: 9000, nodes: 20000, duration: 900000 },
-  { fos: 'Fluid Dynamics', projects: 300, jobs: 8000, nodes: 30000, duration: 800000 },
-  { fos: 'Astronomical', projects: 400, jobs: 7000, nodes: 40000, duration: 700000 },
-  { fos: 'Physics', projects: 500, jobs: 6000, nodes: 50000, duration: 600000 },
-  { fos: 'Engineering', projects: 600, jobs: 5000, nodes: 60000, duration: 500000 },
-  { fos: 'Training', projects: 700, jobs: 4000, nodes: 70000, duration: 400000 },
-  { fos: 'Chemistry', projects: 800, jobs: 3000, nodes: 80000, duration: 300000 },
-  { fos: 'ASC', projects: 900, jobs: 2000, nodes: 90000, duration: 200000 },
-  { fos: 'Visualization', projects: 1000, jobs: 1000, nodes: 100000, duration: 100000 }
-];
 
 @Component({
   selector: 'app-info-table',
@@ -51,23 +17,25 @@ const ELEMENT_DATA: TableInfoElement[] = [
 })
 export class InfoTableComponent implements OnInit, OnChanges {
 
-  displayedColumns: string[] = ['fos', 'projects', 'jobs', 'nodes', 'duration'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  displayedColumns: string[] = ['name', 'projects', 'jobs', 'nodes'];
+  dataSource : MatTableDataSource<TableInfoElement>;
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
-  @Input() public tableData : any;
+  @Input() public tableData : TableInfoElement [];
 
   constructor() { }
 
   ngOnInit() {
-    this.dataSource.sort      = this.sort;
-    this.dataSource.paginator = this.paginator;
   }
 
   ngOnChanges( changes : SimpleChanges ) : void
   {
-    // console.log( this.tableData );
+
+    this.dataSource = new MatTableDataSource( this.tableData );
+    this.dataSource.sort      = this.sort;
+    this.dataSource.paginator = this.paginator;
+
   }
 }

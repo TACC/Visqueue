@@ -252,40 +252,40 @@ export class InfoComponent implements OnInit
 
                     fosByProjData.sort( ( a, b ) =>
                     {
-                        return ( a.values.projects > b.values.projects ) ? -1 : 1;
+                        return ( a.projects > b.projects ) ? -1 : 1;
                     });
 
                     for ( let index = 0; index < 10; index++ )
                     {
 
                         this.fosByProjBarChartLabels.push( fosByProjData[ index ].name);
-                        this.fosByProjBarChartData[0].data.push( fosByProjData[ index ].values.projects );
+                        this.fosByProjBarChartData[0].data.push( fosByProjData[ index ].projects );
 
                     }
 
                     fosByJobData.sort( ( a, b ) =>
                     {
-                        return ( a.values.jobs > b.values.jobs ) ? -1 : 1;
+                        return ( a.jobs > b.jobs ) ? -1 : 1;
                     });
 
                     for ( let index = 0; index < 10; index++ )
                     {
 
                         this.fosByJobBarChartLabels.push( fosByJobData[ index ].name);
-                        this.fosByJobBarChartData[0].data.push( fosByJobData[ index ].values.jobs );
+                        this.fosByJobBarChartData[0].data.push( fosByJobData[ index ].jobs );
 
                     }
 
                     fosByNodesData.sort( ( a, b ) =>
                     {
-                        return ( a.values.nodes > b.values.nodes ) ? -1 : 1;
+                        return ( a.nodes > b.nodes ) ? -1 : 1;
                     });
 
                     for ( let index = 0; index < 10; index++ )
                     {
 
                         this.fosByNodesBarChartLabels.push( fosByNodesData[ index ].name );
-                        this.fosByNodesBarChartData[0].data.push( fosByNodesData[ index ].values.nodes );
+                        this.fosByNodesBarChartData[0].data.push( fosByNodesData[ index ].nodes );
 
                     }
 

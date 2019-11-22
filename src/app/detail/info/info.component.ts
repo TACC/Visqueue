@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label } from 'ng2-charts';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
     selector: 'app-info',
@@ -217,34 +218,44 @@ export class InfoComponent implements OnInit
     jobsTotal        : number;
     institutionTotal : number;
 
-    constructor(private apiService : ApiService) { }
+
+    constructor(
+        private apiService : ApiService,
+        private route      : ActivatedRoute) { }
 
     ngOnInit()
     {
-        this.apiService.postInfo( 'stampede2' )
-            .subscribe( ( data : any ) =>
-            {
-                
-                this.projectsTotal    = data.projectsCount;
-                this.jobsTotal        = data.jobsCount;
-                this.fosTotal         = data.fosCount;
-                this.institutionTotal = data.institutionCount;
 
-                for ( let index = 0; index < 10; index++ )
+        this.route.paramMap.subscribe( (params : ParamMap ) =>
+        {
+
+            this.apiService.postInfo( params.get('name') )
+                .subscribe( ( data : any ) =>
                 {
 
-                    this.fosByProjBarChartLabels.push( data.fosByProj[ index ].name );
-                    this.fosByProjBarChartData[0].data.push( data.fosByProj[ index ].value );
+                    this.projectsTotal    = data.projectsCount;
+                    this.jobsTotal        = data.jobsCount;
+                    this.fosTotal         = data.fosCount;
+                    this.institutionTotal = data.institutionCount;
 
-                    this.fosByJobBarChartLabels.push( data.fosByJob[ index ].name );
-                    this.fosByJobBarChartData[0].data.push( data.fosByJob[ index ].value );
+                    for ( let index = 0; index < 10; index++ )
+                    {
 
-                    this.fosByNodesBarChartLabels.push( data.fosByNodes[ index ].name );
-                    this.fosByNodesBarChartData[0].data.push( data.fosByNodes[ index ].value );
+                        this.fosByProjBarChartLabels.push( data.fosByProj[ index ].name );
+                        this.fosByProjBarChartData[0].data.push( data.fosByProj[ index ].value );
 
-                }
+                        this.fosByJobBarChartLabels.push( data.fosByJob[ index ].name );
+                        this.fosByJobBarChartData[0].data.push( data.fosByJob[ index ].value );
 
-            } );
+                        this.fosByNodesBarChartLabels.push( data.fosByNodes[ index ].name );
+                        this.fosByNodesBarChartData[0].data.push( data.fosByNodes[ index ].value );
+
+                    }
+
+                } );
+
+            });
+
     }
 
 }

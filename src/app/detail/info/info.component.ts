@@ -4,6 +4,7 @@ import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label } from 'ng2-charts';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { InfoTableComponent } from './info-table/info-table.component';
+import { tileLayer, latLng } from 'leaflet';
 
 @Component({
     selector: 'app-info',
@@ -221,7 +222,8 @@ export class InfoComponent implements OnInit
     jobsTotal        : number;
     institutionTotal : number;
 
-    fosInfo : any;
+    fosTableData : any;
+    fosMapData   : any;
 
     constructor(
         private apiService : ApiService,
@@ -237,17 +239,17 @@ export class InfoComponent implements OnInit
                 .subscribe( ( data : any ) =>
                 {
 
-
                     this.projectsTotal    = data.projectsCount;
                     this.jobsTotal        = data.jobsCount;
                     this.fosTotal         = data.fosCount;
                     this.institutionTotal = data.institutionCount;
 
-                    this.fosInfo = data.fosInfo;
+                    this.fosTableData = data.fosInfo;
+                    this.fosMapData   = data.institutions;
 
-                    const fosByProjData  = [ ...this.fosInfo ];
-                    const fosByJobData   = [ ...this.fosInfo ];
-                    const fosByNodesData = [ ...this.fosInfo ];
+                    const fosByProjData  = [ ...this.fosTableData ];
+                    const fosByJobData   = [ ...this.fosTableData ];
+                    const fosByNodesData = [ ...this.fosTableData ];
 
 
                     fosByProjData.sort( ( a, b ) =>

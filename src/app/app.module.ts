@@ -7,6 +7,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 
 import { ChartsModule } from 'ng2-charts';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +21,8 @@ import { JobDurationPipe } from './job-duration.pipe';
 import { BarChartComponent } from './search/bar-chart/bar-chart.component';
 import { InfoComponent } from './detail/info/info.component';
 import { InfoTableComponent } from './detail/info/info-table/info-table.component';
+import { InfoMapComponent } from './detail/info/info-map/info-map.component';
+
 
 @NgModule({
   declarations: [
@@ -33,7 +36,8 @@ import { InfoTableComponent } from './detail/info/info-table/info-table.componen
     JobDurationPipe,
     BarChartComponent,
     InfoComponent,
-    InfoTableComponent
+    InfoTableComponent,
+    InfoMapComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +49,8 @@ import { InfoTableComponent } from './detail/info/info-table/info-table.componen
     ReactiveFormsModule,
     MatMomentDateModule,
     AngularMaterialModule,
-    ChartsModule
+    ChartsModule,
+    LeafletModule.forRoot()
   ],
   entryComponents: [DetailComponent, SunburstDialog],
   providers: [],

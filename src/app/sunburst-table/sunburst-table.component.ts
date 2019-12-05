@@ -50,8 +50,6 @@ export class SunburstTableComponent implements OnInit
 
                 let t_projectCount = 0;
 
-                console.log( data );
-
                 this.systemName = data.name;
 
                 for (const tFos of data.children)

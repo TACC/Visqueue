@@ -47,13 +47,6 @@ export class SunburstComponent implements OnInit, AfterViewInit
     private parent     : any;
 
     private circleText : any;
-    // private lowerText  : any;
-    // private bottomText : any;
-    // private floorText  : any;
-    // private upperText  : any;
-    // private topText    : any;
-
-    // private imageCenter : any;
 
     private formatNumbers = d3.format(',');
     private formatPercentage = d3.format('.0%');
@@ -235,7 +228,7 @@ export class SunburstComponent implements OnInit, AfterViewInit
                         .attr('d', d => this.arc( d.current ) )
                         .attr('id', ( d ) =>
                         {
-                            return d.data.name;
+                            return this.dataSrc +  d.data.name;
                         });
 
         // set the cursor to be a pointer on those arcs that are visible
@@ -310,7 +303,9 @@ export class SunburstComponent implements OnInit, AfterViewInit
             })
         .filter( ( d ) =>
         {
-            return +document.getElementById( d.data.name ).getAttribute( 'fill-opacity' ) || this.arcVisible( d.target );
+
+            return +document.getElementById( this.dataSrc + d.data.name ).getAttribute( 'fill-opacity' ) || this.arcVisible( d.target );
+
         })
             .attr('fill-opacity', d => this.arcVisible( d.target ) ? 1 : 0)
             .attrTween('d', d => () => this.arc( d.current ) );

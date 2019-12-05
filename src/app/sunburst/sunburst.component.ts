@@ -18,9 +18,14 @@ export class SunburstComponent implements OnInit, AfterViewInit
     @Input() dataSrc        : string;
     @Input() heightCont     : string;
 
+    @Input() showUpper      = false;
     @Input() showDialog     = false;
 
     @ViewChild('graphCont', { static : false } ) graphCont : ElementRef;
+
+    public fosCount    : number;
+    public jobCount    : number;
+    public utilization : number;
 
     private partition : any;
     private arc       : any;
@@ -42,13 +47,13 @@ export class SunburstComponent implements OnInit, AfterViewInit
     private parent     : any;
 
     private circleText : any;
-    private lowerText  : any;
-    private bottomText : any;
-    private floorText  : any;
-    private upperText  : any;
-    private topText    : any;
+    // private lowerText  : any;
+    // private bottomText : any;
+    // private floorText  : any;
+    // private upperText  : any;
+    // private topText    : any;
 
-    private imageCenter : any;
+    // private imageCenter : any;
 
     private formatNumbers = d3.format(',');
     private formatPercentage = d3.format('.0%');
@@ -170,7 +175,6 @@ export class SunburstComponent implements OnInit, AfterViewInit
         // set svg member variable to be the new svg object that is appended
         // to the HTML element based off the values passed in to the constructor
         // while also setting the viewbox
-        // this.svg = d3.select( '#' + this.id + ' div.graphContainer')
         this.svg = d3.select( this.graphCont.nativeElement )
                         .append( 'svg' )
                         .attr('height', this.heightCont )
@@ -190,43 +194,23 @@ export class SunburstComponent implements OnInit, AfterViewInit
                                     .style('fill', '#767f84')
                                     .style('font-size', '1.2em');
 
+        this.circleText.selectAll('*').remove();
 
-        // add a tspan element to write text in the lower part of the sunburst
-        this.lowerText = this.circleText.append('tspan')
-                                .attr('x', 0)
-                                .attr('y', '4em')
-                                .attr('id', 'lower');
-
-        this.bottomText = this.circleText.append('tspan')
-                                .attr('x', 0)
-                                .attr('y', '5.5em')
-                                .attr('id', 'bottom');
-
-        this.floorText  = this.circleText.append('tspan')
-                                .attr('x', 0)
-                                .attr('y', '7em')
-                                .attr('id', 'bottom');
-
-        // add a tspan element to write text in the upper part of the sunburst
-        this.upperText = this.circleText.append('tspan')
-                                .attr('x', 0)
-                                .attr('y', '2.5em')
-                                .attr('id', 'upper')
-                                .attr('font-weight', 'bold');
+        this.circleText.append('tspan')
+                       .attr( 'x', 0 )
+                       .attr( 'y', '-0.75em')
+                       .text('Select a color to explore');
+        
+        this.circleText.append('tspan')
+                       .attr( 'x', 0 )
+                       .attr( 'y', '0.75em')
+                       .text('a field of science');
 
 
-        // add a tspan element to write text in the middle of the sunburst
-        this.topText = this.circleText.append('tspan')
-                                .attr('x', 0)
-                                .attr('y', '1em')
-                                .attr('id', 'middle')
-                                .attr('font-weight', 'bold');
+        this.fosCount    = this.root.children.length;
+        this.jobCount    = this.root.copy().count().value;
+        this.utilization = this.root.data.load;
 
-        this.lowerText.text( this.formatNumbers( this.root.children.length ) + ' fields of science' );
-
-        this.bottomText.text( this.formatNumbers( this.root.copy().count().value ) + ' jobs' );
-
-        this.floorText.text( this.formatPercentage( this.root.data.load ) );
 
         // render the sunburst usind the data from the root object and
         // choose to only render those arcs that are one level below
@@ -259,12 +243,6 @@ export class SunburstComponent implements OnInit, AfterViewInit
         this.path.filter( d => d.children )
                     .style( 'cursor', 'pointer' )
                     .on('click', ( d ) => this.clickHandler( d ) );
-
-        this.imageCenter = this.g.append('svg:image')
-                                .attr('xlink:href', `../assets/images/${this.dataSrc}.png`)
-                                .attr('transform', `translate(-${ this.viewboxWidth / 4},-${ this.viewboxHeight / 3 })`)
-                                .attr('height', '250' )
-                                .attr('width', '250'  );
 
         // set the current parent object to equal the current node
         // that is the root of the sunburst
@@ -337,74 +315,66 @@ export class SunburstComponent implements OnInit, AfterViewInit
             .attr('fill-opacity', d => this.arcVisible( d.target ) ? 1 : 0)
             .attrTween('d', d => () => this.arc( d.current ) );
 
-        let titleText = { upper : '', middle : '' };
-
+        this.circleText.selectAll('*').remove();
+        
         if( p.depth > 0 )
         {
             // calculate where text should be placed if title is too long
-            titleText = this.calculateText( p.data.name );
+            let titleText = this.calculateText( p.data.name );
 
-            // transition the lower text of the inside of the arc to the new lower text
-            this.floorText.transition()
-                .duration( 750 )
-                .style('opacity', 0)
-                .transition()
-                .duration( 750 )
-                .style('opacity', 1)
-                .text( );
+            if( titleText.lower )
+            {
 
+                this.circleText.append('tspan')
+                .attr('x', 0 )
+                .attr('y', '-1.5em')
+                .text( titleText.upper );
+    
+                this.circleText.append('tspan')
+                .attr( 'x', 0 )
+                .attr( 'y', '0em' )
+                .text( titleText.lower );
+
+                this.circleText.append('tspan')
+                .attr( 'x', 0 )
+                .attr( 'y', '1.5em' )
+                .style('fill', '#282828')
+                .style('font-size', '0.7em')
+                .text( p.children.length + ' Projects | ' + p.copy().count().value + ' Jobs' );
+
+
+            }
+
+            else
+            {
+                this.circleText.append('tspan')
+                .attr('x', 0 )
+                .attr('y', '-1.5em')
+                .text( titleText.upper );
+
+                this.circleText.append('tspan')
+                .attr( 'x', 0 )
+                .attr( 'y', '0em' )
+                .style('fill', '#282828')
+                .style('font-size', '0.7em')
+                .text( p.children.length + ' Projects | ' + p.copy().count().value + ' Jobs' );
+            }
+            
         }
         else
-        {
-            // transition the lower text of the inside of the arc to the new lower text
-            this.floorText.transition()
-                .duration( 750 )
-                .style('opacity', 0)
-                .transition()
-                .duration( 750 )
-                .style('opacity', 1)
-                .text( this.formatPercentage( this.root.data.load ) );
+        {            
+            
+            this.circleText.append('tspan')
+                .attr('x', 0 )
+                .attr('y', '-0.75em')
+                .text('Select a color to explore');
+    
+            this.circleText.append('tspan')
+                .attr( 'x', 0 )
+                .attr( 'y', '0.75em')
+                .text('a field of science');
+
         }
-
-        // transition the middle text of the inside of the arc to the new middle text
-        this.topText.transition()
-                       .duration( 750 )
-                       .style('opacity', 0)
-                       .transition()
-                       .duration(750)
-                       .style('opacity', 1)
-                       .text( titleText.upper );
-
-        // transition the upper text of the inside of the arc to the new upper text
-        this.upperText.transition()
-                       .duration( 750 )
-                       .style('opacity', 0)
-                       .transition()
-                       .duration( 750 )
-                       .style('opacity', 1)
-                       .text( titleText.middle );
-
-
-
-        const lowerTextString = this.formatNumbers( p.children.length );
-
-        // transition the lower text of the inside of the arc to the new lower text
-        this.lowerText.transition()
-                       .duration( 750 )
-                       .style('opacity', 0)
-                       .transition()
-                       .duration( 750 )
-                       .style('opacity', 1)
-                       .text( lowerTextString + ( p.depth == 0 ? ' fields of science' : ' projects' ) );
-
-        // transition the lower text of the inside of the arc to the new lower text
-        this.bottomText.transition()
-                       .duration( 750 )
-                       .style('opacity', 0)
-                       .transition()
-                       .duration( 750 )
-                       .style('opacity', 1)
-                       .text( this.formatNumbers( p.copy().count().value ) + ' jobs' );
 
         this.currentArc = p;
 
@@ -420,7 +390,7 @@ export class SunburstComponent implements OnInit, AfterViewInit
      */
     calculateText( text )
     {
-        const result = { upper : '', middle : '' };
+        const result = { upper : '', lower : '' };
 
         if( text.length < 25 )
         {
@@ -436,7 +406,7 @@ export class SunburstComponent implements OnInit, AfterViewInit
 
                 if( result.upper.length >= 25 || newUpperSize >= 25 )
                 {
-                    result.middle += ' ' + iterator;
+                    result.lower += ' ' + iterator;
                 }
                 else
                 {

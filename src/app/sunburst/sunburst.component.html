@@ -1,6 +1,15 @@
-<div class="graphCont" #graphCont></div>
-<div class="timestamp">
-    <h3 class="mat-h3">
-        Timestamp : {{ timestamp }}
-    </h3>
+<div *ngIf="showUpper" id="upperContainer" fxLayout="row" fxLayoutAlign="space-around center">
+
+    <img src="../assets/images/{{ dataSrc }}.png" alt="System Logo for {{ dataSrc }}">
+
+    <div id="dataContainer" class="mat-small" fxLayout="row" fxLayoutAlign="space-around center">
+        {{ fosCount }} Fields of Science | {{ jobCount }} Jobs | {{ utilization | percent }} Utilization
+    </div>
+
+    <a id="exploreLink" class="mat-body" mat-stroked-button routerLink="/detail/{{ dataSrc }}"> Explore More {{dataSrc}} ></a>
+
 </div>
+
+<mat-divider></mat-divider>
+
+<div class="graphCont" #graphCont></div>

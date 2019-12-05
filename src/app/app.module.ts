@@ -12,16 +12,17 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SunburstComponent, SunburstDialog } from './sunburst/sunburst.component';
-import { HomepageComponent } from './homepage/homepage.component';
-import { SunburstTableComponent } from './sunburst-table/sunburst-table.component';
-import { AngularMaterialModule } from './shared/angular-material/angular-material.module';
-import { DetailComponent } from './detail/detail.component';
-import { SearchComponent } from './search/search.component';
-import { JobDurationPipe } from './job-duration.pipe';
-import { BarChartComponent } from './search/bar-chart/bar-chart.component';
-import { InfoComponent } from './detail/info/info.component';
-import { InfoTableComponent } from './detail/info/info-table/info-table.component';
-import { InfoMapComponent } from './detail/info/info-map/info-map.component';
+import { HomepageComponent }       from './homepage/homepage.component';
+import { SunburstTableComponent }  from './sunburst-table/sunburst-table.component';
+import { AngularMaterialModule }   from './shared/angular-material/angular-material.module';
+import { DetailComponent }         from './detail/detail.component';
+import { SearchComponent }         from './search/search.component';
+import { JobDurationPipe }         from './job-duration.pipe';
+import { BarChartComponent }       from './search/bar-chart/bar-chart.component';
+import { InfoComponent }           from './detail/info/info.component';
+import { InfoTableComponent }      from './detail/info/info-table/info-table.component';
+import { InfoMapComponent }        from './detail/info/info-map/info-map.component';
+import { SunburstDialogComponent } from './sunburst-dialog/sunburst-dialog.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { InfoMapComponent } from './detail/info/info-map/info-map.component';
     BarChartComponent,
     InfoComponent,
     InfoTableComponent,
-    InfoMapComponent
+    InfoMapComponent,
+    SunburstDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +54,7 @@ import { InfoMapComponent } from './detail/info/info-map/info-map.component';
     ChartsModule,
     LeafletModule.forRoot()
   ],
-  entryComponents: [DetailComponent, SunburstDialog],
+  entryComponents: [ DetailComponent, SunburstDialog, SunburstDialogComponent ],
   providers: [],
   bootstrap: [ AppComponent ]
 })

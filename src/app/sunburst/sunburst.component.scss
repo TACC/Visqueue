@@ -2,3 +2,25 @@ p, h3
 {
     text-align: center;
 }
+
+img 
+{
+    width  : auto;
+    height : 5vh;
+}
+
+mat-divider
+{
+    border-top-color: rgba(0, 0, 0, 0.4);
+}
+
+div#upperContainer
+{
+    padding: 10px 0px;
+}
+
+a#exploreLink
+{
+    background-color: #f4f4f4;
+    font-weight: normal;
+}

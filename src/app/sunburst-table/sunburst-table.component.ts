@@ -3,6 +3,8 @@ import { SunburstService } from '../sunburst.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { ActivatedRoute } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { SunburstDialogComponent } from '../sunburst-dialog/sunburst-dialog.component';
 
 
 @Component({
@@ -17,16 +19,20 @@ export class SunburstTableComponent implements OnInit
 
     @Input() dataSrc: string;
     @Input() searchActive : boolean;
+    @Input() heightCont : string;
+
+    projectCount : number;
+    systemName : string;
 
     @ViewChild( MatSort, { static: true } ) sort: MatSort;
 
-    private systemName : string;
 
-    displayedColumns: string[] = ['name', 'science', 'institution', 'jobs', 'nodes'];
+    displayedColumns: string[] = [ 'institution', 'science', 'jobs', 'nodes', 'description' ];
 
 
     constructor( private sunburstService : SunburstService,
-                 private route           : ActivatedRoute ) { }
+                 private route           : ActivatedRoute,
+                 private dialog          : MatDialog ) { }
 
     ngOnInit()
     {
@@ -42,6 +48,10 @@ export class SunburstTableComponent implements OnInit
 
                 const result = [];
 
+                let t_projectCount = 0;
+
+                console.log( data );
+
                 this.systemName = data.name;
 
                 for (const tFos of data.children)
@@ -53,11 +63,13 @@ export class SunburstTableComponent implements OnInit
 
                         const newProject =
                         {
-                            name: tProject.name,
-                            science: tFos.name,
-                            institution: tProject.pi_institution,
-                            jobs: 0,
-                            nodes: 0
+                            name        : tProject.name,
+                            science     : tFos.name,
+                            institution : tProject.pi_institution,
+                            pi          : tProject.principal_investigator,
+                            description : tProject.project_abstract,
+                            jobs        : 0,
+                            nodes       : 0
                         };
 
                         for (const tJob of tProject.children)
@@ -68,9 +80,12 @@ export class SunburstTableComponent implements OnInit
 
                         }
 
+                        t_projectCount++;
                         result.push(newProject);
                     }
                 }
+
+                this.projectCount = t_projectCount;
 
                 this.dataSource = new MatTableDataSource(result);
                 this.dataSource.sort = this.sort;
@@ -89,5 +104,15 @@ export class SunburstTableComponent implements OnInit
     searchFilter( searchValue : string )
     {
         this.dataSource.filter = searchValue.trim().toLowerCase();
+    }
+
+    showDescription( element : any )
+    {
+
+        this.dialog.open( SunburstDialogComponent, 
+        {
+            width : '50vw',
+            data  : element
+        });
     }
 }

@@ -2,41 +2,46 @@
     <input matInput (keyup)="searchFilter($event.target.value)" placeholder="Search">
 </mat-form-field>
 
-<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z2">
-    <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
+<p> All {{systemName}} Research Projects ({{ projectCount }})</p>
 
-    <!-- Science Column -->
-    <ng-container matColumnDef="science">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Domain Science </th>
-        <td mat-cell *matCellDef="let element" (click)="cellClick( element, 'science' )"> {{ element.science }} </td>
-    </ng-container>
+<div id="tableContainer" [style.height]="heightCont">
     
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Project Name </th>
-        <td mat-cell *matCellDef="let element" (click)="cellClick( element, 'name' )"> {{ element.name }} </td>
-    </ng-container>
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z2">
+        <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+    
+        <!-- Science Column -->
+        <ng-container matColumnDef="science">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Domain Science </th>
+            <td mat-cell *matCellDef="let element" (click)="cellClick( element, 'science' )"> {{ element.science }} </td>
+        </ng-container>
+    
+        <!-- Institution Column -->
+        <ng-container matColumnDef="institution">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Institution </th>
+            <td mat-cell *matCellDef="let element"> {{ element.institution }} </td>
+        </ng-container>
+    
+        <!-- Jobs Column -->
+        <ng-container matColumnDef="jobs">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Jobs </th>
+            <td mat-cell *matCellDef="let element"> {{ element.jobs }} </td>
+        </ng-container>
+    
+        <!-- Nodes Column -->
+        <ng-container matColumnDef="nodes">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Nodes </th>
+            <td mat-cell *matCellDef="let element"> {{ element.nodes }} </td>
+        </ng-container>
 
+        <!-- Description Column -->
+        <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Project Description </th>
+            <td mat-cell *matCellDef="let element"> <a [routerLink]="" (click)="showDescription( element )">View Description</a> </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky : true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
 
-    <!-- Institution Column -->
-    <ng-container matColumnDef="institution">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Institution </th>
-        <td mat-cell *matCellDef="let element"> {{ element.institution }} </td>
-    </ng-container>
-
-    <!-- Jobs Column -->
-    <ng-container matColumnDef="jobs">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Jobs </th>
-        <td mat-cell *matCellDef="let element"> {{ element.jobs }} </td>
-    </ng-container>
-
-    <!-- Nodes Column -->
-    <ng-container matColumnDef="nodes">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nodes </th>
-        <td mat-cell *matCellDef="let element"> {{ element.nodes }} </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky : true"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+</div>

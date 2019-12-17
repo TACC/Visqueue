@@ -23,6 +23,8 @@ import { InfoComponent }           from './detail/info/info.component';
 import { InfoTableComponent }      from './detail/info/info-table/info-table.component';
 import { InfoMapComponent }        from './detail/info/info-map/info-map.component';
 import { SunburstDialogComponent } from './sunburst-dialog/sunburst-dialog.component';
+import { ToolbarComponent } from './shared/toolbar/toolbar.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 
 @NgModule({
@@ -39,12 +41,13 @@ import { SunburstDialogComponent } from './sunburst-dialog/sunburst-dialog.compo
     InfoComponent,
     InfoTableComponent,
     InfoMapComponent,
-    SunburstDialogComponent
+    SunburstDialogComponent,
+    ToolbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
     FormsModule,
@@ -52,7 +55,8 @@ import { SunburstDialogComponent } from './sunburst-dialog/sunburst-dialog.compo
     MatMomentDateModule,
     AngularMaterialModule,
     ChartsModule,
-    LeafletModule.forRoot()
+    LeafletModule.forRoot(),
+    AppRoutingModule
   ],
   entryComponents: [ DetailComponent, SunburstDialog, SunburstDialogComponent ],
   providers: [],

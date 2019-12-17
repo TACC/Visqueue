@@ -1,0 +1,21 @@
+mat-toolbar
+{
+    background: #5d5d60;
+    color: #fbf8f8;
+    padding: 0px 50px;
+}
+
+mat-toolbar > *
+{
+    padding: 0px 40px;
+}
+
+span.fill-space
+{
+    flex: 1 1 auto;
+}
+
+.toolbar-buttons
+{
+    font : 500 20px/32px Roboto,"Helvetica Neue",sans-serif;
+}

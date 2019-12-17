@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit, Input, ElementRef, ViewChild, Inject } from '@angular/core';
 
 import * as d3 from 'd3';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { SunburstService } from '../sunburst.service';
 
@@ -54,6 +54,7 @@ export class SunburstComponent implements OnInit, AfterViewInit
     public timestamp : string;
 
     constructor(
+            private router : Router,
             private route  : ActivatedRoute,
             private dialog : MatDialog,
             private sunburstService : SunburstService
@@ -113,6 +114,9 @@ export class SunburstComponent implements OnInit, AfterViewInit
                 }
             }
         });
+
+        this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+
     }
 
     ngAfterViewInit(): void

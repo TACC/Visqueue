@@ -257,7 +257,7 @@ export class SunburstComponent implements OnInit, AfterViewInit
      * @param  p         - single arc that was selected
      * @param  thisRef   - reference to current class
      * @description function to handle when an arc has been clicked
-     * @memberof SCWAT
+     * @memberof Visqueue
      */
     clickHandler( p )
     {
@@ -385,7 +385,7 @@ export class SunburstComponent implements OnInit, AfterViewInit
      * @function calculateText
      * @param text 
      * @description calculates if text should go inside the upper or middle tspan of the sunburst and returns resulting object
-     * @memberof SCWAT
+     * @memberof Visqueue
      */
     calculateText( text )
     {
@@ -425,7 +425,7 @@ export class SunburstComponent implements OnInit, AfterViewInit
      * @param {object} d - single arc object
      * @returns boolean
      * @description calculates if an arc is visible or not and returns true or false
-     * @memberof SCWAT
+     * @memberof Visqueue
      */
     arcVisible( d )
     {

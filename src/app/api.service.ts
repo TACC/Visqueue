@@ -16,6 +16,8 @@ export class ApiService
     private searchJobs = '/jobs/search';
     private systemInfo = '/info';
 
+    private nodes  = '/nodes';
+
     constructor( private http : HttpClient ) { }
 
     jobsGetRecent( system : string ) : Observable<Job[]>
@@ -33,5 +35,10 @@ export class ApiService
     postInfo( system : string )
     {
         return this.http.post( this.url + this.systemInfo, { system } );
+    }
+
+    getNodes(  )
+    {
+        return this.http.get( this.url + this.nodes );
     }
 }

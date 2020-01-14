@@ -1,0 +1,19 @@
+.rack
+{
+    text-align: center;
+    width: 40px;
+    height: 75px;
+    background: rgba(49, 204, 101, 0.644);
+}
+
+.rack:hover
+{
+    background: rgb(207, 209, 93);
+    transition: background .2s;
+    cursor: pointer;
+}
+
+.rackContainer
+{
+    padding-top: 50px;
+}

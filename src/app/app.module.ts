@@ -25,6 +25,7 @@ import { InfoMapComponent }        from './detail/info/info-map/info-map.compone
 import { SunburstDialogComponent } from './sunburst-dialog/sunburst-dialog.component';
 import { ToolbarComponent } from './shared/toolbar/toolbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { NodelifeComponent } from './nodelife/nodelife.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { FooterComponent } from './shared/footer/footer.component';
     InfoMapComponent,
     SunburstDialogComponent,
     ToolbarComponent,
-    FooterComponent
+    FooterComponent,
+    NodelifeComponent
   ],
   imports: [
     BrowserModule,

@@ -16,7 +16,8 @@ export class ApiService
     private searchJobs = '/jobs/search';
     private systemInfo = '/info';
 
-    private nodes  = '/nodes';
+    private nodes     = '/nodes';
+    private nodesInfo = '/nodes/info';
 
     constructor( private http : HttpClient ) { }
 
@@ -40,5 +41,12 @@ export class ApiService
     getNodes(  )
     {
         return this.http.get( this.url + this.nodes );
+    }
+
+    getNodeInfo( node : string )
+    {
+        let params = new HttpParams();
+        params = params.set( 'node', node );
+        return this.http.get( this.url + this.nodesInfo, { params : params } );
     }
 }

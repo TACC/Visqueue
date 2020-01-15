@@ -8,6 +8,8 @@ import { ApiService } from 'src/app/api.service';
 })
 export class NodelifeComponent implements OnInit {
 
+    private nodeData = [];
+
     constructor(private apiService: ApiService) { }
 
     ngOnInit() 
@@ -15,8 +17,38 @@ export class NodelifeComponent implements OnInit {
         this.apiService.getNodes( )
         .subscribe( ( data : any ) =>
         {
-            console.log( data );
+
+            this.nodeData = data;
+
         });
+    }
+
+    clickRack( event : Event)
+    {
+        let elementID = ( event.target as Element).id;
+
+        let rack;
+
+        for( let i = 0; i < this.nodeData.length; i++ )
+        {
+
+            let r = this.nodeData[ i ];
+
+            if( r[ '_id' ] == elementID )
+            {
+                rack = r;
+                break;
+            }
+        }
+
+        let node = rack[ 'nodes' ][0][ 'name' ];
+
+        this.apiService.getNodeInfo( node )
+            .subscribe( ( data : any ) =>
+            {
+                console.log( data );
+            });
+
     }
 
 

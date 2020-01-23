@@ -21,7 +21,7 @@ export class InfoComponent implements OnInit
         title : 
         { 
             display : true,
-            text    : 'Top 10 Field of Sciences by # of Projects'
+            text    : 'Primary Field of Sciences by # of Projects'
         },
         responsive : true,
         // We use these empty structures as placeholders for dynamic theming.
@@ -48,7 +48,7 @@ export class InfoComponent implements OnInit
         title : 
         { 
             display : true,
-            text    : 'Top 10 Field of Sciences by # of Jobs'
+            text    : 'Primary Field of Sciences by # of Jobs'
         },
         responsive : true,
         // We use these empty structures as placeholders for dynamic theming.
@@ -74,7 +74,7 @@ export class InfoComponent implements OnInit
         title : 
         { 
             display : true,
-            text    : 'Top 10 Field of Sciences by # of Nodes'
+            text    : 'Primary Field of Sciences by # of Nodes'
         },
         responsive : true,
         // We use these empty structures as placeholders for dynamic theming.
@@ -216,13 +216,12 @@ export class InfoComponent implements OnInit
                 .subscribe( ( data : any ) =>
                 {
 
-                    console.log( data );
-
                     this.jobsTotal        = data.jobs_total;
                     this.projectsTotal    = data.proj_total;
                     this.institutionTotal = data.inst_total;
 
-                    this.fosMapData   = data.institutions;
+                    this.fosTableData = data.proj_info;
+                    // this.fosMapData   = data.institutions;
 
                     const fosByProjData  = [ ...data.fos_info ];
                     const fosByJobData   = [ ...data.fos_info ];

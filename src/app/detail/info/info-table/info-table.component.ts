@@ -17,7 +17,7 @@ export interface TableInfoElement {
 })
 export class InfoTableComponent implements OnInit, OnChanges {
 
-  displayedColumns: string[] = ['name', 'projects', 'jobs', 'nodes'];
+  displayedColumns: string[] = ['name', 'fos', 'jobs', 'nodes'];
   dataSource : MatTableDataSource<TableInfoElement>;
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;
@@ -32,6 +32,7 @@ export class InfoTableComponent implements OnInit, OnChanges {
 
   ngOnChanges( changes : SimpleChanges ) : void
   {
+    console.log( this.tableData );
 
     this.dataSource = new MatTableDataSource( this.tableData );
     this.dataSource.sort      = this.sort;

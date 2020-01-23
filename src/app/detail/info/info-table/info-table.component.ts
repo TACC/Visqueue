@@ -32,8 +32,6 @@ export class InfoTableComponent implements OnInit, OnChanges {
 
   ngOnChanges( changes : SimpleChanges ) : void
   {
-    console.log( this.tableData );
-
     this.dataSource = new MatTableDataSource( this.tableData );
     this.dataSource.sort      = this.sort;
     this.dataSource.paginator = this.paginator;

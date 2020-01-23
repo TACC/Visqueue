@@ -151,8 +151,7 @@ export class InfoComponent implements OnInit
                 'rgba(237,201,72, 0.8)',
                 'rgba(175,122,161, 0.8)',
                 'rgba(242,156,166, 0.8)',
-                'rgba(156,117,95, 0.8)',
-                'rgba(186,176,171, 0.8)'
+                'rgba(156,117,95, 0.8)'
             ]
         }
     ];
@@ -171,8 +170,7 @@ export class InfoComponent implements OnInit
                 'rgba(237,201,72, 0.8)',
                 'rgba(175,122,161, 0.8)',
                 'rgba(242,156,166, 0.8)',
-                'rgba(156,117,95, 0.8)',
-                'rgba(186,176,171, 0.8)'
+                'rgba(156,117,95, 0.8)'
             ]
         }
     ];
@@ -191,28 +189,7 @@ export class InfoComponent implements OnInit
                 'rgba(237,201,72, 0.8)',
                 'rgba(175,122,161, 0.8)',
                 'rgba(242,156,166, 0.8)',
-                'rgba(156,117,95, 0.8)',
-                'rgba(186,176,171, 0.8)'
-            ]
-        }
-    ];
-
-    public fosByDurationBarChartData: ChartDataSets[] = [
-        {
-            label : 'Duration',
-            data : [],
-            backgroundColor :
-            [
-                'rgba(77,121,168, 0.8)',
-                'rgba(242, 142, 48, 0.8)',
-                'rgba(225,87,88, 0.8)',
-                'rgba(118,183,178, 0.8)',
-                'rgba(89,161,78, 0.8)',
-                'rgba(237,201,72, 0.8)',
-                'rgba(175,122,161, 0.8)',
-                'rgba(242,156,166, 0.8)',
-                'rgba(156,117,95, 0.8)',
-                'rgba(186,176,171, 0.8)'
+                'rgba(156,117,95, 0.8)'
             ]
         }
     ];
@@ -239,55 +216,55 @@ export class InfoComponent implements OnInit
                 .subscribe( ( data : any ) =>
                 {
 
-                    this.projectsTotal    = data.projectsCount;
-                    this.jobsTotal        = data.jobsCount;
-                    this.fosTotal         = data.fosCount;
-                    this.institutionTotal = data.institutionCount;
+                    console.log( data );
 
-                    this.fosTableData = data.fosInfo;
+                    this.jobsTotal        = data.jobs_total;
+                    this.projectsTotal    = data.proj_total;
+                    this.institutionTotal = data.inst_total;
+
                     this.fosMapData   = data.institutions;
 
-                    const fosByProjData  = [ ...this.fosTableData ];
-                    const fosByJobData   = [ ...this.fosTableData ];
-                    const fosByNodesData = [ ...this.fosTableData ];
+                    const fosByProjData  = [ ...data.fos_info ];
+                    const fosByJobData   = [ ...data.fos_info ];
+                    const fosByNodesData = [ ...data.fos_info ];
 
 
                     fosByProjData.sort( ( a, b ) =>
                     {
-                        return ( a.projects > b.projects ) ? -1 : 1;
+                        return ( a.proj_total > b.proj_total ) ? -1 : 1;
                     });
 
-                    for ( let index = 0; index < 10; index++ )
+                    for ( let index = 0; index < fosByProjData.length; index++ )
                     {
 
-                        this.fosByProjBarChartLabels.push( fosByProjData[ index ].name);
-                        this.fosByProjBarChartData[0].data.push( fosByProjData[ index ].projects );
+                        this.fosByProjBarChartLabels.push( fosByProjData[ index ].fos );
+                        this.fosByProjBarChartData[0].data.push( fosByProjData[ index ].proj_total );
 
                     }
 
                     fosByJobData.sort( ( a, b ) =>
                     {
-                        return ( a.jobs > b.jobs ) ? -1 : 1;
+                        return ( a.jobs_total > b.jobs_total ) ? -1 : 1;
                     });
 
-                    for ( let index = 0; index < 10; index++ )
+                    for ( let index = 0; index < fosByJobData.length; index++ )
                     {
 
-                        this.fosByJobBarChartLabels.push( fosByJobData[ index ].name);
-                        this.fosByJobBarChartData[0].data.push( fosByJobData[ index ].jobs );
+                        this.fosByJobBarChartLabels.push( fosByJobData[ index ].fos );
+                        this.fosByJobBarChartData[0].data.push( fosByJobData[ index ].jobs_total );
 
                     }
 
                     fosByNodesData.sort( ( a, b ) =>
                     {
-                        return ( a.nodes > b.nodes ) ? -1 : 1;
+                        return ( a.nodes_total > b.nodes_total ) ? -1 : 1;
                     });
 
-                    for ( let index = 0; index < 10; index++ )
+                    for ( let index = 0; index < fosByNodesData.length; index++ )
                     {
 
-                        this.fosByNodesBarChartLabels.push( fosByNodesData[ index ].name );
-                        this.fosByNodesBarChartData[0].data.push( fosByNodesData[ index ].nodes );
+                        this.fosByNodesBarChartLabels.push( fosByNodesData[ index ].fos );
+                        this.fosByNodesBarChartData[0].data.push( fosByNodesData[ index ].nodes_total );
 
                     }
 

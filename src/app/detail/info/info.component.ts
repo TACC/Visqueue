@@ -216,12 +216,13 @@ export class InfoComponent implements OnInit
                 .subscribe( ( data : any ) =>
                 {
 
+
                     this.jobsTotal        = data.jobs_total;
                     this.projectsTotal    = data.proj_total;
                     this.institutionTotal = data.inst_total;
 
                     this.fosTableData = data.proj_info;
-                    // this.fosMapData   = data.institutions;
+                    this.fosMapData   = data.inst_info;
 
                     const fosByProjData  = [ ...data.fos_info ];
                     const fosByJobData   = [ ...data.fos_info ];

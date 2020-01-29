@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
     selector: 'app-nodelife',
@@ -8,46 +9,35 @@ import { ApiService } from 'src/app/api.service';
 })
 export class NodelifeComponent implements OnInit {
 
+    private rackData = [];
+
     private nodeData = [];
 
-    constructor(private apiService: ApiService) { }
+    constructor(
+        private route      : ActivatedRoute,
+        private apiService : ApiService) { }
 
     ngOnInit() 
     {
-        this.apiService.getNodes( )
-        .subscribe( ( data : any ) =>
+
+        this.route.paramMap.subscribe( ( params : ParamMap ) =>
         {
-
-            this.nodeData = data;
-
+            this.apiService.getNodes( params.get('name') )
+                .subscribe( ( data : any ) =>
+                {
+                    console.log( data );
+                });
         });
+
+
     }
 
     clickRack( event : Event)
     {
         let elementID = ( event.target as Element).id;
 
-        let rack;
+        console.log( elementID );
 
-        for( let i = 0; i < this.nodeData.length; i++ )
-        {
-
-            let r = this.nodeData[ i ];
-
-            if( r[ '_id' ] == elementID )
-            {
-                rack = r;
-                break;
-            }
-        }
-
-        let node = rack[ 'nodes' ][0][ 'name' ];
-
-        this.apiService.getNodeInfo( node )
-            .subscribe( ( data : any ) =>
-            {
-                console.log( data );
-            });
 
     }
 

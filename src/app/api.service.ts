@@ -38,15 +38,11 @@ export class ApiService
         return this.http.post( this.url + this.systemInfo, { system } );
     }
 
-    getNodes(  )
-    {
-        return this.http.get( this.url + this.nodes );
-    }
-
-    getNodeInfo( node : string )
+    getNodes( system : string )
     {
         let params = new HttpParams();
-        params = params.set( 'node', node );
-        return this.http.get( this.url + this.nodesInfo, { params : params } );
+        params = params.set( 'system', system );
+        return this.http.get( this.url + this.nodes, { params : params } );
     }
+
 }

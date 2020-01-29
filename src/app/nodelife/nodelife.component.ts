@@ -9,7 +9,10 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class NodelifeComponent implements OnInit {
 
-    private rackData = [];
+    private rackData = [ { name : 'rack1' }, { name : 'rack2' } ];
+    private numrows : number;
+    private numCols : number;
+
 
     private nodeData = [];
 
@@ -25,10 +28,9 @@ export class NodelifeComponent implements OnInit {
             this.apiService.getNodes( params.get('name') )
                 .subscribe( ( data : any ) =>
                 {
-                    console.log( data );
+                    this.rackData = data;
                 });
         });
-
 
     }
 

@@ -10,9 +10,6 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 export class NodelifeComponent implements OnInit {
 
     private rackData = [ { name : 'rack1' }, { name : 'rack2' } ];
-    private numrows : number;
-    private numCols : number;
-
 
     private nodeData = [];
 
@@ -34,12 +31,10 @@ export class NodelifeComponent implements OnInit {
 
     }
 
-    clickRack( event : Event)
+    clickRack( rack : any )
     {
-        let elementID = ( event.target as Element).id;
 
-        console.log( elementID );
-
+        console.log( rack );
 
     }
 

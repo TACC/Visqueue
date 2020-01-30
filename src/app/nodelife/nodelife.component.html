@@ -1,5 +1,12 @@
-<div class="rackContainer" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
-    <ng-container *ngFor="let rack of rackData">
-        <div id="{{rack.name}}" class="rack" (click)="clickRack( $event )" >{{ rack.name }}</div>
-    </ng-container>
-</div>
+<ng-container *ngFor="let row of rackData">
+
+    <div class="rackContainer" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+
+        <ng-container *ngFor="let rack of row['racks']">
+            <div id="{{rack.name}}" class="rack" (click)="clickRack( rack )" >{{ rack.name }}</div>
+        </ng-container>
+
+    </div>
+
+</ng-container>
+

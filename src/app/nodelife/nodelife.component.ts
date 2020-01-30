@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { SafeHtml } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-nodelife',
@@ -24,7 +25,7 @@ export class NodelifeComponent implements OnInit {
         {
             this.apiService.getNodes( params.get('name') )
                 .subscribe( ( data : any ) =>
-                {
+                {                    
                     this.rackData = data;
                 });
         });
@@ -33,9 +34,12 @@ export class NodelifeComponent implements OnInit {
 
     clickRack( rack : any )
     {
+        this.nodeData = rack.nodes;
+    }
 
-        console.log( rack );
-
+    clickNode( node : any )
+    {
+        console.log( node );
     }
 
 

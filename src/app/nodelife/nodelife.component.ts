@@ -10,7 +10,7 @@ import { SafeHtml } from '@angular/platform-browser';
 })
 export class NodelifeComponent implements OnInit {
 
-    private rackData = [ { name : 'rack1' }, { name : 'rack2' } ];
+    private rackData = [];
 
     private nodeData = [];
 

@@ -6,6 +6,13 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { InfoTableComponent } from './info-table/info-table.component';
 import { tileLayer, latLng } from 'leaflet';
 
+enum JobsDisplay 
+{
+   'Total',
+   'Completed',
+   'Cancelled' 
+};
+
 @Component({
     selector: 'app-info',
     templateUrl: './info.component.html',
@@ -197,10 +204,17 @@ export class InfoComponent implements OnInit
     fosTotal         : number;
     projectsTotal    : number;
     jobsTotal        : number;
+    jobsCompleted    : number;
+    jobsCancelled    : number;
     institutionTotal : number;
+
+    JobsDisplayEnum  =  JobsDisplay;
+    jobVal : JobsDisplay;
 
     fosTableData : any;
     fosMapData   : any;
+
+    
 
     constructor(
         private apiService : ApiService,
@@ -216,8 +230,10 @@ export class InfoComponent implements OnInit
                 .subscribe( ( data : any ) =>
                 {
 
-
                     this.jobsTotal        = data.jobs_total;
+                    this.jobsCompleted    = data.jobs_completed;
+                    this.jobsCancelled    = data.jobs_cancelled;
+
                     this.projectsTotal    = data.proj_total;
                     this.institutionTotal = data.inst_total;
 
@@ -268,10 +284,17 @@ export class InfoComponent implements OnInit
 
                     }
 
+                    this.jobVal = JobsDisplay.Total;
+
                 } );
 
             });
 
+    }
+
+    jobsText(newEnum : JobsDisplay ) : void
+    {
+        this.jobVal = newEnum;
     }
 
 }

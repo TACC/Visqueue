@@ -61,7 +61,10 @@ export class InfoMapComponent implements OnInit, OnChanges {
             iconUrl: 'leaflet/marker-icon.png',
             shadowUrl: 'leaflet/marker-shadow.png'
         })
-        }).bindPopup(inst.name + '<br> Projects : ' + inst.proj_total + '<br> Nodes : ' + inst.nodes_total + '<br> Jobs : ' + inst.jobs_total );
+        }).bindPopup(inst.name 
+                        + '<br> Projects : ' + parseInt(inst.proj_total).toLocaleString() 
+                        + '<br> Nodes : '    + parseInt(inst.nodes_total).toLocaleString() 
+                        + '<br> Jobs : '     + parseInt(inst.jobs_total ).toLocaleString() );
 
         this.layers.push(tLayer);
 

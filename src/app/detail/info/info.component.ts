@@ -100,6 +100,25 @@ export class InfoComponent implements OnInit
                 anchor: 'end',
                 align: 'end',
             }
+        },
+        tooltips : 
+        {
+            callbacks : 
+            {
+                label : function( tooltipItem, data )
+                {   
+                    let label = data.datasets[tooltipItem.datasetIndex].label || '';
+
+                    if (label) 
+                    {
+                        label += ': ';
+                    }
+                    
+                    label +=  parseInt( <string>tooltipItem.yLabel ).toLocaleString();;
+                
+                    return label;
+                }
+            }
         }
     };
 
@@ -140,6 +159,25 @@ export class InfoComponent implements OnInit
                 anchor: 'end',
                 align: 'end',
             }
+        },
+        tooltips : 
+        {
+            callbacks : 
+            {
+                label : function( tooltipItem, data )
+                {   
+                    let label = data.datasets[tooltipItem.datasetIndex].label || '';
+
+                    if (label) 
+                    {
+                        label += ': ';
+                    }
+                    
+                    label +=  parseInt( <string>tooltipItem.yLabel ).toLocaleString();;
+                
+                    return label;
+                }
+            }
         }
     };
 
@@ -165,6 +203,25 @@ export class InfoComponent implements OnInit
             {
                 anchor: 'end',
                 align: 'end',
+            }
+        },
+        tooltips : 
+        {
+            callbacks : 
+            {
+                label : function( tooltipItem, data )
+                {   
+                    let label = data.datasets[tooltipItem.datasetIndex].label || '';
+
+                    if (label) 
+                    {
+                        label += ': ';
+                    }
+                    
+                    label +=  parseInt( <string>tooltipItem.yLabel ).toLocaleString();;
+                
+                    return label;
+                }
             }
         }
     };

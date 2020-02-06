@@ -36,7 +36,21 @@ export class InfoComponent implements OnInit
             xAxes: [ { } ],
             yAxes: 
             [ 
-                { ticks : { beginAtZero : true }, scaleLabel : { display : true, labelString : '# Projects' } }
+                { 
+                    ticks : 
+                    { 
+                        beginAtZero : true,
+                        callback : function( value, index, values )
+                        {
+                            return parseInt(value).toLocaleString();
+                        }
+                    }, 
+                    scaleLabel : 
+                    { 
+                        display : true, 
+                        labelString : '# Projects' 
+                    }
+                }
             ]
         },
         plugins:
@@ -48,7 +62,6 @@ export class InfoComponent implements OnInit
             }
         }
     };
-
 
     public fosByJobBarChartOptions : ChartOptions = 
     {
@@ -63,7 +76,21 @@ export class InfoComponent implements OnInit
             xAxes: [ { } ],
             yAxes: 
             [ 
-                { ticks : { beginAtZero : true }, scaleLabel : { display : true, labelString : '# Jobs' } }
+                { 
+                    ticks : 
+                    { 
+                        beginAtZero : true,
+                        callback : function( value, index, values )
+                        {
+                            return parseInt(value).toLocaleString();
+                        }
+                    }, 
+                    scaleLabel : 
+                    { 
+                        display : true, 
+                        labelString : '# Jobs' 
+                    }
+                }
             ]
         },
         plugins:
@@ -89,7 +116,21 @@ export class InfoComponent implements OnInit
             xAxes: [ { } ],
             yAxes: 
             [ 
-                { ticks : { beginAtZero : true }, scaleLabel : { display : true, labelString : '# Nodes' } }
+                { 
+                    ticks : 
+                    { 
+                        beginAtZero : true,
+                        callback : function( value, index, values )
+                        {
+                            return parseInt(value).toLocaleString();
+                        } 
+                    }, 
+                    scaleLabel : 
+                    { 
+                        display : true, 
+                        labelString : '# Nodes' 
+                    } 
+                }
             ]
         },
         plugins:

@@ -15,13 +15,13 @@
       <!-- Jobs Column -->
       <ng-container matColumnDef="jobs">
         <th mat-header-cell mat-sort-header *matHeaderCellDef> # Jobs </th>
-        <td mat-cell *matCellDef="let element"> {{ element.jobs }} </td>
+        <td mat-cell *matCellDef="let element"> {{ element.jobs | number }} </td>
       </ng-container>
     
       <!-- Nodes Column -->`
       <ng-container matColumnDef="nodes">
         <th mat-header-cell mat-sort-header *matHeaderCellDef> # Nodes </th>
-        <td mat-cell *matCellDef="let element"> {{ element.nodes }} </td>
+        <td mat-cell *matCellDef="let element"> {{ element.nodes | number }} </td>
       </ng-container>
 
             

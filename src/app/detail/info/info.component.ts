@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
-import { Label } from 'ng2-charts';
+import { Label, Color } from 'ng2-charts';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { InfoTableComponent } from './info-table/info-table.component';
 
@@ -241,93 +241,49 @@ export class InfoComponent implements OnInit
 
     public fosByProjBarChartLabels: Label[] = [];
     public fosByProjBarChartType: ChartType = 'bar';
+    public fosByProjBarChartColors : Color[] = [ { backgroundColor : [] } ];
     public fosByProjBarChartLegend = false;
 
     public fosByJobBarChartLabels: Label[] = [];
     public fosByJobBarChartType: ChartType = 'bar';
+    public fosByJobBarChartColors : Color[] = [ { backgroundColor : [] } ];
     public fosByJobBarChartLegend = false;
 
     public fosByNodesBarChartLabels: Label[] = [];
     public fosByNodesBarChartType: ChartType = 'bar';
+    public fosByNodesBarChartColors : Color[] = [ { backgroundColor : [] } ];
     public fosByNodesBarChartLegend = false;
 
     public fosByDurationBarChartLabels: Label[] = [];
     public fosByDurationBarChartType: ChartType = 'bar';
+    public fosByDurationBarChartColors : Color[] = [ { backgroundColor : [] } ];
     public fosByDurationBarChartLegend = false;
 
     public fosByProjBarChartData: ChartDataSets[] = [
         {
             label : '# Projects',
-            data : [],
-            backgroundColor :
-            [
-                'rgba(77,121,168, 0.8)',
-                'rgba(242, 142, 48, 0.8)',
-                'rgba(225,87,88, 0.8)',
-                'rgba(118,183,178, 0.8)',
-                'rgba(89,161,78, 0.8)',
-                'rgba(237,201,72, 0.8)',
-                'rgba(175,122,161, 0.8)',
-                'rgba(242,156,166, 0.8)',
-                'rgba(156,117,95, 0.8)'
-            ]
+            data : []
         }
     ];
 
     public fosByJobBarChartData: ChartDataSets[] = [
         {
             label : '# Jobs',
-            data : [],
-            backgroundColor :
-            [
-                'rgba(77,121,168, 0.8)',
-                'rgba(242, 142, 48, 0.8)',
-                'rgba(225,87,88, 0.8)',
-                'rgba(118,183,178, 0.8)',
-                'rgba(89,161,78, 0.8)',
-                'rgba(237,201,72, 0.8)',
-                'rgba(175,122,161, 0.8)',
-                'rgba(242,156,166, 0.8)',
-                'rgba(156,117,95, 0.8)'
-            ]
+            data : []
         }
     ];
 
     public fosByNodesBarChartData: ChartDataSets[] = [
         {
             label : '# Nodes',
-            data : [],
-            backgroundColor :
-            [
-                'rgba(77,121,168, 0.8)',
-                'rgba(242, 142, 48, 0.8)',
-                'rgba(225,87,88, 0.8)',
-                'rgba(118,183,178, 0.8)',
-                'rgba(89,161,78, 0.8)',
-                'rgba(237,201,72, 0.8)',
-                'rgba(175,122,161, 0.8)',
-                'rgba(242,156,166, 0.8)',
-                'rgba(156,117,95, 0.8)'
-            ]
+            data : []
         }
     ];
 
     public fosByDurationBarChartData: ChartDataSets[] = [
         {
             label : 'Duration(Hours)',
-            data : [],
-            backgroundColor :
-            [
-                'rgba(77,121,168, 0.8)',
-                'rgba(242, 142, 48, 0.8)',
-                'rgba(225,87,88, 0.8)',
-                'rgba(118,183,178, 0.8)',
-                'rgba(89,161,78, 0.8)',
-                'rgba(237,201,72, 0.8)',
-                'rgba(175,122,161, 0.8)',
-                'rgba(242,156,166, 0.8)',
-                'rgba(156,117,95, 0.8)'
-            ]
+            data : []
         }
     ];
 
@@ -345,7 +301,7 @@ export class InfoComponent implements OnInit
     fosTableData : any;
     fosMapData   : any;
 
-    
+    colorDict : Map<string,string>;
 
     constructor(
         private apiService : ApiService,
@@ -353,6 +309,7 @@ export class InfoComponent implements OnInit
 
     ngOnInit()
     {
+        this.initColorDict();
 
         this.route.paramMap.subscribe( (params : ParamMap ) =>
         {
@@ -361,7 +318,6 @@ export class InfoComponent implements OnInit
                 .subscribe( ( data : any ) =>
                 {
 
-                    console.log( data );
 
                     this.jobsTotal        = data.jobs_total;
                     this.jobsCompleted    = data.jobs_completed;
@@ -386,13 +342,13 @@ export class InfoComponent implements OnInit
                     let fosByDurationData = [ ...data.fos_info ];
 
                     fosByProjData = this.sortArr( fosByProjData, 'proj_total' );
-                    this.pushData( fosByProjData, this.fosByProjBarChartLabels, this.fosByProjBarChartData, 'proj_total' );
+                    this.pushData( fosByProjData, this.fosByProjBarChartLabels, this.fosByProjBarChartData, 'proj_total', this.fosByProjBarChartColors );
 
                     fosByJobData = this.sortArr( fosByJobData, 'jobs_total' );
-                    this.pushData( fosByJobData, this.fosByJobBarChartLabels, this.fosByJobBarChartData, 'jobs_total' );
+                    this.pushData( fosByJobData, this.fosByJobBarChartLabels, this.fosByJobBarChartData, 'jobs_total', this.fosByJobBarChartColors );
 
                     fosByNodesData = this.sortArr( fosByNodesData, 'nodes_total' );
-                    this.pushData( fosByNodesData, this.fosByNodesBarChartLabels, this.fosByNodesBarChartData, 'nodes_total' );
+                    this.pushData( fosByNodesData, this.fosByNodesBarChartLabels, this.fosByNodesBarChartData, 'nodes_total', this.fosByNodesBarChartColors );
 
                     fosByDurationData = this.sortArr( fosByDurationData, 'duration_total' );
 
@@ -406,7 +362,7 @@ export class InfoComponent implements OnInit
                         
                     });
 
-                    this.pushData( fosByDurationData, this.fosByDurationBarChartLabels, this.fosByDurationBarChartData, 'duration_total' );
+                    this.pushData( fosByDurationData, this.fosByDurationBarChartLabels, this.fosByDurationBarChartData, 'duration_total', this.fosByDurationBarChartColors );
 
                     this.jobVal = JobsDisplay.Total;
 
@@ -414,6 +370,19 @@ export class InfoComponent implements OnInit
 
             });
 
+    }
+
+    initColorDict() : void
+    {
+        this.colorDict = new Map<string,string>();
+
+        this.colorDict.set( 'MATHEMATICAL AND PHYSICAL SCIENCES (MPS)', 'rgba(77,121,168, 0.8)'  );
+        this.colorDict.set( 'GEOSCIENCES (GEO)', 'rgba(242, 142, 48, 0.8)'  );
+        this.colorDict.set( 'COMPUTER AND INFORMATION SCIENCE AND ENGINEERING (CISE)', 'rgba(225,87,88, 0.8)');
+        this.colorDict.set( 'ENGINEERING (ENG)', 'rgba(118,183,178, 0.8)'   );
+        this.colorDict.set( 'BIOLOGICAL, BEHAVIORAL, AND SOCIAL SCIENCES (BBS)', 'rgba(89,161,78, 0.8)' );
+        this.colorDict.set( 'OTHER (TRA)', 'rgba(237,201,72, 0.8)'   );
+        this.colorDict.set( 'SOCIAL, BEHAVIORIAL, AND ECONOMIC SCIENCES (SBE)', 'rgba(156,117,95, 0.8)'  );
     }
 
     jobsText(newEnum : JobsDisplay ) : void
@@ -429,14 +398,22 @@ export class InfoComponent implements OnInit
         });
     }
 
-    pushData( arr : any[], labels : Label[], dataset : ChartDataSets[], val : string ) : void
+    pushData( arr : any[], labels : Label[], dataset : ChartDataSets[], val : string, colors : Color[] ) : void
     {
+        let colorArr = [];
+
         arr.forEach( ( value, index ) =>
         {
-           labels.push( arr[ index ].fos );
+            labels.push( arr[ index ].fos );
             dataset[0].data.push( arr[ index ][val] );
 
+            colorArr.push( this.colorDict.get( value.fos ) );
+
         });
+
+        console.log( colorArr );
+
+        colors[0].backgroundColor = colorArr;
     }
 
 }

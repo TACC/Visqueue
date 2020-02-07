@@ -35,6 +35,14 @@
     </mat-card>
     <mat-card fxFlex="20" class="mat-elevation-z2">
         <mat-card-title>
+            {{ durationTotal | number : '1.0-0' }}
+        </mat-card-title>
+        <mat-card-subtitle>
+            Compute Hours
+        </mat-card-subtitle>
+    </mat-card>
+    <mat-card fxFlex="20" class="mat-elevation-z2">
+        <mat-card-title>
             {{ projectsTotal | number }}
         </mat-card-title>
         <mat-card-subtitle>
@@ -49,14 +57,6 @@
             Institutions
         </mat-card-subtitle>
     </mat-card>
-    <mat-card fxFlex="20" class="mat-elevation-z2">
-        <mat-card-title>
-            {{ durationTotal | number : '1.0-0' }}
-        </mat-card-title>
-        <mat-card-subtitle>
-            Compute Hours
-        </mat-card-subtitle>
-    </mat-card>
 </div>
 
 <div fxLayout="row" fxLayoutAlign="space-around center">
@@ -67,7 +67,8 @@
             [labels]="fosByProjBarChartLabels"
             [options]="fosByProjBarChartOptions"
             [legend]="fosByProjBarChartLegend"
-            [chartType]="fosByProjBarChartType">
+            [chartType]="fosByProjBarChartType"
+            [colors]="fosByProjBarChartColors">
         </canvas>
     </div>
 
@@ -77,7 +78,8 @@
             [labels]="fosByJobBarChartLabels"
             [options]="fosByJobBarChartOptions"
             [legend]="fosByJobBarChartLegend"
-            [chartType]="fosByJobBarChartType">
+            [chartType]="fosByJobBarChartType"
+            [colors]="fosByJobBarChartColors">
         </canvas>
     </div>
 
@@ -91,7 +93,8 @@
             [labels]="fosByNodesBarChartLabels"
             [options]="fosByNodesBarChartOptions"
             [legend]="fosByNodesBarChartLegend"
-            [chartType]="fosByNodesBarChartType">
+            [chartType]="fosByNodesBarChartType"
+            [colors]="fosByNodesBarChartColors">
         </canvas>
     </div>
 
@@ -101,7 +104,8 @@
             [labels]="fosByDurationBarChartLabels"
             [options]="fosByDurationBarChartOptions"
             [legend]="fosByDurationBarChartLegend"
-            [chartType]="fosByDurationBarChartType">
+            [chartType]="fosByDurationBarChartType"
+            [colors]="fosByDurationBarChartColors">
         </canvas>
     </div>
 

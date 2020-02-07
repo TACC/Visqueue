@@ -4,6 +4,7 @@ import * as d3 from 'd3';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { SunburstService } from '../sunburst.service';
+import { SunburstDialogComponent } from '../sunburst-dialog/sunburst-dialog.component';
 
 interface ArcType { x0 : any, x1 : any, y0 : any, y1 : any }
 
@@ -435,26 +436,12 @@ export class SunburstComponent implements OnInit, AfterViewInit
     openDialog( p : any ) : void
     {
 
-        const dialogRef = this.dialog.open( SunburstDialog,
+        console.log( p );
+
+        this.dialog.open( SunburstDialogComponent, 
             {
                 width : '50vw',
-                data  : p
+                data  : p.data
             });
-    }
-}
-
-@Component({
-    selector: 'app-sunburst-dialog',
-    templateUrl: './sunburst-dialog.html'
-})
-export class SunburstDialog
-{
-    constructor(
-        public dialogRef : MatDialogRef<SunburstDialog>,
-        @Inject(MAT_DIALOG_DATA) public data : any ) {}
-
-    onNoClick() : void 
-    {
-        this.dialogRef.close();
     }
 }

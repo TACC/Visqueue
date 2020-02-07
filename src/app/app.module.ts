@@ -35,7 +35,6 @@ import { NodelifeComponent } from './nodelife/nodelife.component';
     HomepageComponent,
     SunburstTableComponent,
     DetailComponent,
-    SunburstDialog,
     SearchComponent,
     JobDurationPipe,
     BarChartComponent,
@@ -60,7 +59,7 @@ import { NodelifeComponent } from './nodelife/nodelife.component';
     LeafletModule.forRoot(),
     AppRoutingModule
   ],
-  entryComponents: [ DetailComponent, SunburstDialog, SunburstDialogComponent ],
+  entryComponents: [ DetailComponent, SunburstDialogComponent ],
   providers: [],
   bootstrap: [ AppComponent ]
 })

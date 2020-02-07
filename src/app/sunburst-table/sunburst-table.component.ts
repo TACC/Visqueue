@@ -61,13 +61,13 @@ export class SunburstTableComponent implements OnInit
 
                         const newProject =
                         {
-                            name        : tProject.name,
-                            science     : tFos.name,
-                            institution : tProject.pi_institution,
-                            pi          : tProject.principal_investigator,
-                            description : tProject.project_abstract,
-                            jobs        : 0,
-                            nodes       : 0
+                            name                   : tProject.name,
+                            science                : tFos.name,
+                            pi_institution         : tProject.pi_institution,
+                            principal_investigator : tProject.principal_investigator,
+                            project_abstract       : tProject.project_abstract,
+                            jobs                   : 0,
+                            nodes                  : 0
                         };
 
                         for (const tJob of tProject.children)

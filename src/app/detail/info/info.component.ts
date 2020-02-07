@@ -411,8 +411,6 @@ export class InfoComponent implements OnInit
 
         });
 
-        console.log( colorArr );
-
         colors[0].backgroundColor = colorArr;
     }
 

@@ -1,9 +1,19 @@
-<h1 mat-dialog-title> {{ data.name }} <br> {{ data.institution }} <br> {{ data.jobs }} Jobs <br> {{ data.nodes }} Nodes <br> {{ data.pi }} </h1>
+<h1 mat-dialog-title> {{ data.name }} <br> {{ data.pi_institution }} <br>
+
+    <ng-container *ngIf="data.jobs > 0">
+        {{ data.jobs }} Jobs <br>
+    </ng-container>
+    <ng-container *ngIf="data.nodes > 0">
+        {{ data.nodes }} Nodes <br>
+    </ng-container>
+
+    {{ data.principal_investigator }}
+</h1>
 
 <div mat-dialog-content>
 
     <p>
-      {{ data.description }}
+        {{ data.project_abstract }}
     </p>
 
 </div>

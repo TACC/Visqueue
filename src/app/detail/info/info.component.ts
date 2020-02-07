@@ -186,7 +186,7 @@ export class InfoComponent implements OnInit
         title : 
         { 
             display : true,
-            text    : 'Top 10 Field of Sciences by Duration'
+            text    : 'Primary Field of Sciences by Duration (Hours)'
         },
         responsive : true,
         // We use these empty structures as placeholders for dynamic theming.
@@ -328,6 +328,8 @@ export class InfoComponent implements OnInit
                 .subscribe( ( data : any ) =>
                 {
 
+                    // console.log( data );
+
                     this.jobsTotal        = data.jobs_total;
                     this.jobsCompleted    = data.jobs_completed;
                     this.jobsCancelled    = data.jobs_cancelled;
@@ -338,49 +340,19 @@ export class InfoComponent implements OnInit
                     this.fosTableData = data.proj_info;
                     this.fosMapData   = data.inst_info;
 
-                    const fosByProjData  = [ ...data.fos_info ];
-                    const fosByJobData   = [ ...data.fos_info ];
-                    const fosByNodesData = [ ...data.fos_info ];
+                    let fosByProjData     = [ ...data.fos_info ];
+                    let fosByJobData      = [ ...data.fos_info ];
+                    let fosByNodesData    = [ ...data.fos_info ];
+                    let fosByDurationData = [ ...data.fos_info ];
 
+                    fosByProjData = this.sortArr( fosByProjData, 'proj_total' );
+                    this.pushData( fosByProjData, this.fosByProjBarChartLabels, this.fosByProjBarChartData, 'proj_total' );
 
-                    fosByProjData.sort( ( a, b ) =>
-                    {
-                        return ( a.proj_total > b.proj_total ) ? -1 : 1;
-                    });
+                    fosByJobData = this.sortArr( fosByJobData, 'jobs_total' );
+                    this.pushData( fosByJobData, this.fosByJobBarChartLabels, this.fosByJobBarChartData, 'jobs_total' );
 
-                    for ( let index = 0; index < fosByProjData.length; index++ )
-                    {
-
-                        this.fosByProjBarChartLabels.push( fosByProjData[ index ].fos );
-                        this.fosByProjBarChartData[0].data.push( fosByProjData[ index ].proj_total );
-
-                    }
-
-                    fosByJobData.sort( ( a, b ) =>
-                    {
-                        return ( a.jobs_total > b.jobs_total ) ? -1 : 1;
-                    });
-
-                    for ( let index = 0; index < fosByJobData.length; index++ )
-                    {
-
-                        this.fosByJobBarChartLabels.push( fosByJobData[ index ].fos );
-                        this.fosByJobBarChartData[0].data.push( fosByJobData[ index ].jobs_total );
-
-                    }
-
-                    fosByNodesData.sort( ( a, b ) =>
-                    {
-                        return ( a.nodes_total > b.nodes_total ) ? -1 : 1;
-                    });
-
-                    for ( let index = 0; index < fosByNodesData.length; index++ )
-                    {
-
-                        this.fosByNodesBarChartLabels.push( fosByNodesData[ index ].fos );
-                        this.fosByNodesBarChartData[0].data.push( fosByNodesData[ index ].nodes_total );
-
-                    }
+                    fosByNodesData = this.sortArr( fosByNodesData, 'nodes_total' );
+                    this.pushData( fosByNodesData, this.fosByNodesBarChartLabels, this.fosByNodesBarChartData, 'nodes_total' );
 
                     this.jobVal = JobsDisplay.Total;
 
@@ -393,6 +365,24 @@ export class InfoComponent implements OnInit
     jobsText(newEnum : JobsDisplay ) : void
     {
         this.jobVal = newEnum;
+    }
+
+    sortArr( arr : any[ ], val : string ) : any[]
+    {
+        return arr.sort( ( a, b ) =>
+        {
+            return ( a[val] > b[val] ) ? -1 : 1;
+        });
+    }
+
+    pushData( arr : any[], labels : Label[], dataset : ChartDataSets[], val : string ) : void
+    {
+        arr.forEach( ( value, index ) =>
+        {
+           labels.push( arr[ index ].fos );
+            dataset[0].data.push( arr[ index ][val] );
+
+        });
     }
 
 }

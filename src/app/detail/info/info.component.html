@@ -49,6 +49,14 @@
             Institutions
         </mat-card-subtitle>
     </mat-card>
+    <mat-card fxFlex="20" class="mat-elevation-z2">
+        <mat-card-title>
+            {{ durationTotal | number : '1.0-0' }}
+        </mat-card-title>
+        <mat-card-subtitle>
+            Compute Hours
+        </mat-card-subtitle>
+    </mat-card>
 </div>
 
 <div fxLayout="row" fxLayoutAlign="space-around center">
@@ -87,7 +95,7 @@
         </canvas>
     </div>
 
-    <!-- <div fxFlex="40" style="display: block">
+    <div fxFlex="40" style="display: block">
         <canvas baseChart
             [datasets]="fosByDurationBarChartData"
             [labels]="fosByDurationBarChartLabels"
@@ -95,7 +103,7 @@
             [legend]="fosByDurationBarChartLegend"
             [chartType]="fosByDurationBarChartType">
         </canvas>
-    </div> -->
+    </div>
 
 </div>
 <div fxLayout="row" fxLayoutAlign="space-around center">

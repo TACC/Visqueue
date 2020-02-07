@@ -4,7 +4,6 @@ import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label } from 'ng2-charts';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { InfoTableComponent } from './info-table/info-table.component';
-import { tileLayer, latLng } from 'leaflet';
 
 enum JobsDisplay 
 {
@@ -186,7 +185,7 @@ export class InfoComponent implements OnInit
         title : 
         { 
             display : true,
-            text    : 'Primary Field of Sciences by Duration (Hours)'
+            text    : 'Primary Field of Sciences by Duration'
         },
         responsive : true,
         // We use these empty structures as placeholders for dynamic theming.
@@ -194,7 +193,21 @@ export class InfoComponent implements OnInit
             xAxes: [ { } ],
             yAxes: 
             [ 
-                { ticks : { beginAtZero : true }, scaleLabel : { display : true, labelString : 'Duration' } }
+                { 
+                    ticks : 
+                    { 
+                        beginAtZero : true,
+                        callback : function( value, index, values )
+                        {
+                            return parseInt(value).toLocaleString();
+                        } 
+                    }, 
+                    scaleLabel : 
+                    { 
+                        display : true, 
+                        labelString : 'Duration (Hours)' 
+                    } 
+                }
             ]
         },
         plugins:
@@ -299,12 +312,32 @@ export class InfoComponent implements OnInit
         }
     ];
 
+    public fosByDurationBarChartData: ChartDataSets[] = [
+        {
+            label : 'Duration(Hours)',
+            data : [],
+            backgroundColor :
+            [
+                'rgba(77,121,168, 0.8)',
+                'rgba(242, 142, 48, 0.8)',
+                'rgba(225,87,88, 0.8)',
+                'rgba(118,183,178, 0.8)',
+                'rgba(89,161,78, 0.8)',
+                'rgba(237,201,72, 0.8)',
+                'rgba(175,122,161, 0.8)',
+                'rgba(242,156,166, 0.8)',
+                'rgba(156,117,95, 0.8)'
+            ]
+        }
+    ];
+
     fosTotal         : number;
     projectsTotal    : number;
     jobsTotal        : number;
     jobsCompleted    : number;
     jobsCancelled    : number;
     institutionTotal : number;
+    durationTotal    : number;
 
     JobsDisplayEnum  =  JobsDisplay;
     jobVal : JobsDisplay;
@@ -328,7 +361,7 @@ export class InfoComponent implements OnInit
                 .subscribe( ( data : any ) =>
                 {
 
-                    // console.log( data );
+                    console.log( data );
 
                     this.jobsTotal        = data.jobs_total;
                     this.jobsCompleted    = data.jobs_completed;
@@ -336,6 +369,13 @@ export class InfoComponent implements OnInit
 
                     this.projectsTotal    = data.proj_total;
                     this.institutionTotal = data.inst_total;
+
+                    this.durationTotal    = data.duration_total;
+
+                    // convert from seconds to minutes
+                    this.durationTotal = this.durationTotal / 60;
+                    // convert from minutes to hours
+                    this.durationTotal = this.durationTotal / 60;
 
                     this.fosTableData = data.proj_info;
                     this.fosMapData   = data.inst_info;
@@ -353,6 +393,20 @@ export class InfoComponent implements OnInit
 
                     fosByNodesData = this.sortArr( fosByNodesData, 'nodes_total' );
                     this.pushData( fosByNodesData, this.fosByNodesBarChartLabels, this.fosByNodesBarChartData, 'nodes_total' );
+
+                    fosByDurationData = this.sortArr( fosByDurationData, 'duration_total' );
+
+                    fosByDurationData.forEach( ( value, index ) =>
+                    {
+                        // convert from seconds to minutes
+                        value.duration_total = value.duration_total / 60;
+                        
+                        // convert from minutes to hours
+                        value.duration_total = value.duration_total / 60;
+                        
+                    });
+
+                    this.pushData( fosByDurationData, this.fosByDurationBarChartLabels, this.fosByDurationBarChartData, 'duration_total' );
 
                     this.jobVal = JobsDisplay.Total;
 

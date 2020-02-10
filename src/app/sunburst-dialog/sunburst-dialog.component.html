@@ -1,10 +1,10 @@
 <h1 mat-dialog-title> {{ data.name }} <br> {{ data.pi_institution }} <br>
 
     <ng-container *ngIf="data.jobs > 0">
-        {{ data.jobs }} Jobs <br>
+        {{ data.jobs | number }} Jobs <br>
     </ng-container>
     <ng-container *ngIf="data.nodes > 0">
-        {{ data.nodes }} Nodes <br>
+        {{ data.nodes | number }} Nodes <br>
     </ng-container>
 
     {{ data.principal_investigator }}

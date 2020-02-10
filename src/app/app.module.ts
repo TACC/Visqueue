@@ -11,7 +11,7 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SunburstComponent, SunburstDialog } from './sunburst/sunburst.component';
+import { SunburstComponent } from './sunburst/sunburst.component';
 import { HomepageComponent }       from './homepage/homepage.component';
 import { SunburstTableComponent }  from './sunburst-table/sunburst-table.component';
 import { AngularMaterialModule }   from './shared/angular-material/angular-material.module';

@@ -39,7 +39,12 @@ export class NodelifeComponent implements OnInit {
 
     clickNode( node : any )
     {
-        console.log( node );
+    
+        this.apiService.getNodeInfo( 'frontera', node.name )
+            .subscribe( (data : any ) =>
+            {
+                console.log( data );
+            });
     }
 
 

@@ -45,4 +45,13 @@ export class ApiService
         return this.http.get( this.url + this.nodes, { params : params } );
     }
 
+    getNodeInfo( system : string, node : string )
+    {
+        let params = new HttpParams()
+                     .set( 'system', system )
+                     .set( 'node' , node );  
+                     
+        return this.http.post( this.url + this.nodesInfo, params );
+    }
+
 }

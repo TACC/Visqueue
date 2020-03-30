@@ -385,7 +385,7 @@ export class InfoComponent implements OnInit
         this.colorDict.set( 'SOCIAL, BEHAVIORIAL, AND ECONOMIC SCIENCES (SBE)', 'rgba(156,117,95, 0.8)'  );
     }
 
-    jobsText(newEnum : JobsDisplay ) : void
+    jobsText(newEnum : any ) : void
     {
         this.jobVal = newEnum;
     }

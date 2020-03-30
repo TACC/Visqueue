@@ -10,9 +10,9 @@ import { SafeHtml } from '@angular/platform-browser';
 })
 export class NodelifeComponent implements OnInit {
 
-    private rackData = [];
+    rackData = [];
 
-    private nodeData = [];
+    nodeData = [];
 
     constructor(
         private route      : ActivatedRoute,

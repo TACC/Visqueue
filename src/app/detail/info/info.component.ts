@@ -328,8 +328,6 @@ export class InfoComponent implements OnInit
                 .subscribe( ( data : any ) =>
                 {
 
-                    console.log( data );
-
                     this.jobsTotal        = data.jobs_total;
                     this.jobsCompleted    = data.jobs_completed;
                     this.jobsCancelled    = data.jobs_cancelled;

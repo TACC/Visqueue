@@ -24,6 +24,12 @@
         <td mat-cell *matCellDef="let element"> {{ element.nodes | number }} </td>
     </ng-container>
 
+    <!-- Nodes Column -->`
+    <ng-container matColumnDef="duration">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Node Hours </th>
+        <td mat-cell *matCellDef="let element"> {{ element.duration | number : '1.0-0' }} </td>
+    </ng-container>
+
     <!-- Institution Column -->
     <ng-container matColumnDef="pi_institution">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Institution </th>

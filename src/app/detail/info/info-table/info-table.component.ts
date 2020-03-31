@@ -19,7 +19,7 @@ export interface TableInfoElement {
 })
 export class InfoTableComponent implements OnInit, OnChanges {
 
-    displayedColumns: string[] = [ 'name', 'fos', 'pi_institution', 'jobs', 'nodes', 'description' ];
+    displayedColumns: string[] = [ 'name', 'fos', 'pi_institution', 'jobs', 'nodes', 'duration', 'description' ];
     dataSource: MatTableDataSource<TableInfoElement>;
 
     @ViewChild(MatSort, { static: true }) sort: MatSort;

@@ -6,6 +6,9 @@
     <ng-container *ngIf="data.nodes > 0">
         {{ data.nodes | number }} Nodes <br>
     </ng-container>
+    <ng-container *ngIf="data.duration > 0">
+        {{ data.duration | number : '1.0-0' }} Hours <br>
+    </ng-container>
 
     {{ data.principal_investigator }}
 </h1>

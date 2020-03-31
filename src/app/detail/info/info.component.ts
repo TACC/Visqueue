@@ -346,6 +346,17 @@ export class InfoComponent implements OnInit
                     this.indDurationTotal = this.indDurationTotal / 60;
                     this.collDurationTotal = this.collDurationTotal / 60;
                     
+
+                    data.proj_info.forEach( ( value, index ) =>
+                    {
+                        // convert from seconds to minutes
+                        value.duration = value.duration / 60;
+                        
+                        // convert from minutes to hours
+                        value.duration = value.duration / 60;
+                        
+                    });
+
                     this.fosTableData = data.proj_info;
                     this.fosMapData   = data.inst_info;
 

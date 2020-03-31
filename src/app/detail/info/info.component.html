@@ -35,11 +35,27 @@
     </mat-card>
     <mat-card fxFlex="20" class="mat-elevation-z2">
         <mat-card-title>
-            {{ durationTotal | number : '1.0-0' }}
+            <ng-container [ngSwitch]="durVal">
+                <ng-container *ngSwitchCase="'DurationDisplayEnum.Individual'">
+                    {{ indDurationTotal | number : '1.0-0' }}
+                </ng-container>
+                <ng-container *ngSwitchCase="'DurationDisplayEnum.Collective'">
+                    {{ collDurationTotal | number : '1.0-0' }}
+                </ng-container>
+                <ng-container *ngSwitchDefault>
+                    {{ indDurationTotal | number : '1.0-0' }}
+                </ng-container>
+            </ng-container>
         </mat-card-title>
         <mat-card-subtitle>
             Compute Hours
         </mat-card-subtitle>
+        <mat-card-footer>
+            <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+                <mat-button-toggle (click)="durationChanger('DurationDisplayEnum.Individual')" fxFlex> Individual  </mat-button-toggle>
+                <mat-button-toggle (click)="durationChanger('DurationDisplayEnum.Collective')" fxFlex> Collective  </mat-button-toggle>
+            </mat-button-toggle-group>           
+        </mat-card-footer>
     </mat-card>
     <mat-card fxFlex="20" class="mat-elevation-z2">
         <mat-card-title>

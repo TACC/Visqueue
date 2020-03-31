@@ -12,6 +12,12 @@ enum JobsDisplay
    'Cancelled' 
 };
 
+enum DurationDisplay
+{
+    'Collective',
+    'Individual'
+};
+
 @Component({
     selector: 'app-info',
     templateUrl: './info.component.html',
@@ -287,16 +293,20 @@ export class InfoComponent implements OnInit
         }
     ];
 
-    fosTotal         : number;
-    projectsTotal    : number;
-    jobsTotal        : number;
-    jobsCompleted    : number;
-    jobsCancelled    : number;
-    institutionTotal : number;
-    durationTotal    : number;
-
+    fosTotal          : number;
+    projectsTotal     : number;
+    jobsTotal         : number;
+    jobsCompleted     : number;
+    jobsCancelled     : number;
+    institutionTotal  : number;
+    collDurationTotal : number;
+    indDurationTotal  : number;
+    
     JobsDisplayEnum  =  JobsDisplay;
     jobVal : JobsDisplay;
+
+    DurationDisplayEnum = DurationDisplay;
+    durVal : DurationDisplay;
 
     fosTableData : any;
     fosMapData   : any;
@@ -318,6 +328,7 @@ export class InfoComponent implements OnInit
                 .subscribe( ( data : any ) =>
                 {
 
+                    console.log( data );
 
                     this.jobsTotal        = data.jobs_total;
                     this.jobsCompleted    = data.jobs_completed;
@@ -326,13 +337,17 @@ export class InfoComponent implements OnInit
                     this.projectsTotal    = data.proj_total;
                     this.institutionTotal = data.inst_total;
 
-                    this.durationTotal    = data.duration_total;
+                    this.indDurationTotal  = data.duration_info.duration_ind;
+                    this.collDurationTotal = data.duration_info.duration_col;
 
                     // convert from seconds to minutes
-                    this.durationTotal = this.durationTotal / 60;
+                    this.indDurationTotal = this.indDurationTotal / 60;
+                    this.collDurationTotal = this.collDurationTotal / 60;
+                    
                     // convert from minutes to hours
-                    this.durationTotal = this.durationTotal / 60;
-
+                    this.indDurationTotal = this.indDurationTotal / 60;
+                    this.collDurationTotal = this.collDurationTotal / 60;
+                    
                     this.fosTableData = data.proj_info;
                     this.fosMapData   = data.inst_info;
 
@@ -388,6 +403,11 @@ export class InfoComponent implements OnInit
     jobsText(newEnum : any ) : void
     {
         this.jobVal = newEnum;
+    }
+
+    durationChanger( newEnum : any ) : void
+    {
+        this.durVal = newEnum;
     }
 
     sortArr( arr : any[ ], val : string ) : any[]

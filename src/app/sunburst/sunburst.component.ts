@@ -22,7 +22,7 @@ export class SunburstComponent implements OnInit, AfterViewInit
     @Input() showUpper      = false;
     @Input() showDialog     = false;
 
-    @ViewChild('graphCont', { static : false } ) graphCont : ElementRef;
+    @ViewChild('graphCont') graphCont : ElementRef;
 
     public fosCount    : number;
     public jobCount    : number;

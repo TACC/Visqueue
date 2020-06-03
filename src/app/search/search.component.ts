@@ -32,8 +32,8 @@ export class SearchComponent implements OnInit
 
     mode = 'indeterminate';
 
-    @ViewChild( MatSort, { static : false } ) sort : MatSort;
-    @ViewChild( MatPaginator, { static : false } ) paginator : MatPaginator;
+    @ViewChild(MatSort) sort : MatSort;
+    @ViewChild(MatPaginator) paginator : MatPaginator;
 
     constructor(private apiService: ApiService) { }
 

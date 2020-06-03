@@ -26,7 +26,7 @@ enum DurationDisplay
 export class InfoComponent implements OnInit
 {
 
-    @ViewChild( InfoTableComponent, { static : false } ) infotable;
+    @ViewChild(InfoTableComponent) infotable;
 
     public fosByProjBarChartOptions : ChartOptions = 
     {
@@ -45,9 +45,11 @@ export class InfoComponent implements OnInit
                     ticks : 
                     { 
                         beginAtZero : true,
-                        callback : function( value, index, values )
+                        callback : function(value, index, values )
                         {
-                            return parseInt(value).toLocaleString();
+                            let valStr = <string> value;
+
+                            return parseInt(valStr).toLocaleString();
                         }
                     }, 
                     scaleLabel : 
@@ -87,7 +89,10 @@ export class InfoComponent implements OnInit
                         beginAtZero : true,
                         callback : function( value, index, values )
                         {
-                            return parseInt(value).toLocaleString();
+                            let valStr = <string> value;
+
+                            return parseInt(valStr).toLocaleString();
+
                         }
                     }, 
                     scaleLabel : 
@@ -146,7 +151,9 @@ export class InfoComponent implements OnInit
                         beginAtZero : true,
                         callback : function( value, index, values )
                         {
-                            return parseInt(value).toLocaleString();
+                            let valStr = <string> value;
+
+                            return parseInt(valStr).toLocaleString();
                         } 
                     }, 
                     scaleLabel : 
@@ -205,7 +212,9 @@ export class InfoComponent implements OnInit
                         beginAtZero : true,
                         callback : function( value, index, values )
                         {
-                            return parseInt(value).toLocaleString();
+                            let valStr = <string> value;
+
+                            return parseInt(valStr).toLocaleString();
                         } 
                     }, 
                     scaleLabel : 

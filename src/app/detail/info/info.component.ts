@@ -297,11 +297,11 @@ export class InfoComponent implements OnInit
     ];
 
     fosTotal          : number;
-    proj_total        : number;
-    job_total         : number;
-    job_completed     : number;
-    inst_total        : number;
-    hrs_total         : number;
+    projTotal        : number;
+    jobTotal         : number;
+    jobCompleted     : number;
+    instTotal        : number;
+    hrsTotal         : number;
     
     JobsDisplayEnum  =  JobsDisplay;
     jobVal : JobsDisplay;
@@ -327,19 +327,19 @@ export class InfoComponent implements OnInit
                 {
 
                     console.log( data );
-                    this.job_total        = data.job_total;
-                    this.job_completed    = data.job_completed;
+                    this.jobTotal        = data.job_total;
+                    this.jobCompleted    = data.job_completed;
 
-                    this.proj_total       = data.proj_total;
-                    this.inst_total       = data.inst_total;
+                    this.projTotal       = data.proj_total;
+                    this.instTotal       = data.inst_total;
 
-                    this.hrs_total  = data.sec_total;
+                    this.hrsTotal  = data.sec_total;
 
                     // convert from seconds to minutes
-                    this.hrs_total = this.hrs_total / 60;
+                    this.hrsTotal = this.hrsTotal / 60;
                     
                     // convert from minutes to hours
-                    this.hrs_total = this.hrs_total / 60;
+                    this.hrsTotal = this.hrsTotal / 60;
                     
 
                     data.proj_info.forEach( ( value, index ) =>

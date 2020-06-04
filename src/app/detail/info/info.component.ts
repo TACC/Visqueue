@@ -326,7 +326,6 @@ export class InfoComponent implements OnInit
                 .subscribe( ( data : any ) =>
                 {
 
-                    console.log( data );
                     this.jobTotal        = data.job_total;
                     this.jobCompleted    = data.job_completed;
 
@@ -341,9 +340,10 @@ export class InfoComponent implements OnInit
                     // convert from minutes to hours
                     this.hrsTotal = this.hrsTotal / 60;
                     
-
-                    data.proj_info.forEach( ( value, index ) =>
+                    data.fos_info.forEach( ( value, index ) =>
                     {
+                        value.duration = value.sec_total;
+
                         // convert from seconds to minutes
                         value.duration = value.duration / 60;
                         
@@ -351,37 +351,25 @@ export class InfoComponent implements OnInit
                         value.duration = value.duration / 60;
                         
                     });
-
-                    this.fosTableData = data.proj_info;
-                    this.fosMapData   = data.inst_info;
 
                     let fosByProjData     = [ ...data.fos_info ];
                     let fosByJobData      = [ ...data.fos_info ];
                     let fosByNodesData    = [ ...data.fos_info ];
                     let fosByDurationData = [ ...data.fos_info ];
 
+                    console.log( fosByProjData );
+
                     fosByProjData = this.sortArr( fosByProjData, 'proj_total' );
                     this.pushData( fosByProjData, this.fosByProjBarChartLabels, this.fosByProjBarChartData, 'proj_total', this.fosByProjBarChartColors );
 
-                    fosByJobData = this.sortArr( fosByJobData, 'jobs_total' );
-                    this.pushData( fosByJobData, this.fosByJobBarChartLabels, this.fosByJobBarChartData, 'jobs_total', this.fosByJobBarChartColors );
+                    fosByJobData = this.sortArr( fosByJobData, 'job_total' );
+                    this.pushData( fosByJobData, this.fosByJobBarChartLabels, this.fosByJobBarChartData, 'job_total', this.fosByJobBarChartColors );
 
-                    fosByNodesData = this.sortArr( fosByNodesData, 'nodes_total' );
-                    this.pushData( fosByNodesData, this.fosByNodesBarChartLabels, this.fosByNodesBarChartData, 'nodes_total', this.fosByNodesBarChartColors );
+                    fosByNodesData = this.sortArr( fosByNodesData, 'node_total' );
+                    this.pushData( fosByNodesData, this.fosByNodesBarChartLabels, this.fosByNodesBarChartData, 'node_total', this.fosByNodesBarChartColors );
 
-                    fosByDurationData = this.sortArr( fosByDurationData, 'duration_total' );
-
-                    fosByDurationData.forEach( ( value, index ) =>
-                    {
-                        // convert from seconds to minutes
-                        value.duration_total = value.duration_total / 60;
-                        
-                        // convert from minutes to hours
-                        value.duration_total = value.duration_total / 60;
-                        
-                    });
-
-                    this.pushData( fosByDurationData, this.fosByDurationBarChartLabels, this.fosByDurationBarChartData, 'duration_total', this.fosByDurationBarChartColors );
+                    fosByDurationData = this.sortArr( fosByDurationData, 'duration' );
+                    this.pushData( fosByDurationData, this.fosByDurationBarChartLabels, this.fosByDurationBarChartData, 'duration', this.fosByDurationBarChartColors );
 
                     this.jobVal = JobsDisplay.Total;
 
@@ -423,10 +411,10 @@ export class InfoComponent implements OnInit
 
         arr.forEach( ( value, index ) =>
         {
-            labels.push( arr[ index ].fos );
+            labels.push( arr[ index ].name );
             dataset[0].data.push( arr[ index ][val] );
 
-            colorArr.push( this.colorDict.get( value.fos ) );
+            colorArr.push( this.colorDict.get( value.name ) );
 
         });
 

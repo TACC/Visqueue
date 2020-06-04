@@ -9,16 +9,13 @@
         <mat-card-title>
             <ng-container [ngSwitch]="jobVal">
                 <ng-container *ngSwitchCase="'JobsDisplayEnum.Total'">
-                    {{ jobsTotal | number }}
+                    {{ job_total | number }}
                 </ng-container>
                 <ng-container *ngSwitchCase="'JobsDisplayEnum.Completed'">
-                    {{ jobsCompleted | number }}
-                </ng-container>
-                <ng-container *ngSwitchCase="'JobsDisplayEnum.Cancelled'">
-                    {{ jobsCancelled | number }}
+                    {{ job_completed | number }}
                 </ng-container>
                 <ng-container *ngSwitchDefault>
-                    {{ jobsTotal | number }}
+                    {{ job_total | number }}
                 </ng-container>
             </ng-container>
         </mat-card-title>
@@ -29,37 +26,20 @@
             <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
                 <mat-button-toggle (click)="jobsText('JobsDisplayEnum.Total')"     fxFlex> Total      </mat-button-toggle>
                 <mat-button-toggle (click)="jobsText('JobsDisplayEnum.Completed')" fxFlex> Completed  </mat-button-toggle>
-                <mat-button-toggle (click)="jobsText('JobsDisplayEnum.Cancelled')" fxFlex> Cancelled  </mat-button-toggle>
             </mat-button-toggle-group>           
         </mat-card-footer>
     </mat-card>
     <mat-card fxFlex="20" class="mat-elevation-z2">
         <mat-card-title>
-            <ng-container [ngSwitch]="durVal">
-                <ng-container *ngSwitchCase="'DurationDisplayEnum.Individual'">
-                    {{ indDurationTotal | number : '1.0-0' }}
-                </ng-container>
-                <ng-container *ngSwitchCase="'DurationDisplayEnum.Collective'">
-                    {{ collDurationTotal | number : '1.0-0' }}
-                </ng-container>
-                <ng-container *ngSwitchDefault>
-                    {{ indDurationTotal | number : '1.0-0' }}
-                </ng-container>
-            </ng-container>
+            {{ hrs_total | number : '1.0-0' }}
         </mat-card-title>
         <mat-card-subtitle>
             Compute Hours
         </mat-card-subtitle>
-        <mat-card-footer>
-            <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-                <mat-button-toggle (click)="durationChanger('DurationDisplayEnum.Individual')" fxFlex> Individual  </mat-button-toggle>
-                <mat-button-toggle (click)="durationChanger('DurationDisplayEnum.Collective')" fxFlex> Collective  </mat-button-toggle>
-            </mat-button-toggle-group>           
-        </mat-card-footer>
     </mat-card>
     <mat-card fxFlex="20" class="mat-elevation-z2">
         <mat-card-title>
-            {{ projectsTotal | number }}
+            {{ proj_total | number }}
         </mat-card-title>
         <mat-card-subtitle>
             Projects
@@ -67,7 +47,7 @@
     </mat-card>
     <mat-card fxFlex="20" class="mat-elevation-z2">
         <mat-card-title>
-            {{ institutionTotal | number }}
+            {{ inst_total | number }}
         </mat-card-title>
         <mat-card-subtitle>
             Institutions

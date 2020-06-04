@@ -8,15 +8,9 @@ import { InfoTableComponent } from './info-table/info-table.component';
 enum JobsDisplay 
 {
    'Total',
-   'Completed',
-   'Cancelled' 
+   'Completed' 
 };
 
-enum DurationDisplay
-{
-    'Collective',
-    'Individual'
-};
 
 @Component({
     selector: 'app-info',
@@ -303,19 +297,14 @@ export class InfoComponent implements OnInit
     ];
 
     fosTotal          : number;
-    projectsTotal     : number;
-    jobsTotal         : number;
-    jobsCompleted     : number;
-    jobsCancelled     : number;
-    institutionTotal  : number;
-    collDurationTotal : number;
-    indDurationTotal  : number;
+    proj_total        : number;
+    job_total         : number;
+    job_completed     : number;
+    inst_total        : number;
+    hrs_total         : number;
     
     JobsDisplayEnum  =  JobsDisplay;
     jobVal : JobsDisplay;
-
-    DurationDisplayEnum = DurationDisplay;
-    durVal : DurationDisplay;
 
     fosTableData : any;
     fosMapData   : any;
@@ -337,23 +326,20 @@ export class InfoComponent implements OnInit
                 .subscribe( ( data : any ) =>
                 {
 
-                    this.jobsTotal        = data.jobs_total;
-                    this.jobsCompleted    = data.jobs_completed;
-                    this.jobsCancelled    = data.jobs_cancelled;
+                    console.log( data );
+                    this.job_total        = data.job_total;
+                    this.job_completed    = data.job_completed;
 
-                    this.projectsTotal    = data.proj_total;
-                    this.institutionTotal = data.inst_total;
+                    this.proj_total       = data.proj_total;
+                    this.inst_total       = data.inst_total;
 
-                    this.indDurationTotal  = data.duration_info.duration_ind;
-                    this.collDurationTotal = data.duration_info.duration_col;
+                    this.hrs_total  = data.sec_total;
 
                     // convert from seconds to minutes
-                    this.indDurationTotal = this.indDurationTotal / 60;
-                    this.collDurationTotal = this.collDurationTotal / 60;
+                    this.hrs_total = this.hrs_total / 60;
                     
                     // convert from minutes to hours
-                    this.indDurationTotal = this.indDurationTotal / 60;
-                    this.collDurationTotal = this.collDurationTotal / 60;
+                    this.hrs_total = this.hrs_total / 60;
                     
 
                     data.proj_info.forEach( ( value, index ) =>
@@ -421,11 +407,6 @@ export class InfoComponent implements OnInit
     jobsText(newEnum : any ) : void
     {
         this.jobVal = newEnum;
-    }
-
-    durationChanger( newEnum : any ) : void
-    {
-        this.durVal = newEnum;
     }
 
     sortArr( arr : any[ ], val : string ) : any[]

@@ -56,7 +56,7 @@ import { NodelifeComponent } from './nodelife/nodelife.component';
     MatMomentDateModule,
     AngularMaterialModule,
     ChartsModule,
-    LeafletModule.forRoot(),
+    LeafletModule,
     AppRoutingModule
   ],
   entryComponents: [ DetailComponent, SunburstDialogComponent ],

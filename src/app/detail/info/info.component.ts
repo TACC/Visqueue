@@ -326,6 +326,8 @@ export class InfoComponent implements OnInit
                 .subscribe( ( data : any ) =>
                 {
 
+                    console.log( data );
+
                     this.jobTotal        = data.job_total;
                     this.jobCompleted    = data.job_completed;
 
@@ -357,7 +359,6 @@ export class InfoComponent implements OnInit
                     let fosByNodesData    = [ ...data.fos_info ];
                     let fosByDurationData = [ ...data.fos_info ];
 
-                    console.log( fosByProjData );
 
                     fosByProjData = this.sortArr( fosByProjData, 'proj_total' );
                     this.pushData( fosByProjData, this.fosByProjBarChartLabels, this.fosByProjBarChartData, 'proj_total', this.fosByProjBarChartColors );
@@ -370,6 +371,8 @@ export class InfoComponent implements OnInit
 
                     fosByDurationData = this.sortArr( fosByDurationData, 'duration' );
                     this.pushData( fosByDurationData, this.fosByDurationBarChartLabels, this.fosByDurationBarChartData, 'duration', this.fosByDurationBarChartColors );
+
+                    this.fosMapData = data.inst_info;
 
                     this.jobVal = JobsDisplay.Total;
 

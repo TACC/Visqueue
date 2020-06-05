@@ -5,11 +5,16 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
 import { SunburstDialogComponent } from 'src/app/sunburst-dialog/sunburst-dialog.component';
 
-export interface TableInfoElement {
-    name: string;
-    projects: number;
-    jobs: number;
-    nodes: number;
+export interface TableInfoElement 
+{
+    name        : string;
+    fos         : string;
+    institution : string;
+    abstract    : string;
+    job_total   : number;
+    node_total  : number;
+    sec_total   : number;
+    hr_total    : number;
 }
 
 @Component({
@@ -19,7 +24,7 @@ export interface TableInfoElement {
 })
 export class InfoTableComponent implements OnInit, OnChanges {
 
-    displayedColumns: string[] = [ 'name', 'fos', 'pi_institution', 'jobs', 'nodes', 'duration', 'description' ];
+    displayedColumns: string[] = [ 'name', 'fos', 'institution', 'job_total', 'node_total', 'hr_total', 'abstract' ];
     dataSource: MatTableDataSource<TableInfoElement>;
 
     @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -34,6 +39,23 @@ export class InfoTableComponent implements OnInit, OnChanges {
 
     ngOnChanges(changes: SimpleChanges): void 
     {
+
+        if (!this.tableData) 
+        {
+            return;
+        }
+
+        console.log( this.tableData );
+        this.tableData.forEach(proj => 
+        {
+            proj.hr_total = proj.sec_total;
+
+            // convert from seconds to minutes
+            proj.hr_total = proj.hr_total / 60;
+            
+            // convert from minutes to hours
+            proj.hr_total = proj.hr_total / 60;
+        });
 
         this.dataSource = new MatTableDataSource(this.tableData);
         this.dataSource.sort = this.sort;

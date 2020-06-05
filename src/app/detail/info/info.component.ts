@@ -326,8 +326,6 @@ export class InfoComponent implements OnInit
                 .subscribe( ( data : any ) =>
                 {
 
-                    console.log( data );
-
                     this.jobTotal        = data.job_total;
                     this.jobCompleted    = data.job_completed;
 
@@ -373,6 +371,7 @@ export class InfoComponent implements OnInit
                     this.pushData( fosByDurationData, this.fosByDurationBarChartLabels, this.fosByDurationBarChartData, 'duration', this.fosByDurationBarChartColors );
 
                     this.fosMapData = data.inst_info;
+                    this.fosTableData = data.proj_info;
 
                     this.jobVal = JobsDisplay.Total;
 

@@ -1,22 +1,22 @@
-<h1 mat-dialog-title> {{ data.name }} <br> {{ data.pi_institution }} <br>
+<h1 mat-dialog-title> {{ data.name }} <br> {{ data.institution }} <br>
 
-    <ng-container *ngIf="data.jobs > 0">
-        {{ data.jobs | number }} Jobs <br>
+    <ng-container *ngIf="data.job_total > 0">
+        {{ data.job_total | number }} Jobs <br>
     </ng-container>
-    <ng-container *ngIf="data.nodes > 0">
-        {{ data.nodes | number }} Nodes <br>
+    <ng-container *ngIf="data.node_total > 0">
+        {{ data.node_total | number }} Nodes <br>
     </ng-container>
-    <ng-container *ngIf="data.duration > 0">
-        {{ data.duration | number : '1.0-0' }} Hours <br>
+    <ng-container *ngIf="data.hr_total > 0">
+        {{ data.hr_total | number : '1.0-0' }} Hours <br>
     </ng-container>
 
-    {{ data.principal_investigator }}
+    {{ data.pi }}
 </h1>
 
 <div mat-dialog-content>
 
     <p>
-        {{ data.project_abstract }}
+        {{ data.abstract }}
     </p>
 
 </div>

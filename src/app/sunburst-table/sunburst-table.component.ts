@@ -27,7 +27,7 @@ export class SunburstTableComponent implements OnInit
     @ViewChild( MatSort, { static: true } ) sort: MatSort;
 
 
-    displayedColumns: string[] = [ 'institution', 'science', 'jobs', 'nodes', 'description' ];
+    displayedColumns: string[] = [ 'institution', 'fos', 'job_total', 'node_total', 'abstract' ];
 
 
     constructor( private sunburstService : SunburstService,
@@ -61,20 +61,20 @@ export class SunburstTableComponent implements OnInit
 
                         const newProject =
                         {
-                            name                   : tProject.name,
-                            science                : tFos.name,
-                            pi_institution         : tProject.pi_institution,
-                            principal_investigator : tProject.principal_investigator,
-                            project_abstract       : tProject.project_abstract,
-                            jobs                   : 0,
-                            nodes                  : 0
+                            name        : tProject.name,
+                            fos         : tFos.name,
+                            institution : tProject.pi_institution,
+                            pi          : tProject.principal_investigator,
+                            abstract    : tProject.project_abstract,
+                            job_total   : 0,
+                            node_total  : 0
                         };
 
                         for (const tJob of tProject.children)
                         {
 
-                            newProject.jobs += 1;
-                            newProject.nodes += tJob.size;
+                            newProject.job_total += 1;
+                            newProject.node_total += tJob.size;
 
                         }
 
@@ -106,7 +106,6 @@ export class SunburstTableComponent implements OnInit
 
     showDescription( element : any )
     {
-
         this.dialog.open( SunburstDialogComponent, 
         {
             width : '50vw',

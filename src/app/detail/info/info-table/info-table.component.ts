@@ -45,7 +45,6 @@ export class InfoTableComponent implements OnInit, OnChanges {
             return;
         }
 
-        console.log( this.tableData );
         this.tableData.forEach(proj => 
         {
             proj.hr_total = proj.sec_total;

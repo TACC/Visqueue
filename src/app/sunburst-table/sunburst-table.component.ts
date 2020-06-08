@@ -32,7 +32,7 @@ export class SunburstTableComponent implements OnInit
 
     constructor( private sunburstService : SunburstService,
                  private route           : ActivatedRoute,
-                 private dialog          : MatDialog ) { }
+                 private dialog          : MatDialog) { }
 
     ngOnInit()
     {
@@ -55,31 +55,12 @@ export class SunburstTableComponent implements OnInit
                 for (const tFos of data.children)
                 {
 
-
                     for (const tProject of tFos.children)
                     {
-
-                        const newProject =
-                        {
-                            name        : tProject.name,
-                            fos         : tFos.name,
-                            institution : tProject.pi_institution,
-                            pi          : tProject.principal_investigator,
-                            abstract    : tProject.project_abstract,
-                            job_total   : 0,
-                            node_total  : 0
-                        };
-
-                        for (const tJob of tProject.children)
-                        {
-
-                            newProject.job_total += 1;
-                            newProject.node_total += tJob.size;
-
-                        }
-
+                        tProject[ 'fos' ] = tFos.name;
+                        
                         t_projectCount++;
-                        result.push(newProject);
+                        result.push( tProject );
                     }
                 }
 

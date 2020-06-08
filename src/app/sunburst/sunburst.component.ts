@@ -448,8 +448,8 @@ export class SunburstComponent implements OnInit, AfterViewInit
     openDialog( p : any ) : void
     {
 
-        console.log( p );
 
+        
         this.dialog.open( SunburstDialogComponent, 
             {
                 width : '50vw',

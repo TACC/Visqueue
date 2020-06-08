@@ -8,6 +8,10 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
 
 import { ChartsModule } from 'ng2-charts';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import * as PlotlyJS from 'plotly.js/dist/plotly.js';
+import { PlotlyModule } from 'angular-plotly.js';
+
+PlotlyModule.plotlyjs = PlotlyJS;
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -57,6 +61,7 @@ import { NodelifeComponent } from './nodelife/nodelife.component';
     AngularMaterialModule,
     ChartsModule,
     LeafletModule,
+    PlotlyModule,
     AppRoutingModule
   ],
   entryComponents: [ DetailComponent, SunburstDialogComponent ],

@@ -5,6 +5,12 @@
 </div>
 
 <div fxLayout="row" fxLayoutAlign="space-around center">
+    <i>
+        Data current as of {{ timestamp | date }}
+    </i>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="space-around center">
     <mat-card fxFlex="20" class="mat-elevation-z2">
         <mat-card-title>
             <ng-container [ngSwitch]="jobVal">

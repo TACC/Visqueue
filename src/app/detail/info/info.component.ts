@@ -296,12 +296,13 @@ export class InfoComponent implements OnInit
         }
     ];
 
-    fosTotal          : number;
-    projTotal        : number;
-    jobTotal         : number;
-    jobCompleted     : number;
-    instTotal        : number;
-    hrsTotal         : number;
+    fosTotal     : number;
+    projTotal    : number;
+    jobTotal     : number;
+    jobCompleted : number;
+    instTotal    : number;
+    hrsTotal     : number;
+    timestamp    : string;
     
     JobsDisplayEnum  =  JobsDisplay;
     jobVal : JobsDisplay;
@@ -325,6 +326,8 @@ export class InfoComponent implements OnInit
             this.apiService.postInfo( params.get('name') )
                 .subscribe( ( data : any ) =>
                 {
+
+                    this.timestamp = data.timestamp;
 
                     this.jobTotal        = data.job_total;
                     this.jobCompleted    = data.job_completed;

@@ -17,6 +17,8 @@
 
 <div fxLayout="row" fxLayoutAlign="space-around center" >
     <span class="mat-body-strong"> 
-        timestamp : {{ timestamp }}
+        <i>
+            timestamp : {{ timestamp | date : 'medium' }}
+        </i>
     </span>
 </div>

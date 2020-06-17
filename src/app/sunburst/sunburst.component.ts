@@ -155,6 +155,7 @@ export class SunburstComponent implements OnInit, AfterViewInit
  
     render( data : any )
     {
+        
         this.timestamp = data.timestamp;
 
         // create partition function to create hierarchical data object

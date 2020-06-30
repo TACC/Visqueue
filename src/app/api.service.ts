@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Job } from 'src/app/models/job';
 import { Search } from './models/search';
+import { FosTimeSeries } from './models/fos-time-series';
 
 
 @Injectable({

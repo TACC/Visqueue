@@ -71,9 +71,7 @@ export class TimeSeriesGraphComponent implements OnInit {
                             shortName = 'HUM';
                         }
 
-                        console.log( shortName );
-                        console.log( dates );
-                        console.log( jobs );
+                        let col =  this.infoService.getFosColor( shortName );
                     
                         this.graph.data.push( 
                             {
@@ -81,7 +79,8 @@ export class TimeSeriesGraphComponent implements OnInit {
                                 x    : dates,
                                 y    : jobs,
                                 type : 'scatter',
-                                mode : 'lines+markers'
+                                mode : 'lines+markers',
+                                line : { color : col }
                             }
                         );
                     }

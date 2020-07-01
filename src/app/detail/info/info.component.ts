@@ -5,6 +5,7 @@ import { Label, Color } from 'ng2-charts';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { InfoTableComponent } from './info-table/info-table.component';
 import { InfoService } from './info.service';
+import { ColorService } from 'src/app/color.service';
 
 enum JobsDisplay 
 {

@@ -23,11 +23,11 @@ export class NodelifeComponent implements OnInit {
 
         this.route.paramMap.subscribe( ( params : ParamMap ) =>
         {
-            this.apiService.getNodes( params.get('name') )
-                .subscribe( ( data : any ) =>
-                {                    
-                    this.rackData = data;
-                });
+            // this.apiService.getNodes( params.get('name') )
+            //     .subscribe( ( data : any ) =>
+            //     {                    
+            //         this.rackData = data;
+            //     });
         });
 
     }
@@ -40,11 +40,11 @@ export class NodelifeComponent implements OnInit {
     clickNode( node : any )
     {
     
-        this.apiService.getNodeInfo( 'frontera', node.name )
-            .subscribe( (data : any ) =>
-            {
-                console.log( data );
-            });
+        // this.apiService.getNodeInfo( 'frontera', node.name )
+        //     .subscribe( (data : any ) =>
+        //     {
+        //         console.log( data );
+        //     });
     }
 
 

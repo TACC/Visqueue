@@ -25,11 +25,13 @@ import { JobDurationPipe }         from './job-duration.pipe';
 import { BarChartComponent }       from './search/bar-chart/bar-chart.component';
 import { InfoComponent }           from './detail/info/info.component';
 import { InfoTableComponent }      from './detail/info/info-table/info-table.component';
-import { InfoMapComponent }        from './detail/info/info-map/info-map.component';
+import { InfoMapComponent        } from './detail/info/info-map/info-map.component';
 import { SunburstDialogComponent } from './sunburst-dialog/sunburst-dialog.component';
-import { ToolbarComponent } from './shared/toolbar/toolbar.component';
-import { FooterComponent } from './shared/footer/footer.component';
-import { NodelifeComponent } from './nodelife/nodelife.component';
+import { ToolbarComponent        } from './shared/toolbar/toolbar.component';
+import { FooterComponent         } from './shared/footer/footer.component';
+import { NodelifeComponent       } from './nodelife/nodelife.component';
+import { CommonModule            } from '@angular/common';
+import { TimeSeriesGraphComponent } from './detail/info/time-series-graph/time-series-graph.component';
 
 
 @NgModule({
@@ -48,9 +50,11 @@ import { NodelifeComponent } from './nodelife/nodelife.component';
     SunburstDialogComponent,
     ToolbarComponent,
     FooterComponent,
-    NodelifeComponent
+    NodelifeComponent,
+    TimeSeriesGraphComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,

@@ -4,6 +4,8 @@ import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label, Color } from 'ng2-charts';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { InfoTableComponent } from './info-table/info-table.component';
+import { InfoService } from './info.service';
+import { ColorService } from 'src/app/color.service';
 
 enum JobsDisplay 
 {
@@ -13,9 +15,10 @@ enum JobsDisplay
 
 
 @Component({
-    selector: 'app-info',
-    templateUrl: './info.component.html',
-    styleUrls: ['./info.component.scss']
+    selector    : 'app-info',
+    templateUrl : './info.component.html',
+    styleUrls   : ['./info.component.scss'],
+    providers   : [ InfoService ] 
 })
 export class InfoComponent implements OnInit
 {
@@ -314,6 +317,7 @@ export class InfoComponent implements OnInit
 
     constructor(
         private apiService : ApiService,
+        private infoService : InfoService,
         private route      : ActivatedRoute) { }
 
     ngOnInit()

@@ -22,6 +22,10 @@ export class TimeSeriesGraphComponent implements OnInit {
                 tickformat : '%b %y',
                 dtick : 'M1'
             }
+        },
+        config : 
+        {
+            responsive : true
         }
     };
 

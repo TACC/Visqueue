@@ -20,8 +20,12 @@ export class TimeSeriesGraphComponent implements OnInit {
             {
                 type : 'date',
                 tickformat : '%b %y',
-                dtick : 'M1'
-            }
+                dtick : 'M1',
+                gridcolor : 'rgba(133, 133, 133, 0.5)'
+            },
+            yaxis : { gridcolor : 'rgba(133, 133, 133, 0.5)' },
+            plot_bgcolor  : 'rgba(0,0,0,0)',
+            paper_bgcolor : 'rgba(0,0,0,0)'
         },
         config : 
         {

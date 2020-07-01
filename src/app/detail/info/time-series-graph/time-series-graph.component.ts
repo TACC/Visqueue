@@ -14,7 +14,7 @@ export class TimeSeriesGraphComponent implements OnInit {
         data : [],
         layout: 
         { 
-            title: 'Number of Jobs per month for each Field of Science',
+            title: 'Jobs per month (Field of Science)',
             showlegend : true,
             xaxis : 
             {
@@ -84,7 +84,9 @@ export class TimeSeriesGraphComponent implements OnInit {
                                 y    : jobs,
                                 type : 'scatter',
                                 mode : 'lines+markers',
-                                line : { color : col }
+                                line : { color : col },
+                                hovertemplate : '%{y:,} <i>Jobs</i>',
+                                connectgaps : false
                             }
                         );
                     }

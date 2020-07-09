@@ -23,11 +23,12 @@ export class NodelifeComponent implements OnInit {
 
         this.route.paramMap.subscribe( ( params : ParamMap ) =>
         {
-            // this.apiService.getNodes( params.get('name') )
-            //     .subscribe( ( data : any ) =>
-            //     {                    
-            //         this.rackData = data;
-            //     });
+            this.apiService.getNodes( params.get('name') )
+                .subscribe( ( data : any ) =>
+                {                    
+                    // this.rackData = data;
+                    console.log( data );
+                });
         });
 
     }

@@ -65,10 +65,13 @@ export class InfoTableComponent implements OnInit, OnChanges {
     showDescription( element : any ) : void 
     {
 
+        let c_element = { ...element };
+        c_element.name = element.name.formal;
+
         this.dialog.open( SunburstDialogComponent, 
             {
                 width : '50vw',
-                data  : element
+                data  : c_element
             });
     }
 }

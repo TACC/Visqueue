@@ -29,9 +29,9 @@ import { InfoMapComponent        } from './detail/info/info-map/info-map.compone
 import { SunburstDialogComponent } from './sunburst-dialog/sunburst-dialog.component';
 import { ToolbarComponent        } from './shared/toolbar/toolbar.component';
 import { FooterComponent         } from './shared/footer/footer.component';
-import { NodelifeComponent       } from './nodelife/nodelife.component';
 import { CommonModule            } from '@angular/common';
 import { TimeSeriesGraphComponent } from './detail/info/time-series-graph/time-series-graph.component';
+import { NodeExplorerComponent } from './detail/info/node-explorer/node-explorer.component';
 
 
 @NgModule({
@@ -50,8 +50,8 @@ import { TimeSeriesGraphComponent } from './detail/info/time-series-graph/time-s
     SunburstDialogComponent,
     ToolbarComponent,
     FooterComponent,
-    NodelifeComponent,
-    TimeSeriesGraphComponent
+    TimeSeriesGraphComponent,
+    NodeExplorerComponent
   ],
   imports: [
     CommonModule,

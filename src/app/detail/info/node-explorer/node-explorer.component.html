@@ -1,1 +1,7 @@
-<p>node-explorer works!</p>
+<div id="container">
+    <div class="rack-row" *ngFor="let rackrow of racks">
+        <div *ngFor="let rack of rackrow.racks">
+            {{ rack.name }}
+        </div>
+    </div>
+</div>

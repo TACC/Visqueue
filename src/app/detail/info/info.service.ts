@@ -22,4 +22,9 @@ export class InfoService {
     {
         return this.colorService.getFosColor( fos );
     }
+
+    getNodes( system : string )
+    {
+        return this.apiService.getNodes( system );
+    }
 }

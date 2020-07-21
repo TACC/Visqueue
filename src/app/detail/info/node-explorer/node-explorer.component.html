@@ -1,7 +1,16 @@
-<div id="container">
-    <div class="rack-row" *ngFor="let rackrow of racks">
-        <div *ngFor="let rack of rackrow.racks">
-            {{ rack.name }}
-        </div>
-    </div>
+<div class="select-row">
+    <mat-form-field>
+        <mat-label>Select Rack</mat-label>
+        <mat-select (selectionChange)="rackSelected($event)">
+            <mat-option *ngFor="let rack of racks" [value]="rack">{{ rack.name }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Select Node</mat-label>
+        <mat-select (selectionChange)="nodeSelected($event)" matTooltip="Select Rack First" [matTooltipDisabled]="nodett">
+            <mat-option *ngFor="let node of nodes" [value]="node">{{ node }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
 </div>

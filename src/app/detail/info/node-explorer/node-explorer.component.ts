@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InfoService } from '../info.service';
 import { ActivatedRoute } from '@angular/router';
-import { Racks } from 'src/app/models/racks';
+import { Rack } from 'src/app/models/rack';
 
 @Component({
     selector: 'app-node-explorer',
@@ -10,7 +10,11 @@ import { Racks } from 'src/app/models/racks';
 })
 export class NodeExplorerComponent implements OnInit {
 
-    racks : Racks[];
+    racks : Rack[];
+    nodes : string[];
+
+    nodeSel = false;
+    nodett  = false;
 
     constructor(
         private infoService: InfoService,
@@ -22,15 +26,27 @@ export class NodeExplorerComponent implements OnInit {
         let system = this.route.snapshot.params['name'];
 
         this.infoService.getNodes(system)
-            .subscribe((data: [ Racks ] ) => 
+            .subscribe((data: [ Rack ] ) => 
             {
                 if( data )
                 {        
-                    console.log( data );            
                     this.racks = data;
                 }
             });
 
+    }
+
+    rackSelected( event : any )
+    {
+        this.nodes = event.value.nodes;
+    }
+
+    nodeSelected( event : any )
+    {
+        this.nodeSel = true;
+        this.nodett  = true;
+        
+        console.log( event );
     }
 
 }

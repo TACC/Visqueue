@@ -27,4 +27,9 @@ export class InfoService {
     {
         return this.apiService.getNodes( system );
     }
+
+    postNodes( node : string, system : string )
+    {
+
+    }
 }

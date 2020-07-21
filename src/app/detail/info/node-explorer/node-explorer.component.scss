@@ -1,8 +1,9 @@
-.select-row
+.flex-row
 {
     display         : flex;
     flex-direction  : row;
-    justify-content : space-around;
+    justify-content: space-around;
     align-items     : center;
-    width           : 40%;
+    flex-flow       : row wrap;
+    text-align      : center;
 }

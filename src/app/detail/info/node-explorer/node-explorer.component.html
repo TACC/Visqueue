@@ -1,4 +1,6 @@
-<div class="select-row">
+<div class="mat-h2 flex-row">Node Explorer</div>
+<div class="flex-row" [style.width.%]="40">
+
     <mat-form-field>
         <mat-label>Select Rack</mat-label>
         <mat-select (selectionChange)="rackSelected($event)">
@@ -11,6 +13,6 @@
         <mat-select (selectionChange)="nodeSelected($event)" matTooltip="Select Rack First" [matTooltipDisabled]="nodett">
             <mat-option *ngFor="let node of nodes" [value]="node">{{ node }}</mat-option>
         </mat-select>
-    </mat-form-field>
+    </mat-form-field>    
 
 </div>

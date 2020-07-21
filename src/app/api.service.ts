@@ -46,6 +46,11 @@ export class ApiService
         return this.http.get( this.url + this.info + this.nodes, { params : { 'system' : system } } );
     }
 
+    postNodes( node : string, system : string )
+    {
+        
+    }
+
 
     postFosTimeSeries( system : string )
     {

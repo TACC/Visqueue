@@ -13,8 +13,13 @@ export class NodeExplorerComponent implements OnInit {
     racks : Rack[];
     nodes : string[];
 
+    system : string;
+
     nodeSel = false;
     nodett  = false;
+
+    jobs     : number;
+    projects : number;
 
     constructor(
         private infoService: InfoService,
@@ -23,9 +28,9 @@ export class NodeExplorerComponent implements OnInit {
 
     ngOnInit(): void {
 
-        let system = this.route.snapshot.params['name'];
+        this.system = this.route.snapshot.params['name'];
 
-        this.infoService.getNodes(system)
+        this.infoService.getNodes(this.system)
             .subscribe((data: [ Rack ] ) => 
             {
                 if( data )
@@ -46,7 +51,14 @@ export class NodeExplorerComponent implements OnInit {
         this.nodeSel = true;
         this.nodett  = true;
         
-        console.log( event );
+        this.infoService.postNodes( event.value, this.system )
+            .subscribe( ( data : any ) =>
+            {
+                console.log( data );
+                this.jobs     = data.jobs_total;
+                this.projects = data.proj_info.length;
+            });  
+        
     }
 
 }

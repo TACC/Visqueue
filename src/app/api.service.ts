@@ -48,7 +48,8 @@ export class ApiService
 
     postNodes( node : string, system : string )
     {
-        
+        let params = { 'system' : system , 'node' : node };
+        return this.http.post( this.url + this.info + this.nodes, params );
     }
 
 

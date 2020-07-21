@@ -30,6 +30,6 @@ export class InfoService {
 
     postNodes( node : string, system : string )
     {
-
+        return this.apiService.postNodes( node, system );
     }
 }

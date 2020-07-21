@@ -24,8 +24,11 @@ export class NodeExplorerComponent implements OnInit {
         this.infoService.getNodes(system)
             .subscribe((data: [ Racks ] ) => 
             {
-                console.log( data );
-                this.racks = data;
+                if( data )
+                {        
+                    console.log( data );            
+                    this.racks = data;
+                }
             });
 
     }

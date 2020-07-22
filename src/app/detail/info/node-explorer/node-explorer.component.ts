@@ -24,6 +24,9 @@ export class NodeExplorerComponent implements OnInit {
     loading = false;
     showNodeInfo = false;
 
+    rows = [];
+    cols = [];
+
     barchart = {
         data : [],
         layout : 
@@ -51,15 +54,32 @@ export class NodeExplorerComponent implements OnInit {
                 if( data )
                 {        
                     console.log( data );
+
+                    let rowMax = Math.max.apply( Math, data.map(function( o ) { return o.row; } ));
+                    let colMax = Math.max.apply( Math, data.map(function( o ) { return o.col; } ));
+
+                    this.rows = [...Array( rowMax + 1 ).keys() ];
+                    this.cols = [...Array( colMax + 1 ).keys() ];
+
+                    console.log( rowMax );
+                    console.log( colMax );
+
+                    console.log( this.rows );
+                    console.log( this.cols );
                     this.racks = data;
                 }
             });
 
     }
 
-    rackSelected( event : any )
+    rackDropdown( event : any )
     {
         this.nodes = event.value.nodes;
+    }
+
+    rackClick( rack : Rack )
+    {
+        this.nodes = rack.nodes;
     }
 
     nodeSelected( event : any )
@@ -74,7 +94,7 @@ export class NodeExplorerComponent implements OnInit {
         this.infoService.postNodes( event.value, this.system )
             .subscribe( ( data : any ) =>
             {
-                console.log( data );
+
                 this.jobs     = data.jobs_total;
                 this.projects = data.proj_info.length;
 

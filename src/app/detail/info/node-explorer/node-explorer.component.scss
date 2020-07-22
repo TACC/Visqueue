@@ -22,3 +22,21 @@
 {
     flex : 0 1 60%;
 }
+
+.rack
+{
+    width: 15px;
+    height: 30px;
+    background-color: #47bf81;
+}
+
+.rack:hover
+{
+    cursor: pointer;
+    background-color: #8147bf;
+}
+
+.rack-row
+{
+    margin-bottom: 15px;
+}

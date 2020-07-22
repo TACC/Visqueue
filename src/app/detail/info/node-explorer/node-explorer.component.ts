@@ -22,10 +22,18 @@ export class NodeExplorerComponent implements OnInit {
     projects : number;
 
     loading = false;
+    showNodeInfo = false;
 
     barchart = {
         data : [],
-        layout : { title : 'A fancy plot' }
+        layout : 
+        { 
+            title : 'Total Number of Jobs by Field of Science',
+            xaxis : { gridcolor : 'rgba(133, 133, 133, 0.5)' },
+            yaxis : { gridcolor : 'rgba(133, 133, 133, 0.5)' },
+            plot_bgcolor  : 'rgba(0,0,0,0)',
+            paper_bgcolor : 'rgba(0,0,0,0)' 
+        }
     };
 
     constructor(
@@ -42,6 +50,7 @@ export class NodeExplorerComponent implements OnInit {
             {
                 if( data )
                 {        
+                    console.log( data );
                     this.racks = data;
                 }
             });
@@ -83,6 +92,8 @@ export class NodeExplorerComponent implements OnInit {
                 }];
 
                 this.barchart.data = barData;
+            
+                this.showNodeInfo = true;
             });  
         
     }

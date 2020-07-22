@@ -4,48 +4,55 @@
 
     <div class="flex-row" id="ne-left">
 
-        <mat-form-field>
-            <mat-label>Select Rack</mat-label>
-            <mat-select (selectionChange)="rackSelected($event)">
-                <mat-option *ngFor="let rack of racks" [value]="rack">{{ rack.name }}</mat-option>
-            </mat-select>
-        </mat-form-field>
+        <div class="flex-row item">
 
-        <mat-form-field>
-            <mat-label>Select Node</mat-label>
-            <mat-select (selectionChange)="nodeSelected($event)" matTooltip="Select Rack First" [matTooltipDisabled]="nodett">
-                <mat-option *ngFor="let node of nodes" [value]="node">{{ node }}</mat-option>
-            </mat-select>
-        </mat-form-field>    
-
-    </div>
-
-<div class="flex-row" id="ne-right">
-
-    <mat-progress-bar mode="query" *ngIf="loading"></mat-progress-bar>
-
-    <div class="flex-row item">
-        <div>
-            <mat-card>
-                <mat-card-title>{{ jobs | number }}</mat-card-title>
-                <mat-card-subtitle>Jobs</mat-card-subtitle>
-            </mat-card>
-        </div>
+            <mat-form-field>
+                <mat-label>Select Rack</mat-label>
+                <mat-select (selectionChange)="rackSelected($event)">
+                    <mat-option *ngFor="let rack of racks" [value]="rack">{{ rack.name }}</mat-option>
+                </mat-select>
+            </mat-form-field>
     
-        <div>
-            <mat-card>
-                <mat-card-title>{{ projects | number }}</mat-card-title>
-                <mat-card-subtitle>Projects</mat-card-subtitle>
-            </mat-card>
+            <mat-form-field>
+                <mat-label>Select Node</mat-label>
+                <mat-select (selectionChange)="nodeSelected($event)" matTooltip="Select Rack First" [matTooltipDisabled]="nodett">
+                    <mat-option *ngFor="let node of nodes" [value]="node">{{ node }}</mat-option>
+                </mat-select>
+            </mat-form-field>    
+        
+        </div>
+
+        <div class="flex-row item" id="">
+            New Row
+        </div>
+
+    </div>
+
+    <div class="flex-row" id="ne-right">
+
+        <mat-progress-bar mode="query" *ngIf="loading"></mat-progress-bar>
+
+        <div class="flex-row item" *ngIf="showNodeInfo">
+            <div>
+                <mat-card>
+                    <mat-card-title>{{ jobs | number }}</mat-card-title>
+                    <mat-card-subtitle>Jobs</mat-card-subtitle>
+                </mat-card>
+            </div>
+        
+            <div>
+                <mat-card>
+                    <mat-card-title>{{ projects | number }}</mat-card-title>
+                    <mat-card-subtitle>Projects</mat-card-subtitle>
+                </mat-card>
+            </div>
+        </div>
+
+        <div class="flex-row item" *ngIf="showNodeInfo">
+            <plotly-plot class="item" [data]="barchart.data" [layout]="barchart.layout">
+
+            </plotly-plot>
         </div>
     </div>
-
-    <div class="flex-row item">
-        <plotly-plot class="item" [data]="barchart.data" [layout]="barchart.layout">
-
-        </plotly-plot>
-    </div>
-
-</div>
 
 </div>

@@ -2,7 +2,7 @@
 
 <div class="flex-row">
 
-    <div class="flex-row" [style.width.%]="40">
+    <div class="flex-row" id="ne-left">
 
         <mat-form-field>
             <mat-label>Select Rack</mat-label>
@@ -20,11 +20,11 @@
 
     </div>
 
-<div class="flex-row" [style.width.%]="60">
+<div class="flex-row" id="ne-right">
 
     <mat-progress-bar mode="query" *ngIf="loading"></mat-progress-bar>
 
-    <div class="flex-row" [style.width.%]="100" [style.padding.px]="50">
+    <div class="flex-row item" [style.padding.px]="50">
         <div>
             <mat-card>
                 <mat-card-title>{{ jobs | number }}</mat-card-title>
@@ -40,7 +40,7 @@
         </div>
     </div>
 
-    <div class="flex-row" [style.width.%]="100">
+    <div class="flex-row item">
         Hello
     </div>
 

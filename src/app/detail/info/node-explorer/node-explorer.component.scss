@@ -27,13 +27,14 @@
 {
     width: 15px;
     height: 30px;
+    border-radius: 5px;
     background-color: #47bf81;
 }
 
 .rack:hover
 {
     cursor: pointer;
-    background-color: #8147bf;
+    background-color: #4749bf;
 }
 
 .rack-row

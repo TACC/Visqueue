@@ -21,6 +21,8 @@ export class NodeExplorerComponent implements OnInit {
     jobs     : number;
     projects : number;
 
+    loading = false;
+
     constructor(
         private infoService: InfoService,
         private route: ActivatedRoute
@@ -50,6 +52,8 @@ export class NodeExplorerComponent implements OnInit {
     {
         this.nodeSel = true;
         this.nodett  = true;
+
+        this.loading = true;
         
         this.infoService.postNodes( event.value, this.system )
             .subscribe( ( data : any ) =>
@@ -57,6 +61,8 @@ export class NodeExplorerComponent implements OnInit {
                 console.log( data );
                 this.jobs     = data.jobs_total;
                 this.projects = data.proj_info.length;
+
+                this.loading = false;
             });  
         
     }

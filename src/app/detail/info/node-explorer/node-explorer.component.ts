@@ -23,6 +23,11 @@ export class NodeExplorerComponent implements OnInit {
 
     loading = false;
 
+    barchart = {
+        data : [],
+        layout : { title : 'A fancy plot' }
+    };
+
     constructor(
         private infoService: InfoService,
         private route: ActivatedRoute
@@ -54,6 +59,8 @@ export class NodeExplorerComponent implements OnInit {
         this.nodett  = true;
 
         this.loading = true;
+
+        let regexp = /\(([^)]+)\)/;
         
         this.infoService.postNodes( event.value, this.system )
             .subscribe( ( data : any ) =>
@@ -63,6 +70,19 @@ export class NodeExplorerComponent implements OnInit {
                 this.projects = data.proj_info.length;
 
                 this.loading = false;
+
+                let barData = [{
+                    y           : data.fos_info.map( proj => { return regexp.exec( proj.name )[1] }),
+                    x           : data.fos_info.map( proj => proj.count ),
+                    marker : 
+                    {
+                        color : data.fos_info.map( proj => { return this.infoService.getFosColor( regexp.exec( proj.name )[1] ) } )
+                    },
+                    type        : 'bar',
+                    orientation : 'h'
+                }];
+
+                this.barchart.data = barData;
             });  
         
     }

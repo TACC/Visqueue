@@ -79,6 +79,7 @@ export class TimeSeriesGraphComponent implements OnInit {
                             shortName = 'HUM';
                         }
 
+                        console.log( shortName );
                         let col =  this.infoService.getFosColor( shortName );
                     
                         this.graph.data.push( 

@@ -21,8 +21,10 @@ export class NodeExplorerComponent implements OnInit {
     jobs     : number;
     projects : number;
 
-    loading = false;
+    loading      = false;
     showNodeInfo = false;
+
+    selectedRack : Rack;
 
     rows = [];
     cols = [];
@@ -79,6 +81,10 @@ export class NodeExplorerComponent implements OnInit {
 
     rackClick( rack : Rack )
     {
+        this.selectedRack = rack;
+
+        console.log( this.selectedRack );
+
         this.nodes = rack.nodes;
     }
 

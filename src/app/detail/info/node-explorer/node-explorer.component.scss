@@ -23,6 +23,11 @@
     flex : 0 1 60%;
 }
 
+.rack-row
+{
+    margin-bottom: 15px;
+}
+
 .rack
 {
     width: 15px;
@@ -31,13 +36,13 @@
     background-color: #47bf81;
 }
 
+.rack-selected
+{
+    background-color: #4749bf;
+}
+
 .rack:hover
 {
     cursor: pointer;
     background-color: #4749bf;
-}
-
-.rack-row
-{
-    margin-bottom: 15px;
 }

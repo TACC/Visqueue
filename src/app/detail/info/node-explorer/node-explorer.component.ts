@@ -25,6 +25,7 @@ export class NodeExplorerComponent implements OnInit {
     showNodeInfo = false;
 
     selectedRack : Rack;
+    selectedNode : string;
 
     rows = [];
     cols = [];
@@ -63,11 +64,6 @@ export class NodeExplorerComponent implements OnInit {
                     this.rows = [...Array( rowMax + 1 ).keys() ];
                     this.cols = [...Array( colMax + 1 ).keys() ];
 
-                    console.log( rowMax );
-                    console.log( colMax );
-
-                    console.log( this.rows );
-                    console.log( this.cols );
                     this.racks = data;
                 }
             });
@@ -76,14 +72,13 @@ export class NodeExplorerComponent implements OnInit {
 
     rackDropdown( event : any )
     {
+        this.selectedRack = event.value;
         this.nodes = event.value.nodes;
     }
 
     rackClick( rack : Rack )
     {
         this.selectedRack = rack;
-
-        console.log( this.selectedRack );
 
         this.nodes = rack.nodes;
     }
@@ -92,6 +87,8 @@ export class NodeExplorerComponent implements OnInit {
     {
         this.nodeSel = true;
         this.nodett  = true;
+
+        this.selectedNode = event.value;
 
         this.loading = true;
 

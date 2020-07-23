@@ -24,12 +24,14 @@
 
         <div class="flex-row item" id="racks">
             <div *ngFor="let row of rows" class="flex-row item rack-row">
-                <span 
+                <button 
                     class="rack" 
                     *ngFor="let col of cols" 
-                    (click)="rackClick( racks[ row * 29 + col ] )"
-                    matTooltip="{{ racks[ row * 29 + col].name }}">
-                </span>
+                    (click)="rackClick( racks[ row * 30 + col ] )"
+                    matTooltip="{{ racks[ row * 30 + col ].name }}"
+                    id="{{row}}_{{col}}"
+                    [ngClass]="{'rack-selected': selectedRack && selectedRack.row === row && selectedRack.col === col }">
+                </button>
             </div>
         </div>
 
@@ -38,6 +40,13 @@
     <div class="flex-row" id="ne-right">
 
         <mat-progress-bar mode="query" *ngIf="loading"></mat-progress-bar>
+        
+        <div *ngIf="showNodeInfo">
+            <mat-card>
+                <mat-card-title>{{ selectedNode }}</mat-card-title>
+                <mat-card-subtitle>Node</mat-card-subtitle>
+            </mat-card>
+        </div>
 
         <div class="flex-row item" *ngIf="showNodeInfo">
             <div>
@@ -46,7 +55,6 @@
                     <mat-card-subtitle>Jobs</mat-card-subtitle>
                 </mat-card>
             </div>
-        
             <div>
                 <mat-card>
                     <mat-card-title>{{ projects | number }}</mat-card-title>

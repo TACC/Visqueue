@@ -313,6 +313,8 @@ export class InfoComponent implements OnInit
     fosTableData : any;
     fosMapData   : any;
 
+    system : string;
+
     constructor(
         private apiService   : ApiService,
         private infoService  : InfoService,
@@ -324,6 +326,8 @@ export class InfoComponent implements OnInit
 
         this.route.paramMap.subscribe( (params : ParamMap ) =>
         {
+
+            this.system = params.get('name');
 
             this.apiService.postInfo( params.get('name') )
                 .subscribe( ( data : any ) =>

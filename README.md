@@ -25,3 +25,13 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## License(s)
+
+### 
+VisQueue is licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. A copy of the License is included with this software in the file LICENSE. If your copy does not contain the License, you may obtain a copy of the License at: Apache License Version 2.0. Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+
+Copyright (c) 2014-2020 The University of Texas at Austin. All rights reserved.
+
+
+This software includes third party open source software components : [Zoomable Sunburst](https://observablehq.com/@d3/zoomable-sunburst) which is distributed under the [ISC License](https://choosealicense.com/licenses/isc/). For full License details, please see `src/app/sunburst/License.txt`.

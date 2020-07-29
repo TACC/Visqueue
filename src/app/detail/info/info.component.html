@@ -121,7 +121,7 @@
 <br>
 
 <div fxLayout="row" fxLayoutAlign="center center">
-    <div class="graph" fxFlex="85">
+    <div fxFlex="85">
         <app-time-series-graph></app-time-series-graph>
     </div>
 </div>
@@ -140,6 +140,35 @@
     
 </div>
 
+<br>
+<br>
+<br>
+
+<div style="display: flex; justify-content: center;">
+    <mat-divider [style.width.%]="85">
+    </mat-divider>
+</div>
+
+<br>
+<br>
+
+<div fxLayout="row" fxLayoutAlign="space-around center" *ngIf="system ==='frontera'">
+    
+    <div fxLayout="column" fxFlex="85">
+        
+        <app-node-explorer></app-node-explorer>
+        
+    </div>
+    
+</div>
+
+<div style="display: flex; justify-content: center;">
+    <mat-divider [style.width.%]="85">
+    </mat-divider>
+</div>
+
+<br>
+<br>
 
 <div fxLayout="row" fxLayoutAlign="space-around center">
 

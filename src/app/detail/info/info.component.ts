@@ -313,19 +313,21 @@ export class InfoComponent implements OnInit
     fosTableData : any;
     fosMapData   : any;
 
-    colorDict : Map<string,string>;
+    system : string;
 
     constructor(
-        private apiService : ApiService,
-        private infoService : InfoService,
-        private route      : ActivatedRoute) { }
+        private apiService   : ApiService,
+        private infoService  : InfoService,
+        private route        : ActivatedRoute,
+        private colorService : ColorService ) { }
 
     ngOnInit()
     {
-        this.initColorDict();
 
         this.route.paramMap.subscribe( (params : ParamMap ) =>
         {
+
+            this.system = params.get('name');
 
             this.apiService.postInfo( params.get('name') )
                 .subscribe( ( data : any ) =>
@@ -388,18 +390,7 @@ export class InfoComponent implements OnInit
 
     }
 
-    initColorDict() : void
-    {
-        this.colorDict = new Map<string,string>();
 
-        this.colorDict.set( 'MATHEMATICAL AND PHYSICAL SCIENCES (MPS)', 'rgba(77,121,168, 0.8)'  );
-        this.colorDict.set( 'GEOSCIENCES (GEO)', 'rgba(242, 142, 48, 0.8)'  );
-        this.colorDict.set( 'COMPUTER AND INFORMATION SCIENCE AND ENGINEERING (CISE)', 'rgba(225,87,88, 0.8)');
-        this.colorDict.set( 'ENGINEERING (ENG)', 'rgba(118,183,178, 0.8)'   );
-        this.colorDict.set( 'BIOLOGICAL, BEHAVIORAL, AND SOCIAL SCIENCES (BBS)', 'rgba(89,161,78, 0.8)' );
-        this.colorDict.set( 'OTHER (TRA)', 'rgba(237,201,72, 0.8)'   );
-        this.colorDict.set( 'SOCIAL, BEHAVIORIAL, AND ECONOMIC SCIENCES (SBE)', 'rgba(156,117,95, 0.8)'  );
-    }
 
     jobsText(newEnum : any ) : void
     {
@@ -418,12 +409,27 @@ export class InfoComponent implements OnInit
     {
         let colorArr = [];
 
+        let regexp = /\(([^)]+)\)/;
+
         arr.forEach( ( value, index ) =>
         {
-            labels.push( arr[ index ].name );
-            dataset[0].data.push( arr[ index ][val] );
 
-            colorArr.push( this.colorDict.get( value.name ) );
+            let longName = arr[ index ].name;
+            
+            dataset[0].data.push( arr[ index ][val] );
+            
+            let matches = regexp.exec( longName );
+            
+            if( matches )
+            {
+                labels.push( matches[ 1 ] );
+                colorArr.push( this.colorService.getFosColor( matches[ 1 ] ) );
+            }
+            else
+            {
+                labels.push( 'H/A' );
+                colorArr.push( this.colorService.getFosColor( name ) );
+            }
 
         });
 

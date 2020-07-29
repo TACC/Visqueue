@@ -1,0 +1,48 @@
+.flex-row
+{
+    display         : flex;
+    flex-direction  : row;
+    justify-content: space-around;
+    align-items     : center;
+    flex-flow       : row wrap;
+    text-align      : center;
+}
+
+.item
+{
+    flex: 0 1 100%;
+}
+
+#ne-left
+{
+    flex : 0 1 40%;
+}
+
+#ne-right
+{
+    flex : 0 1 60%;
+}
+
+.rack-row
+{
+    margin-bottom: 15px;
+}
+
+.rack
+{
+    width: 15px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #47bf81;
+}
+
+.rack-selected
+{
+    background-color: #4749bf;
+}
+
+.rack:hover
+{
+    cursor: pointer;
+    background-color: #4749bf;
+}

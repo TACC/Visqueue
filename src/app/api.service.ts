@@ -15,8 +15,11 @@ export class ApiService
     private url        = 'api';
     private recentJobs = '/jobs/recent';
     private searchJobs = '/jobs/search';
-    private systemInfo = '/info';
+
+    private info = '/info';
     private systemFos  = '/info/fos';
+
+    private nodes      = '/nodes';
 
 
     constructor( private http : HttpClient ) { }
@@ -35,7 +38,18 @@ export class ApiService
 
     postInfo( system : string )
     {
-        return this.http.post( this.url + this.systemInfo, { system } );
+        return this.http.post( this.url + this.info, { system } );
+    }
+
+    getNodes( system : string )
+    {
+        return this.http.get( this.url + this.info + this.nodes, { params : { 'system' : system } } );
+    }
+
+    postNodes( node : string, system : string )
+    {
+        let params = { 'system' : system , 'node' : node };
+        return this.http.post( this.url + this.info + this.nodes, params );
     }
 
 

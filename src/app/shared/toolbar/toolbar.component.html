@@ -5,11 +5,9 @@
         Details
     </button>
 
-
-    <!-- Comment out life of node link for now -->
-    <!-- <button class="toolbar-buttons" mat-button [matMenuTriggerFor]="nodeLifeMenu">
-        Life of a Node (alpha)
-    </button> -->
+    <button class="toolbar-buttons" mat-button [matMenuTriggerFor]="exploreMenu">
+        Explore
+    </button>
 
     <span class="fill-space"></span>
     
@@ -21,13 +19,13 @@
 </mat-toolbar>
 
 <mat-menu #detailMenu=matMenu> 
-    <button mat-menu-item [routerLink]="['/detail', 'stampede2']" >Stampede2</button>
-    <button mat-menu-item [routerLink]="['/detail', 'frontera']" >Frontera</button>
-    <button mat-menu-item [routerLink]="['/detail', 'lonestar5']" >Lonestar5</button>
-    <button mat-menu-item [routerLink]="['/detail', 'wrangler']" >Wrangler</button>
+    <button mat-menu-item [routerLink]="['/detail', 'stampede2']" >Stampede2 </button>
+    <button mat-menu-item [routerLink]="['/detail', 'frontera']" >Frontera   </button>
+    <button mat-menu-item [routerLink]="['/detail', 'lonestar5']" >Lonestar5 </button>
+    <button mat-menu-item [routerLink]="['/detail', 'wrangler']" >Wrangler   </button>
 </mat-menu>
 
-<mat-menu #nodeLifeMenu=matMenu> 
-    <button mat-menu-item [routerLink]="['/nodelife', 'frontera']" >Frontera</button>
+<mat-menu #exploreMenu=matMenu> 
+    <button mat-menu-item [routerLink]="['/explore', 'frontera']" >Frontera</button>
 </mat-menu>
 

@@ -7,17 +7,24 @@ export interface tElement
     jobs : string;
 }
 
+interface tOption 
+{
+    value     : string;
+    viewValue : string;
+}
+
+
 const ELEMENT_DATA: tElement[] = [
-    { name: 'Hydrogen',  fos: 'Math ', jobs: 'Num Jobs' },
-    { name: 'Helium',    fos: 'Math ', jobs: 'Num Jobs' },
-    { name: 'Lithium',   fos: 'Math ', jobs: 'Num Jobs' },
-    { name: 'Beryllium', fos: 'Math ', jobs: 'Num Jobs' },
-    { name: 'Boron',     fos: 'Math ', jobs: 'Num Jobs' },
-    { name: 'Carbon',    fos: 'Math ', jobs: 'Num Jobs' },
-    { name: 'Nitrogen',  fos: 'Math ', jobs: 'Num Jobs' },
-    { name: 'Oxygen',    fos: 'Math ', jobs: 'Num Jobs' },
-    { name: 'Fluorine',  fos: 'Math ', jobs: 'Num Jobs' },
-    { name: 'Neon',      fos: 'Math ', jobs: 'Num Jobs' },
+    { name: 'aydrogen',  fos: 'Math ', jobs: 'Num Jobs' },
+    { name: 'aelium',    fos: 'Math ', jobs: 'Num Jobs' },
+    { name: 'aithium',   fos: 'Math ', jobs: 'Num Jobs' },
+    { name: 'aeryllium', fos: 'Math ', jobs: 'Num Jobs' },
+    { name: 'aoron',     fos: 'Math ', jobs: 'Num Jobs' },
+    { name: 'aarbon',    fos: 'Math ', jobs: 'Num Jobs' },
+    { name: 'aitrogen',  fos: 'Math ', jobs: 'Num Jobs' },
+    { name: 'axygen',    fos: 'Math ', jobs: 'Num Jobs' },
+    { name: 'aluorine',  fos: 'Math ', jobs: 'Num Jobs' },
+    { name: 'aeon',      fos: 'Math ', jobs: 'Num Jobs' }
   ];
 
 @Component({
@@ -27,8 +34,32 @@ const ELEMENT_DATA: tElement[] = [
 })
 export class ExploreTableComponent implements OnInit {
 
+    firstCol : tOption[] = 
+    [
+        { value : 'rack', viewValue : 'Rack' },
+        { value : 'node', viewValue : 'Node' }
+    ];
+
+    secondCol : tOption[] = 
+    [
+        { value : 'fos',         viewValue : 'Fos'        },
+        { value : 'project',     viewValue : 'Project'     },
+        { value : 'institution', viewValue : 'Institution' }
+    ];
+
+    thirdCol : tOption[] = 
+    [
+        { value : 'jobs',     viewValue : 'Jobs'     },
+        { value : 'duration', viewValue : 'Duration' }
+    ];
+
     displayedColumns : string[] = [ 'name', 'fos', 'jobs' ];
     columnsToDisplay : string[] = this.displayedColumns.slice();
+
+    public selectedCol1 = 'rack';
+    public selectedCol2 = 'fos';
+    public selectedCol3 = 'jobs';
+    
 
     data = ELEMENT_DATA;
 

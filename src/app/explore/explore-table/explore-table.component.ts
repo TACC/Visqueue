@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ExploreService } from '../explore.service';
 
 export interface tElement
 {
@@ -63,7 +64,7 @@ export class ExploreTableComponent implements OnInit {
 
     data = ELEMENT_DATA;
 
-    constructor() { }
+    constructor(private exploreService : ExploreService) { }
 
     ngOnInit(): void {
     }

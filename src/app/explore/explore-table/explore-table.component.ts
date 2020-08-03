@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ExploreService } from '../explore.service';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 export interface tElement
 {
@@ -61,12 +62,35 @@ export class ExploreTableComponent implements OnInit {
     public selectedCol2 = 'fos';
     public selectedCol3 = 'jobs';
     
+    system : string;
 
     data = ELEMENT_DATA;
 
-    constructor(private exploreService : ExploreService) { }
+    constructor(
+        private exploreService : ExploreService,
+        private route : ActivatedRoute) { }
 
-    ngOnInit(): void {
+    ngOnInit(): void 
+    {
+
+        this.system = this.route.snapshot.paramMap.get('name');
+    }
+
+    onSelection(): void 
+    {
+
+        let params = {
+            'system' : this.system,
+            'spec'   : this.selectedCol1,
+            'domain' : this.selectedCol2,
+            'value'  : this.selectedCol3
+        };
+
+        this.exploreService.postTop( params )
+            .subscribe( (response : any ) =>
+            {
+                console.log( response );
+            });
     }
 
 }

@@ -16,11 +16,13 @@ export class ApiService
     private recentJobs = '/jobs/recent';
     private searchJobs = '/jobs/search';
 
-    private info = '/info';
+    private info       = '/info';
     private systemFos  = '/info/fos';
 
     private nodes      = '/nodes';
 
+    private explore    = '/explore';
+    private top        ='/top';
 
     constructor( private http : HttpClient ) { }
 
@@ -58,4 +60,8 @@ export class ApiService
         return this.http.post( this.url + this.systemFos, { system } ); 
     }
 
+    postTop( params : any )
+    {
+        return this.http.post( this.url + this.explore + this.top, params );
+    }
 }

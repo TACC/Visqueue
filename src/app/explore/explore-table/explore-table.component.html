@@ -6,7 +6,7 @@
 
     <mat-form-field class="item">
         <mat-label>Column 1</mat-label>
-        <mat-select [(value)]="selectedCol1">
+        <mat-select [(value)]="selectedCol1" (selectionChange)="onSelection()">
             <mat-option *ngFor="let option of firstCol" [value]="option.value">
                 {{option.viewValue}}
             </mat-option>
@@ -15,7 +15,7 @@
     
     <mat-form-field class="item">
         <mat-label>Column 2</mat-label>
-        <mat-select [(value)]="selectedCol2">
+        <mat-select [(value)]="selectedCol2" (selectionChange)="onSelection()">
             <mat-option *ngFor="let option of secondCol" [value]="option.value">
                 {{option.viewValue}}
             </mat-option>
@@ -24,7 +24,7 @@
 
     <mat-form-field class="item">
         <mat-label>Column 3</mat-label>
-        <mat-select [(value)]="selectedCol3">
+        <mat-select [(value)]="selectedCol3" (selectionChange)="onSelection()">
             <mat-option *ngFor="let option of thirdCol" [value]="option.value">
                 {{option.viewValue}}
             </mat-option>

@@ -33,6 +33,7 @@ import { CommonModule            } from '@angular/common';
 import { TimeSeriesGraphComponent } from './detail/info/time-series-graph/time-series-graph.component';
 import { NodeExplorerComponent } from './detail/info/node-explorer/node-explorer.component';
 import { ExploreComponent } from './explore/explore.component';
+import { ExploreTableComponent } from './explore/explore-table/explore-table.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { ExploreComponent } from './explore/explore.component';
     FooterComponent,
     TimeSeriesGraphComponent,
     NodeExplorerComponent,
-    ExploreComponent
+    ExploreComponent,
+    ExploreTableComponent
   ],
   imports: [
     CommonModule,

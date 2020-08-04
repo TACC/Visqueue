@@ -42,8 +42,6 @@ export class ExploreRadarComponent implements OnInit {
 
     selectNode( event : any )
     {
-        console.log( event );
-
         this.selectedNode = event.value;
     }
 }

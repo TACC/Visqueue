@@ -34,6 +34,7 @@ import { TimeSeriesGraphComponent } from './detail/info/time-series-graph/time-s
 import { NodeExplorerComponent } from './detail/info/node-explorer/node-explorer.component';
 import { ExploreComponent } from './explore/explore.component';
 import { ExploreTableComponent } from './explore/explore-table/explore-table.component';
+import { ExploreRadarComponent } from './explore/explore-radar/explore-radar.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { ExploreTableComponent } from './explore/explore-table/explore-table.com
     TimeSeriesGraphComponent,
     NodeExplorerComponent,
     ExploreComponent,
-    ExploreTableComponent
+    ExploreTableComponent,
+    ExploreRadarComponent
   ],
   imports: [
     CommonModule,

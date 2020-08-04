@@ -1,0 +1,13 @@
+<mat-form-field>
+    <mat-label>Rack</mat-label>
+    <mat-select (selectionChange)="selectRack($event)" [(value)]="selectedRack">
+        <mat-option *ngFor="let rack of racks" [value]="rack">{{ rack.name }}</mat-option>
+    </mat-select>
+</mat-form-field>
+
+<mat-form-field>
+    <mat-label>Select Node</mat-label>
+    <mat-select (selectionChange)="selectNode($event)">
+        <mat-option *ngFor="let node of nodes" [value]="node">{{ node }}</mat-option>
+    </mat-select>
+</mat-form-field>    

@@ -12,4 +12,9 @@ export class ExploreService {
     {
         return this.apiService.postTop( params );
     }
+
+    getNodes( system : string )
+    {
+        return this.apiService.getNodes( system );
+    }
 }

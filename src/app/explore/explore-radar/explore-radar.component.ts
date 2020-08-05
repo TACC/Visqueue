@@ -32,6 +32,7 @@ export class ExploreRadarComponent implements OnInit {
 
     regexpFos = /\(([^)]+)\)/;
 
+    loading = false;
 
     constructor(
         private exploreService : ExploreService,
@@ -61,6 +62,8 @@ export class ExploreRadarComponent implements OnInit {
             'nodes'  : this.selectedRack.nodes
         };
 
+        this.loading = true;
+
         this.exploreService.postFos( params )
             .subscribe( ( data : any ) => this.renderData( data ) );
 
@@ -73,6 +76,7 @@ export class ExploreRadarComponent implements OnInit {
 
     private renderData( data : any )
     {
+
         let fos    : string[] = [], 
             vals   : number[] = [], 
             colors : string[] = [];
@@ -95,5 +99,6 @@ export class ExploreRadarComponent implements OnInit {
         this.polarAreaChartData = vals;
         this.polarAreaChartColors[0].backgroundColor = colors;
 
+        this.loading = false;
     }
 }

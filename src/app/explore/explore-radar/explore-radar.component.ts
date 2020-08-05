@@ -62,36 +62,38 @@ export class ExploreRadarComponent implements OnInit {
         };
 
         this.exploreService.postFos( params )
-            .subscribe( ( data : any ) =>
-            {
+            .subscribe( ( data : any ) => this.renderData( data ) );
 
-                let fos    : string[] = [], 
-                    vals   : number[] = [], 
-                    colors : string[] = [];
-
-                data.forEach( d =>
-                {
-                    let regexpRes =  this.regexpFos.exec( d.fos );
-                    let name  = regexpRes[1];
-
-                    fos.push( name );
-                    vals.push( d.jobs );
-
-                    let color = this.colorService.getFosColor( name );
-                    
-                    colors.push( color );
-                });
-
-
-                this.polarAreaChartLabels = fos;
-                this.polarAreaChartData = vals;
-                this.polarAreaChartColors[0].backgroundColor = colors;
-
-            });
     }
 
     selectNode( event : any )
     {
         this.selectedNode = event.value;
+    }
+
+    private renderData( data : any )
+    {
+        let fos    : string[] = [], 
+            vals   : number[] = [], 
+            colors : string[] = [];
+
+        data.forEach( d =>
+        {
+            let regexpRes =  this.regexpFos.exec( d.fos );
+            let name  = regexpRes[1];
+
+            fos.push( name );
+            vals.push( d.jobs );
+
+            let color = this.colorService.getFosColor( name );
+            
+            colors.push( color );
+        });
+
+
+        this.polarAreaChartLabels = fos;
+        this.polarAreaChartData = vals;
+        this.polarAreaChartColors[0].backgroundColor = colors;
+
     }
 }

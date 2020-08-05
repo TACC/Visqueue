@@ -13,3 +13,14 @@
         </mat-select>
     </mat-form-field>    
 </div>
+
+<div class="container">
+    <canvas baseChart
+    [data]="polarAreaChartData"
+    [labels]="polarAreaChartLabels"
+    [legend]="polarAreaLegend"
+    [chartType]="polarAreaChartType"
+    [colors]="polarAreaChartColors">
+  </canvas>
+</div>
+

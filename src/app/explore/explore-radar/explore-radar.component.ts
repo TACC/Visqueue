@@ -58,7 +58,6 @@ export class ExploreRadarComponent implements OnInit {
 
         let params = {
             'system' : this.system,
-            'type'   : 'rack',
             'nodes'  : this.selectedRack.nodes
         };
 
@@ -72,6 +71,15 @@ export class ExploreRadarComponent implements OnInit {
     selectNode( event : any )
     {
         this.selectedNode = event.value;
+
+        let params = {
+            'system' : this.system,
+            'nodes'  : [ this.selectedNode ]
+        };
+
+        this.exploreService.postFos( params )
+            .subscribe( ( data : any ) => this.renderData( data ) );
+
     }
 
     private renderData( data : any )

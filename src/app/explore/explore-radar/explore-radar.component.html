@@ -13,7 +13,7 @@
     </mat-form-field>
     
     <mat-form-field>
-        <mat-label>Select Node</mat-label>
+        <mat-label>Node</mat-label>
         <mat-select (selectionChange)="selectNode($event)">
             <mat-option *ngFor="let node of nodes" [value]="node">{{ node }}</mat-option>
         </mat-select>

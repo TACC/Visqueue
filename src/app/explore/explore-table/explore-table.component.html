@@ -4,7 +4,7 @@
 
 <div class="container">
 
-    <mat-form-field class="item">
+    <mat-form-field>
         <mat-label>Column 1</mat-label>
         <mat-select [(value)]="selectedCol1" (selectionChange)="onSelection()">
             <mat-option *ngFor="let option of firstCol" [value]="option.value">
@@ -13,7 +13,7 @@
         </mat-select>
     </mat-form-field>
     
-    <mat-form-field class="item">
+    <mat-form-field>
         <mat-label>Column 2</mat-label>
         <mat-select [(value)]="selectedCol2" (selectionChange)="onSelection()">
             <mat-option *ngFor="let option of secondCol" [value]="option.value">
@@ -22,7 +22,7 @@
         </mat-select>
     </mat-form-field>
 
-    <mat-form-field class="item">
+    <mat-form-field>
         <mat-label>Column 3</mat-label>
         <mat-select [(value)]="selectedCol3" (selectionChange)="onSelection()">
             <mat-option *ngFor="let option of thirdCol" [value]="option.value">

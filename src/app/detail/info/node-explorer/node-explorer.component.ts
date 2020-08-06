@@ -56,8 +56,6 @@ export class NodeExplorerComponent implements OnInit {
             {
                 if( data )
                 {        
-                    console.log( data );
-
                     let rowMax = Math.max.apply( Math, data.map(function( o ) { return o.row; } ));
                     let colMax = Math.max.apply( Math, data.map(function( o ) { return o.col; } ));
 

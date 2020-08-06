@@ -1,4 +1,8 @@
 <div class="container">
+    Number of Jobs for each Field of Science
+</div>
+
+<div class="container">
     <mat-form-field>
         <mat-label>Rack</mat-label>
         <mat-select (selectionChange)="selectRack($event)" [(value)]="selectedRack">
@@ -13,6 +17,7 @@
         </mat-select>
     </mat-form-field>    
 </div>
+
 <div class="container">
     
     <ng-container *ngIf="loading; then thenTemplate; else elseTemplate"></ng-container>
@@ -26,6 +31,7 @@
     </ng-template>
         
 </div>
+
 <div class="container">
     <canvas baseChart
     [data]="polarAreaChartData"

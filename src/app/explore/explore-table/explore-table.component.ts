@@ -91,10 +91,10 @@ export class ExploreTableComponent implements OnInit {
         };
 
         this.exploreService.postTop( params )
-            .subscribe( (response : any ) =>
+            .subscribe( ( response : tElement[] ) =>
             {
-
-                this.data = response;
+                this.data = new MatTableDataSource<tElement>(response);
+                this.data.paginator = this.paginator;
             });
     }
 

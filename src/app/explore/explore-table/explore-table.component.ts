@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ExploreService } from '../explore.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 
 export interface tElement
 {
-    name : string;
-    fos  : string;
-    jobs : string;
+    name     : string;
+    category : string;
+    value    : string;
 }
 
 interface tOption 
@@ -14,20 +16,6 @@ interface tOption
     value     : string;
     viewValue : string;
 }
-
-
-const ELEMENT_DATA: tElement[] = [
-    { name: 'aydrogen',  fos: 'Math ', jobs: 'Num Jobs' },
-    { name: 'aelium',    fos: 'Math ', jobs: 'Num Jobs' },
-    { name: 'aithium',   fos: 'Math ', jobs: 'Num Jobs' },
-    { name: 'aeryllium', fos: 'Math ', jobs: 'Num Jobs' },
-    { name: 'aoron',     fos: 'Math ', jobs: 'Num Jobs' },
-    { name: 'aarbon',    fos: 'Math ', jobs: 'Num Jobs' },
-    { name: 'aitrogen',  fos: 'Math ', jobs: 'Num Jobs' },
-    { name: 'axygen',    fos: 'Math ', jobs: 'Num Jobs' },
-    { name: 'aluorine',  fos: 'Math ', jobs: 'Num Jobs' },
-    { name: 'aeon',      fos: 'Math ', jobs: 'Num Jobs' }
-  ];
 
 @Component({
     selector: 'app-explore-table',
@@ -66,6 +54,8 @@ export class ExploreTableComponent implements OnInit {
 
     data : any;
 
+    @ViewChild(MatPaginator, { static : true}) paginator : MatPaginator;
+
     constructor(
         private exploreService : ExploreService,
         private route : ActivatedRoute) { }
@@ -83,9 +73,10 @@ export class ExploreTableComponent implements OnInit {
         };
 
         this.exploreService.postTop( params )
-            .subscribe( ( response : any ) =>
+            .subscribe( ( response : tElement[] ) =>
             {
-                this.data = response;
+                this.data = new MatTableDataSource<tElement>(response);
+                this.data.paginator = this.paginator;
             });
     }
 

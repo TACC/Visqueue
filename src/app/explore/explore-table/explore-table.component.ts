@@ -3,6 +3,7 @@ import { ExploreService } from '../explore.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
 
 export interface tElement
 {
@@ -55,6 +56,7 @@ export class ExploreTableComponent implements OnInit {
     data : any;
 
     @ViewChild(MatPaginator, { static : true}) paginator : MatPaginator;
+    @ViewChild(MatSort,      { static : true})      sort : MatSort;
 
     constructor(
         private exploreService : ExploreService,
@@ -77,6 +79,7 @@ export class ExploreTableComponent implements OnInit {
             {
                 this.data = new MatTableDataSource<tElement>(response);
                 this.data.paginator = this.paginator;
+                this.data.sort = this.sort;
             });
     }
 
@@ -95,6 +98,7 @@ export class ExploreTableComponent implements OnInit {
             {
                 this.data = new MatTableDataSource<tElement>(response);
                 this.data.paginator = this.paginator;
+                this.data.sort      = this.sort;
             });
     }
 

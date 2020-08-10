@@ -55,7 +55,7 @@ export class ExploreTableComponent implements OnInit {
         { value : 'duration', viewValue : 'Duration' }
     ];
 
-    displayedColumns : string[] = [ 'name', 'fos', 'jobs' ];
+    displayedColumns : string[] = [ 'name', 'category', 'value' ];
     columnsToDisplay : string[] = this.displayedColumns.slice();
 
     public selectedCol1 = 'rack';
@@ -64,7 +64,7 @@ export class ExploreTableComponent implements OnInit {
     
     system : string;
 
-    data = ELEMENT_DATA;
+    data : any;
 
     constructor(
         private exploreService : ExploreService,
@@ -74,6 +74,19 @@ export class ExploreTableComponent implements OnInit {
     {
 
         this.system = this.route.snapshot.paramMap.get('name');
+
+        let params = {
+            'system'   : this.system,
+            'category' : this.selectedCol1,
+            'field'    : this.selectedCol2,
+            'value'    : this.selectedCol3
+        };
+
+        this.exploreService.postTop( params )
+            .subscribe( ( response : any ) =>
+            {
+                this.data = response;
+            });
     }
 
     onSelection(): void 

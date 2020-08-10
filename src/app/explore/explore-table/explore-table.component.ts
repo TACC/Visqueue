@@ -52,7 +52,7 @@ export class ExploreTableComponent implements OnInit {
     thirdCol : tOption[] = 
     [
         { value : 'jobs',     viewValue : 'Jobs'     },
-        { value : 'duration', viewValue : 'Duration' }
+        // { value : 'duration', viewValue : 'Duration' }
     ];
 
     displayedColumns : string[] = [ 'name', 'category', 'value' ];
@@ -93,16 +93,17 @@ export class ExploreTableComponent implements OnInit {
     {
 
         let params = {
-            'system' : this.system,
-            'spec'   : this.selectedCol1,
-            'domain' : this.selectedCol2,
-            'value'  : this.selectedCol3
+            'system'   : this.system,
+            'category' : this.selectedCol1,
+            'field'    : this.selectedCol2,
+            'value'    : this.selectedCol3
         };
 
         this.exploreService.postTop( params )
             .subscribe( (response : any ) =>
             {
-                console.log( response );
+
+                this.data = response;
             });
     }
 

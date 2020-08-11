@@ -47,13 +47,15 @@ export class ExploreTableComponent implements OnInit {
     displayedColumns : string[] = [ 'name', 'category', 'value' ];
     columnsToDisplay : string[] = this.displayedColumns.slice();
 
-    public selectedCol1 = 'rack';
-    public selectedCol2 = 'fos';
-    public selectedCol3 = 'jobs';
+    selectedCol1 = 'rack';
+    selectedCol2 = 'fos';
+    selectedCol3 = 'jobs';
     
     system : string;
 
-    data : any;
+    data : MatTableDataSource<tElement>;
+
+    loading = false;
 
     @ViewChild(MatPaginator, { static : true}) paginator : MatPaginator;
     @ViewChild(MatSort,      { static : true})      sort : MatSort;
@@ -93,12 +95,16 @@ export class ExploreTableComponent implements OnInit {
             'value'    : this.selectedCol3
         };
 
+        this.loading = true;
+
         this.exploreService.postTop( params )
             .subscribe( ( response : tElement[] ) =>
             {
                 this.data = new MatTableDataSource<tElement>(response);
                 this.data.paginator = this.paginator;
                 this.data.sort      = this.sort;
+
+                this.loading = false;
             });
     }
 

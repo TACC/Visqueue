@@ -33,6 +33,20 @@
 
 </div>
 
+<div class="container">
+    
+    <ng-container *ngIf="loading; then thenTemplate; else elseTemplate"></ng-container>
+    
+    <ng-template #thenTemplate>
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>    
+    </ng-template>
+    
+    <ng-template #elseTemplate>    
+        <mat-progress-bar mode="determinate" value="0" #elseBlock></mat-progress-bar>
+    </ng-template>
+        
+</div>
+
 <mat-form-field class="container float-right">
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. c101" #input>

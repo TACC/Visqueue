@@ -409,8 +409,6 @@ export class InfoComponent implements OnInit
     {
         let colorArr = [];
 
-        // let regexp = /\(([^)]+)\)/;
-
         arr.forEach( ( value, index ) =>
         {
 

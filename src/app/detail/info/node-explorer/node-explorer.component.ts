@@ -56,8 +56,6 @@ export class NodeExplorerComponent implements OnInit {
             {
                 if( data )
                 {        
-                    console.log( data );
-
                     let rowMax = Math.max.apply( Math, data.map(function( o ) { return o.row; } ));
                     let colMax = Math.max.apply( Math, data.map(function( o ) { return o.col; } ));
 
@@ -91,8 +89,6 @@ export class NodeExplorerComponent implements OnInit {
         this.selectedNode = event.value;
 
         this.loading = true;
-
-        let regexp = /\(([^)]+)\)/;
         
         this.infoService.postNodes( event.value, this.system )
             .subscribe( ( data : any ) =>
@@ -104,11 +100,11 @@ export class NodeExplorerComponent implements OnInit {
                 this.loading = false;
 
                 let barData = [{
-                    y           : data.fos_info.map( proj => { return regexp.exec( proj.name )[1] }),
-                    x           : data.fos_info.map( proj => proj.count ),
+                    y           : data.fos_info.map( field => field.abbrev ),
+                    x           : data.fos_info.map( field => field.count ),
                     marker : 
                     {
-                        color : data.fos_info.map( proj => { return this.infoService.getFosColor( regexp.exec( proj.name )[1] ) } )
+                        color : data.fos_info.map( field => { return this.infoService.getFosColor( field.abbrev ) } )
                     },
                     type        : 'bar',
                     orientation : 'h'

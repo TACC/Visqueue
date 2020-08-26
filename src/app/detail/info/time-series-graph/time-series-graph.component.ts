@@ -45,6 +45,7 @@ export class TimeSeriesGraphComponent implements OnInit {
         this.infoService.getFosTimeSeries( system )
             .subscribe( ( data : [ FosTimeSeries ] ) =>
                 {
+                    
                     for (const fosData of data ) 
                     {
                         fosData.data.sort( ( val1, val2 ) =>
@@ -66,29 +67,17 @@ export class TimeSeriesGraphComponent implements OnInit {
 
                         let dates     = fosData.data.map( d => d.date       );
                         let jobs      = fosData.data.map( d => d.total_jobs );
-                        let parIndex  = fosData.fos.indexOf('(');
                         
-                        let shortName;
-
-                        if( parIndex >= 0 )
-                        {
-                            shortName = fosData.fos.substring( ( fosData.fos.indexOf('(') + 1 ), fosData.fos.length - 1 ); 
-                        }
-                        else
-                        {
-                            shortName = 'HUM';
-                        }
-
-                        let col =  this.infoService.getFosColor( shortName );
+                        let ts_color =  this.infoService.getFosColor( fosData.abbrev );
                     
                         this.graph.data.push( 
                             {
-                                name : shortName,
+                                name : fosData.name,
                                 x    : dates,
                                 y    : jobs,
                                 type : 'scatter',
                                 mode : 'lines+markers',
-                                line : { color : col },
+                                line : { color : ts_color },
                                 hovertemplate : '%{y:,} <i>Jobs</i>',
                                 connectgaps : false
                             }

@@ -2,6 +2,7 @@ import { TimeSeries } from './time-series';
 
 export interface FosTimeSeries 
 {
-    fos :  string,
-    data : [ TimeSeries ]
+    name   :  string,
+    abbrev : string,
+    data   : [ TimeSeries ]
 }

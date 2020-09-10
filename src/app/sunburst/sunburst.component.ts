@@ -131,8 +131,7 @@ export class SunburstComponent implements OnInit, AfterViewInit
         }
 
 
-        // d3.json( 'http://visqueue.tacc.utexas.edu/static_data' + this.dataSrc + '.json' )
-        d3.json( 'assets/' + this.dataSrc + '.json' )
+        d3.json( 'http://visqueue.tacc.utexas.edu/static_data' + this.dataSrc + '.json' )
         .then( data =>
         {
             this.render( data );

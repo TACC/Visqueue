@@ -20,7 +20,7 @@ export class InfoService {
 
     getFosColor( fos : string ) : string
     {
-        return this.colorService.getFosColor( fos );
+        return this.colorService.getColorAbbrev( fos );
     }
 
     getNodes( system : string )

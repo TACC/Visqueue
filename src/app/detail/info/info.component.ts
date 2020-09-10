@@ -417,7 +417,7 @@ export class InfoComponent implements OnInit
             dataset[0].data.push( arr[ index ][ val ] );
             
             labels.push( abbrev );
-            colorArr.push( this.colorService.getFosColor( abbrev ) );
+            colorArr.push( this.colorService.getColorAbbrev( abbrev ) );
 
         });
 

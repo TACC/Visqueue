@@ -6,19 +6,18 @@ import { Injectable } from '@angular/core';
 export class ColorService 
 {
     colors = [
-        { 'fos' : 'MPS',  'color' : 'rgba(77,121,168, 0.8)'   },
-        { 'fos' : 'GEO' , 'color' : 'rgba(242, 142, 48, 0.8)' },
-        { 'fos' : 'CISE', 'color' : 'rgba(225,87,88, 0.8)'    },
-        { 'fos' : 'ENG' , 'color' : 'rgba(118,183,178, 0.8)'  },
-        { 'fos' : 'BBS' , 'color' : 'rgba(89,161,78, 0.8)'    },
-        { 'fos' : 'TRA' , 'color' : 'rgba(237,201,72, 0.8)'   },
-        { 'fos' : 'SBE' , 'color' : 'rgba(156,117,95, 0.8)'   },
-        { 'fos' : 'HA' ,  'color' : 'rgba(232, 26, 91, 0.8)'  }
+        { 'fos' : 'NAT',  'name' : 'natural sciences',            'color' : 'rgba(77,121,168, 0.8)'   },
+        { 'fos' : 'OTH' , 'name' : 'other',                       'color' : 'rgba(242, 142, 48, 0.8)' },
+        { 'fos' : 'ENG' , 'name' : 'engineering and technology',  'color' : 'rgba(118,183,178, 0.8)'  },
+        { 'fos' : 'MED' , 'name' : 'medical and health sciences', 'color' : 'rgba(89,161,78, 0.8)'    },
+        { 'fos' : 'SOC' , 'name' : 'social sciences' ,            'color' : 'rgba(156,117,95, 0.8)'   },
+        { 'fos' : 'HUM' , 'name' : 'humanities' ,                 'color' : 'rgba(232, 26, 91, 0.8)'  },
+        { 'fos' : 'AGR',  'name' : 'agricultural sciences' ,      'color' : 'rgba(225,87,88, 0.8)'    }
     ];
 
     constructor() { }
 
-    getFosColor( fos : string ) : string
+    getColorAbbrev( fos : string ) : string
     {
         let idx = this.colors.findIndex(d =>
             {   
@@ -35,4 +34,21 @@ export class ColorService
         }
 
     }
+
+    getColorName( fos : string ) : string
+    {
+        let idx = this.colors.findIndex(d =>
+            {   
+                return d.name === fos;
+            });
+
+        if( idx >= 0 )
+        {
+            return this.colors[ idx ].color;
+        }
+        else
+        {
+            return this.colors[ this.colors.length - 1 ].color;
+        }
+    }   
 }

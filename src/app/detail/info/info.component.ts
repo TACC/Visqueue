@@ -409,27 +409,15 @@ export class InfoComponent implements OnInit
     {
         let colorArr = [];
 
-        let regexp = /\(([^)]+)\)/;
-
         arr.forEach( ( value, index ) =>
         {
 
-            let longName = arr[ index ].name;
+            let abbrev = arr[ index ][ 'abbrev' ];
+
+            dataset[0].data.push( arr[ index ][ val ] );
             
-            dataset[0].data.push( arr[ index ][val] );
-            
-            let matches = regexp.exec( longName );
-            
-            if( matches )
-            {
-                labels.push( matches[ 1 ] );
-                colorArr.push( this.colorService.getFosColor( matches[ 1 ] ) );
-            }
-            else
-            {
-                labels.push( 'H/A' );
-                colorArr.push( this.colorService.getFosColor( name ) );
-            }
+            labels.push( abbrev );
+            colorArr.push( this.colorService.getColorAbbrev( abbrev ) );
 
         });
 

@@ -9,7 +9,7 @@
     <!-- Fos Column -->
     <ng-container matColumnDef="fos">
         <th mat-header-cell mat-sort-header *matHeaderCellDef> Field Of Science </th>
-        <td mat-cell *matCellDef="let element"> {{ element.fos }} </td>
+        <td mat-cell *matCellDef="let element"> {{ element.fos.name | titlecase }} </td>
     </ng-container>
 
     <!-- Jobs Column -->

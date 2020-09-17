@@ -8,7 +8,11 @@ import { SunburstDialogComponent } from 'src/app/sunburst-dialog/sunburst-dialog
 export interface TableInfoElement 
 {
     name        : string;
-    fos         : string;
+    fos         : 
+    {
+        name   : string,
+        abbrev : string
+    };
     institution : string;
     abstract    : string;
     job_total   : number;

@@ -366,6 +366,7 @@ export class InfoComponent implements OnInit
                     let fosByNodesData    = [ ...data.fos_info ];
                     let fosByDurationData = [ ...data.fos_info ];
 
+                    console.log(fosByProjData);
 
                     fosByProjData = this.sortArr( fosByProjData, 'proj_total' );
                     this.pushData( fosByProjData, this.fosByProjBarChartLabels, this.fosByProjBarChartData, 'proj_total', this.fosByProjBarChartColors );

@@ -97,7 +97,9 @@ export class ExploreRadarComponent implements OnInit {
             fos.push( name );
             vals.push( d.jobs );
 
-            let color = this.colorService.getFosColor( name );
+            console.log( name );
+
+            let color = this.colorService.getColorName( name );
             
             colors.push( color );
         });

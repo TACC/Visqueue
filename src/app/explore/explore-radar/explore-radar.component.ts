@@ -91,15 +91,11 @@ export class ExploreRadarComponent implements OnInit {
 
         data.forEach( d =>
         {
-            let regexpRes =  this.regexpFos.exec( d.fos );
-            let name  = regexpRes[1];
 
-            fos.push( name );
+            fos.push( d.fos );
             vals.push( d.jobs );
 
-            console.log( name );
-
-            let color = this.colorService.getColorName( name );
+            let color = this.colorService.getColorAbbrev( d.abbrev );
             
             colors.push( color );
         });

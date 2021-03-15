@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ExploreService } from '../explore.service';
 import { Rack } from 'src/app/models/rack';
 import { ActivatedRoute } from '@angular/router';
 import { Label, SingleDataSet, Color } from 'ng2-charts';
@@ -15,12 +14,6 @@ export class ExploreRadarComponent implements OnInit {
 
     system : string;
 
-    racks : Rack[];
-    nodes : string[];
-
-    selectedRack : Rack;
-    selectedNode : string;
-
     // PolarArea
     polarAreaChartLabels : Label[]       = [];
     polarAreaChartData   : SingleDataSet = [];
@@ -35,51 +28,51 @@ export class ExploreRadarComponent implements OnInit {
     loading = false;
 
     constructor(
-        private exploreService : ExploreService,
         private route          : ActivatedRoute,
         private colorService   : ColorService) { }
 
     ngOnInit(): void 
     {
         this.system = this.route.snapshot.params['name'];
-
-        this.exploreService.getNodes( this.system )
-            .subscribe( ( data : [ Rack ] ) =>
-            {
-                this.racks = data;
-            });
             
     }
 
-    selectRack( event : any )
+    // selectRack( event : any )
+    // {
+    //     this.selectedRack = event.value;
+    //     this.nodes        = event.value.nodes;
+
+    //     let params = {
+    //         'system' : this.system,
+    //         'nodes'  : this.selectedRack.nodes
+    //     };
+
+    //     this.loading = true;
+
+    //     this.exploreService.postFos( params )
+    //         .subscribe( ( data : any ) => this.renderData( data ) );
+
+    // }
+
+    // selectNode( event : any )
+    // {
+    //     this.selectedNode = event.value;
+
+    //     let params = {
+    //         'system' : this.system,
+    //         'nodes'  : [ this.selectedNode ]
+    //     };
+
+    //     this.exploreService.postFos( params )
+    //         .subscribe( ( data : any ) => this.renderData( data ) );
+
+    // }
+
+    retrieveData( data : Rack | string )
     {
-        this.selectedRack = event.value;
-        this.nodes        = event.value.nodes;
 
-        let params = {
-            'system' : this.system,
-            'nodes'  : this.selectedRack.nodes
-        };
-
-        this.loading = true;
-
-        this.exploreService.postFos( params )
-            .subscribe( ( data : any ) => this.renderData( data ) );
-
-    }
-
-    selectNode( event : any )
-    {
-        this.selectedNode = event.value;
-
-        let params = {
-            'system' : this.system,
-            'nodes'  : [ this.selectedNode ]
-        };
-
-        this.exploreService.postFos( params )
-            .subscribe( ( data : any ) => this.renderData( data ) );
-
+        
+        console.log( data );
     }
 
     private renderData( data : any )

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 import { Rack } from 'src/app/models/rack';
@@ -18,7 +18,8 @@ export class RacknodeselectComponent implements OnInit {
     selectedRack : Rack;
     selectedNode : string;
 
-    loading = false;
+    @Output() rackSelected = new EventEmitter<Rack>(); 
+    @Output() nodeSelected = new EventEmitter<string>();
 
     constructor(private route : ActivatedRoute,
         private apiService : ApiService) { }
@@ -39,25 +40,13 @@ export class RacknodeselectComponent implements OnInit {
         this.selectedRack = event.value;
         this.nodes        = event.value.nodes;
 
-        let params = {
-            'system' : this.system,
-            'nodes'  : this.selectedRack.nodes
-        };
-
-        // this.loading = true;
-
-
+        this.rackSelected.emit( this.selectedRack );
     }
 
     selectNode( event : any )
     {
         this.selectedNode = event.value;
 
-        let params = {
-            'system' : this.system,
-            'nodes'  : [ this.selectedNode ]
-        };
-
-
+        this.nodeSelected.emit( this.selectedNode );
     }
 }

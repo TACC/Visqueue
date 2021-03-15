@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '../api.service';
+import { Rack } from '../models/rack';
 
 @Injectable({
     providedIn: 'root'
@@ -21,5 +22,10 @@ export class ExploreService {
     postFos( params : any )
     {
         return this.apiService.postExploreFos( params );
+    }
+
+    isRack( data : Rack | string ) : data is Rack
+    {
+        return (data as Rack).name !== undefined;
     }
 }

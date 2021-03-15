@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Label, SingleDataSet, Color } from 'ng2-charts';
 import { ChartType } from 'chart.js';
 import { ColorService } from 'src/app/color.service';
+import { ExploreService } from '../explore.service';
 
 @Component({
     selector: 'app-explore-radar',
@@ -27,7 +28,9 @@ export class ExploreRadarComponent implements OnInit {
 
     loading = false;
 
+
     constructor(
+        private exploreService : ExploreService,
         private route          : ActivatedRoute,
         private colorService   : ColorService) { }
 
@@ -37,42 +40,19 @@ export class ExploreRadarComponent implements OnInit {
             
     }
 
-    // selectRack( event : any )
-    // {
-    //     this.selectedRack = event.value;
-    //     this.nodes        = event.value.nodes;
-
-    //     let params = {
-    //         'system' : this.system,
-    //         'nodes'  : this.selectedRack.nodes
-    //     };
-
-    //     this.loading = true;
-
-    //     this.exploreService.postFos( params )
-    //         .subscribe( ( data : any ) => this.renderData( data ) );
-
-    // }
-
-    // selectNode( event : any )
-    // {
-    //     this.selectedNode = event.value;
-
-    //     let params = {
-    //         'system' : this.system,
-    //         'nodes'  : [ this.selectedNode ]
-    //     };
-
-    //     this.exploreService.postFos( params )
-    //         .subscribe( ( data : any ) => this.renderData( data ) );
-
-    // }
-
     retrieveData( data : Rack | string )
     {
+        let nodes = this.exploreService.isRack( data ) ? data.nodes : [ data ];
 
-        
-        console.log( data );
+        let params = {
+            'system' : this.system,
+            'nodes'  : nodes
+        };
+
+        console.log( params );
+
+        this.exploreService.postFos( params )
+            .subscribe( ( data : any ) => this.renderData( data ) );
     }
 
     private renderData( data : any )

@@ -24,6 +24,11 @@ export class ExploreService {
         return this.apiService.postExploreFos( params );
     }
 
+    postTop10( params : any )
+    {
+        return this.apiService.postExploreTop10( params );
+    }
+
     isRack( data : Rack | string ) : data is Rack
     {
         return (data as Rack).name !== undefined;

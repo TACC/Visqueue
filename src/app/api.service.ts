@@ -24,6 +24,7 @@ export class ApiService
     private explore    = '/explore';
     private top        = '/top';
     private fos        = '/fos'; 
+    private top10      = '/top10';
 
     constructor( private http : HttpClient ) { }
 
@@ -69,5 +70,10 @@ export class ApiService
     postExploreFos( params : any )
     {
         return this.http.post( this.url + this.explore + this.fos, params );
+    }
+
+    postExploreTop10( params : any )
+    {
+        return this.http.post( this.url + this.explore + this.top10, params );
     }
 }

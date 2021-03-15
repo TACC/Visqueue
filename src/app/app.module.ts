@@ -36,6 +36,7 @@ import { ExploreComponent } from './explore/explore.component';
 import { ExploreTableComponent } from './explore/explore-table/explore-table.component';
 import { ExploreRadarComponent } from './explore/explore-radar/explore-radar.component';
 import { Top10Component } from './explore/top10/top10.component';
+import { RacknodeselectComponent } from './shared/racknodeselect/racknodeselect.component';
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import { Top10Component } from './explore/top10/top10.component';
     ExploreComponent,
     ExploreTableComponent,
     ExploreRadarComponent,
-    Top10Component
+    Top10Component,
+    RacknodeselectComponent
   ],
   imports: [
     CommonModule,

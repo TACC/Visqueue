@@ -1,5 +1,11 @@
 <app-racknodeselect (rackSelected)="retrieveData($event)" (nodeSelected)="retrieveData($event)"></app-racknodeselect>
 
+<br>
+
+<app-loading [loading]="loading"></app-loading>
+
+<br>
+
 <div class="container">
     <canvas baseChart
     [data]="polarAreaChartData"

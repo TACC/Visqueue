@@ -28,7 +28,6 @@ export class ExploreRadarComponent implements OnInit {
 
     loading = false;
 
-
     constructor(
         private exploreService : ExploreService,
         private route          : ActivatedRoute,
@@ -42,14 +41,15 @@ export class ExploreRadarComponent implements OnInit {
 
     retrieveData( data : Rack | string )
     {
+
+        this.loading = true; 
+        
         let nodes = this.exploreService.isRack( data ) ? data.nodes : [ data ];
 
         let params = {
             'system' : this.system,
             'nodes'  : nodes
         };
-
-        console.log( params );
 
         this.exploreService.postFos( params )
             .subscribe( ( data : any ) => this.renderData( data ) );

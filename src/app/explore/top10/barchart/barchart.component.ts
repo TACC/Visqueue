@@ -13,15 +13,20 @@ export class BarchartComponent implements OnInit, OnChanges {
 
     graphData : [ GraphData ];
 
+    layout = 
+    {
+        autosize : true,
+        title: 'A Fancy Plot'
+    };
+
     public graph = {
         data: [
             { 
                 x: ['giraffes', 'orangutans', 'monkeys'],
                 y: [20, 14, 23],
                 type: 'bar' 
-            },
-        ],
-        layout: {width: 320, height: 240, title: 'A Fancy Plot'}
+            }
+        ]
     };
 
     constructor() { }

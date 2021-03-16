@@ -1,6 +1,6 @@
-export interface GraphData
+export interface GraphData 
 {
-    x    : string[],
-    y    : number[],
+    x : string[],
+    y : number[],
     type : string
-};
+}

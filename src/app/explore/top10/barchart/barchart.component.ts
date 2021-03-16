@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { GraphData } from 'src/app/models/explore/top10/graphdata';
-import { ReturnData } from 'src/app/models/explore/top10/returndata';
+import {  ResponseData } from 'src/app/models/explore/top10/responsedata';
 
 @Component({
     selector: 'app-topten-barchart',
@@ -9,7 +9,7 @@ import { ReturnData } from 'src/app/models/explore/top10/returndata';
 })
 export class BarchartComponent implements OnInit, OnChanges {
 
-    @Input() data : ReturnData;
+    @Input() data : ResponseData;
 
     graphData : [ GraphData ];
 

@@ -49,3 +49,6 @@ Thumbs.db
 *frontera.json
 *wrangler.json
 *lonestar5.json
+
+# DevProfiles for debugging
+DevProfile/*

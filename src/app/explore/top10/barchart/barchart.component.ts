@@ -3,6 +3,7 @@ import { GraphData } from 'src/app/models/explore/top10/graphdata';
 import {  ResponseData } from 'src/app/models/explore/top10/responsedata';
 import { Institution } from 'src/app/models/institution';
 
+import * as d3Scale from 'd3-scale';
 import * as d3Chrom from 'd3-scale-chromatic';
 
 @Component({
@@ -16,6 +17,8 @@ export class BarchartComponent implements OnInit, OnChanges {
 
     graphData : [ GraphData ];
 
+    colorScale : d3Scale.ScaleSequential<string>;
+
     layout = 
     {
         autosize : true,
@@ -24,7 +27,8 @@ export class BarchartComponent implements OnInit, OnChanges {
 
     constructor() { }
 
-    ngOnInit(): void {
+    ngOnInit(): void 
+    {
     }
 
     ngOnChanges( changes : SimpleChanges )
@@ -34,14 +38,22 @@ export class BarchartComponent implements OnInit, OnChanges {
             return;
         }
 
+        let xValues = changes.data.currentValue.institutions.map( ( a : Institution ) => a.institution );
+        let yValues = changes.data.currentValue.institutions.map( ( a : Institution ) => a.count );
+
+        let min = Math.min( ...yValues );
+        let max = Math.max( ...yValues );
+
+        this.colorScale = d3Scale.scaleSequential( [ min, max ], d3Chrom.interpolateViridis )
+
         this.graphData = [
             {
-                x : changes.data.currentValue.institutions.map( ( a : Institution ) => a.institution ),
-                y : changes.data.currentValue.institutions.map( ( a : Institution ) => a.count ),
+                x : xValues,
+                y : yValues,
                 type : 'bar',
                 marker : 
                 {
-                    color : [ ...d3Chrom.schemeTableau10 ]
+                    color : yValues.map( ( v : number ) => this.colorScale( v ) )
                 }
             }
         ];

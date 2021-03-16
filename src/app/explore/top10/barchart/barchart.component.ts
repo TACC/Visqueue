@@ -16,17 +16,7 @@ export class BarchartComponent implements OnInit, OnChanges {
     layout = 
     {
         autosize : true,
-        title: 'A Fancy Plot'
-    };
-
-    public graph = {
-        data: [
-            { 
-                x: ['giraffes', 'orangutans', 'monkeys'],
-                y: [20, 14, 23],
-                type: 'bar' 
-            }
-        ]
+        title: 'Top 10 Projects/Institutions'
     };
 
     constructor() { }

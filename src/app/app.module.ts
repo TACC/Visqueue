@@ -38,6 +38,7 @@ import { ExploreRadarComponent } from './explore/explore-radar/explore-radar.com
 import { Top10Component } from './explore/top10/top10.component';
 import { RacknodeselectComponent } from './shared/racknodeselect/racknodeselect.component';
 import { LoadingComponent } from './shared/loading/loading.component';
+import { BarchartComponent } from './explore/top10/barchart/barchart.component';
 
 
 @NgModule({
@@ -63,7 +64,8 @@ import { LoadingComponent } from './shared/loading/loading.component';
     ExploreRadarComponent,
     Top10Component,
     RacknodeselectComponent,
-    LoadingComponent
+    LoadingComponent,
+    BarchartComponent
   ],
   imports: [
     CommonModule,

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Rack } from 'src/app/models/rack';
 import { ExploreService } from '../explore.service';
+import { ReturnData } from 'src/app/models/explore/top10/returndata';
+import { GraphData } from 'src/app/models/explore/top10/graphdata';
 
 @Component({
     selector: 'app-top10',
@@ -13,6 +15,8 @@ export class Top10Component implements OnInit {
     system : string;
 
     loading = false;
+
+    data : ReturnData;
 
     constructor(
         private exploreService : ExploreService,
@@ -36,12 +40,14 @@ export class Top10Component implements OnInit {
         };
 
         this.exploreService.postTop10( params )
-            .subscribe( ( data : any ) => this.renderData( data ) );
+            .subscribe( ( data : ReturnData ) => this.storeData( data ) );
     }
 
-    renderData( data : any )
+    storeData( data : ReturnData )
     {
-        console.log( data );
+        this.data = data;
+
+        console.log( this.data );
 
         this.loading = false;
     }

@@ -4,12 +4,20 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Launch Chrome against localhost",
-            "url": "http://localhost:4200",
-            "webRoot": "${workspaceFolder}"
+            "name": "Launch Chromium against localhost",
+            "url": "http://localhost:4200/#",
+            "webRoot": "${workspaceFolder}",
+            "runtimeExecutable": "/var/lib/snapd/snap/bin/chromium",
+            "runtimeArgs": [
+              "--new-window",
+              "-user-data-dir=${workspaceFolder}/DevProfile",
+              "--remote-debugging-port=9222",
+              "--disable-background-networking"
+            ]
         }
     ]
 }

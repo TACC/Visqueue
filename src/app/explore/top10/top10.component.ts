@@ -46,8 +46,6 @@ export class Top10Component implements OnInit {
     {
         this.data = data;
 
-        console.log( this.data );
-
         this.loading = false;
     }
 

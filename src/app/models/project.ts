@@ -4,4 +4,5 @@ export interface Project {
     fos         : string;
     institution : string;
     pi          : string;
+    count?      : number;
 }

@@ -14,6 +14,7 @@ import * as d3Chrom from 'd3-scale-chromatic';
 export class BarchartComponent implements OnInit, OnChanges {
 
     @Input() data : ResponseData;
+    @Input() selection : string;
 
     graphData : [ GraphData ];
 
@@ -29,34 +30,46 @@ export class BarchartComponent implements OnInit, OnChanges {
 
     ngOnInit(): void 
     {
+        this.selection = 'institution';
     }
 
     ngOnChanges( changes : SimpleChanges )
     {
-        if( changes.data.firstChange )
+        if( changes.data )
         {
-            return;
+            if( changes.data.firstChange )
+            {
+                return;
+            }
+
+            else
+            {
+    
+                let xValues = changes.data.currentValue.institutions.map( ( a : Institution ) => a.institution );
+                let yValues = changes.data.currentValue.institutions.map( ( a : Institution ) => a.count );
+        
+                let min = Math.min( ...yValues );
+                let max = Math.max( ...yValues );
+        
+                this.colorScale = d3Scale.scaleSequential( [ min, max ], d3Chrom.interpolateViridis )
+        
+                this.graphData = [
+                    {
+                        x : xValues,
+                        y : yValues,
+                        type : 'bar',
+                        marker : 
+                        {
+                            color : yValues.map( ( v : number ) => this.colorScale( v ) )
+                        }
+                    }
+                ];
+            }
         }
 
-        let xValues = changes.data.currentValue.institutions.map( ( a : Institution ) => a.institution );
-        let yValues = changes.data.currentValue.institutions.map( ( a : Institution ) => a.count );
 
-        let min = Math.min( ...yValues );
-        let max = Math.max( ...yValues );
+        console.log( this.selection );
 
-        this.colorScale = d3Scale.scaleSequential( [ min, max ], d3Chrom.interpolateViridis )
-
-        this.graphData = [
-            {
-                x : xValues,
-                y : yValues,
-                type : 'bar',
-                marker : 
-                {
-                    color : yValues.map( ( v : number ) => this.colorScale( v ) )
-                }
-            }
-        ];
     }
 
 }

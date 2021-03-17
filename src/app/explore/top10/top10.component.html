@@ -5,9 +5,8 @@
 <br>
 
 <div id="select-container">
-    <mat-radio-group>
-        <mat-radio-button value="value1">Institution</mat-radio-button>
-        <mat-radio-button value="value2">Projects</mat-radio-button>
+    <mat-radio-group [(ngModel)]="selection" name="filteroptions">
+        <mat-radio-button *ngFor="let option of options" name="filteroptions" [value]="option">{{ option | titlecase }}</mat-radio-button>
     </mat-radio-group>
 </div>
 
@@ -18,5 +17,5 @@
 <br>
 
 <div class="container">
-    <app-topten-barchart [data]="data"></app-topten-barchart>
+    <app-topten-barchart [data]="data" [selection]="selection"></app-topten-barchart>
 </div>

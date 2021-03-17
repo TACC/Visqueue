@@ -17,6 +17,10 @@ export class Top10Component implements OnInit {
 
     data : ResponseData;
 
+    selection : string;
+
+    options : string[] = ['institution', 'project'];
+
     constructor(
         private exploreService : ExploreService,
         private route          : ActivatedRoute) { }
@@ -24,6 +28,8 @@ export class Top10Component implements OnInit {
     ngOnInit(): void 
     {
         this.system = this.route.snapshot.params['name'];
+
+        this.selection = 'institution';
     }
 
     retrieveData( data : Rack | string )

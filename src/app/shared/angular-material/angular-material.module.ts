@@ -17,6 +17,7 @@ import { MatListModule         } from "@angular/material/list";
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatSelectModule       } from '@angular/material/select';
 import { MatTooltipModule      } from '@angular/material/tooltip';
+import { MatRadioModule        } from '@angular/material/radio';
 
 @NgModule({
   declarations: [],
@@ -38,7 +39,8 @@ import { MatTooltipModule      } from '@angular/material/tooltip';
       MatListModule,
       MatButtonToggleModule,
       MatSelectModule,
-      MatTooltipModule
+      MatTooltipModule,
+      MatRadioModule
   ]
 })
 export class AngularMaterialModule { }

@@ -4,3 +4,14 @@
     justify-content: space-around;
     width: 100%;
 }
+
+#select-container
+{
+    display: flex;
+    justify-content: flex-end;
+    width: 85%;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }

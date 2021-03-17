@@ -23,7 +23,7 @@ export class BarchartComponent implements OnInit, OnChanges {
     layout = 
     {
         autosize : true,
-        title: 'Top 10 Projects/Institutions'
+        title : ''
     };
 
     constructor() { }
@@ -31,6 +31,7 @@ export class BarchartComponent implements OnInit, OnChanges {
     ngOnInit(): void 
     {
         this.selection = 'institution';
+        this.layout.title = 'Top 10 Institutions';
     }
 
     ngOnChanges( changes : SimpleChanges )
@@ -67,8 +68,17 @@ export class BarchartComponent implements OnInit, OnChanges {
             }
         }
 
-
-        console.log( this.selection );
+        if( changes.selection )
+        {
+            if( changes.selection.currentValue === 'institution')
+            {
+                this.layout.title = 'Top Ten Institutions';
+            }
+            else
+            {
+                this.layout.title = 'Top Ten Projects';
+            }
+        }
 
     }
 

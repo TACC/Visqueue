@@ -37,6 +37,7 @@ export class BarchartComponent implements OnInit, OnChanges {
 
     ngOnChanges( changes : SimpleChanges )
     {
+
         if( changes.data )
         {
             if( changes.data.firstChange )
@@ -57,8 +58,8 @@ export class BarchartComponent implements OnInit, OnChanges {
                 }
                 else
                 {
-                    xValues = changes.data.currentValue.institutions.map( ( a : Project ) => a.name );
-                    yValues = changes.data.currentValue.institutions.map( ( a : Project ) => a.count );
+                    xValues = changes.data.currentValue.projects.map( ( a : Project ) => a.name );
+                    yValues = changes.data.currentValue.projects.map( ( a : Project ) => a.count );
                 }
 
                 this.renderGraph( xValues, yValues );
@@ -69,17 +70,27 @@ export class BarchartComponent implements OnInit, OnChanges {
         if( changes.selection && this.data )
         {
 
-            console.log( this.data );
+            let xValues : string[];
+            let yValues : number[];
 
             if( changes.selection.currentValue === 'institution')
             {
                 this.layout.title = 'Top Ten Institutions';
                 
+                xValues = this.data.institutions.map( ( a : Institution ) => a.institution );
+                yValues = this.data.institutions.map( ( a : Institution ) => a.count );
+
             }
             else
             {
                 this.layout.title = 'Top Ten Projects';
+
+                xValues = this.data.projects.map( ( a : Project ) => a.name );
+                yValues = this.data.projects.map( ( a : Project ) => a.count );
+
             }
+
+            this.renderGraph( xValues, yValues );
         }
 
     }

@@ -24,7 +24,11 @@ export class BarchartComponent implements OnInit, OnChanges {
     layout = 
     {
         autosize : true,
-        title : ''
+        title : '',
+        yaxis : 
+        {
+            automargin : true
+        }
     };
 
     constructor() { }

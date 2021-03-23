@@ -40,6 +40,7 @@ import { RacknodeselectComponent } from './shared/racknodeselect/racknodeselect.
 import { LoadingComponent } from './shared/loading/loading.component';
 import { BarchartComponent } from './explore/top10/barchart/barchart.component';
 import { JobsperweekComponent } from './explore/jobsperweek/jobsperweek.component';
+import { JpwTimeserieschartComponent } from './explore/jobsperweek/jpw-timeserieschart/jpw-timeserieschart.component';
 
 
 @NgModule({
@@ -67,7 +68,8 @@ import { JobsperweekComponent } from './explore/jobsperweek/jobsperweek.componen
     RacknodeselectComponent,
     LoadingComponent,
     BarchartComponent,
-    JobsperweekComponent
+    JobsperweekComponent,
+    JpwTimeserieschartComponent
   ],
   imports: [
     CommonModule,

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ResponseData } from 'src/app/models/explore/top10/responsedata';
+import { ResponseData } from 'src/app/models/explore/jpw/responseData';
 import { Rack } from 'src/app/models/rack';
 import { ExploreService } from '../explore.service';
 
@@ -15,7 +15,7 @@ export class JobsperweekComponent implements OnInit {
 
     loading = false;
 
-    data;
+    data : ResponseData;
 
     constructor(
         private explorService: ExploreService,
@@ -38,16 +38,15 @@ export class JobsperweekComponent implements OnInit {
         };
 
         this.explorService.postJobsPerWeek( params )
-            .subscribe( ( data ) => this.storeData( data ) );
+            .subscribe( ( data : ResponseData ) => this.storeData( data ) );
     }
 
-    storeData( data )
+    storeData( data : ResponseData )
     {
         this.data = data;
 
         this.loading = false;
-    
-        console.log( data );
+
     }
 
 }

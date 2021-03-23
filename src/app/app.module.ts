@@ -39,6 +39,7 @@ import { Top10Component } from './explore/top10/top10.component';
 import { RacknodeselectComponent } from './shared/racknodeselect/racknodeselect.component';
 import { LoadingComponent } from './shared/loading/loading.component';
 import { BarchartComponent } from './explore/top10/barchart/barchart.component';
+import { JobsperweekComponent } from './explore/jobsperweek/jobsperweek.component';
 
 
 @NgModule({
@@ -65,7 +66,8 @@ import { BarchartComponent } from './explore/top10/barchart/barchart.component';
     Top10Component,
     RacknodeselectComponent,
     LoadingComponent,
-    BarchartComponent
+    BarchartComponent,
+    JobsperweekComponent
   ],
   imports: [
     CommonModule,

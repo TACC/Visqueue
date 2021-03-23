@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 import { Rack } from 'src/app/models/rack';
@@ -17,6 +17,8 @@ export class RacknodeselectComponent implements OnInit {
 
     selectedRack : Rack;
     selectedNode : string;
+
+    @Input() renderNodeSelect = true;
 
     @Output() rackSelected = new EventEmitter<Rack>(); 
     @Output() nodeSelected = new EventEmitter<string>();

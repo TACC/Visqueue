@@ -29,6 +29,11 @@ export class ExploreService {
         return this.apiService.postExploreTop10( params );
     }
 
+    postJobsPerWeek( params : any )
+    {
+        return this.apiService.postExploreJPW( params );
+    }
+
     isRack( data : Rack | string ) : data is Rack
     {
         return (data as Rack).name !== undefined;

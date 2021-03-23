@@ -25,6 +25,7 @@ export class ApiService
     private top        = '/top';
     private fos        = '/fos'; 
     private top10      = '/top10';
+    private jpw        = '/jobsperweek';
 
     constructor( private http : HttpClient ) { }
 
@@ -75,5 +76,10 @@ export class ApiService
     postExploreTop10( params : any )
     {
         return this.http.post( this.url + this.explore + this.top10, params );
+    }
+
+    postExploreJPW( params : any )
+    {
+        return this.http.post( this.url + this.explore + this.jpw , params );
     }
 }

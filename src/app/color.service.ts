@@ -50,5 +50,16 @@ export class ColorService
         {
             return this.colors[ this.colors.length - 1 ].color;
         }
-    }   
+    }  
+    
+    // https://stackoverflow.com/questions/196972/convert-string-to-title-case-with-javascript
+    getTitleCase( name : string ) : string
+    {
+        return name.replace(
+            /\w\S*/g,
+            (txt) => {
+              return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+            }
+          );
+    }
 }

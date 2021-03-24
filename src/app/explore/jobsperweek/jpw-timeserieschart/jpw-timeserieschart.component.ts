@@ -2,6 +2,7 @@ import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { ResponseData } from 'src/app/models/explore/jpw/responseData';
 import { GraphData } from 'src/app/models/explore/jpw/graphData';
 import { JpwTsdata } from 'src/app/models/explore/jpw/jpw-tsdata';
+import { ColorService } from 'src/app/color.service';
 
 @Component({
     selector: 'app-jpw-timeserieschart',
@@ -19,7 +20,7 @@ export class JpwTimeserieschartComponent implements OnInit {
         title : 'Jobs per Week by Field of Science'
     };
 
-    constructor() { }
+    constructor(private colorService : ColorService) { }
 
     ngOnInit(): void {
     }
@@ -38,22 +39,18 @@ export class JpwTimeserieschartComponent implements OnInit {
 
             for (const datum of changes.data.currentValue ) 
             {
-                console.log( datum );
                 
                 let xValues = datum.data.map( ( a : JpwTsdata ) => a.weekStart );
                 let yValues = datum.data.map( ( a : JpwTsdata ) => a.jobs );
 
-                console.log( xValues );
-                console.log( yValues );
-
                 let t_graphData = {
                     type : 'scatter',
                     mode : 'lines',
-                    name : datum.fos,
+                    name : this.colorService.getTitleCase( datum.fos ),
                     x : xValues,
                     y : yValues,
                     line : {
-                        color : '#17BECF'
+                        color : this.colorService.getColorName( datum.fos )
                     }
                 };
 

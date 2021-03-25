@@ -18,7 +18,7 @@ export class JobsperweekComponent implements OnInit {
     data : ResponseData;
 
     constructor(
-        private explorService: ExploreService,
+        private exploreService: ExploreService,
         private route: ActivatedRoute) { }
 
     ngOnInit(): void 
@@ -29,7 +29,7 @@ export class JobsperweekComponent implements OnInit {
     retrieveData( data : Rack ) 
     {
     
-        this.loading = false;
+        this.loading = true;
 
         let params = 
         {
@@ -37,7 +37,7 @@ export class JobsperweekComponent implements OnInit {
             'rack'   : data.name
         };
 
-        this.explorService.postJobsPerWeek( params )
+        this.exploreService.postJobsPerWeek( params )
             .subscribe( ( data : ResponseData ) => this.storeData( data ) );
     }
 

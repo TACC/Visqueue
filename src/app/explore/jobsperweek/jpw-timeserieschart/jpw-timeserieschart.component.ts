@@ -37,18 +37,19 @@ export class JpwTimeserieschartComponent implements OnInit {
 
             let newData : GraphData[] = [];
 
-            for (const datum of changes.data.currentValue ) 
+            let sorted_data = this.colorService.sortFos( changes.data.currentValue ).reverse();
+
+            for (const datum of sorted_data ) 
             {
                 
                 let xValues = datum.data.map( ( a : JpwTsdata ) => a.weekStart );
                 let yValues = datum.data.map( ( a : JpwTsdata ) => a.jobs );
 
                 let t_graphData = {
-                    type : 'scatter',
-                    mode : 'lines',
                     name : this.colorService.getTitleCase( datum.fos ),
                     x : xValues,
                     y : yValues,
+                    stackgroup : 'one',
                     line : {
                         color : this.colorService.getColorName( datum.fos )
                     }

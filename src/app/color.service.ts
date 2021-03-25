@@ -62,4 +62,25 @@ export class ColorService
             }
           );
     }
+
+    sortFos(arr : any[] ) : any[]
+    {
+        let result = [];
+
+        for (let index = 0; index < this.colors.length; index++) 
+        {
+            const element = this.colors[index];
+        
+            for (let index = 0; index < arr.length; index++) 
+            {
+                if(element.name == arr[index].fos )
+                {
+                    result.push( arr[index] );
+                    break;
+                }                
+            }
+        }
+
+        return result;
+    }
 }

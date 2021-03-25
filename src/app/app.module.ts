@@ -42,6 +42,7 @@ import { BarchartComponent } from './explore/top10/barchart/barchart.component';
 import { JobsperweekComponent } from './explore/jobsperweek/jobsperweek.component';
 import { JpwTimeserieschartComponent } from './explore/jobsperweek/jpw-timeserieschart/jpw-timeserieschart.component';
 import { TsusageComponent } from './explore/tsusage/tsusage.component';
+import { TsuTsComponent } from './explore/tsusage/tsu-ts/tsu-ts.component';
 
 
 @NgModule({
@@ -71,7 +72,8 @@ import { TsusageComponent } from './explore/tsusage/tsusage.component';
     BarchartComponent,
     JobsperweekComponent,
     JpwTimeserieschartComponent,
-    TsusageComponent
+    TsusageComponent,
+    TsuTsComponent
   ],
   imports: [
     CommonModule,

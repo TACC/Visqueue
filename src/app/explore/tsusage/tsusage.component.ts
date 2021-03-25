@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ResponseData } from 'src/app/models/explore/tsu/response-data';
 import { ExploreService } from '../explore.service';
 
 @Component({
@@ -12,6 +13,8 @@ export class TsusageComponent implements OnInit {
     system: string;
 
     loading = false;
+
+    data : ResponseData;
 
     constructor(
         private exploreService: ExploreService,
@@ -26,7 +29,7 @@ export class TsusageComponent implements OnInit {
     retrieveData( node : string )
     {
 
-        this.loading = false;
+        this.loading = true;
 
         let params = 
         {
@@ -35,12 +38,13 @@ export class TsusageComponent implements OnInit {
         };
 
         this.exploreService.postTSUsage( params )
-            .subscribe( ( data : any ) => this.storeData( data ) );
-        console.log( node );
+            .subscribe( ( data : ResponseData ) => this.storeData( data ) );
     }
 
-    storeData( data : any )
+    storeData( data : ResponseData )
     {
-        console.log( data );
+        this.data = data;
+
+        this.loading = false;
     }
 }

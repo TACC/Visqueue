@@ -32,20 +32,38 @@ export class TsuTsComponent implements OnInit {
             {
                 return;
             }
-
+            
             let data = changes.data.currentValue;
 
-            const dates = data.flatMap( ( cur : TsuData ) => [ new Date( cur.startTime ), new Date( cur.endTime ) ] );
-        
-            const values = [].concat(...Array.from( { length : data.length }, () => [ 1, 0 ] ) );
+            let newData = [];
 
-            this.graphData = 
-            [{
-                x : dates,
-                y : values,
-                type : 'lines+markers',
-                line : { shape : 'hv'}
-            }];
+            for (const datum of data ) 
+            {
+
+                const dates = datum['data'].flatMap( ( cur : any ) => [ new Date( cur.startTime ), new Date( cur.endTime ) ] );
+                const values = [].concat(...Array.from( { length : datum['data'].length }, () => [ 1, 0 ] ) );
+            
+                let t_graphData = 
+                {
+
+                    name : this.colorService.getTitleCase( datum.fos ),
+                    type : 'scatter',
+                    mode : 'lines',
+                    x : dates,
+                    y : values,
+                    fill : 'tozeroy',
+                    line : 
+                    { 
+                        shape : 'hv',
+                        color : this.colorService.getColorName( datum.fos )
+                    }
+                };
+
+                newData.push( t_graphData );
+            }
+
+            this.graphData = newData;
+
 
         }
     }

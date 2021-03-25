@@ -1,7 +1,12 @@
 export interface ResponseData 
 {
-    duration  : number,
-    startTime : string,
-    endTime   : string,
-    state     : string
+    fos : string,
+    data : [
+    {
+        duration  : number,
+        startTime : string,
+        endTime   : string,
+        state     : string
+
+    }]
 }

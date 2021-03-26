@@ -16,7 +16,11 @@ export class TsuTsComponent implements OnInit {
 
     layout = 
     {
-        title : ' ON/OFF History of Node'
+        title : ' ON/OFF History of Node',
+        yaxis : 
+        {
+            showticklabels : false
+        }
     };
 
     constructor(private colorService : ColorService) { }
@@ -42,7 +46,8 @@ export class TsuTsComponent implements OnInit {
 
                 const dates = datum['data'].flatMap( ( cur : any ) => [ new Date( cur.startTime ), new Date( cur.endTime ) ] );
                 const values = [].concat(...Array.from( { length : datum['data'].length }, () => [ 1, 0 ] ) );
-            
+                const text = [].concat(...Array.from( { length : datum['data'].length }, () => [ 'On', 'Off' ] ) );
+
                 let t_graphData = 
                 {
 
@@ -51,12 +56,14 @@ export class TsuTsComponent implements OnInit {
                     mode : 'lines',
                     x : dates,
                     y : values,
+                    text : text,
+                    hoverinfo : 'text',
                     fill : 'tozeroy',
                     line : 
                     { 
                         shape : 'hv',
                         color : this.colorService.getColorName( datum.fos )
-                    }
+                    }                    
                 };
 
                 newData.push( t_graphData );

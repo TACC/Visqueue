@@ -57,6 +57,7 @@ export class TsuTsComponent implements OnInit {
                     x : dates,
                     y : values,
                     text : text,
+                    hovertemplate : '%{x} <br> %{text}',
                     hoverinfo : 'text',
                     fill : 'tozeroy',
                     line : 

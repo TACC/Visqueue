@@ -45,6 +45,13 @@ export class ExploreRadarComponent implements OnInit {
                     console.log( 'inside explore radar ');
                     this.retrieveData( rack );
                 });
+        
+            this.nodeSubscription = exploreService.nodeSelected$.subscribe(
+                ( node : string ) =>
+                {
+                    console.log( 'inside explore radar node selected' );
+                    this.retrieveData( node );
+                });
         }
 
     ngOnInit(): void 

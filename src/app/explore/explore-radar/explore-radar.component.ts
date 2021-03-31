@@ -5,6 +5,7 @@ import { Label, SingleDataSet, Color } from 'ng2-charts';
 import { ChartType } from 'chart.js';
 import { ColorService } from 'src/app/color.service';
 import { ExploreService } from '../explore.service';
+import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'app-explore-radar',
@@ -12,6 +13,11 @@ import { ExploreService } from '../explore.service';
     styleUrls: ['./explore-radar.component.scss']
 })
 export class ExploreRadarComponent implements OnInit {
+
+
+    // rack and node subscriptions
+    rackSubscription : Subscription;
+    nodeSubscription : Subscription;
 
     system : string;
 
@@ -31,7 +37,15 @@ export class ExploreRadarComponent implements OnInit {
     constructor(
         private exploreService : ExploreService,
         private route          : ActivatedRoute,
-        private colorService   : ColorService) { }
+        private colorService   : ColorService) 
+        {
+            this.rackSubscription = exploreService.rackSelected$.subscribe(
+                ( rack : Rack ) =>
+                {
+                    console.log( 'inside explore radar ');
+                    this.retrieveData( rack );
+                });
+        }
 
     ngOnInit(): void 
     {

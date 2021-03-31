@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { ApiService } from '../api.service';
 import { Rack } from '../models/rack';
 
@@ -6,6 +7,12 @@ import { Rack } from '../models/rack';
     providedIn: 'root'
 })
 export class ExploreService {
+
+    private selectedRackSource = new Subject<Rack>();
+    private selectedNodeSource = new Subject<string>();
+
+    rackSelected$ = this.selectedRackSource.asObservable();
+    nodeSelected$ = this.selectedNodeSource.asObservable();
 
     constructor(private apiService: ApiService) { }
     
@@ -42,5 +49,15 @@ export class ExploreService {
     isRack( data : Rack | string ) : data is Rack
     {
         return (data as Rack).name !== undefined;
+    }
+
+    selectedRack( rack : Rack )
+    {
+        this.selectedRackSource.next( rack );
+    }
+
+    selectedNode( node : string )
+    {
+        this.selectedNodeSource.next( node );
     }
 }

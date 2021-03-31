@@ -16,7 +16,7 @@
 </div>
 
 <div class="container">
-    <app-racknodeselect class="item-small"></app-racknodeselect>
+    <app-racknodeselect (rackSelected)="selectedRack($event)" (nodeSelected)="selectedNode($event)" class="item-small"></app-racknodeselect>
 </div>
 
 <div class="container">

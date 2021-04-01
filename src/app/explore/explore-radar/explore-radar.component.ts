@@ -21,6 +21,9 @@ export class ExploreRadarComponent implements OnInit {
 
     system : string;
 
+    rack : string;
+    node : string;
+
     // PolarArea
     polarAreaChartLabels : Label[]       = [];
     polarAreaChartData   : SingleDataSet = [];
@@ -42,15 +45,15 @@ export class ExploreRadarComponent implements OnInit {
             this.rackSubscription = exploreService.rackSelected$.subscribe(
                 ( rack : Rack ) =>
                 {
-                    console.log( 'inside explore radar ');
                     this.retrieveData( rack );
+                    this.rack = rack.name;
                 });
         
             this.nodeSubscription = exploreService.nodeSelected$.subscribe(
                 ( node : string ) =>
                 {
-                    console.log( 'inside explore radar node selected' );
                     this.retrieveData( node );
+                    this.node = node;
                 });
         }
 

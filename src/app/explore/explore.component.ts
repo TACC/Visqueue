@@ -18,17 +18,11 @@ export class ExploreComponent implements OnInit {
 
     selectedRack( rack : Rack )
     {   
-        console.log( 'inside explore selected rack function ');
-        console.log( rack );
-
         this.exploreService.selectedRack( rack );
     }
 
     selectedNode( node : string )
     {
-        console.log( 'inside explore selected node function ');
-        console.log( node );
-
         this.exploreService.selectedNode( node );
     }
 }

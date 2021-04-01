@@ -8,7 +8,7 @@
     
     <mat-form-field *ngIf="renderNodeSelect">
         <mat-label>Node</mat-label>
-        <mat-select (selectionChange)="selectNode($event)">
+        <mat-select (selectionChange)="selectNode($event)" [(value)]="selectedNode">
             <mat-option *ngFor="let node of nodes" [value]="node">{{ node }}</mat-option>
         </mat-select>
     </mat-form-field>    

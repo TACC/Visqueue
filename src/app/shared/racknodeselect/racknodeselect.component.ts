@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 import { Rack } from 'src/app/models/rack';
@@ -14,6 +14,9 @@ export class RacknodeselectComponent implements OnInit {
 
     racks : Rack[];
     nodes : string[];
+
+    @Input() rack : string;
+    @Input() node : string;
 
     selectedRack : Rack;
     selectedNode : string;
@@ -50,5 +53,34 @@ export class RacknodeselectComponent implements OnInit {
         this.selectedNode = event.value;
 
         this.nodeSelected.emit( this.selectedNode );
+    }
+
+    ngOnChanges(changes: SimpleChanges): void 
+    {    
+        if( changes.rack && !changes.rack.firstChange )
+        {
+            for (const rack of this.racks) 
+            {    
+                if( changes.rack.currentValue == rack.name )
+                {
+                    this.selectedRack = rack;
+                    this.nodes = rack.nodes;
+                    break;
+                }
+            }
+        }
+
+        if( changes.node && !changes.node.firstChange )
+        {
+            for (const node of this.nodes) 
+            {    
+                if( changes.node.currentValue == node )
+                {
+                    this.selectedNode = node;
+                    break;
+                }
+            }
+        }
+
     }
 }

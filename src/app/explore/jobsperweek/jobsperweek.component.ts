@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { ResponseData } from 'src/app/models/explore/jpw/responseData';
 import { Rack } from 'src/app/models/rack';
 import { ExploreService } from '../explore.service';
@@ -12,14 +13,26 @@ import { ExploreService } from '../explore.service';
 export class JobsperweekComponent implements OnInit {
 
     system : string;
+    
+    rack : string;
 
     loading = false;
 
     data : ResponseData;
 
+    rackSubscription : Subscription;
+
     constructor(
         private exploreService: ExploreService,
-        private route: ActivatedRoute) { }
+        private route: ActivatedRoute) 
+        { 
+            this.rackSubscription = exploreService.rackSelected$.subscribe(
+                ( rack : Rack ) =>
+                {
+                    this.retrieveData( rack );
+                    this.rack = rack.name;
+                });
+        }
 
     ngOnInit(): void 
     {

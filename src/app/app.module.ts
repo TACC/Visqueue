@@ -43,6 +43,7 @@ import { JobsperweekComponent } from './explore/jobsperweek/jobsperweek.componen
 import { JpwTimeserieschartComponent } from './explore/jobsperweek/jpw-timeserieschart/jpw-timeserieschart.component';
 import { TsusageComponent } from './explore/tsusage/tsusage.component';
 import { TsuTsComponent } from './explore/tsusage/tsu-ts/tsu-ts.component';
+import { SystemMapComponent } from './explore/system-map/system-map.component';
 
 
 @NgModule({
@@ -73,7 +74,8 @@ import { TsuTsComponent } from './explore/tsusage/tsu-ts/tsu-ts.component';
     JobsperweekComponent,
     JpwTimeserieschartComponent,
     TsusageComponent,
-    TsuTsComponent
+    TsuTsComponent,
+    SystemMapComponent
   ],
   imports: [
     CommonModule,

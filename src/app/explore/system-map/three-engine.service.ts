@@ -35,6 +35,8 @@ export class ThreeEngineService
 
     public createScene(canvas: ElementRef<HTMLCanvasElement>): void 
     {
+        const loader = new THREE.TextureLoader();
+
         // The first step is to get the reference of the canvas element from our HTML document
         this.canvas = canvas.nativeElement;
 
@@ -58,18 +60,12 @@ export class ThreeEngineService
         this.controls = new OrbitControls( this.camera, this.canvas );
 
         this.controls.enableDamping = true;
-        this.controls.dampingFactor = 0.05;
+        this.controls.dampingFactor = 0.9;
 
         this.controls.screenSpacePanning = false;
 
-
-        // soft white light
-        this.light = new THREE.AmbientLight(0x404040);
-        this.light.position.z = 10;
-        this.scene.add(this.light);
-
         const geometry = new THREE.BoxGeometry(1, 1, 1);
-        const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+        const material = new THREE.MeshBasicMaterial({ map : loader.load('assets/images/metal.jpg') });
         this.cube = new THREE.Mesh(geometry, material);
         this.scene.add(this.cube);
 

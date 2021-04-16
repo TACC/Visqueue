@@ -1,4 +1,7 @@
 import * as THREE from 'three';
+
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+
 import { ElementRef, Injectable, NgZone, OnDestroy } from '@angular/core';
 
 @Injectable({
@@ -7,11 +10,14 @@ import { ElementRef, Injectable, NgZone, OnDestroy } from '@angular/core';
 export class ThreeEngineService 
 {
 
-    private canvas: HTMLCanvasElement;
-    private renderer: THREE.WebGLRenderer;
-    private camera: THREE.PerspectiveCamera;
-    private scene: THREE.Scene;
-    private light: THREE.AmbientLight;
+    private canvas   : HTMLCanvasElement;
+    
+    private renderer : THREE.WebGLRenderer;
+    private camera   : THREE.PerspectiveCamera;
+    private scene    : THREE.Scene;
+    private light    : THREE.AmbientLight;
+    
+    private controls : OrbitControls;
 
     private cube: THREE.Mesh;
 
@@ -47,6 +53,15 @@ export class ThreeEngineService
         );
         this.camera.position.z = 5;
         this.scene.add(this.camera);
+
+        // Setup Orbit Controls
+        this.controls = new OrbitControls( this.camera, this.canvas );
+
+        this.controls.enableDamping = true;
+        this.controls.dampingFactor = 0.05;
+
+        this.controls.screenSpacePanning = false;
+
 
         // soft white light
         this.light = new THREE.AmbientLight(0x404040);
@@ -92,8 +107,8 @@ export class ThreeEngineService
             this.render();
         });
 
-        this.cube.rotation.x += 0.01;
-        this.cube.rotation.y += 0.01;
+        // this.cube.rotation.x += 0.01;
+        // this.cube.rotation.y += 0.01;
         this.renderer.render(this.scene, this.camera);
     }
 

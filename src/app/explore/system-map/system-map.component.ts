@@ -1,15 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { ThreeEngineService } from './three-engine.service';
+
 
 @Component({
-  selector: 'app-system-map',
-  templateUrl: './system-map.component.html',
-  styleUrls: ['./system-map.component.scss']
+    selector: 'app-system-map',
+    templateUrl: './system-map.component.html',
+    styleUrls: ['./system-map.component.scss'],
+    providers : [ ThreeEngineService ]
 })
-export class SystemMapComponent implements OnInit {
+export class SystemMapComponent implements OnInit 
+{
 
-  constructor() { }
+    @ViewChild('rendererCanvas', {static: true})
+    public rendererCanvas: ElementRef<HTMLCanvasElement>;
 
-  ngOnInit(): void {
-  }
+    constructor(private threeEngineService : ThreeEngineService) { }
+
+    ngOnInit(): void 
+    {
+        this.threeEngineService.createScene(this.rendererCanvas);
+        this.threeEngineService.animate();
+    }
 
 }

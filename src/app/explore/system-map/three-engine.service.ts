@@ -19,11 +19,14 @@ export class ThreeEngineService
     
     private controls : OrbitControls;
 
-    private cube: THREE.Mesh;
+    private cube1: THREE.Mesh;
+    private cube2: THREE.Mesh;
+    private cube3: THREE.Mesh;
+    private cube4: THREE.Mesh;
 
     private frameId: number = null;
 
-    public constructor(private ngZone: NgZone) {}
+    public constructor(private ngZone: NgZone ) {}
 
     public ngOnDestroy(): void 
     {
@@ -45,13 +48,13 @@ export class ThreeEngineService
             alpha: true,    // transparent background
             antialias: true // smooth edges
         });
-        this.renderer.setSize(window.innerWidth, window.innerHeight);
+        this.renderer.setSize( ( window.innerWidth / 2.5 ) , ( window.innerHeight / 1.3 ) );
 
         // create the scene
         this.scene = new THREE.Scene();
 
         this.camera = new THREE.PerspectiveCamera(
-            75, window.innerWidth / window.innerHeight, 0.1, 1000
+            75, ( window.innerWidth / 2.5 ) / ( window.innerHeight / 1.3 ) , 0.1, 1000
         );
         this.camera.position.z = 5;
         this.scene.add(this.camera);
@@ -64,11 +67,26 @@ export class ThreeEngineService
 
         this.controls.screenSpacePanning = false;
 
-        const geometry = new THREE.BoxGeometry(1, 1, 1);
+        // square 1
+        const geometry = new THREE.BoxGeometry(0.25, 0.025, 0.5);
         const material = new THREE.MeshBasicMaterial({ map : loader.load('assets/images/metal.jpg') });
-        this.cube = new THREE.Mesh(geometry, material);
-        this.scene.add(this.cube);
-
+        
+        this.cube1 = new THREE.Mesh(geometry, material);
+        this.cube1.position.x = -0.275;
+        this.scene.add(this.cube1);
+        
+        this.cube2 = new THREE.Mesh(geometry, material);
+        this.scene.add(this.cube2);
+    
+        this.cube3 = new THREE.Mesh(geometry, material);
+        this.cube3.position.x = -0.275;
+        this.cube3.position.y = -0.035;
+        this.scene.add(this.cube3);
+        
+        this.cube4 = new THREE.Mesh(geometry, material);
+        this.cube4.position.y = -0.035;
+        this.scene.add(this.cube4);
+        
     }
 
     public animate(): void 
@@ -103,19 +121,22 @@ export class ThreeEngineService
             this.render();
         });
 
-        // this.cube.rotation.x += 0.01;
-        // this.cube.rotation.y += 0.01;
         this.renderer.render(this.scene, this.camera);
     }
 
     public resize(): void 
     {
-        const width = window.innerWidth;
-        const height = window.innerHeight;
+        const width = window.innerWidth / 2.5;
+        const height = window.innerHeight / 1.3;
 
         this.camera.aspect = width / height;
         this.camera.updateProjectionMatrix();
 
         this.renderer.setSize(width, height);
+    }
+
+    renderSystem()
+    {
+
     }
 }

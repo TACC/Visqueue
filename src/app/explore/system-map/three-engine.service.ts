@@ -3,19 +3,22 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 import { ElementRef, Injectable, NgZone, OnDestroy } from '@angular/core';
+import { ExploreService } from '../explore.service';
+import { ActivatedRoute } from '@angular/router';
+import { Rack } from 'src/app/models/rack';
 
 @Injectable({
     providedIn: 'root'
 })
 export class ThreeEngineService 
 {
+    private system : string;
 
     private canvas   : HTMLCanvasElement;
     
     private renderer : THREE.WebGLRenderer;
     private camera   : THREE.PerspectiveCamera;
     private scene    : THREE.Scene;
-    private light    : THREE.AmbientLight;
     
     private controls : OrbitControls;
 
@@ -26,7 +29,10 @@ export class ThreeEngineService
 
     private frameId: number = null;
 
-    public constructor(private ngZone: NgZone ) {}
+    public constructor(
+        private ngZone: NgZone, 
+        private exploreService : ExploreService,
+        private route          : ActivatedRoute ) {}
 
     public ngOnDestroy(): void 
     {
@@ -38,7 +44,7 @@ export class ThreeEngineService
 
     public createScene(canvas: ElementRef<HTMLCanvasElement>): void 
     {
-        const loader = new THREE.TextureLoader();
+        this.system = this.route.snapshot.params['name'];
 
         // The first step is to get the reference of the canvas element from our HTML document
         this.canvas = canvas.nativeElement;
@@ -48,14 +54,12 @@ export class ThreeEngineService
             alpha: true,    // transparent background
             antialias: true // smooth edges
         });
-        this.renderer.setSize( ( window.innerWidth / 2.5 ) , ( window.innerHeight / 1.3 ) );
+        this.renderer.setSize( window.innerWidth , window.innerHeight  );
 
         // create the scene
         this.scene = new THREE.Scene();
 
-        this.camera = new THREE.PerspectiveCamera(
-            75, ( window.innerWidth / 2.5 ) / ( window.innerHeight / 1.3 ) , 0.1, 1000
-        );
+        this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight , 0.1, 1000 );
         this.camera.position.z = 5;
         this.scene.add(this.camera);
 
@@ -67,25 +71,8 @@ export class ThreeEngineService
 
         this.controls.screenSpacePanning = false;
 
-        // square 1
-        const geometry = new THREE.BoxGeometry(0.25, 0.025, 0.5);
-        const material = new THREE.MeshBasicMaterial({ map : loader.load('assets/images/metal.jpg') });
-        
-        this.cube1 = new THREE.Mesh(geometry, material);
-        this.cube1.position.x = -0.275;
-        this.scene.add(this.cube1);
-        
-        this.cube2 = new THREE.Mesh(geometry, material);
-        this.scene.add(this.cube2);
-    
-        this.cube3 = new THREE.Mesh(geometry, material);
-        this.cube3.position.x = -0.275;
-        this.cube3.position.y = -0.035;
-        this.scene.add(this.cube3);
-        
-        this.cube4 = new THREE.Mesh(geometry, material);
-        this.cube4.position.y = -0.035;
-        this.scene.add(this.cube4);
+        this.exploreService.getNodes( this.system )
+            .subscribe( ( data : [ Rack ] ) => this.renderSystem( data ) );
         
     }
 
@@ -126,8 +113,8 @@ export class ThreeEngineService
 
     public resize(): void 
     {
-        const width = window.innerWidth / 2.5;
-        const height = window.innerHeight / 1.3;
+        const width = window.innerWidth;
+        const height = window.innerHeight;
 
         this.camera.aspect = width / height;
         this.camera.updateProjectionMatrix();
@@ -135,8 +122,39 @@ export class ThreeEngineService
         this.renderer.setSize(width, height);
     }
 
-    renderSystem()
+    renderSystem( data : [ Rack ] )
     {
+
+        const loader = new THREE.TextureLoader();
+
+        const geometry = new THREE.BoxGeometry(0.25, 0.025, 0.5);
+        const material = new THREE.MeshBasicMaterial({ map : loader.load('assets/images/metal.jpg') });
+
+        let x = 0;
+        let y = 0;
+
+        let xMult = 0.275;
+        let yMult = 0.035;
+        let zMult = 0.5;
+
+        for (const rack of data ) 
+        {
+            let xStart = rack.col * ( xMult * 2.25 );
+            let zStart = rack.row * ( zMult * 1.5  );
+
+            for( const [ idx, node ] of rack.nodes.entries() )
+            {
+
+                const xRem = idx % 2;
+                const yRem = Math.trunc( idx / 2 );
+    
+                let cube = new THREE.Mesh(geometry, material);
+                cube.position.x = xStart + xMult * xRem;
+                cube.position.y = yMult * yRem;
+                cube.position.z = zStart;
+                this.scene.add( cube );
+            }
+        }
 
     }
 }

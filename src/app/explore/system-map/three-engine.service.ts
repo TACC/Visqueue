@@ -23,10 +23,8 @@ export class ThreeEngineService
     
     private controls : OrbitControls;
 
-    private cube1: THREE.Mesh;
-    private cube2: THREE.Mesh;
-    private cube3: THREE.Mesh;
-    private cube4: THREE.Mesh;
+    private raycaster : THREE.Raycaster;
+    private pointer   : THREE.Vector2;
 
     private frameId: number = null;
 
@@ -55,6 +53,7 @@ export class ThreeEngineService
             alpha: true,    // transparent background
             antialias: true // smooth edges
         });
+        this.renderer.setPixelRatio( window.devicePixelRatio );
         this.renderer.setSize( window.innerWidth , window.innerHeight  );
 
         // create the scene
@@ -68,11 +67,6 @@ export class ThreeEngineService
 
         this.scene.add(this.camera);
 
-        window.addEventListener('mouseup', ( event ) =>
-        {
-            console.log('inside event listener' );
-            console.log( this.camera );
-        });
 
         // Setup Orbit Controls
         this.controls = new OrbitControls( this.camera, this.canvas );
@@ -85,6 +79,10 @@ export class ThreeEngineService
         this.controls.target.set( 12.5, -2, 0 );
 
         this.controls.update();
+
+        this.raycaster = new THREE.Raycaster();
+
+        this.pointer = new THREE.Vector2();
 
         this.exploreService.getNodes( this.system )
             .subscribe( ( data : [ Rack ] ) => this.renderSystem( data ) );
@@ -168,8 +166,33 @@ export class ThreeEngineService
                 cube.position.x = xStart + xMult * xRem;
                 cube.position.y = yMult * yRem;
                 cube.position.z = zStart;
+                cube.userData = {rack : rack.name, node : node, row : rack.row, col : rack.col };
                 this.scene.add( cube );
+
             }
+
+        }
+
+        this.canvas.addEventListener( 'click', (event) => this.onMouseDown( event ) );
+    }
+
+    onMouseDown( event : MouseEvent )
+    {
+
+        const rect = this.canvas.getBoundingClientRect();
+        const x    = event.clientX - rect.left;
+        const y    = event.clientY - rect.top;
+
+        this.pointer.x =   ( x / window.innerWidth  ) * 2 - 1;
+        this.pointer.y =  -( y / window.innerHeight ) * 2 + 1; 
+        
+        this.raycaster.setFromCamera( this.pointer, this.camera );
+
+        const intersections = this.raycaster.intersectObjects( this.scene.children );
+
+        if(intersections )
+        {
+            console.log( intersections[0] );
         }
 
     }

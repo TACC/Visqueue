@@ -6,6 +6,7 @@ import { ElementRef, Injectable, NgZone, OnDestroy } from '@angular/core';
 import { ExploreService } from '../explore.service';
 import { ActivatedRoute } from '@angular/router';
 import { Rack } from 'src/app/models/rack';
+import { Vector3 } from 'three';
 
 @Injectable({
     providedIn: 'root'
@@ -60,8 +61,18 @@ export class ThreeEngineService
         this.scene = new THREE.Scene();
 
         this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight , 0.1, 1000 );
-        this.camera.position.z = 5;
+
+        this.camera.position.x = 16.465882428452378;
+        this.camera.position.y = 3.951490709091158;
+        this.camera.position.z = 6.974208585531825;
+
         this.scene.add(this.camera);
+
+        window.addEventListener('mouseup', ( event ) =>
+        {
+            console.log('inside event listener' );
+            console.log( this.camera );
+        });
 
         // Setup Orbit Controls
         this.controls = new OrbitControls( this.camera, this.canvas );
@@ -70,6 +81,10 @@ export class ThreeEngineService
         this.controls.dampingFactor = 0.9;
 
         this.controls.screenSpacePanning = false;
+
+        this.controls.target.set( 12.5, -2, 0 );
+
+        this.controls.update();
 
         this.exploreService.getNodes( this.system )
             .subscribe( ( data : [ Rack ] ) => this.renderSystem( data ) );
@@ -140,7 +155,8 @@ export class ThreeEngineService
         for (const rack of data ) 
         {
             let xStart = rack.col * ( xMult * 2.25 );
-            let zStart = rack.row * ( zMult * 1.5  );
+            let zStart = rack.row * ( zMult * 3  );
+
 
             for( const [ idx, node ] of rack.nodes.entries() )
             {

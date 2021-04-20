@@ -62,9 +62,9 @@ export class ThreeEngineService
 
         this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight , 0.1, 1000 );
 
-        this.camera.position.x = 16.465882428452378;
-        this.camera.position.y = 3.951490709091158;
-        this.camera.position.z = 6.974208585531825;
+        this.camera.position.x = 24.5734006585186;
+        this.camera.position.y = 6.97634551141738;
+        this.camera.position.z = 14.575754951854405;
 
         this.scene.add(this.camera);
 
@@ -149,13 +149,13 @@ export class ThreeEngineService
         let y = 0;
 
         let xMult = 0.275;
-        let yMult = 0.035;
+        let yMult = 0.1;
         let zMult = 0.5;
 
         for (const rack of data ) 
         {
-            let xStart = rack.col * ( xMult * 2.25 );
-            let zStart = rack.row * ( zMult * 3  );
+            let xStart = rack.col * ( xMult * 3 );
+            let zStart = rack.row * ( zMult * 8  );
 
 
             for( const [ idx, node ] of rack.nodes.entries() )

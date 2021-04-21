@@ -61,9 +61,9 @@ export class ThreeEngineService
 
         this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight , 0.1, 1000 );
 
-        this.camera.position.x = 24.5734006585186;
-        this.camera.position.y = 6.97634551141738;
-        this.camera.position.z = 14.575754951854405;
+        this.camera.position.x = 24;
+        this.camera.position.y = 5;
+        this.camera.position.z = 15;
 
         this.scene.add(this.camera);
 
@@ -76,7 +76,7 @@ export class ThreeEngineService
 
         this.controls.screenSpacePanning = false;
 
-        this.controls.target.set( 12.5, -2, 0 );
+        this.controls.target.set( 12.5, -10, 0 );
 
         this.controls.update();
 
@@ -164,7 +164,7 @@ export class ThreeEngineService
     
                 let cube = new THREE.Mesh(geometry, material);
                 cube.position.x = xStart + xMult * xRem;
-                cube.position.y = yMult * yRem;
+                cube.position.y = - ( yMult * yRem );
                 cube.position.z = zStart;
                 cube.userData = {rack : rack.name, node : node, row : rack.row, col : rack.col };
                 this.scene.add( cube );
@@ -190,9 +190,10 @@ export class ThreeEngineService
 
         const intersections = this.raycaster.intersectObjects( this.scene.children );
 
-        if(intersections )
+        if( intersections )
         {
             console.log( intersections[0] );
+            
         }
 
     }

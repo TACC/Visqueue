@@ -53,13 +53,14 @@ export class ThreeEngineService
             alpha: true,    // transparent background
             antialias: true // smooth edges
         });
+
         this.renderer.setPixelRatio( window.devicePixelRatio );
-        this.renderer.setSize( window.innerWidth , window.innerHeight  );
+        this.renderer.setSize( this.canvas.offsetWidth , this.canvas.offsetHeight  );
 
         // create the scene
         this.scene = new THREE.Scene();
 
-        this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight , 0.1, 1000 );
+        this.camera = new THREE.PerspectiveCamera( 75, this.canvas.offsetWidth / this.canvas.offsetHeight , 0.1, 1000 );
 
         this.camera.position.x = 24;
         this.camera.position.y = 5;
@@ -126,8 +127,8 @@ export class ThreeEngineService
 
     public resize(): void 
     {
-        const width = window.innerWidth;
-        const height = window.innerHeight;
+        const width = this.canvas.offsetWidth;
+        const height = this.canvas.offsetHeight;
 
         this.camera.aspect = width / height;
         this.camera.updateProjectionMatrix();
@@ -183,16 +184,17 @@ export class ThreeEngineService
         const x    = event.clientX - rect.left;
         const y    = event.clientY - rect.top;
 
-        this.pointer.x =   ( x / window.innerWidth  ) * 2 - 1;
-        this.pointer.y =  -( y / window.innerHeight ) * 2 + 1; 
+        this.pointer.x =   ( x / this.canvas.offsetWidth  ) * 2 - 1;
+        this.pointer.y =  -( y / this.canvas.offsetHeight ) * 2 + 1; 
         
         this.raycaster.setFromCamera( this.pointer, this.camera );
 
         const intersections = this.raycaster.intersectObjects( this.scene.children );
 
-        if( intersections )
+        if( intersections.length > 0  )
         {
-            console.log( intersections[0] );
+            console.log( intersections[0].object );
+            const obj = intersections[0].object as THREE.Mesh;
             
         }
 

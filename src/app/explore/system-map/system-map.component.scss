@@ -1,3 +1,14 @@
+.container
+{
+    display: flex;
+    justify-content: space-around;
+}
+
+.item-large
+{
+    flex: 0 1 70%;
+}
+
 canvas
 {
     width: 100%;

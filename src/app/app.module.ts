@@ -44,6 +44,7 @@ import { JpwTimeserieschartComponent } from './explore/jobsperweek/jpw-timeserie
 import { TsusageComponent } from './explore/tsusage/tsusage.component';
 import { TsuTsComponent } from './explore/tsusage/tsu-ts/tsu-ts.component';
 import { SystemMapComponent } from './explore/system-map/system-map.component';
+import { SideBarComponent } from './explore/system-map/side-bar/side-bar.component';
 
 
 @NgModule({
@@ -75,7 +76,8 @@ import { SystemMapComponent } from './explore/system-map/system-map.component';
     JpwTimeserieschartComponent,
     TsusageComponent,
     TsuTsComponent,
-    SystemMapComponent
+    SystemMapComponent,
+    SideBarComponent
   ],
   imports: [
     CommonModule,

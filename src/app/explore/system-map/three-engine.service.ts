@@ -62,9 +62,9 @@ export class ThreeEngineService
 
         this.camera = new THREE.PerspectiveCamera( 75, this.canvas.offsetWidth / this.canvas.offsetHeight , 0.1, 1000 );
 
-        this.camera.position.x = 24;
-        this.camera.position.y = 5;
-        this.camera.position.z = 15;
+        this.camera.position.x = 20;
+        this.camera.position.y = 3;
+        this.camera.position.z = 14;
 
         this.scene.add(this.camera);
 
@@ -77,7 +77,7 @@ export class ThreeEngineService
 
         this.controls.screenSpacePanning = false;
 
-        this.controls.target.set( 12.5, -10, 0 );
+        this.controls.target.set( 14, -10, 0 );
 
         this.controls.update();
 
@@ -195,6 +195,8 @@ export class ThreeEngineService
         {
             console.log( intersections[0].object );
             const obj = intersections[0].object as THREE.Mesh;
+
+            console.log( this.camera );
             
         }
 

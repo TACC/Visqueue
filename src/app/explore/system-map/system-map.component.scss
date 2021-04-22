@@ -12,4 +12,14 @@
 canvas
 {
     width: 100%;
+    border-style: solid none solid solid;
+    border-color: #a1a5ab;
+    border-width: 1px;
+}
+
+app-side-bar
+{
+    border-style: solid;
+    border-color: #a1a5ab;
+    border-width: 1px;
 }

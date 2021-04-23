@@ -9,10 +9,10 @@ export class SideBarComponent implements OnInit
 {
     options : string[] = 
     [
-        'field of science',
-        'project',
-        'institution',
-        'job'
+        'Field of Science',
+        'Project',
+        'Institution',
+        'Job'
     ];
 
     selected : string;

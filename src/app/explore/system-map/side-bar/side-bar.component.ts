@@ -17,6 +17,8 @@ export class SideBarComponent implements OnInit
 
     selected : string;
 
+    input : "";
+
     constructor() { }
 
     ngOnInit(): void { }

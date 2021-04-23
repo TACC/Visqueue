@@ -2,16 +2,14 @@
     
     <mat-form-field appearance="fill">
         <mat-label>Select Search Field</mat-label>
-        <mat-select>
-            <mat-option *ngFor="let option of options">{{option}}</mat-option>
+        <mat-select [(value)]="selected">
+            <mat-option *ngFor="let option of options" [value]="option">{{option}}</mat-option>
         </mat-select>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-        <mat-label>Search Selection</mat-label>
-        <mat-select>
-            <mat-option *ngFor="let option of options">{{option}}</mat-option>
-        </mat-select>
+        <mat-label>Search</mat-label>
+        <input matInput [disabled]="!selected" [(ngModel)]="input">
     </mat-form-field>
 
 </div>

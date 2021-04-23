@@ -18,9 +18,9 @@ export class SideBarComponent implements OnInit
     radioOptions : string[] = ['Jobs', 'Time'];
 
     fieldSelected : string;
+    input : "";
     renderSelected : string;
 
-    input : "";
 
     constructor() { }
 

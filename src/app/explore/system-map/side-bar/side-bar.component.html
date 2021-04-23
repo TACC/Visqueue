@@ -2,15 +2,19 @@
     
     <mat-form-field appearance="fill">
         <mat-label>Select Search Field</mat-label>
-        <mat-select [(value)]="selected">
-            <mat-option *ngFor="let option of options" [value]="option">{{option}}</mat-option>
+        <mat-select [(value)]="fieldSelected">
+            <mat-option *ngFor="let option of selectOptions" [value]="option">{{option}}</mat-option>
         </mat-select>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
         <mat-label>Search</mat-label>
-        <input matInput [disabled]="!selected" [(ngModel)]="input">
+        <input matInput [disabled]="!fieldSelected" [(ngModel)]="input">
     </mat-form-field>
 
+    <mat-radio-group [(ngModel)]="renderSelected">
+        <mat-radio-button *ngFor="let option of radioOptions">{{option}}</mat-radio-button>
+    </mat-radio-group>
+      
 </div>
 

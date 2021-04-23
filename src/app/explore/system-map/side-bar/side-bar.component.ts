@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SideBarComponent implements OnInit 
 {
-    options : string[] = 
+    selectOptions : string[] = 
     [
         'Field of Science',
         'Project',
@@ -15,7 +15,10 @@ export class SideBarComponent implements OnInit
         'Job'
     ];
 
-    selected : string;
+    radioOptions : string[] = ['Jobs', 'Time'];
+
+    fieldSelected : string;
+    renderSelected : string;
 
     input : "";
 

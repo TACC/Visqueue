@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ExploreService } from '../../explore.service';
 
 @Component({
     selector: 'app-side-bar',
@@ -18,12 +19,16 @@ export class SideBarComponent implements OnInit
     radioOptions : string[] = ['Jobs', 'Time'];
 
     fieldSelected : string;
-    input : "";
+    input : '';
     renderSelected : string;
 
 
-    constructor() { }
+    constructor(private exploreService : ExploreService) { }
 
     ngOnInit(): void { }
 
+    onRender()
+    {
+        console.log( "inside on render" );
+    }
 }

@@ -13,7 +13,7 @@
     </mat-form-field>
 
     <mat-radio-group [(ngModel)]="renderSelected">
-        <mat-radio-button *ngFor="let option of radioOptions">{{option}}</mat-radio-button>
+        <mat-radio-button *ngFor="let option of radioOptions" [value]="option">{{option}}</mat-radio-button>
     </mat-radio-group>
       
     <br>

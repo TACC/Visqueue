@@ -28,6 +28,8 @@ export class ApiService
     private jpw        = '/jobsperweek';
     private tsusage    = '/tsusage';
 
+    private sysmap     = '/sysmap';
+
     constructor( private http : HttpClient ) { }
 
     jobsGetRecent( system : string ) : Observable<Job[]>
@@ -87,5 +89,10 @@ export class ApiService
     postExploreTSU( params : any )
     {
         return this.http.post( this.url + this.explore + this.tsusage , params );
+    }
+
+    postExploreSysMapFOS( params : any )
+    {
+        return this.http.post( this.url + this.explore + this.sysmap + this.fos, params );
     }
 }

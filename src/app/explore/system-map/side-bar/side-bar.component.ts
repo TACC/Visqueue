@@ -45,8 +45,6 @@ export class SideBarComponent implements OnInit
 
         this.searching = true;
 
-        console.log( "inside on render" );
-
         switch (this.fieldSelected) 
         {
             case 'Field of Science':
@@ -68,12 +66,11 @@ export class SideBarComponent implements OnInit
             type   : this.renderSelected
         };
 
-        console.log( params );
-
         this.exploreService.postSysMapFos( params )
             .subscribe( ( response : any ) =>
             {
                 this.searching = false;
+
                 this.threeEngineService.renderHeatmap( response );
             });
 

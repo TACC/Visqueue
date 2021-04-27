@@ -6,7 +6,8 @@ import { ElementRef, Injectable, NgZone, OnDestroy } from '@angular/core';
 import { ExploreService } from '../explore.service';
 import { ActivatedRoute } from '@angular/router';
 import { Rack } from 'src/app/models/rack';
-import { Vector3 } from 'three';
+import * as d3Scale from 'd3-scale';
+import * as d3Chrom from 'd3-scale-chromatic';
 
 @Injectable({
     providedIn: 'root'
@@ -27,6 +28,9 @@ export class ThreeEngineService
     private pointer   : THREE.Vector2;
 
     private frameId: number = null;
+
+    colorScale : d3Scale.ScaleSequential<string>;
+
 
     public constructor(
         private ngZone: NgZone, 
@@ -200,12 +204,15 @@ export class ThreeEngineService
 
     renderHeatmap( data : any )
     {
+        this.colorScale = d3Scale.scaleSequential( [ 0, data.duration ], d3Chrom.interpolateViridis );
+
         for (const node of this.scene.children) 
         {
             if( node.userData && ( node.userData.node in data ) )
             {
-                ( ( node as THREE.Mesh ).material as THREE.MeshBasicMaterial ).color.setHex( 0xf5f242 );
-                break;
+                const val : number = data[ node.userData.node ].duration;
+                const color = new THREE.Color( this.colorScale( val ) );
+                ( ( node as THREE.Mesh ).material as THREE.MeshBasicMaterial ).color.setHex( color.getHex() );
             }    
         }
     }

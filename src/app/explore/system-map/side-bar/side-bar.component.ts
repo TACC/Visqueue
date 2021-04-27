@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ExploreService } from '../../explore.service';
+import { ThreeEngineService } from '../three-engine.service';
 
 @Component({
     selector: 'app-side-bar',
@@ -31,7 +32,8 @@ export class SideBarComponent implements OnInit
 
     constructor(
         private exploreService : ExploreService,
-        private route          : ActivatedRoute) { }
+        private route          : ActivatedRoute,
+        private threeEngineService : ThreeEngineService) { }
 
     ngOnInit(): void 
     { 
@@ -72,7 +74,7 @@ export class SideBarComponent implements OnInit
             .subscribe( ( response : any ) =>
             {
                 this.searching = false;
-                console.log( response );
+                this.threeEngineService.renderHeatmap( response );
             });
 
         }

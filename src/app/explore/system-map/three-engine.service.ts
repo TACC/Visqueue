@@ -163,7 +163,7 @@ export class ThreeEngineService
                 const xRem = idx % 2;
                 const yRem = Math.trunc( idx / 2 );
     
-                let cube = new THREE.Mesh(geometry, material);
+                let cube = new THREE.Mesh(geometry, material.clone() );
                 cube.position.x = xStart + xMult * xRem;
                 cube.position.y = - ( yMult * yRem );
                 cube.position.z = zStart;
@@ -193,12 +193,20 @@ export class ThreeEngineService
 
         if( intersections.length > 0  )
         {
-            console.log( intersections[0].object );
-            const obj = intersections[0].object as THREE.Mesh;
-
-            console.log( this.camera );
-            
+            const obj = intersections[0].object as THREE.Mesh;            
         }
 
+    }
+
+    renderHeatmap( data : any )
+    {
+        for (const node of this.scene.children) 
+        {
+            if( node.userData && ( node.userData.node in data ) )
+            {
+                ( ( node as THREE.Mesh ).material as THREE.MeshBasicMaterial ).color.setHex( 0xf5f242 );
+                break;
+            }    
+        }
     }
 }

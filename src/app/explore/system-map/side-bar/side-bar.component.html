@@ -16,8 +16,10 @@
         <mat-radio-button *ngFor="let option of radioOptions" [value]="option">{{option}}</mat-radio-button>
     </mat-radio-group>
       
-    <br>
-    <br>
     <button mat-flat-button color="primary" (click)="onRender()">Render</button>
+    
+    <mat-progress-bar
+        [mode]="searching ? 'indeterminate' : 'determinate'">
+    </mat-progress-bar>
 </div>
 

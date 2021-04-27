@@ -26,6 +26,8 @@ export class SideBarComponent implements OnInit
     input : '';
     renderSelected : string;
 
+    searching = false;
+
 
     constructor(
         private exploreService : ExploreService,
@@ -38,6 +40,9 @@ export class SideBarComponent implements OnInit
 
     onRender()
     {
+
+        this.searching = true;
+
         console.log( "inside on render" );
 
         switch (this.fieldSelected) 
@@ -66,6 +71,7 @@ export class SideBarComponent implements OnInit
         this.exploreService.postSysMapFos( params )
             .subscribe( ( response : any ) =>
             {
+                this.searching = false;
                 console.log( response );
             });
 

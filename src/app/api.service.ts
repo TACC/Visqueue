@@ -29,6 +29,7 @@ export class ApiService
     private tsusage    = '/tsusage';
 
     private sysmap     = '/sysmap';
+    private side       = '/side';
 
     constructor( private http : HttpClient ) { }
 
@@ -89,6 +90,11 @@ export class ApiService
     postExploreTSU( params : any )
     {
         return this.http.post( this.url + this.explore + this.tsusage , params );
+    }
+
+    postExploreSysMapSide( params : any )
+    {
+        return this.http.post( this.url + this.explore + this.sysmap + this.side, params );
     }
 
     postExploreSysMapFOS( params : any )

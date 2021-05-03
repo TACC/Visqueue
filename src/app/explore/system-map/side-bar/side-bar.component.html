@@ -3,13 +3,17 @@
     <mat-form-field appearance="fill">
         <mat-label>Select Search Field</mat-label>
         <mat-select [(value)]="fieldSelected">
-            <mat-option *ngFor="let option of selectOptions" [value]="option">{{option}}</mat-option>
+            <mat-option *ngFor="let option of mainOptions" [value]="option">{{option}}</mat-option>
         </mat-select>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-        <mat-label>Search</mat-label>
-        <input matInput [disabled]="!fieldSelected" [(ngModel)]="input">
+        <mat-label>Options</mat-label>
+        <mat-select [(value)]="valueSelected">
+            <mat-option *ngFor="let option of fosOptions" [value]="option.value">
+                {{option.name | titlecase }}
+            </mat-option>
+        </mat-select>
     </mat-form-field>
 
     <mat-radio-group [(ngModel)]="renderSelected">

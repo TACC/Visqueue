@@ -46,6 +46,11 @@ export class ExploreService {
         return this.apiService.postExploreTSU( params );
     }
 
+    postSysMapSide( params : any )
+    {
+        return this.apiService.postExploreSysMapSide( params );
+    }
+
     postSysMapFos( params : any )
     {
         return this.apiService.postExploreSysMapFOS( params );

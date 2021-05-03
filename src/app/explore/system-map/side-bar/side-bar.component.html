@@ -10,9 +10,24 @@
     <mat-form-field appearance="fill">
         <mat-label>Options</mat-label>
         <mat-select [(value)]="valueSelected">
-            <mat-option *ngFor="let option of fosOptions" [value]="option.value">
-                {{option.name | titlecase }}
-            </mat-option>
+            <ng-container [ngSwitch]="fieldSelected">
+                <ng-container *ngSwitchCase="'Field of Science'">
+                    <mat-option *ngFor="let option of fosOptions" [value]="option.value">
+                        {{option.name | titlecase }}
+                    </mat-option>
+                </ng-container>
+                <ng-container *ngSwitchCase="'Project'">
+                    <mat-option *ngFor="let option of projOptions" [value]="option.value">
+                        {{option.name | titlecase }}
+                    </mat-option>
+                </ng-container>
+                <ng-container *ngSwitchCase="'Institution'">
+                    <mat-option *ngFor="let option of instOptions" [value]="option.value">
+                        {{option.name | titlecase }}
+                    </mat-option>
+                </ng-container>                
+            </ng-container>
+            
         </mat-select>
     </mat-form-field>
 

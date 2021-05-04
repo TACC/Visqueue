@@ -68,6 +68,8 @@ export class SideBarComponent implements OnInit
                 this.getFos();
                 break;
         
+            case 'Project':
+                this.getProject();
             default:
                 break;
         }
@@ -88,6 +90,19 @@ export class SideBarComponent implements OnInit
 
                 this.threeEngineService.renderHeatmap( response );
             });
+
+    }
+
+    getProject()
+    {
+
+        const params = 
+        {
+            system : this.system,
+            value : this.valueSelected
+        };
+
+        console.log( params );
 
     }
     

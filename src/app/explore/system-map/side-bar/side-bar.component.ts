@@ -102,7 +102,13 @@ export class SideBarComponent implements OnInit
             value : this.valueSelected
         };
 
-        console.log( params );
+        this.exploreService.postSysMapProj( params )
+            .subscribe( ( response : any ) =>
+            {
+                this.searching = false;
+
+                console.log( response );
+            });
 
     }
     

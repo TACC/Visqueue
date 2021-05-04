@@ -56,6 +56,11 @@ export class ExploreService {
         return this.apiService.postExploreSysMapFOS( params );
     }
 
+    postSysMapProj( params : any )
+    {
+        return this.apiService.postExploreSysMapProj( params );
+    }
+
     isRack( data : Rack | string ) : data is Rack
     {
         return (data as Rack).name !== undefined;

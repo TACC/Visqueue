@@ -75,21 +75,19 @@ export class SideBarComponent implements OnInit
 
     getFos()
     {
-        // const params = 
-        // {
-        //     system : this.system,
-        //     field  : this.fieldSelected,
-        //     search : this.input,
-        //     type   : this.renderSelected
-        // };
+        const params = 
+        {
+            system : this.system,
+            value  : this.valueSelected
+        };
 
-        // this.exploreService.postSysMapFos( params )
-        //     .subscribe( ( response : any ) =>
-        //     {
-        //         this.searching = false;
+        this.exploreService.postSysMapFos( params )
+            .subscribe( ( response : any ) =>
+            {
+                this.searching = false;
 
-        //         this.threeEngineService.renderHeatmap( response );
-        //     });
+                this.threeEngineService.renderHeatmap( response );
+            });
 
     }
     

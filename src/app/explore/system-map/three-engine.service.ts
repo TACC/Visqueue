@@ -204,13 +204,15 @@ export class ThreeEngineService
 
     renderHeatmap( data : any )
     {
-        this.colorScale = d3Scale.scaleSequential( [ 0, data.duration ], d3Chrom.interpolateViridis );
+        console.log( data );
+
+        this.colorScale = d3Scale.scaleSequential( [ 0, data.maxDuration ], d3Chrom.interpolateViridis );
 
         for (const node of this.scene.children) 
         {
-            if( node.userData && ( node.userData.node in data ) )
+            if( node.userData && ( node.userData.node in data.data ) )
             {
-                const val : number = data[ node.userData.node ].duration;
+                const val : number = data.data[ node.userData.node ].duration;
                 const color = new THREE.Color( this.colorScale( val ) );
                 ( ( node as THREE.Mesh ).material as THREE.MeshBasicMaterial ).color.setHex( color.getHex() );
             }    

@@ -107,7 +107,7 @@ export class SideBarComponent implements OnInit
             {
                 this.searching = false;
 
-                console.log( response );
+                this.threeEngineService.renderHeatmap( response );
             });
 
     }

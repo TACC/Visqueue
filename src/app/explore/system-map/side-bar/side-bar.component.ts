@@ -70,6 +70,10 @@ export class SideBarComponent implements OnInit
         
             case 'Project':
                 this.getProject();
+
+            case 'Institution':
+                this.getInstitution();
+
             default:
                 break;
         }
@@ -110,6 +114,23 @@ export class SideBarComponent implements OnInit
                 this.threeEngineService.renderHeatmap( response );
             });
 
+    }
+
+    getInstitution()
+    {
+        const params = 
+        {
+            system : this.system,
+            value : this.valueSelected
+        };
+
+        this.exploreService.postSysMapInst( params )
+            .subscribe( ( response : any ) =>
+            {
+                this.searching = false;
+
+                this.threeEngineService.renderHeatmap( response );
+            });
     }
     
 }

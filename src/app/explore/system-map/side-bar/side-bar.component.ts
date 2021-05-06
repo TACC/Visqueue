@@ -77,6 +77,9 @@ export class SideBarComponent implements OnInit
 
             case 'Job':
                 this.getJob();
+            
+            default:
+                break;
         }
     }
 

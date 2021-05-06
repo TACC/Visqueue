@@ -205,9 +205,13 @@ export class ThreeEngineService
     renderHeatmap( data : any )
     {
 
+        // check for race condition where data that is called here has nothing yet
+        if( data.maxDuration == 0 || data.maxCount == 0 )
+        {
+            return;
+        }
+
         this.colorScale = d3Scale.scaleSequential( [ 0, data.maxDuration ], d3Chrom.interpolateViridis );
-
-
 
         for (const node of this.scene.children) 
         {

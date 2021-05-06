@@ -66,6 +66,11 @@ export class ExploreService {
         return this.apiService.postExploreSysMapInst( params );
     }
 
+    postSysMapJob( params : any )
+    {
+        return this.apiService.postExploreSysMapJob( params );
+    }
+
     isRack( data : Rack | string ) : data is Rack
     {
         return (data as Rack).name !== undefined;

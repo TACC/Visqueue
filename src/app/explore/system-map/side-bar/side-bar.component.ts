@@ -31,6 +31,7 @@ export class SideBarComponent implements OnInit
 
     valueSelected : string;
 
+    jobID : string;
 
     radioOptions : string[] = ['Jobs', 'Time'];
 
@@ -74,8 +75,8 @@ export class SideBarComponent implements OnInit
             case 'Institution':
                 this.getInstitution();
 
-            default:
-                break;
+            case 'Job':
+                this.getJob();
         }
     }
 
@@ -125,6 +126,24 @@ export class SideBarComponent implements OnInit
         };
 
         this.exploreService.postSysMapInst( params )
+            .subscribe( ( response : any ) =>
+            {
+                this.searching = false;
+
+                this.threeEngineService.renderHeatmap( response );
+            });
+    }
+
+    getJob()
+    {
+        const params = 
+        {
+            system : this.system,
+            value : this.jobID
+        };
+
+
+        this.exploreService.postSysMapJob( params )
             .subscribe( ( response : any ) =>
             {
                 this.searching = false;

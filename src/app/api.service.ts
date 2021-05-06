@@ -31,7 +31,8 @@ export class ApiService
     private sysmap     = '/sysmap';
     private side       = '/side';
     private project    = '/project';
-    private inst       =  '/institution';
+    private inst       = '/institution';
+    private job        = '/job';
 
     constructor( private http : HttpClient ) { }
 
@@ -112,5 +113,10 @@ export class ApiService
     postExploreSysMapInst( params : any )
     {
         return this.http.post( this.url + this.explore + this.sysmap + this.inst, params );
+    }
+
+    postExploreSysMapJob( params : any )
+    {
+        return this.http.post( this.url + this.explore + this.sysmap + this.job, params );
     }
 }

@@ -35,41 +35,40 @@ import { NodeExplorerComponent } from './detail/info/node-explorer/node-explorer
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SunburstComponent,
-    HomepageComponent,
-    SunburstTableComponent,
-    DetailComponent,
-    SearchComponent,
-    JobDurationPipe,
-    BarChartComponent,
-    InfoComponent,
-    InfoTableComponent,
-    InfoMapComponent,
-    SunburstDialogComponent,
-    ToolbarComponent,
-    FooterComponent,
-    TimeSeriesGraphComponent,
-    NodeExplorerComponent
-  ],
-  imports: [
-    CommonModule,
-    BrowserModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    FlexLayoutModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatMomentDateModule,
-    AngularMaterialModule,
-    ChartsModule,
-    LeafletModule,
-    PlotlyModule,
-    AppRoutingModule
-  ],
-  entryComponents: [ DetailComponent, SunburstDialogComponent ],
-  providers: [],
-  bootstrap: [ AppComponent ]
+    declarations: [
+        AppComponent,
+        SunburstComponent,
+        HomepageComponent,
+        SunburstTableComponent,
+        DetailComponent,
+        SearchComponent,
+        JobDurationPipe,
+        BarChartComponent,
+        InfoComponent,
+        InfoTableComponent,
+        InfoMapComponent,
+        SunburstDialogComponent,
+        ToolbarComponent,
+        FooterComponent,
+        TimeSeriesGraphComponent,
+        NodeExplorerComponent
+    ],
+    imports: [
+        CommonModule,
+        BrowserModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        FlexLayoutModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatMomentDateModule,
+        AngularMaterialModule,
+        ChartsModule,
+        LeafletModule,
+        PlotlyModule,
+        AppRoutingModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

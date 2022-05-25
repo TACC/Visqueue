@@ -39,7 +39,7 @@
     <!-- Description Column -->
     <ng-container matColumnDef="abstract">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Project Description </th>
-        <td mat-cell *matCellDef="let element"> <a [routerLink]="" (click)="showDescription( element )">View Description</a> </td>
+        <td mat-cell *matCellDef="let element"> <a [routerLink]="[]" (click)="showDescription( element )">View Description</a> </td>
     </ng-container>
 
 

@@ -21,6 +21,8 @@ export class ApiService
 
     private nodes      = '/nodes';
 
+    private live      = '/live';
+
 
     constructor( private http : HttpClient ) { }
 
@@ -50,6 +52,11 @@ export class ApiService
     {
         let params = { 'system' : system , 'node' : node };
         return this.http.post( this.url + this.info + this.nodes, params );
+    }
+
+    getLive( system : string )
+    {
+        return this.http.get( this.url + this.live, { params : { 'system' : system } } );
     }
 
 

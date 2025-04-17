@@ -125,17 +125,18 @@ export class SunburstComponent implements OnInit, AfterViewInit
         // Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
         // Add 'implements AfterViewInit' to the class.
 
+
         if( this.route.snapshot.params.name )
         {
             this.dataSrc = this.route.snapshot.params.name;
         }
 
 
-        d3.json( 'https://visqueue.tacc.utexas.edu/static_data' + this.dataSrc + '.json' )
-        .then( data =>
-        {
-            this.render( data );
-        });
+        this.sunburstService.getLiveData( this.dataSrc )
+            .subscribe( data =>
+            {
+                this.render( data );
+            });
 
     }
  

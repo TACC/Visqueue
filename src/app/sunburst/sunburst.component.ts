@@ -2,7 +2,7 @@ import { Component, OnInit, AfterViewInit, Input, ElementRef, ViewChild, Inject 
 
 import * as d3 from 'd3';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialogRef as MatDialogRef, MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA, MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { SunburstService } from '../sunburst.service';
 import { SunburstDialogComponent } from '../sunburst-dialog/sunburst-dialog.component';
 import { ColorService } from '../color.service';

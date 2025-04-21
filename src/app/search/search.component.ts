@@ -14,11 +14,12 @@ import { Search } from '../models/search';
     selector: 'app-search',
     templateUrl: './search.component.html',
     styleUrls: ['./search.component.scss'],
-    providers : [
-        { provide : DateAdapter, useClass : MomentDateAdapter, deps : [ MAT_DATE_LOCALE ] },
-        { provide : MAT_DATE_FORMATS, useValue : MAT_MOMENT_DATE_FORMATS },
+    providers: [
+        { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
+        { provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS },
         ApiService
-    ]
+    ],
+    standalone: false
 })
 export class SearchComponent implements OnInit
 {

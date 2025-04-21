@@ -10,7 +10,8 @@ import { SunburstDialogComponent } from '../sunburst-dialog/sunburst-dialog.comp
 @Component({
     selector: 'app-sunburst-table',
     templateUrl: './sunburst-table.component.html',
-    styleUrls: ['./sunburst-table.component.scss']
+    styleUrls: ['./sunburst-table.component.scss'],
+    standalone: false
 })
 export class SunburstTableComponent implements OnInit
 {

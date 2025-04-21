@@ -6,7 +6,8 @@ import { FosTimeSeries } from 'src/app/models/fos-time-series';
 @Component({
     selector: 'app-time-series-graph',
     templateUrl: './time-series-graph.component.html',
-    styleUrls: ['./time-series-graph.component.scss']
+    styleUrls: ['./time-series-graph.component.scss'],
+    standalone: false
 })
 export class TimeSeriesGraphComponent implements OnInit {
 

@@ -12,7 +12,8 @@ interface ArcType { x0 : any, x1 : any, y0 : any, y1 : any }
 @Component({
     selector: 'app-sunburst',
     templateUrl: './sunburst.component.html',
-    styleUrls: ['./sunburst.component.scss']
+    styleUrls: ['./sunburst.component.scss'],
+    standalone: false
 })
 export class SunburstComponent implements OnInit, AfterViewInit
 {

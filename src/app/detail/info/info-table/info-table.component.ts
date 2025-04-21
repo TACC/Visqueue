@@ -24,7 +24,8 @@ export interface TableInfoElement
 @Component({
     selector: 'app-info-table',
     templateUrl: './info-table.component.html',
-    styleUrls: ['./info-table.component.scss']
+    styleUrls: ['./info-table.component.scss'],
+    standalone: false
 })
 export class InfoTableComponent implements OnInit, OnChanges {
 

@@ -15,10 +15,11 @@ enum JobsDisplay
 
 
 @Component({
-    selector    : 'app-info',
-    templateUrl : './info.component.html',
-    styleUrls   : ['./info.component.scss'],
-    providers   : [ InfoService ] 
+    selector: 'app-info',
+    templateUrl: './info.component.html',
+    styleUrls: ['./info.component.scss'],
+    providers: [InfoService],
+    standalone: false
 })
 export class InfoComponent implements OnInit
 {

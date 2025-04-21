@@ -16,7 +16,8 @@ import {
 @Component({
     selector: 'app-info-map',
     templateUrl: './info-map.component.html',
-    styleUrls: ['./info-map.component.scss']
+    styleUrls: ['./info-map.component.scss'],
+    standalone: false
 })
 export class InfoMapComponent implements OnInit, OnChanges {
 

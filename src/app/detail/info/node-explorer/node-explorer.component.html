@@ -42,7 +42,7 @@
         <mat-progress-bar mode="query" *ngIf="loading"></mat-progress-bar>
         
         <div *ngIf="showNodeInfo">
-            <mat-card>
+            <mat-card appearance="outlined">
                 <mat-card-title>{{ selectedNode }}</mat-card-title>
                 <mat-card-subtitle>Node</mat-card-subtitle>
             </mat-card>
@@ -50,13 +50,13 @@
 
         <div class="flex-row item" *ngIf="showNodeInfo">
             <div>
-                <mat-card>
+                <mat-card appearance="outlined">
                     <mat-card-title>{{ jobs | number }}</mat-card-title>
                     <mat-card-subtitle>Jobs</mat-card-subtitle>
                 </mat-card>
             </div>
             <div>
-                <mat-card>
+                <mat-card appearance="outlined">
                     <mat-card-title>{{ projects | number }}</mat-card-title>
                     <mat-card-subtitle>Projects</mat-card-subtitle>
                 </mat-card>

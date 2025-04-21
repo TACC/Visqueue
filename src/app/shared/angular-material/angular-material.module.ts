@@ -1,22 +1,22 @@
 import { NgModule              } from '@angular/core';
-import { MatLegacyTableModule as MatTableModule        } from '@angular/material/legacy-table';
+import { MatTableModule        } from '@angular/material/table';
 import { CdkTableModule        } from '@angular/cdk/table';
 import { MatSortModule         } from '@angular/material/sort';
-import { MatLegacyDialogModule as MatDialogModule       } from '@angular/material/legacy-dialog';
-import { MatLegacyInputModule as MatInputModule        } from '@angular/material/legacy-input';
+import { MatDialogModule       } from '@angular/material/dialog';
+import { MatInputModule        } from '@angular/material/input';
 import { MatDividerModule      } from '@angular/material/divider';
-import { MatLegacyPaginatorModule as MatPaginatorModule    } from '@angular/material/legacy-paginator';
+import { MatPaginatorModule    } from '@angular/material/paginator';
 import { MatDatepickerModule   } from '@angular/material/datepicker';
-import { MatLegacyButtonModule as MatButtonModule       } from '@angular/material/legacy-button';
-import { MatLegacyProgressBarModule as MatProgressBarModule  } from '@angular/material/legacy-progress-bar';
-import { MatLegacyCardModule as MatCardModule         } from '@angular/material/legacy-card';
+import { MatButtonModule       } from '@angular/material/button';
+import { MatProgressBarModule  } from '@angular/material/progress-bar';
+import { MatCardModule         } from '@angular/material/card';
 import { MatToolbarModule      } from '@angular/material/toolbar';
-import { MatLegacyMenuModule as MatMenuModule         } from '@angular/material/legacy-menu';
+import { MatMenuModule         } from '@angular/material/menu';
 import { MatIconModule         } from '@angular/material/icon';
-import { MatLegacyListModule as MatListModule         } from "@angular/material/legacy-list";
+import { MatListModule         } from "@angular/material/list";
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
-import { MatLegacySelectModule as MatSelectModule       } from '@angular/material/legacy-select';
-import { MatLegacyTooltipModule as MatTooltipModule      } from '@angular/material/legacy-tooltip';
+import { MatSelectModule       } from '@angular/material/select';
+import { MatTooltipModule      } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [],

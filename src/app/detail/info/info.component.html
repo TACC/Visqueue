@@ -11,7 +11,7 @@
 </div>
 
 <div fxLayout="row" fxLayoutAlign="space-around center">
-    <mat-card fxFlex="20" class="mat-elevation-z2">
+    <mat-card appearance="outlined" fxFlex="20" class="mat-elevation-z2">
         <mat-card-title>
             <ng-container [ngSwitch]="jobVal">
                 <ng-container *ngSwitchCase="'JobsDisplayEnum.Total'">
@@ -35,7 +35,7 @@
             </mat-button-toggle-group>           
         </mat-card-footer>
     </mat-card>
-    <mat-card fxFlex="20" class="mat-elevation-z2">
+    <mat-card appearance="outlined" fxFlex="20" class="mat-elevation-z2">
         <mat-card-title>
             {{ hrsTotal | number : '1.0-0' }}
         </mat-card-title>
@@ -43,7 +43,7 @@
             Compute Hours
         </mat-card-subtitle>
     </mat-card>
-    <mat-card fxFlex="20" class="mat-elevation-z2">
+    <mat-card appearance="outlined" fxFlex="20" class="mat-elevation-z2">
         <mat-card-title>
             {{ projTotal | number }}
         </mat-card-title>
@@ -51,7 +51,7 @@
             Projects
         </mat-card-subtitle>
     </mat-card>
-    <mat-card fxFlex="20" class="mat-elevation-z2">
+    <mat-card appearance="outlined" fxFlex="20" class="mat-elevation-z2">
         <mat-card-title>
             {{ instTotal | number }}
         </mat-card-title>

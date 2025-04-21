@@ -4,7 +4,7 @@ import { Job } from 'src/app/models/job';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
-import { FormGroup, FormControl } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl } from '@angular/forms';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import { MomentDateAdapter, MAT_MOMENT_DATE_FORMATS } from '@angular/material-moment-adapter';
 import * as moment from 'moment';
@@ -22,7 +22,7 @@ import { Search } from '../models/search';
 })
 export class SearchComponent implements OnInit
 {
-    searchForm : FormGroup;
+    searchForm : UntypedFormGroup;
 
     dataset : Job[];
 
@@ -41,9 +41,9 @@ export class SearchComponent implements OnInit
     ngOnInit()
     {
 
-        this.searchForm = new FormGroup({
-            startdate  : new FormControl( null ),
-            enddate    : new FormControl( null )
+        this.searchForm = new UntypedFormGroup({
+            startdate  : new UntypedFormControl( null ),
+            enddate    : new UntypedFormControl( null )
         });
 
         this.apiService.jobsGetRecent( 'stampede2' ).subscribe(

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
@@ -34,8 +34,7 @@ import { TimeSeriesGraphComponent } from './detail/info/time-series-graph/time-s
 import { NodeExplorerComponent } from './detail/info/node-explorer/node-explorer.component';
 
 
-@NgModule({
-    declarations: [
+@NgModule({ declarations: [
         AppComponent,
         SunburstComponent,
         HomepageComponent,
@@ -53,10 +52,8 @@ import { NodeExplorerComponent } from './detail/info/node-explorer/node-explorer
         TimeSeriesGraphComponent,
         NodeExplorerComponent
     ],
-    imports: [
-        CommonModule,
+    bootstrap: [AppComponent], imports: [CommonModule,
         BrowserModule,
-        HttpClientModule,
         BrowserAnimationsModule,
         FormsModule,
         ReactiveFormsModule,
@@ -65,9 +62,5 @@ import { NodeExplorerComponent } from './detail/info/node-explorer/node-explorer
         BaseChartDirective,
         LeafletModule,
         PlotlyViaCDNModule,
-        AppRoutingModule
-    ],
-    providers: [],
-    bootstrap: [AppComponent]
-})
+        AppRoutingModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }

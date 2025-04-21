@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 
@@ -59,7 +58,6 @@ import { NodeExplorerComponent } from './detail/info/node-explorer/node-explorer
         BrowserModule,
         HttpClientModule,
         BrowserAnimationsModule,
-        FlexLayoutModule,
         FormsModule,
         ReactiveFormsModule,
         MatMomentDateModule,

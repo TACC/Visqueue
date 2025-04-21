@@ -1,0 +1,411 @@
+[1m[33mOne or more browsers which are configured in the project's Browserslist configuration will be ignored as ES5 output is not supported by the Angular CLI.[39m[22m
+[1m[33mIgnored browsers: kaios 2.5, op_mini all[39m[22m
+[36m⠋[39m Generating browser application bundles (phase: setup)...[36m⠙[39m Generating browser application bundles (phase: setup)...[36m⠹[39m Generating browser application bundles (phase: setup)...[36m⠸[39m Generating browser application bundles (phase: building)...[36m⠼[39m Generating browser application bundles (phase: building)...[36m⠴[39m Generating browser application bundles (phase: building)...[36m⠦[39m Generating browser application bundles (phase: building)...[36m⠧[39m Generating browser application bundles (phase: building)...[36m⠇[39m Generating browser application bundles (phase: building)...[36m⠏[39m Generating browser application bundles (phase: building)...[36m⠋[39m Generating browser application bundles (phase: building)...[36m⠙[39m Generating browser application bundles (phase: building)...[36m⠹[39m Generating browser application bundles (phase: building)...[36m⠸[39m Generating browser application bundles (phase: building)...[36m⠼[39m Generating browser application bundles (phase: sealing)...[32m✔[39m Browser application bundle generation complete.
+[1m[33m[39m[22m
+[1m[33m[0m[33mWarning: [39m[33m[0m/Users/ajs2987/projects/visqueue/src/app/detail/info/info-map/info-map.component.ts depends on 'leaflet'. CommonJS or AMD dependencies can cause optimization bailouts.[39m[22m
+[1m[33mFor more info see: https://angular.io/guide/build#configuring-commonjs-dependencies[39m[22m
+[1m[33m[39m[22m
+[1m[33m[0m[33mWarning: [39m[33m[0m/Users/ajs2987/projects/visqueue/src/app/search/search.component.ts depends on 'moment'. CommonJS or AMD dependencies can cause optimization bailouts.[39m[22m
+[1m[33mFor more info see: https://angular.io/guide/build#configuring-commonjs-dependencies[39m[22m
+[1m[33m[39m[22m
+[1m[33m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96msrc/app/detail/info/info-map/info-map.component.html[0m:[93m2[0m:[93m6[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'leafletOptions' since it isn't a known property of 'div'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m2[0m      [leafletOptions]="options"[39m[22m
+[1m[31m[7m [0m [91m     ~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  [96msrc/app/detail/info/info-map/info-map.component.ts[0m:[93m18[0m:[93m18[0m[39m[22m
+[1m[31m    [7m18[0m     templateUrl: './info-map.component.html',[39m[22m
+[1m[31m    [7m  [0m [96m                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m    Error occurs in the template of component InfoMapComponent.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96msrc/app/detail/info/info-map/info-map.component.html[0m:[93m3[0m:[93m6[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'leafletLayers' since it isn't a known property of 'div'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m3[0m      [leafletLayers]="layers">[39m[22m
+[1m[31m[7m [0m [91m     ~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  [96msrc/app/detail/info/info-map/info-map.component.ts[0m:[93m18[0m:[93m18[0m[39m[22m
+[1m[31m    [7m18[0m     templateUrl: './info-map.component.html',[39m[22m
+[1m[31m    [7m  [0m [96m                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m    Error occurs in the template of component InfoMapComponent.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96msrc/app/detail/info/info.component.html[0m:[93m75[0m:[93m13[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'chartType' since it isn't a known property of 'canvas'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m75[0m             [chartType]="fosByProjBarChartType"[39m[22m
+[1m[31m[7m  [0m [91m            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  [96msrc/app/detail/info/info.component.ts[0m:[93m19[0m:[93m19[0m[39m[22m
+[1m[31m    [7m19[0m     templateUrl : './info.component.html',[39m[22m
+[1m[31m    [7m  [0m [96m                  ~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m    Error occurs in the template of component InfoComponent.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96msrc/app/detail/info/info.component.html[0m:[93m76[0m:[93m13[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'colors' since it isn't a known property of 'canvas'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m76[0m             [colors]="fosByProjBarChartColors">[39m[22m
+[1m[31m[7m  [0m [91m            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  [96msrc/app/detail/info/info.component.ts[0m:[93m19[0m:[93m19[0m[39m[22m
+[1m[31m    [7m19[0m     templateUrl : './info.component.html',[39m[22m
+[1m[31m    [7m  [0m [96m                  ~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m    Error occurs in the template of component InfoComponent.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96msrc/app/detail/info/info.component.html[0m:[93m86[0m:[93m13[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'chartType' since it isn't a known property of 'canvas'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m86[0m             [chartType]="fosByJobBarChartType"[39m[22m
+[1m[31m[7m  [0m [91m            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  [96msrc/app/detail/info/info.component.ts[0m:[93m19[0m:[93m19[0m[39m[22m
+[1m[31m    [7m19[0m     templateUrl : './info.component.html',[39m[22m
+[1m[31m    [7m  [0m [96m                  ~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m    Error occurs in the template of component InfoComponent.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96msrc/app/detail/info/info.component.html[0m:[93m87[0m:[93m13[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'colors' since it isn't a known property of 'canvas'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m87[0m             [colors]="fosByJobBarChartColors">[39m[22m
+[1m[31m[7m  [0m [91m            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  [96msrc/app/detail/info/info.component.ts[0m:[93m19[0m:[93m19[0m[39m[22m
+[1m[31m    [7m19[0m     templateUrl : './info.component.html',[39m[22m
+[1m[31m    [7m  [0m [96m                  ~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m    Error occurs in the template of component InfoComponent.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96msrc/app/detail/info/info.component.html[0m:[93m101[0m:[93m13[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'chartType' since it isn't a known property of 'canvas'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m101[0m             [chartType]="fosByNodesBarChartType"[39m[22m
+[1m[31m[7m   [0m [91m            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  [96msrc/app/detail/info/info.component.ts[0m:[93m19[0m:[93m19[0m[39m[22m
+[1m[31m    [7m19[0m     templateUrl : './info.component.html',[39m[22m
+[1m[31m    [7m  [0m [96m                  ~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m    Error occurs in the template of component InfoComponent.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96msrc/app/detail/info/info.component.html[0m:[93m102[0m:[93m13[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'colors' since it isn't a known property of 'canvas'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m102[0m             [colors]="fosByNodesBarChartColors">[39m[22m
+[1m[31m[7m   [0m [91m            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  [96msrc/app/detail/info/info.component.ts[0m:[93m19[0m:[93m19[0m[39m[22m
+[1m[31m    [7m19[0m     templateUrl : './info.component.html',[39m[22m
+[1m[31m    [7m  [0m [96m                  ~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m    Error occurs in the template of component InfoComponent.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96msrc/app/detail/info/info.component.html[0m:[93m112[0m:[93m13[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'chartType' since it isn't a known property of 'canvas'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m112[0m             [chartType]="fosByDurationBarChartType"[39m[22m
+[1m[31m[7m   [0m [91m            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  [96msrc/app/detail/info/info.component.ts[0m:[93m19[0m:[93m19[0m[39m[22m
+[1m[31m    [7m19[0m     templateUrl : './info.component.html',[39m[22m
+[1m[31m    [7m  [0m [96m                  ~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m    Error occurs in the template of component InfoComponent.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96msrc/app/detail/info/info.component.html[0m:[93m113[0m:[93m13[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'colors' since it isn't a known property of 'canvas'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m113[0m             [colors]="fosByDurationBarChartColors">[39m[22m
+[1m[31m[7m   [0m [91m            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  [96msrc/app/detail/info/info.component.ts[0m:[93m19[0m:[93m19[0m[39m[22m
+[1m[31m    [7m19[0m     templateUrl : './info.component.html',[39m[22m
+[1m[31m    [7m  [0m [96m                  ~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m    Error occurs in the template of component InfoComponent.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96msrc/app/detail/info/info.component.ts[0m:[93m3[0m:[93m35[0m - [91merror[0m[90m TS2724: [0m'"chart.js"' has no exported member named 'ChartDataSets'. Did you mean 'ChartDataset'?[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m3[0m import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';[39m[22m
+[1m[31m[7m [0m [91m                                  ~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96msrc/app/detail/info/info.component.ts[0m:[93m4[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"ng2-charts"' has no exported member 'Label'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m4[0m import { Label, Color } from 'ng2-charts';[39m[22m
+[1m[31m[7m [0m [91m         ~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96msrc/app/detail/info/info.component.ts[0m:[93m4[0m:[93m17[0m - [91merror[0m[90m TS2305: [0mModule '"ng2-charts"' has no exported member 'Color'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m4[0m import { Label, Color } from 'ng2-charts';[39m[22m
+[1m[31m[7m [0m [91m                ~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96msrc/app/detail/info/info.component.ts[0m:[93m38[0m:[93m13[0m - [91merror[0m[90m TS2322: [0mType '{}[]' is not assignable to type '_DeepPartialObject<{ type: "linear"; } & CartesianScaleOptions & { beginAtZero: boolean; suggestedMin?: number; suggestedMax?: number; grace?: string | number; ticks: { format: NumberFormatOptions; precision: number; stepSize: number; count: number; }; }> | ... 4 more ... | _DeepPartialObject<...>'.[39m[22m
+[1m[31m  Type '{}[]' is not assignable to type '_DeepPartialObject<{ type: "radialLinear"; } & CoreScaleOptions & { animate: boolean; startAngle: number; angleLines: { display: boolean; color: Scriptable<Color, ScriptableScaleContext>; lineWidth: Scriptable<...>; borderDash: Scriptable<...>; borderDashOffset: Scriptable<...>; }; ... 7 more ...; ticks: RadialTickO...'.[39m[22m
+[1m[31m    Types of property 'reverse' are incompatible.[39m[22m
+[1m[31m      Type '() => {}[]' is not assignable to type 'boolean'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m38[0m             xAxes: [ { } ],[39m[22m
+[1m[31m[7m  [0m [91m            ~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  [96mnode_modules/chart.js/dist/types/utils.d.ts[0m:[93m15[0m:[93m30[0m[39m[22m
+[1m[31m    [7m15[0m type _DeepPartialObject<T> = { [P in keyof T]?: DeepPartial<T[P]> };[39m[22m
+[1m[31m    [7m  [0m [96m                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m    The expected type comes from property 'xAxes' which is declared here on type '_DeepPartialObject<{ [key: string]: ScaleOptionsByType<"radialLinear" | keyof CartesianScaleTypeRegistry>; }>'[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96msrc/app/detail/info/info.component.ts[0m:[93m39[0m:[93m13[0m - [91merror[0m[90m TS2322: [0mType '{ ticks: { beginAtZero: true; callback: (value: any, index: any, values: any) => string; }; scaleLabel: { display: true; labelString: string; }; }[]' is not assignable to type '_DeepPartialObject<{ type: "linear"; } & CartesianScaleOptions & { beginAtZero: boolean; suggestedMin?: number; suggestedMax?: number; grace?: string | number; ticks: { format: NumberFormatOptions; precision: number; stepSize: number; count: number; }; }> | ... 4 more ... | _DeepPartialObject<...>'.[39m[22m
+[1m[31m  Type '{ ticks: { beginAtZero: true; callback: (value: any, index: any, values: any) => string; }; scaleLabel: { display: true; labelString: string; }; }[]' is not assignable to type '_DeepPartialObject<{ type: "radialLinear"; } & CoreScaleOptions & { animate: boolean; startAngle: number; angleLines: { display: boolean; color: Scriptable<Color, ScriptableScaleContext>; lineWidth: Scriptable<...>; borderDash: Scriptable<...>; borderDashOffset: Scriptable<...>; }; ... 7 more ...; ticks: RadialTickO...'.[39m[22m
+[1m[31m    Types of property 'reverse' are incompatible.[39m[22m
+[1m[31m      Type '() => { ticks: { beginAtZero: true; callback: (value: any, index: any, values: any) => string; }; scaleLabel: { display: true; labelString: string; }; }[]' is not assignable to type 'boolean'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m39[0m             yAxes:[39m[22m
+[1m[31m[7m  [0m [91m            ~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  [96mnode_modules/chart.js/dist/types/utils.d.ts[0m:[93m15[0m:[93m30[0m[39m[22m
+[1m[31m    [7m15[0m type _DeepPartialObject<T> = { [P in keyof T]?: DeepPartial<T[P]> };[39m[22m
+[1m[31m    [7m  [0m [96m                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m    The expected type comes from property 'yAxes' which is declared here on type '_DeepPartialObject<{ [key: string]: ScaleOptionsByType<"radialLinear" | keyof CartesianScaleTypeRegistry>; }>'[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96msrc/app/detail/info/info.component.ts[0m:[93m62[0m:[93m13[0m - [91merror[0m[90m TS2322: [0mType '{ datalabels: { anchor: string; align: string; }; }' is not assignable to type '_DeepPartialObject<PluginOptionsByType<keyof ChartTypeRegistry>>'.[39m[22m
+[1m[31m  Object literal may only specify known properties, and 'datalabels' does not exist in type '_DeepPartialObject<PluginOptionsByType<keyof ChartTypeRegistry>>'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m 62[0m             datalabels:[39m[22m
+[1m[31m[7m   [0m [91m            ~~~~~~~~~~~[0m[39m[22m
+[1m[31m[7m 63[0m             {[39m[22m
+[1m[31m[7m   [0m [91m~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[7m...[0m [39m[22m
+[1m[31m[7m 65[0m                 align: 'end',[39m[22m
+[1m[31m[7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[7m 66[0m             }[39m[22m
+[1m[31m[7m   [0m [91m~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  [96mnode_modules/chart.js/dist/types/index.d.ts[0m:[93m2966[0m:[93m3[0m[39m[22m
+[1m[31m    [7m2966[0m   plugins: PluginOptionsByType<TType>;[39m[22m
+[1m[31m    [7m    [0m [96m  ~~~~~~~[0m[39m[22m
+[1m[31m    The expected type comes from property 'plugins' which is declared here on type '_DeepPartialObject<CoreChartOptions<keyof ChartTypeRegistry> & ElementChartOptions<keyof ChartTypeRegistry> & PluginChartOptions<...> & DatasetChartOptions<...> & ScaleChartOptions<...>>'[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96msrc/app/detail/info/info.component.ts[0m:[93m80[0m:[93m13[0m - [91merror[0m[90m TS2322: [0mType '{}[]' is not assignable to type '_DeepPartialObject<{ type: "linear"; } & CartesianScaleOptions & { beginAtZero: boolean; suggestedMin?: number; suggestedMax?: number; grace?: string | number; ticks: { format: NumberFormatOptions; precision: number; stepSize: number; count: number; }; }> | ... 4 more ... | _DeepPartialObject<...>'.[39m[22m
+[1m[31m  Type '{}[]' is not assignable to type '_DeepPartialObject<{ type: "radialLinear"; } & CoreScaleOptions & { animate: boolean; startAngle: number; angleLines: { display: boolean; color: Scriptable<Color, ScriptableScaleContext>; lineWidth: Scriptable<...>; borderDash: Scriptable<...>; borderDashOffset: Scriptable<...>; }; ... 7 more ...; ticks: RadialTickO...'.[39m[22m
+[1m[31m    Types of property 'reverse' are incompatible.[39m[22m
+[1m[31m      Type '() => {}[]' is not assignable to type 'boolean'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m80[0m             xAxes: [ { } ],[39m[22m
+[1m[31m[7m  [0m [91m            ~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  [96mnode_modules/chart.js/dist/types/utils.d.ts[0m:[93m15[0m:[93m30[0m[39m[22m
+[1m[31m    [7m15[0m type _DeepPartialObject<T> = { [P in keyof T]?: DeepPartial<T[P]> };[39m[22m
+[1m[31m    [7m  [0m [96m                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m    The expected type comes from property 'xAxes' which is declared here on type '_DeepPartialObject<{ [key: string]: ScaleOptionsByType<"radialLinear" | keyof CartesianScaleTypeRegistry>; }>'[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96msrc/app/detail/info/info.component.ts[0m:[93m81[0m:[93m13[0m - [91merror[0m[90m TS2322: [0mType '{ ticks: { beginAtZero: true; callback: (value: any, index: any, values: any) => string; }; scaleLabel: { display: true; labelString: string; }; }[]' is not assignable to type '_DeepPartialObject<{ type: "linear"; } & CartesianScaleOptions & { beginAtZero: boolean; suggestedMin?: number; suggestedMax?: number; grace?: string | number; ticks: { format: NumberFormatOptions; precision: number; stepSize: number; count: number; }; }> | ... 4 more ... | _DeepPartialObject<...>'.[39m[22m
+[1m[31m  Type '{ ticks: { beginAtZero: true; callback: (value: any, index: any, values: any) => string; }; scaleLabel: { display: true; labelString: string; }; }[]' is not assignable to type '_DeepPartialObject<{ type: "radialLinear"; } & CoreScaleOptions & { animate: boolean; startAngle: number; angleLines: { display: boolean; color: Scriptable<Color, ScriptableScaleContext>; lineWidth: Scriptable<...>; borderDash: Scriptable<...>; borderDashOffset: Scriptable<...>; }; ... 7 more ...; ticks: RadialTickO...'.[39m[22m
+[1m[31m    Types of property 'reverse' are incompatible.[39m[22m
+[1m[31m      Type '() => { ticks: { beginAtZero: true; callback: (value: any, index: any, values: any) => string; }; scaleLabel: { display: true; labelString: string; }; }[]' is not assignable to type 'boolean'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m81[0m             yAxes:[39m[22m
+[1m[31m[7m  [0m [91m            ~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  [96mnode_modules/chart.js/dist/types/utils.d.ts[0m:[93m15[0m:[93m30[0m[39m[22m
+[1m[31m    [7m15[0m type _DeepPartialObject<T> = { [P in keyof T]?: DeepPartial<T[P]> };[39m[22m
+[1m[31m    [7m  [0m [96m                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m    The expected type comes from property 'yAxes' which is declared here on type '_DeepPartialObject<{ [key: string]: ScaleOptionsByType<"radialLinear" | keyof CartesianScaleTypeRegistry>; }>'[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96msrc/app/detail/info/info.component.ts[0m:[93m105[0m:[93m13[0m - [91merror[0m[90m TS2322: [0mType '{ datalabels: { anchor: string; align: string; }; }' is not assignable to type '_DeepPartialObject<PluginOptionsByType<keyof ChartTypeRegistry>>'.[39m[22m
+[1m[31m  Object literal may only specify known properties, and 'datalabels' does not exist in type '_DeepPartialObject<PluginOptionsByType<keyof ChartTypeRegistry>>'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m105[0m             datalabels:[39m[22m
+[1m[31m[7m   [0m [91m            ~~~~~~~~~~~[0m[39m[22m
+[1m[31m[7m106[0m             {[39m[22m
+[1m[31m[7m   [0m [91m~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[7m...[0m [39m[22m
+[1m[31m[7m108[0m                 align: 'end',[39m[22m
+[1m[31m[7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[7m109[0m             }[39m[22m
+[1m[31m[7m   [0m [91m~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  [96mnode_modules/chart.js/dist/types/index.d.ts[0m:[93m2966[0m:[93m3[0m[39m[22m
+[1m[31m    [7m2966[0m   plugins: PluginOptionsByType<TType>;[39m[22m
+[1m[31m    [7m    [0m [96m  ~~~~~~~[0m[39m[22m
+[1m[31m    The expected type comes from property 'plugins' which is declared here on type '_DeepPartialObject<CoreChartOptions<keyof ChartTypeRegistry> & ElementChartOptions<keyof ChartTypeRegistry> & PluginChartOptions<...> & DatasetChartOptions<...> & ScaleChartOptions<...>>'[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96msrc/app/detail/info/info.component.ts[0m:[93m142[0m:[93m13[0m - [91merror[0m[90m TS2322: [0mType '{}[]' is not assignable to type '_DeepPartialObject<{ type: "linear"; } & CartesianScaleOptions & { beginAtZero: boolean; suggestedMin?: number; suggestedMax?: number; grace?: string | number; ticks: { format: NumberFormatOptions; precision: number; stepSize: number; count: number; }; }> | ... 4 more ... | _DeepPartialObject<...>'.[39m[22m
+[1m[31m  Type '{}[]' is not assignable to type '_DeepPartialObject<{ type: "radialLinear"; } & CoreScaleOptions & { animate: boolean; startAngle: number; angleLines: { display: boolean; color: Scriptable<Color, ScriptableScaleContext>; lineWidth: Scriptable<...>; borderDash: Scriptable<...>; borderDashOffset: Scriptable<...>; }; ... 7 more ...; ticks: RadialTickO...'.[39m[22m
+[1m[31m    Types of property 'reverse' are incompatible.[39m[22m
+[1m[31m      Type '() => {}[]' is not assignable to type 'boolean'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m142[0m             xAxes: [ { } ],[39m[22m
+[1m[31m[7m   [0m [91m            ~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  [96mnode_modules/chart.js/dist/types/utils.d.ts[0m:[93m15[0m:[93m30[0m[39m[22m
+[1m[31m    [7m15[0m type _DeepPartialObject<T> = { [P in keyof T]?: DeepPartial<T[P]> };[39m[22m
+[1m[31m    [7m  [0m [96m                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m    The expected type comes from property 'xAxes' which is declared here on type '_DeepPartialObject<{ [key: string]: ScaleOptionsByType<"radialLinear" | keyof CartesianScaleTypeRegistry>; }>'[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96msrc/app/detail/info/info.component.ts[0m:[93m143[0m:[93m13[0m - [91merror[0m[90m TS2322: [0mType '{ ticks: { beginAtZero: true; callback: (value: any, index: any, values: any) => string; }; scaleLabel: { display: true; labelString: string; }; }[]' is not assignable to type '_DeepPartialObject<{ type: "linear"; } & CartesianScaleOptions & { beginAtZero: boolean; suggestedMin?: number; suggestedMax?: number; grace?: string | number; ticks: { format: NumberFormatOptions; precision: number; stepSize: number; count: number; }; }> | ... 4 more ... | _DeepPartialObject<...>'.[39m[22m
+[1m[31m  Type '{ ticks: { beginAtZero: true; callback: (value: any, index: any, values: any) => string; }; scaleLabel: { display: true; labelString: string; }; }[]' is not assignable to type '_DeepPartialObject<{ type: "radialLinear"; } & CoreScaleOptions & { animate: boolean; startAngle: number; angleLines: { display: boolean; color: Scriptable<Color, ScriptableScaleContext>; lineWidth: Scriptable<...>; borderDash: Scriptable<...>; borderDashOffset: Scriptable<...>; }; ... 7 more ...; ticks: RadialTickO...'.[39m[22m
+[1m[31m    Types of property 'reverse' are incompatible.[39m[22m
+[1m[31m      Type '() => { ticks: { beginAtZero: true; callback: (value: any, index: any, values: any) => string; }; scaleLabel: { display: true; labelString: string; }; }[]' is not assignable to type 'boolean'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m143[0m             yAxes:[39m[22m
+[1m[31m[7m   [0m [91m            ~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  [96mnode_modules/chart.js/dist/types/utils.d.ts[0m:[93m15[0m:[93m30[0m[39m[22m
+[1m[31m    [7m15[0m type _DeepPartialObject<T> = { [P in keyof T]?: DeepPartial<T[P]> };[39m[22m
+[1m[31m    [7m  [0m [96m                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m    The expected type comes from property 'yAxes' which is declared here on type '_DeepPartialObject<{ [key: string]: ScaleOptionsByType<"radialLinear" | keyof CartesianScaleTypeRegistry>; }>'[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96msrc/app/detail/info/info.component.ts[0m:[93m166[0m:[93m13[0m - [91merror[0m[90m TS2322: [0mType '{ datalabels: { anchor: string; align: string; }; }' is not assignable to type '_DeepPartialObject<PluginOptionsByType<keyof ChartTypeRegistry>>'.[39m[22m
+[1m[31m  Object literal may only specify known properties, and 'datalabels' does not exist in type '_DeepPartialObject<PluginOptionsByType<keyof ChartTypeRegistry>>'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m166[0m             datalabels:[39m[22m
+[1m[31m[7m   [0m [91m            ~~~~~~~~~~~[0m[39m[22m
+[1m[31m[7m167[0m             {[39m[22m
+[1m[31m[7m   [0m [91m~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[7m...[0m [39m[22m
+[1m[31m[7m169[0m                 align: 'end',[39m[22m
+[1m[31m[7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[7m170[0m             }[39m[22m
+[1m[31m[7m   [0m [91m~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  [96mnode_modules/chart.js/dist/types/index.d.ts[0m:[93m2966[0m:[93m3[0m[39m[22m
+[1m[31m    [7m2966[0m   plugins: PluginOptionsByType<TType>;[39m[22m
+[1m[31m    [7m    [0m [96m  ~~~~~~~[0m[39m[22m
+[1m[31m    The expected type comes from property 'plugins' which is declared here on type '_DeepPartialObject<CoreChartOptions<keyof ChartTypeRegistry> & ElementChartOptions<keyof ChartTypeRegistry> & PluginChartOptions<...> & DatasetChartOptions<...> & ScaleChartOptions<...>>'[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96msrc/app/detail/info/info.component.ts[0m:[93m203[0m:[93m13[0m - [91merror[0m[90m TS2322: [0mType '{}[]' is not assignable to type '_DeepPartialObject<{ type: "linear"; } & CartesianScaleOptions & { beginAtZero: boolean; suggestedMin?: number; suggestedMax?: number; grace?: string | number; ticks: { format: NumberFormatOptions; precision: number; stepSize: number; count: number; }; }> | ... 4 more ... | _DeepPartialObject<...>'.[39m[22m
+[1m[31m  Type '{}[]' is not assignable to type '_DeepPartialObject<{ type: "radialLinear"; } & CoreScaleOptions & { animate: boolean; startAngle: number; angleLines: { display: boolean; color: Scriptable<Color, ScriptableScaleContext>; lineWidth: Scriptable<...>; borderDash: Scriptable<...>; borderDashOffset: Scriptable<...>; }; ... 7 more ...; ticks: RadialTickO...'.[39m[22m
+[1m[31m    Types of property 'reverse' are incompatible.[39m[22m
+[1m[31m      Type '() => {}[]' is not assignable to type 'boolean'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m203[0m             xAxes: [ { } ],[39m[22m
+[1m[31m[7m   [0m [91m            ~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  [96mnode_modules/chart.js/dist/types/utils.d.ts[0m:[93m15[0m:[93m30[0m[39m[22m
+[1m[31m    [7m15[0m type _DeepPartialObject<T> = { [P in keyof T]?: DeepPartial<T[P]> };[39m[22m
+[1m[31m    [7m  [0m [96m                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m    The expected type comes from property 'xAxes' which is declared here on type '_DeepPartialObject<{ [key: string]: ScaleOptionsByType<"radialLinear" | keyof CartesianScaleTypeRegistry>; }>'[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96msrc/app/detail/info/info.component.ts[0m:[93m204[0m:[93m13[0m - [91merror[0m[90m TS2322: [0mType '{ ticks: { beginAtZero: true; callback: (value: any, index: any, values: any) => string; }; scaleLabel: { display: true; labelString: string; }; }[]' is not assignable to type '_DeepPartialObject<{ type: "linear"; } & CartesianScaleOptions & { beginAtZero: boolean; suggestedMin?: number; suggestedMax?: number; grace?: string | number; ticks: { format: NumberFormatOptions; precision: number; stepSize: number; count: number; }; }> | ... 4 more ... | _DeepPartialObject<...>'.[39m[22m
+[1m[31m  Type '{ ticks: { beginAtZero: true; callback: (value: any, index: any, values: any) => string; }; scaleLabel: { display: true; labelString: string; }; }[]' is not assignable to type '_DeepPartialObject<{ type: "radialLinear"; } & CoreScaleOptions & { animate: boolean; startAngle: number; angleLines: { display: boolean; color: Scriptable<Color, ScriptableScaleContext>; lineWidth: Scriptable<...>; borderDash: Scriptable<...>; borderDashOffset: Scriptable<...>; }; ... 7 more ...; ticks: RadialTickO...'.[39m[22m
+[1m[31m    Types of property 'reverse' are incompatible.[39m[22m
+[1m[31m      Type '() => { ticks: { beginAtZero: true; callback: (value: any, index: any, values: any) => string; }; scaleLabel: { display: true; labelString: string; }; }[]' is not assignable to type 'boolean'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m204[0m             yAxes:[39m[22m
+[1m[31m[7m   [0m [91m            ~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  [96mnode_modules/chart.js/dist/types/utils.d.ts[0m:[93m15[0m:[93m30[0m[39m[22m
+[1m[31m    [7m15[0m type _DeepPartialObject<T> = { [P in keyof T]?: DeepPartial<T[P]> };[39m[22m
+[1m[31m    [7m  [0m [96m                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m    The expected type comes from property 'yAxes' which is declared here on type '_DeepPartialObject<{ [key: string]: ScaleOptionsByType<"radialLinear" | keyof CartesianScaleTypeRegistry>; }>'[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96msrc/app/detail/info/info.component.ts[0m:[93m227[0m:[93m13[0m - [91merror[0m[90m TS2322: [0mType '{ datalabels: { anchor: string; align: string; }; }' is not assignable to type '_DeepPartialObject<PluginOptionsByType<keyof ChartTypeRegistry>>'.[39m[22m
+[1m[31m  Object literal may only specify known properties, and 'datalabels' does not exist in type '_DeepPartialObject<PluginOptionsByType<keyof ChartTypeRegistry>>'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m227[0m             datalabels:[39m[22m
+[1m[31m[7m   [0m [91m            ~~~~~~~~~~~[0m[39m[22m
+[1m[31m[7m228[0m             {[39m[22m
+[1m[31m[7m   [0m [91m~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[7m...[0m [39m[22m
+[1m[31m[7m230[0m                 align: 'end',[39m[22m
+[1m[31m[7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[7m231[0m             }[39m[22m
+[1m[31m[7m   [0m [91m~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  [96mnode_modules/chart.js/dist/types/index.d.ts[0m:[93m2966[0m:[93m3[0m[39m[22m
+[1m[31m    [7m2966[0m   plugins: PluginOptionsByType<TType>;[39m[22m
+[1m[31m    [7m    [0m [96m  ~~~~~~~[0m[39m[22m
+[1m[31m    The expected type comes from property 'plugins' which is declared here on type '_DeepPartialObject<CoreChartOptions<keyof ChartTypeRegistry> & ElementChartOptions<keyof ChartTypeRegistry> & PluginChartOptions<...> & DatasetChartOptions<...> & ScaleChartOptions<...>>'[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96msrc/app/detail/info/node-explorer/node-explorer.component.html[0m:[93m67[0m:[93m13[0m - [91merror[0m[90m NG8001: [0m'plotly-plot' is not a known element:[39m[22m
+[1m[31m1. If 'plotly-plot' is an Angular component, then verify that it is part of this module.[39m[22m
+[1m[31m2. If 'plotly-plot' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m67[0m             <plotly-plot class="item" [data]="barchart.data" [layout]="barchart.layout">[39m[22m
+[1m[31m[7m  [0m [91m            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  [96msrc/app/detail/info/node-explorer/node-explorer.component.ts[0m:[93m8[0m:[93m18[0m[39m[22m
+[1m[31m    [7m8[0m     templateUrl: './node-explorer.component.html',[39m[22m
+[1m[31m    [7m [0m [96m                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m    Error occurs in the template of component NodeExplorerComponent.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96msrc/app/detail/info/node-explorer/node-explorer.component.html[0m:[93m67[0m:[93m39[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'data' since it isn't a known property of 'plotly-plot'.[39m[22m
+[1m[31m1. If 'plotly-plot' is an Angular component and it has 'data' input, then verify that it is part of this module.[39m[22m
+[1m[31m2. If 'plotly-plot' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.[39m[22m
+[1m[31m3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m67[0m             <plotly-plot class="item" [data]="barchart.data" [layout]="barchart.layout">[39m[22m
+[1m[31m[7m  [0m [91m                                      ~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  [96msrc/app/detail/info/node-explorer/node-explorer.component.ts[0m:[93m8[0m:[93m18[0m[39m[22m
+[1m[31m    [7m8[0m     templateUrl: './node-explorer.component.html',[39m[22m
+[1m[31m    [7m [0m [96m                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m    Error occurs in the template of component NodeExplorerComponent.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96msrc/app/detail/info/node-explorer/node-explorer.component.html[0m:[93m67[0m:[93m62[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'layout' since it isn't a known property of 'plotly-plot'.[39m[22m
+[1m[31m1. If 'plotly-plot' is an Angular component and it has 'layout' input, then verify that it is part of this module.[39m[22m
+[1m[31m2. If 'plotly-plot' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.[39m[22m
+[1m[31m3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m67[0m             <plotly-plot class="item" [data]="barchart.data" [layout]="barchart.layout">[39m[22m
+[1m[31m[7m  [0m [91m                                                             ~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  [96msrc/app/detail/info/node-explorer/node-explorer.component.ts[0m:[93m8[0m:[93m18[0m[39m[22m
+[1m[31m    [7m8[0m     templateUrl: './node-explorer.component.html',[39m[22m
+[1m[31m    [7m [0m [96m                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m    Error occurs in the template of component NodeExplorerComponent.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96msrc/app/detail/info/time-series-graph/time-series-graph.component.html[0m:[93m1[0m:[93m1[0m - [91merror[0m[90m NG8001: [0m'plotly-plot' is not a known element:[39m[22m
+[1m[31m1. If 'plotly-plot' is an Angular component, then verify that it is part of this module.[39m[22m
+[1m[31m2. If 'plotly-plot' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m1[0m <plotly-plot [data]="graph.data" [layout]="graph.layout"></plotly-plot>[39m[22m
+[1m[31m[7m [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  [96msrc/app/detail/info/time-series-graph/time-series-graph.component.ts[0m:[93m8[0m:[93m18[0m[39m[22m
+[1m[31m    [7m8[0m     templateUrl: './time-series-graph.component.html',[39m[22m
+[1m[31m    [7m [0m [96m                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m    Error occurs in the template of component TimeSeriesGraphComponent.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96msrc/app/detail/info/time-series-graph/time-series-graph.component.html[0m:[93m1[0m:[93m14[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'data' since it isn't a known property of 'plotly-plot'.[39m[22m
+[1m[31m1. If 'plotly-plot' is an Angular component and it has 'data' input, then verify that it is part of this module.[39m[22m
+[1m[31m2. If 'plotly-plot' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.[39m[22m
+[1m[31m3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m1[0m <plotly-plot [data]="graph.data" [layout]="graph.layout"></plotly-plot>[39m[22m
+[1m[31m[7m [0m [91m             ~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  [96msrc/app/detail/info/time-series-graph/time-series-graph.component.ts[0m:[93m8[0m:[93m18[0m[39m[22m
+[1m[31m    [7m8[0m     templateUrl: './time-series-graph.component.html',[39m[22m
+[1m[31m    [7m [0m [96m                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m    Error occurs in the template of component TimeSeriesGraphComponent.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96msrc/app/detail/info/time-series-graph/time-series-graph.component.html[0m:[93m1[0m:[93m34[0m - [91merror[0m[90m NG8002: [0mCan't bind to 'layout' since it isn't a known property of 'plotly-plot'.[39m[22m
+[1m[31m1. If 'plotly-plot' is an Angular component and it has 'layout' input, then verify that it is part of this module.[39m[22m
+[1m[31m2. If 'plotly-plot' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.[39m[22m
+[1m[31m3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@NgModule.schemas' of this component.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m1[0m <plotly-plot [data]="graph.data" [layout]="graph.layout"></plotly-plot>[39m[22m
+[1m[31m[7m [0m [91m                                 ~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m  [96msrc/app/detail/info/time-series-graph/time-series-graph.component.ts[0m:[93m8[0m:[93m18[0m[39m[22m
+[1m[31m    [7m8[0m     templateUrl: './time-series-graph.component.html',[39m[22m
+[1m[31m    [7m [0m [96m                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m    Error occurs in the template of component TimeSeriesGraphComponent.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m

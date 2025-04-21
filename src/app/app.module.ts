@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 
-import { ChartsModule } from 'ng2-charts';
+import { BaseChartDirective } from 'ng2-charts';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { PlotlyViaCDNModule } from "angular-plotly.js";
 
@@ -62,7 +62,7 @@ import { NodeExplorerComponent } from './detail/info/node-explorer/node-explorer
         ReactiveFormsModule,
         MatMomentDateModule,
         AngularMaterialModule,
-        ChartsModule,
+        BaseChartDirective,
         LeafletModule,
         PlotlyViaCDNModule,
         AppRoutingModule

@@ -25,7 +25,7 @@ enum JobsDisplay
 })
 export class InfoComponent implements OnInit
 {
-
+    
     @ViewChild(InfoTableComponent) infotable;
 
     public fosByProjBarChartOptions : ChartConfiguration['options'] = 

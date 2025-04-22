@@ -1,14 +1,35 @@
-<div style="display: block; width: 100%;">
-    <!-- <canvas baseChart
-                    [data]="barChartData"
-                    [options]="fosByProjBarChartOptions"
-                    [legend]="barChartLegend"
-                    chartType="bar">
-    </canvas> -->
-
+<div>
     <canvas baseChart
     [data]="fosByProjBarChartData"
     [options]="fosByProjBarChartOptions"
+    [legend]="barChartLegend"
+    chartType="bar">
+</canvas>
+</div>
+
+<div>
+    <canvas baseChart
+    [data]="fosByJobBarChartData"
+    [options]="fosByJobBarChartOptions"
+    [legend]="barChartLegend"
+    chartType="bar">
+</canvas>
+
+</div>
+
+<div>
+<canvas baseChart
+    [data]="fosByNodesBarChartData"
+    [options]="fosByNodesBarChartOptions"
+    [legend]="barChartLegend"
+    chartType="bar">
+</canvas>
+</div>
+
+<div>
+    <canvas baseChart
+    [data]="fosByDurationBarChartData"
+    [options]="fosByDurationBarChartOptions"
     [legend]="barChartLegend"
     chartType="bar">
 </canvas>

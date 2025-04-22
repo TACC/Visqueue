@@ -7,7 +7,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { UntypedFormGroup, UntypedFormControl } from '@angular/forms';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import { MomentDateAdapter, MAT_MOMENT_DATE_FORMATS } from '@angular/material-moment-adapter';
-import * as moment from 'moment';
+import moment from 'moment';
 import { Search } from '../models/search';
 
 @Component({

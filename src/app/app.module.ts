@@ -5,8 +5,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 
-import { BaseChartDirective } from 'ng2-charts';
-import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
+import { LeafletModule } from '@bluehalo/ngx-leaflet';
 import { PlotlyViaCDNModule } from "angular-plotly.js";
 
 PlotlyViaCDNModule.setPlotlyVersion('2.12.1'); // can be `latest` or any version number (i.e.: '1.40.0')
@@ -43,7 +43,6 @@ import { NodeExplorerComponent } from './detail/info/node-explorer/node-explorer
         SearchComponent,
         JobDurationPipe,
         BarChartComponent,
-        InfoComponent,
         InfoTableComponent,
         InfoMapComponent,
         SunburstDialogComponent,
@@ -52,15 +51,20 @@ import { NodeExplorerComponent } from './detail/info/node-explorer/node-explorer
         TimeSeriesGraphComponent,
         NodeExplorerComponent
     ],
-    bootstrap: [AppComponent], imports: [CommonModule,
+    bootstrap: [AppComponent], 
+    imports: [CommonModule,
         BrowserModule,
         BrowserAnimationsModule,
         FormsModule,
         ReactiveFormsModule,
         MatMomentDateModule,
         AngularMaterialModule,
-        BaseChartDirective,
         LeafletModule,
         PlotlyViaCDNModule,
-        AppRoutingModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
+        InfoComponent,
+        AppRoutingModule], 
+    providers: 
+        [provideHttpClient(withInterceptorsFromDi()),
+         provideCharts(withDefaultRegisterables())   
+        ] })
 export class AppModule { }

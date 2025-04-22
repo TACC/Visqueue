@@ -20,7 +20,7 @@ enum JobsDisplay
     selector: 'app-info',
     templateUrl: './info.component.html',
     styleUrls: ['./info.component.scss'],
-    imports: [ BaseChartDirective, TestChartsComponent ],
+    imports: [ TestChartsComponent ],
     providers: [InfoService]
 })
 export class InfoComponent implements OnInit

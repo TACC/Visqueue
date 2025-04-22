@@ -1,11 +1,12 @@
 import { Component, OnInit, AfterViewInit, Input, ElementRef, ViewChild, Inject } from '@angular/core';
 
 import * as d3 from 'd3';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { SunburstService } from '../sunburst.service';
 import { SunburstDialogComponent } from '../sunburst-dialog/sunburst-dialog.component';
 import { ColorService } from '../color.service';
+import { CommonModule } from '@angular/common';
 
 interface ArcType { x0 : any, x1 : any, y0 : any, y1 : any }
 
@@ -13,7 +14,7 @@ interface ArcType { x0 : any, x1 : any, y0 : any, y1 : any }
     selector: 'app-sunburst',
     templateUrl: './sunburst.component.html',
     styleUrls: ['./sunburst.component.scss'],
-    standalone: false
+    imports: [CommonModule, RouterModule]
 })
 export class SunburstComponent implements OnInit, AfterViewInit
 {

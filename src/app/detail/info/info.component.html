@@ -1,188 +1,28 @@
-<app-test-charts></app-test-charts>
-<!-- <div fxLayout="row" fxLayoutAlign="space-around center">
-    
-    <h1 class="mat-h1">Information</h1>
+<h1 class="mat-h1">Information</h1>
 
-</div>
+<i>Data current as of {{ timestamp | date }}</i>
 
-<div fxLayout="row" fxLayoutAlign="space-around center">
-    <i>
-        Data current as of {{ timestamp | date }}
-    </i>
-</div>
-
-<div fxLayout="row" fxLayoutAlign="space-around center">
-    <mat-card appearance="outlined" fxFlex="20" class="mat-elevation-z2">
-        <mat-card-title>
-            <ng-container [ngSwitch]="jobVal">
-                <ng-container *ngSwitchCase="'JobsDisplayEnum.Total'">
-                    {{ jobTotal | number }}
-                </ng-container>
-                <ng-container *ngSwitchCase="'JobsDisplayEnum.Completed'">
-                    {{ jobCompleted | number }}
-                </ng-container>
-                <ng-container *ngSwitchDefault>
-                    {{ jobTotal | number }}
-                </ng-container>
+<mat-card>
+    <mat-card-title>
+        <ng-container [ngSwitch]="jobVal">
+            <ng-container *ngSwitchCase="'JobsDisplayEnum.Total'">
+                {{ jobTotal | number }}
             </ng-container>
-        </mat-card-title>
-        <mat-card-subtitle>
-            Jobs
-        </mat-card-subtitle>
-        <mat-card-footer>
-            <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-                <mat-button-toggle (click)="jobsText('JobsDisplayEnum.Total')"     fxFlex> Total      </mat-button-toggle>
-                <mat-button-toggle (click)="jobsText('JobsDisplayEnum.Completed')" fxFlex> Completed  </mat-button-toggle>
-            </mat-button-toggle-group>           
-        </mat-card-footer>
-    </mat-card>
-    <mat-card appearance="outlined" fxFlex="20" class="mat-elevation-z2">
-        <mat-card-title>
-            {{ hrsTotal | number : '1.0-0' }}
-        </mat-card-title>
-        <mat-card-subtitle>
-            Compute Hours
-        </mat-card-subtitle>
-    </mat-card>
-    <mat-card appearance="outlined" fxFlex="20" class="mat-elevation-z2">
-        <mat-card-title>
-            {{ projTotal | number }}
-        </mat-card-title>
-        <mat-card-subtitle>
-            Projects
-        </mat-card-subtitle>
-    </mat-card>
-    <mat-card appearance="outlined" fxFlex="20" class="mat-elevation-z2">
-        <mat-card-title>
-            {{ instTotal | number }}
-        </mat-card-title>
-        <mat-card-subtitle>
-            Institutions
-        </mat-card-subtitle>
-    </mat-card>
-</div>
-
-<br>
-<br>
-
-<div fxLayout="row" fxLayoutAlign="space-around center">
--->
-
-
-<!--
-
-    <div fxFlex="40" style="display: block">
-        <canvas baseChart
-            [datasets]="fosByProjBarChartData"
-            [labels]="fosByProjBarChartLabels"
-            [options]="fosByProjBarChartOptions"
-            [legend]="fosByProjBarChartLegend"
-            [chartType]="fosByProjBarChartType"
-            [colors]="fosByProjBarChartColors">
-        </canvas>
-    </div>
-
-    <div fxFlex="40" style="display: block">
-        <canvas baseChart
-            [datasets]="fosByJobBarChartData"
-            [labels]="fosByJobBarChartLabels"
-            [options]="fosByJobBarChartOptions"
-            [legend]="fosByJobBarChartLegend"
-            [chartType]="fosByJobBarChartType"
-            [colors]="fosByJobBarChartColors">
-        </canvas>
-    </div>
-
-</div>
-
-<div fxLayout="row" fxLayoutAlign="space-around center">
-
-    <div fxFlex="40" style="display: block">
-        <canvas baseChart
-            [datasets]="fosByNodesBarChartData"
-            [labels]="fosByNodesBarChartLabels"
-            [options]="fosByNodesBarChartOptions"
-            [legend]="fosByNodesBarChartLegend"
-            [chartType]="fosByNodesBarChartType"
-            [colors]="fosByNodesBarChartColors">
-        </canvas>
-    </div>
-
-    <div fxFlex="40" style="display: block">
-        <canvas baseChart
-            [datasets]="fosByDurationBarChartData"
-            [labels]="fosByDurationBarChartLabels"
-            [options]="fosByDurationBarChartOptions"
-            [legend]="fosByDurationBarChartLegend"
-            [chartType]="fosByDurationBarChartType"
-            [colors]="fosByDurationBarChartColors">
-        </canvas>
-    </div>
-
-</div>
-
-<br>
-<br>
-<br>
-
-<div fxLayout="row" fxLayoutAlign="center center">
-    <div fxFlex="85">
-        <app-time-series-graph></app-time-series-graph>
-    </div>
-</div>
-
-<br>
-<br>
-<br>
-
-<div fxLayout="row" fxLayoutAlign="space-around center">
-        
-    <div fxLayout="column" fxFlex="85">
-        
-        <app-info-table [tableData]="fosTableData"></app-info-table>
-        
-    </div>
-    
-</div>
-
-<br>
-<br>
-<br>
-
-<div style="display: flex; justify-content: center;">
-    <mat-divider [style.width.%]="85">
-    </mat-divider>
-</div>
-
-<br> -->
-
-
-<!-- <br> -->
-
-<!-- <div fxLayout="row" fxLayoutAlign="space-around center" *ngIf="system ==='frontera'">
-    
-    <div fxLayout="column" fxFlex="85">
-        
-        <app-node-explorer></app-node-explorer>
-        
-    </div>
-    
-</div> -->
-
-<!-- <div style="display: flex; justify-content: center;">
-    <mat-divider [style.width.%]="85">
-    </mat-divider>
-</div> -->
-
-<br>
-<br>
-<!-- 
-<div fxLayout="row" fxLayoutAlign="space-around center">
-
-    <div fxLayout="column" fxFlex="85">
-
-        <app-info-map [mapData]="fosMapData"></app-info-map>
-
-    </div>
-
-</div> -->
+            <ng-container *ngSwitchCase="'JobsDisplayEnum.Completed'">
+                {{ jobCompleted | number }}
+            </ng-container>
+            <ng-container *ngSwitchDefault>
+                {{ jobTotal | number }}
+            </ng-container>
+        </ng-container>
+    </mat-card-title>
+    <mat-card-subtitle>
+        Jobs
+    </mat-card-subtitle>
+    <mat-card-footer>
+        <mat-button-toggle-group>
+            <mat-button-toggle (click)="jobsText('JobsDisplayEnum.Total')"     > Total      </mat-button-toggle>
+            <mat-button-toggle (click)="jobsText('JobsDisplayEnum.Completed')" > Completed  </mat-button-toggle>
+        </mat-button-toggle-group>           
+    </mat-card-footer>
+</mat-card>

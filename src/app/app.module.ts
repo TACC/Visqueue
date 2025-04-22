@@ -37,7 +37,6 @@ import { NodeExplorerComponent } from './detail/info/node-explorer/node-explorer
 @NgModule({ declarations: [
         AppComponent,
         HomepageComponent,
-        SunburstTableComponent,
         DetailComponent,
         SearchComponent,
         JobDurationPipe,
@@ -62,6 +61,7 @@ import { NodeExplorerComponent } from './detail/info/node-explorer/node-explorer
         PlotlyViaCDNModule,
         InfoComponent,
         SunburstComponent,
+        SunburstTableComponent,
         AppRoutingModule], 
     providers: 
         [provideHttpClient(withInterceptorsFromDi()),

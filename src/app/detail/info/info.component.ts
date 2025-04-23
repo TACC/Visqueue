@@ -11,6 +11,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { BaseChartDirective } from 'ng2-charts';
 import { TimeSeriesGraphComponent } from './time-series-graph/time-series-graph.component';
+import { InfoMapComponent } from './info-map/info-map.component';
 
 enum JobsDisplay 
 {
@@ -29,7 +30,8 @@ enum JobsDisplay
         MatCardModule,
         MatButtonToggleModule,
         TimeSeriesGraphComponent,
-        InfoTableComponent
+        InfoTableComponent,
+        InfoMapComponent
     ],
     providers: [InfoService]
 })
@@ -64,6 +66,7 @@ export class InfoComponent implements OnInit
     instTotal    : number;
 
     fosTableData : any[ ] = [];
+    fosMapData   : any[ ] = [];
 
     constructor(
         private apiService   : ApiService,
@@ -179,6 +182,7 @@ export class InfoComponent implements OnInit
 
                     // table and map data
                     this.fosTableData = data.proj_info;
+                    this.fosMapData = data.inst_info;
 
                 },
                 error: ( error : any ) =>

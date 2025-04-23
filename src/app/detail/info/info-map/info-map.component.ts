@@ -5,6 +5,7 @@ import {
     SimpleChanges,
     OnChanges
 } from '@angular/core';
+import { LeafletModule } from '@bluehalo/ngx-leaflet';
 import {
     tileLayer,
     latLng,
@@ -17,7 +18,7 @@ import {
     selector: 'app-info-map',
     templateUrl: './info-map.component.html',
     styleUrls: ['./info-map.component.scss'],
-    standalone: false
+    imports : [LeafletModule]
 })
 export class InfoMapComponent implements OnInit, OnChanges {
 

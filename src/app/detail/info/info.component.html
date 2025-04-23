@@ -2,7 +2,7 @@
 
 <i>Data current as of {{ timestamp | date }}</i>
 
-<mat-card>
+<mat-card class="mat-elevation-z2">
     <mat-card-title>
         <ng-container [ngSwitch]="jobVal">
             <ng-container *ngSwitchCase="'JobsDisplayEnum.Total'">
@@ -25,4 +25,37 @@
             <mat-button-toggle (click)="jobsText('JobsDisplayEnum.Completed')" > Completed  </mat-button-toggle>
         </mat-button-toggle-group>           
     </mat-card-footer>
+</mat-card>
+
+<br>
+
+<mat-card class="mat-elevation-z2">
+    <mat-card-title>
+        {{ hrsTotal | number : '1.0-0' }}
+    </mat-card-title>
+    <mat-card-subtitle>
+        Compute Hours
+    </mat-card-subtitle>
+</mat-card>
+
+<br>
+
+<mat-card class="mat-elevation-z2">
+    <mat-card-title>
+        {{ projTotal | number }}
+    </mat-card-title>
+    <mat-card-subtitle>
+        Projects
+    </mat-card-subtitle>
+</mat-card>
+
+<br>
+
+<mat-card fxFlex="20" class="mat-elevation-z2">
+    <mat-card-title>
+        {{ instTotal | number }}
+    </mat-card-title>
+    <mat-card-subtitle>
+        Institutions
+    </mat-card-subtitle>
 </mat-card>

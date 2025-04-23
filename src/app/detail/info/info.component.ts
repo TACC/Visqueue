@@ -82,6 +82,10 @@ export class InfoComponent implements OnInit
     jobTotal: number;
     jobCompleted: number;
 
+    hrsTotal     : number;
+    projTotal    : number;
+    instTotal    : number;
+
     constructor(
         private apiService   : ApiService,
         private infoService  : InfoService,
@@ -105,6 +109,17 @@ export class InfoComponent implements OnInit
                 this.jobTotal        = data.job_total;
                 this.jobCompleted    = data.job_completed;
 
+                this.hrsTotal  = data.sec_total;
+
+                // convert from seconds to minutes
+                this.hrsTotal = this.hrsTotal / 60;
+                
+                // convert from minutes to hours
+                this.hrsTotal = this.hrsTotal / 60;
+
+                this.projTotal = data.proj_total;
+
+                this.instTotal = data.inst_total;
 
             } );
 

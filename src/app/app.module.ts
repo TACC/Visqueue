@@ -7,11 +7,11 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
 
 import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 import { LeafletModule } from '@bluehalo/ngx-leaflet';
-import { PlotlyViaCDNModule } from "angular-plotly.js";
 
-PlotlyViaCDNModule.setPlotlyVersion('2.12.1'); // can be `latest` or any version number (i.e.: '1.40.0')
-PlotlyViaCDNModule.setPlotlyBundle('basic'); // optional: can be null (for full) or 'basic', 'cartesian', 'geo', 'gl3d', 'gl2d', 'mapbox' or 'finance'
+import * as PlotlyJS from 'plotly.js-dist-min';
+import { PlotlyModule } from 'angular-plotly.js';
 
+PlotlyModule.plotlyjs = PlotlyJS;
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -46,7 +46,6 @@ import { NodeExplorerComponent } from './detail/info/node-explorer/node-explorer
         SunburstDialogComponent,
         ToolbarComponent,
         FooterComponent,
-        TimeSeriesGraphComponent,
         NodeExplorerComponent
     ],
     bootstrap: [AppComponent], 
@@ -58,10 +57,11 @@ import { NodeExplorerComponent } from './detail/info/node-explorer/node-explorer
         MatMomentDateModule,
         AngularMaterialModule,
         LeafletModule,
-        PlotlyViaCDNModule,
+        PlotlyModule,
         InfoComponent,
         SunburstComponent,
         SunburstTableComponent,
+        TimeSeriesGraphComponent,
         AppRoutingModule], 
     providers: 
         [provideHttpClient(withInterceptorsFromDi()),

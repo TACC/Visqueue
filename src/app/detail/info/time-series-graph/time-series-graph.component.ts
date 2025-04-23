@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { InfoService } from '../info.service';
 import { ActivatedRoute } from '@angular/router';
 import { FosTimeSeries } from 'src/app/models/fos-time-series';
+import { PlotlyModule } from 'angular-plotly.js';
 
 @Component({
     selector: 'app-time-series-graph',
     templateUrl: './time-series-graph.component.html',
     styleUrls: ['./time-series-graph.component.scss'],
-    standalone: false
+    imports: [PlotlyModule]
 })
 export class TimeSeriesGraphComponent implements OnInit {
 

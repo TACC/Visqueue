@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { BaseChartDirective } from 'ng2-charts';
+import { TimeSeriesGraphComponent } from './time-series-graph/time-series-graph.component';
 
 enum JobsDisplay 
 {
@@ -26,7 +27,8 @@ enum JobsDisplay
         CommonModule,
         BaseChartDirective,
         MatCardModule,
-        MatButtonToggleModule
+        MatButtonToggleModule,
+        TimeSeriesGraphComponent
     ],
     providers: [InfoService]
 })

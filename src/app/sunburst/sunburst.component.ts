@@ -7,6 +7,7 @@ import { SunburstService } from '../sunburst.service';
 import { SunburstDialogComponent } from '../sunburst-dialog/sunburst-dialog.component';
 import { ColorService } from '../color.service';
 import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
 
 interface ArcType { x0 : any, x1 : any, y0 : any, y1 : any }
 
@@ -14,7 +15,7 @@ interface ArcType { x0 : any, x1 : any, y0 : any, y1 : any }
     selector: 'app-sunburst',
     templateUrl: './sunburst.component.html',
     styleUrls: ['./sunburst.component.scss'],
-    imports: [CommonModule, RouterModule]
+    imports: [CommonModule, RouterModule, MatButtonModule]
 })
 export class SunburstComponent implements OnInit, AfterViewInit
 {

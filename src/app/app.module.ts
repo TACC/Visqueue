@@ -41,7 +41,6 @@ import { NodeExplorerComponent } from './detail/info/node-explorer/node-explorer
         SearchComponent,
         JobDurationPipe,
         BarChartComponent,
-        InfoTableComponent,
         InfoMapComponent,
         SunburstDialogComponent,
         ToolbarComponent,
@@ -62,6 +61,7 @@ import { NodeExplorerComponent } from './detail/info/node-explorer/node-explorer
         SunburstComponent,
         SunburstTableComponent,
         TimeSeriesGraphComponent,
+        InfoTableComponent,
         AppRoutingModule], 
     providers: 
         [provideHttpClient(withInterceptorsFromDi()),

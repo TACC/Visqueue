@@ -28,7 +28,8 @@ enum JobsDisplay
         BaseChartDirective,
         MatCardModule,
         MatButtonToggleModule,
-        TimeSeriesGraphComponent
+        TimeSeriesGraphComponent,
+        InfoTableComponent
     ],
     providers: [InfoService]
 })
@@ -61,6 +62,8 @@ export class InfoComponent implements OnInit
     hrsTotal     : number;
     projTotal    : number;
     instTotal    : number;
+
+    fosTableData : any[ ] = [];
 
     constructor(
         private apiService   : ApiService,
@@ -172,6 +175,10 @@ export class InfoComponent implements OnInit
                         }
 
                     ];
+
+
+                    // table and map data
+                    this.fosTableData = data.proj_info;
 
                 },
                 error: ( error : any ) =>

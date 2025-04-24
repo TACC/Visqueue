@@ -25,6 +25,8 @@
     "@angular/router": "^19.2.7",
     "@asymmetrik/ngx-leaflet": "^7.0.0",
     "@bluehalo/ngx-leaflet": "^19.0.0",
+    "@ng-icons/core": "^31.3.0",
+    "@ng-icons/octicons": "^31.3.0",
     "angular-plotly.js": "^6.0.0",
     "chart.js": "^4.4.9",
     "chartjs-plugin-datalabels": "^2.2.0",

@@ -25,10 +25,20 @@ mat-toolbar > *
     padding: 0px 40px;
 }
 
-// span.fill-space
-// {
-//     flex: 1 1 auto;
-// }
+mat-toolbar > a[mat-icon-button] > ng-icon
+{
+    width: 35px;
+    height: 35px;;
+    position: relative;
+    right: 17px;
+    top: 5px;
+    color: white;
+}
+
+span.fill-space
+{
+    flex: 1 1 auto;
+}
 
 .toolbar-buttons
 {

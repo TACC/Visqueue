@@ -3,6 +3,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { NgIcon, provideIcons } from "@ng-icons/core";
+import { octMarkGithubLarge } from "@ng-icons/octicons/large";
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -14,8 +16,13 @@ import { RouterModule } from '@angular/router';
         MatButtonModule,
         RouterModule,
         MatToolbarModule,
-        MatIconModule    
+        MatIconModule,
+        NgIcon,    
     ],
+    viewProviders: [
+        provideIcons({
+            octMarkGithubLarge,
+        })]
 })
 export class ToolbarComponent implements OnInit {
 

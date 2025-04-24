@@ -42,7 +42,6 @@ import { NodeExplorerComponent } from './detail/info/node-explorer/node-explorer
         JobDurationPipe,
         BarChartComponent,
         SunburstDialogComponent,
-        ToolbarComponent,
         FooterComponent,
         NodeExplorerComponent
     ],
@@ -56,6 +55,7 @@ import { NodeExplorerComponent } from './detail/info/node-explorer/node-explorer
         AngularMaterialModule,
         LeafletModule,
         PlotlyModule,
+        ToolbarComponent,
         InfoComponent,
         SunburstComponent,
         SunburstTableComponent,

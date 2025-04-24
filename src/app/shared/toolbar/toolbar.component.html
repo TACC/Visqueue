@@ -1,32 +1,11 @@
 <mat-toolbar>
-    <a class="toolbar-buttons" mat-button [routerLink]="[ '/' ]">Visqueue</a>
-   
+    <a class="toolbar-buttons" mat-button [routerLink]="[ '/' ]">Home</a>
     <button class="toolbar-buttons" mat-button [matMenuTriggerFor]="detailMenu">
-        Details
+        Systems
     </button>
-
-
-    <!-- Comment out life of node link for now -->
-    <!-- <button class="toolbar-buttons" mat-button [matMenuTriggerFor]="nodeLifeMenu">
-        Life of a Node (alpha)
-    </button> -->
-
-    <span class="fill-space"></span>
-    
-    <a class="toolbar-buttons" mat-button href="https://github.com/TACC/Visqueue">
-        <img src="assets/images/GitHub-Mark-Light-32px.png" alt="GitHub">
-        GitHub
-    </a>
-
 </mat-toolbar>
 
 <mat-menu #detailMenu=matMenu> 
     <button mat-menu-item [routerLink]="['/detail', 'stampede3']" >Stampede3</button>
     <button mat-menu-item [routerLink]="['/detail', 'frontera']" >Frontera</button>
-    <!-- <button mat-menu-item [routerLink]="['/detail', 'lonestar6']" >Lonestar6</button> -->
 </mat-menu>
-
-<mat-menu #nodeLifeMenu=matMenu> 
-    <button mat-menu-item [routerLink]="['/nodelife', 'frontera']" >Frontera</button>
-</mat-menu>
-

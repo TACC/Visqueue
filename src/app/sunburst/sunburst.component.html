@@ -4,7 +4,7 @@
     </div>
     <div class="flex-container">
         <div> {{ jobCount }} Jobs </div>
-        <div> {{ utilization | percent }} Utilization </div>
+        <div> {{ utilization | percent: '.2' }} Utilization </div>
         <a mat-raised-button routerLink="/detail/{{ dataSrc }}"> {{dataSrc | uppercase }} ></a>
 
     </div>

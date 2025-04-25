@@ -1,0 +1,1188 @@
+[1m[33mComponent HMR has been enabled.
+If you encounter application reload issues, you can manually reload the page to bypass HMR and/or disable this feature with the `--no-hmr` command line option.
+Please consider reporting any issues you encounter here: https://github.com/angular/angular-cli/issues
+[39m[22m
+[1m[33mOne or more browsers which are configured in the project's Browserslist configuration will be ignored as ES5 output is not supported by the Angular CLI.
+Ignored browsers: kaios 2.5, op_mini all[39m[22m
+[1m[33m[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mCalling "moment" will crash at run-time because it's an import namespace object, not a function[0m [call-import-namespace]
+
+    src/app/search/search.component.ts:133:31:
+[37m      133 │             const recentDate = [32mmoment[37m(data[0].endtime);
+          ╵                                [32m~~~~~~[0m
+
+  Consider changing "moment" to a default import instead:
+
+    src/app/search/search.component.ts:9:7:
+[37m      9 │ import [32m* as moment[37m from 'moment';
+        │        [32m~~~~~~~~~~~[37m
+        ╵        [32mmoment[0m
+
+[39m[22m
+[1m[31m[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'datasets' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:71:12:
+[37m      71 │             [32m[datasets]="fosByProjBarChartData"[37m
+         ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:20:17:
+[37m      20 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'labels' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:72:12:
+[37m      72 │             [32m[labels]="fosByProjBarChartLabels"[37m
+         ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:20:17:
+[37m      20 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'options' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:73:12:
+[37m      73 │             [32m[options]="fosByProjBarChartOptions"[37m
+         ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:20:17:
+[37m      20 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'legend' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:74:12:
+[37m      74 │             [32m[legend]="fosByProjBarChartLegend"[37m
+         ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:20:17:
+[37m      20 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'chartType' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:75:12:
+[37m      75 │             [32m[chartType]="fosByProjBarChartType"[37m
+         ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:20:17:
+[37m      20 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'colors' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:76:12:
+[37m      76 │             [32m[colors]="fosByProjBarChartColors"[37m>
+         ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:20:17:
+[37m      20 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'datasets' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:82:12:
+[37m      82 │             [32m[datasets]="fosByJobBarChartData"[37m
+         ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:20:17:
+[37m      20 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'labels' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:83:12:
+[37m      83 │             [32m[labels]="fosByJobBarChartLabels"[37m
+         ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:20:17:
+[37m      20 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'options' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:84:12:
+[37m      84 │             [32m[options]="fosByJobBarChartOptions"[37m
+         ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:20:17:
+[37m      20 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'legend' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:85:12:
+[37m      85 │             [32m[legend]="fosByJobBarChartLegend"[37m
+         ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:20:17:
+[37m      20 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'chartType' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:86:12:
+[37m      86 │             [32m[chartType]="fosByJobBarChartType"[37m
+         ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:20:17:
+[37m      20 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'colors' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:87:12:
+[37m      87 │             [32m[colors]="fosByJobBarChartColors"[37m>
+         ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:20:17:
+[37m      20 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'datasets' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:97:12:
+[37m      97 │             [32m[datasets]="fosByNodesBarChartData"[37m
+         ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:20:17:
+[37m      20 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'labels' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:98:12:
+[37m      98 │             [32m[labels]="fosByNodesBarChartLabels"[37m
+         ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:20:17:
+[37m      20 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'options' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:99:12:
+[37m      99 │             [32m[options]="fosByNodesBarChartOptions"[37m
+         ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:20:17:
+[37m      20 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'legend' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:100:12:
+[37m      100 │             [32m[legend]="fosByNodesBarChartLegend"[37m
+          ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:20:17:
+[37m      20 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'chartType' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:101:12:
+[37m      101 │             [32m[chartType]="fosByNodesBarChartType"[37m
+          ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:20:17:
+[37m      20 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'colors' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:102:12:
+[37m      102 │             [32m[colors]="fosByNodesBarChartColors"[37m>
+          ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:20:17:
+[37m      20 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'datasets' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:108:12:
+[37m      108 │             [32m[datasets]="fosByDurationBarChartData"[37m
+          ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:20:17:
+[37m      20 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'labels' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:109:12:
+[37m      109 │             [32m[labels]="fosByDurationBarChartLabels"[37m
+          ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:20:17:
+[37m      20 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'options' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:110:12:
+[37m      110 │             [32m[options]="fosByDurationBarChartOptions"[37m
+          ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:20:17:
+[37m      20 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'legend' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:111:12:
+[37m      111 │             [32m[legend]="fosByDurationBarChartLegend"[37m
+          ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:20:17:
+[37m      20 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'chartType' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:112:12:
+[37m      112 │             [32m[chartType]="fosByDurationBarChartType"[37m
+          ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:20:17:
+[37m      20 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'colors' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:113:12:
+[37m      113 │             [32m[colors]="fosByDurationBarChartColors"[37m>
+          ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:20:17:
+[37m      20 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type '{}[]' is not assignable to type '_DeepPartialObject<{ type: "time"; } & Omit<CartesianScaleOptions, "min" | "max"> & { min: string | number; max: string | number; suggestedMin: string | number; ... 5 more ...; ticks: TimeScaleTickOptions; }> | ... 4 more ... | _DeepPartialObject<...>'.
+  Type '{}[]' is not assignable to type '_DeepPartialObject<{ type: "radialLinear"; } & CoreScaleOptions & { animate: boolean; startAngle: number; angleLines: { display: boolean; color: Scriptable<Color, ScriptableScaleContext>; lineWidth: Scriptable<...>; borderDash: Scriptable<...>; borderDashOffset: Scriptable<...>; }; ... 7 more ...; ticks: RadialTickO...'.
+    Types of property 'reverse' are incompatible.
+      Type '() => {}[]' is not assignable to type 'boolean'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:40:12:
+[37m      40 │             [32mxAxes[37m: [ { } ],
+         ╵             [32m~~~~~[0m
+
+  The expected type comes from property 'xAxes' which is declared here on type '_DeepPartialObject<{ [key: string]: ScaleOptionsByType<"radialLinear" | keyof CartesianScaleTypeRegistry>; }>'
+
+    node_modules/chart.js/dist/types/utils.d.ts:15:29:
+[37m      15 │ type _DeepPartialObject<T> = [32m{ [P in keyof T]?: DeepPartial<T[P]> }[37m;
+         ╵                              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type '{ ticks: { beginAtZero: true; callback: (value: any, index: any, values: any) => string; }; scaleLabel: { display: true; labelString: string; }; }[]' is not assignable to type '_DeepPartialObject<{ type: "time"; } & Omit<CartesianScaleOptions, "min" | "max"> & { min: string | number; max: string | number; suggestedMin: string | number; ... 5 more ...; ticks: TimeScaleTickOptions; }> | ... 4 more ... | _DeepPartialObject<...>'.
+  Type '{ ticks: { beginAtZero: true; callback: (value: any, index: any, values: any) => string; }; scaleLabel: { display: true; labelString: string; }; }[]' is not assignable to type '_DeepPartialObject<{ type: "radialLinear"; } & CoreScaleOptions & { animate: boolean; startAngle: number; angleLines: { display: boolean; color: Scriptable<Color, ScriptableScaleContext>; lineWidth: Scriptable<...>; borderDash: Scriptable<...>; borderDashOffset: Scriptable<...>; }; ... 7 more ...; ticks: RadialTickO...'.
+    Types of property 'reverse' are incompatible.
+      Type '() => { ticks: { beginAtZero: true; callback: (value: any, index: any, values: any) => string; }; scaleLabel: { display: true; labelString: string; }; }[]' is not assignable to type 'boolean'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:41:12:
+[37m      41 │             [32myAxes[37m:
+         ╵             [32m~~~~~[0m
+
+  The expected type comes from property 'yAxes' which is declared here on type '_DeepPartialObject<{ [key: string]: ScaleOptionsByType<"radialLinear" | keyof CartesianScaleTypeRegistry>; }>'
+
+    node_modules/chart.js/dist/types/utils.d.ts:15:29:
+[37m      15 │ type _DeepPartialObject<T> = [32m{ [P in keyof T]?: DeepPartial<T[P]> }[37m;
+         ╵                              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2353: Object literal may only specify known properties, and 'datalabels' does not exist in type '_DeepPartialObject<PluginOptionsByType<keyof ChartTypeRegistry>>'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:64:12:
+[37m      64 │             [32mdatalabels[37m:
+         ╵             [32m~~~~~~~~~~[0m
+
+  The expected type comes from property 'plugins' which is declared here on type '_DeepPartialObject<CoreChartOptions<keyof ChartTypeRegistry> & ElementChartOptions<keyof ChartTypeRegistry> & PluginChartOptions<...> & DatasetChartOptions<...> & ScaleChartOptions<...>>'
+
+    node_modules/chart.js/dist/types/index.d.ts:2966:2:
+[37m      2966 │   [32mplugins[37m: PluginOptionsByType<TType>;
+           ╵   [32m~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type '{}[]' is not assignable to type '_DeepPartialObject<{ type: "time"; } & Omit<CartesianScaleOptions, "min" | "max"> & { min: string | number; max: string | number; suggestedMin: string | number; ... 5 more ...; ticks: TimeScaleTickOptions; }> | ... 4 more ... | _DeepPartialObject<...>'.
+  Type '{}[]' is not assignable to type '_DeepPartialObject<{ type: "radialLinear"; } & CoreScaleOptions & { animate: boolean; startAngle: number; angleLines: { display: boolean; color: Scriptable<Color, ScriptableScaleContext>; lineWidth: Scriptable<...>; borderDash: Scriptable<...>; borderDashOffset: Scriptable<...>; }; ... 7 more ...; ticks: RadialTickO...'.
+    Types of property 'reverse' are incompatible.
+      Type '() => {}[]' is not assignable to type 'boolean'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:82:12:
+[37m      82 │             [32mxAxes[37m: [ { } ],
+         ╵             [32m~~~~~[0m
+
+  The expected type comes from property 'xAxes' which is declared here on type '_DeepPartialObject<{ [key: string]: ScaleOptionsByType<"radialLinear" | keyof CartesianScaleTypeRegistry>; }>'
+
+    node_modules/chart.js/dist/types/utils.d.ts:15:29:
+[37m      15 │ type _DeepPartialObject<T> = [32m{ [P in keyof T]?: DeepPartial<T[P]> }[37m;
+         ╵                              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type '{ ticks: { beginAtZero: true; callback: (value: any, index: any, values: any) => string; }; scaleLabel: { display: true; labelString: string; }; }[]' is not assignable to type '_DeepPartialObject<{ type: "time"; } & Omit<CartesianScaleOptions, "min" | "max"> & { min: string | number; max: string | number; suggestedMin: string | number; ... 5 more ...; ticks: TimeScaleTickOptions; }> | ... 4 more ... | _DeepPartialObject<...>'.
+  Type '{ ticks: { beginAtZero: true; callback: (value: any, index: any, values: any) => string; }; scaleLabel: { display: true; labelString: string; }; }[]' is not assignable to type '_DeepPartialObject<{ type: "radialLinear"; } & CoreScaleOptions & { animate: boolean; startAngle: number; angleLines: { display: boolean; color: Scriptable<Color, ScriptableScaleContext>; lineWidth: Scriptable<...>; borderDash: Scriptable<...>; borderDashOffset: Scriptable<...>; }; ... 7 more ...; ticks: RadialTickO...'.
+    Types of property 'reverse' are incompatible.
+      Type '() => { ticks: { beginAtZero: true; callback: (value: any, index: any, values: any) => string; }; scaleLabel: { display: true; labelString: string; }; }[]' is not assignable to type 'boolean'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:83:12:
+[37m      83 │             [32myAxes[37m:
+         ╵             [32m~~~~~[0m
+
+  The expected type comes from property 'yAxes' which is declared here on type '_DeepPartialObject<{ [key: string]: ScaleOptionsByType<"radialLinear" | keyof CartesianScaleTypeRegistry>; }>'
+
+    node_modules/chart.js/dist/types/utils.d.ts:15:29:
+[37m      15 │ type _DeepPartialObject<T> = [32m{ [P in keyof T]?: DeepPartial<T[P]> }[37m;
+         ╵                              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2353: Object literal may only specify known properties, and 'datalabels' does not exist in type '_DeepPartialObject<PluginOptionsByType<keyof ChartTypeRegistry>>'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:107:12:
+[37m      107 │             [32mdatalabels[37m:
+          ╵             [32m~~~~~~~~~~[0m
+
+  The expected type comes from property 'plugins' which is declared here on type '_DeepPartialObject<CoreChartOptions<keyof ChartTypeRegistry> & ElementChartOptions<keyof ChartTypeRegistry> & PluginChartOptions<...> & DatasetChartOptions<...> & ScaleChartOptions<...>>'
+
+    node_modules/chart.js/dist/types/index.d.ts:2966:2:
+[37m      2966 │   [32mplugins[37m: PluginOptionsByType<TType>;
+           ╵   [32m~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type '{}[]' is not assignable to type '_DeepPartialObject<{ type: "time"; } & Omit<CartesianScaleOptions, "min" | "max"> & { min: string | number; max: string | number; suggestedMin: string | number; ... 5 more ...; ticks: TimeScaleTickOptions; }> | ... 4 more ... | _DeepPartialObject<...>'.
+  Type '{}[]' is not assignable to type '_DeepPartialObject<{ type: "radialLinear"; } & CoreScaleOptions & { animate: boolean; startAngle: number; angleLines: { display: boolean; color: Scriptable<Color, ScriptableScaleContext>; lineWidth: Scriptable<...>; borderDash: Scriptable<...>; borderDashOffset: Scriptable<...>; }; ... 7 more ...; ticks: RadialTickO...'.
+    Types of property 'reverse' are incompatible.
+      Type '() => {}[]' is not assignable to type 'boolean'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:144:12:
+[37m      144 │             [32mxAxes[37m: [ { } ],
+          ╵             [32m~~~~~[0m
+
+  The expected type comes from property 'xAxes' which is declared here on type '_DeepPartialObject<{ [key: string]: ScaleOptionsByType<"radialLinear" | keyof CartesianScaleTypeRegistry>; }>'
+
+    node_modules/chart.js/dist/types/utils.d.ts:15:29:
+[37m      15 │ type _DeepPartialObject<T> = [32m{ [P in keyof T]?: DeepPartial<T[P]> }[37m;
+         ╵                              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type '{ ticks: { beginAtZero: true; callback: (value: any, index: any, values: any) => string; }; scaleLabel: { display: true; labelString: string; }; }[]' is not assignable to type '_DeepPartialObject<{ type: "time"; } & Omit<CartesianScaleOptions, "min" | "max"> & { min: string | number; max: string | number; suggestedMin: string | number; ... 5 more ...; ticks: TimeScaleTickOptions; }> | ... 4 more ... | _DeepPartialObject<...>'.
+  Type '{ ticks: { beginAtZero: true; callback: (value: any, index: any, values: any) => string; }; scaleLabel: { display: true; labelString: string; }; }[]' is not assignable to type '_DeepPartialObject<{ type: "radialLinear"; } & CoreScaleOptions & { animate: boolean; startAngle: number; angleLines: { display: boolean; color: Scriptable<Color, ScriptableScaleContext>; lineWidth: Scriptable<...>; borderDash: Scriptable<...>; borderDashOffset: Scriptable<...>; }; ... 7 more ...; ticks: RadialTickO...'.
+    Types of property 'reverse' are incompatible.
+      Type '() => { ticks: { beginAtZero: true; callback: (value: any, index: any, values: any) => string; }; scaleLabel: { display: true; labelString: string; }; }[]' is not assignable to type 'boolean'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:145:12:
+[37m      145 │             [32myAxes[37m:
+          ╵             [32m~~~~~[0m
+
+  The expected type comes from property 'yAxes' which is declared here on type '_DeepPartialObject<{ [key: string]: ScaleOptionsByType<"radialLinear" | keyof CartesianScaleTypeRegistry>; }>'
+
+    node_modules/chart.js/dist/types/utils.d.ts:15:29:
+[37m      15 │ type _DeepPartialObject<T> = [32m{ [P in keyof T]?: DeepPartial<T[P]> }[37m;
+         ╵                              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2353: Object literal may only specify known properties, and 'datalabels' does not exist in type '_DeepPartialObject<PluginOptionsByType<keyof ChartTypeRegistry>>'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:168:12:
+[37m      168 │             [32mdatalabels[37m:
+          ╵             [32m~~~~~~~~~~[0m
+
+  The expected type comes from property 'plugins' which is declared here on type '_DeepPartialObject<CoreChartOptions<keyof ChartTypeRegistry> & ElementChartOptions<keyof ChartTypeRegistry> & PluginChartOptions<...> & DatasetChartOptions<...> & ScaleChartOptions<...>>'
+
+    node_modules/chart.js/dist/types/index.d.ts:2966:2:
+[37m      2966 │   [32mplugins[37m: PluginOptionsByType<TType>;
+           ╵   [32m~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type '{}[]' is not assignable to type '_DeepPartialObject<{ type: "time"; } & Omit<CartesianScaleOptions, "min" | "max"> & { min: string | number; max: string | number; suggestedMin: string | number; ... 5 more ...; ticks: TimeScaleTickOptions; }> | ... 4 more ... | _DeepPartialObject<...>'.
+  Type '{}[]' is not assignable to type '_DeepPartialObject<{ type: "radialLinear"; } & CoreScaleOptions & { animate: boolean; startAngle: number; angleLines: { display: boolean; color: Scriptable<Color, ScriptableScaleContext>; lineWidth: Scriptable<...>; borderDash: Scriptable<...>; borderDashOffset: Scriptable<...>; }; ... 7 more ...; ticks: RadialTickO...'.
+    Types of property 'reverse' are incompatible.
+      Type '() => {}[]' is not assignable to type 'boolean'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:205:12:
+[37m      205 │             [32mxAxes[37m: [ { } ],
+          ╵             [32m~~~~~[0m
+
+  The expected type comes from property 'xAxes' which is declared here on type '_DeepPartialObject<{ [key: string]: ScaleOptionsByType<"radialLinear" | keyof CartesianScaleTypeRegistry>; }>'
+
+    node_modules/chart.js/dist/types/utils.d.ts:15:29:
+[37m      15 │ type _DeepPartialObject<T> = [32m{ [P in keyof T]?: DeepPartial<T[P]> }[37m;
+         ╵                              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type '{ ticks: { beginAtZero: true; callback: (value: any, index: any, values: any) => string; }; scaleLabel: { display: true; labelString: string; }; }[]' is not assignable to type '_DeepPartialObject<{ type: "time"; } & Omit<CartesianScaleOptions, "min" | "max"> & { min: string | number; max: string | number; suggestedMin: string | number; ... 5 more ...; ticks: TimeScaleTickOptions; }> | ... 4 more ... | _DeepPartialObject<...>'.
+  Type '{ ticks: { beginAtZero: true; callback: (value: any, index: any, values: any) => string; }; scaleLabel: { display: true; labelString: string; }; }[]' is not assignable to type '_DeepPartialObject<{ type: "radialLinear"; } & CoreScaleOptions & { animate: boolean; startAngle: number; angleLines: { display: boolean; color: Scriptable<Color, ScriptableScaleContext>; lineWidth: Scriptable<...>; borderDash: Scriptable<...>; borderDashOffset: Scriptable<...>; }; ... 7 more ...; ticks: RadialTickO...'.
+    Types of property 'reverse' are incompatible.
+      Type '() => { ticks: { beginAtZero: true; callback: (value: any, index: any, values: any) => string; }; scaleLabel: { display: true; labelString: string; }; }[]' is not assignable to type 'boolean'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:206:12:
+[37m      206 │             [32myAxes[37m:
+          ╵             [32m~~~~~[0m
+
+  The expected type comes from property 'yAxes' which is declared here on type '_DeepPartialObject<{ [key: string]: ScaleOptionsByType<"radialLinear" | keyof CartesianScaleTypeRegistry>; }>'
+
+    node_modules/chart.js/dist/types/utils.d.ts:15:29:
+[37m      15 │ type _DeepPartialObject<T> = [32m{ [P in keyof T]?: DeepPartial<T[P]> }[37m;
+         ╵                              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2353: Object literal may only specify known properties, and 'datalabels' does not exist in type '_DeepPartialObject<PluginOptionsByType<keyof ChartTypeRegistry>>'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:229:12:
+[37m      229 │             [32mdatalabels[37m:
+          ╵             [32m~~~~~~~~~~[0m
+
+  The expected type comes from property 'plugins' which is declared here on type '_DeepPartialObject<CoreChartOptions<keyof ChartTypeRegistry> & ElementChartOptions<keyof ChartTypeRegistry> & PluginChartOptions<...> & DatasetChartOptions<...> & ScaleChartOptions<...>>'
+
+    node_modules/chart.js/dist/types/index.d.ts:2966:2:
+[37m      2966 │   [32mplugins[37m: PluginOptionsByType<TType>;
+           ╵   [32m~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2304: Cannot find name 'Label'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:256:36:
+[37m      256 │     public fosByProjBarChartLabels: [32mLabel[37m[] = [];
+          ╵                                     [32m~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2304: Cannot find name 'Color'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:258:37:
+[37m      258 │ ...ic fosByProjBarChartColors : [32mColor[37m[] = [ { backgroundColor : [...
+          ╵                                 [32m~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2304: Cannot find name 'Label'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:261:35:
+[37m      261 │     public fosByJobBarChartLabels: [32mLabel[37m[] = [];
+          ╵                                    [32m~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2304: Cannot find name 'Color'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:263:36:
+[37m      263 │ ...lic fosByJobBarChartColors : [32mColor[37m[] = [ { backgroundColor : [...
+          ╵                                 [32m~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2304: Cannot find name 'Label'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:266:37:
+[37m      266 │     public fosByNodesBarChartLabels: [32mLabel[37m[] = [];
+          ╵                                      [32m~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2304: Cannot find name 'Color'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:268:38:
+[37m      268 │ ...c fosByNodesBarChartColors : [32mColor[37m[] = [ { backgroundColor : [...
+          ╵                                 [32m~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2304: Cannot find name 'Label'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:271:40:
+[37m      271 │     public fosByDurationBarChartLabels: [32mLabel[37m[] = [];
+          ╵                                         [32m~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2304: Cannot find name 'Color'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:273:41:
+[37m      273 │ ...osByDurationBarChartColors : [32mColor[37m[] = [ { backgroundColor : [...
+          ╵                                 [32m~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2304: Cannot find name 'Label'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:410:36:
+[37m      410 │ ...hData( arr : any[], labels : [32mLabel[37m[], dataset : ChartDataset[]...
+          ╵                                 [32m~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2304: Cannot find name 'Color'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:410:94:
+[37m      410 │ ...dataset : ChartDataset[], val : string, colors : [32mColor[37m[] ) : void
+          ╵                                                     [32m~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2349: This expression is not callable.
+  Type 'typeof moment' has no call signatures.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/search/search.component.ts:54:35:
+[37m      54 │                 const recentDate = [32mmoment[37m( data[0].endtime );
+         ╵                                    [32m~~~~~~[0m
+
+  Type originates at this import. A namespace-style import cannot be called or constructed, and will cause a failure at runtime. Consider using a default import or import require here instead.
+
+    src/app/search/search.component.ts:10:0:
+[37m      10 │ [32mimport * as moment from 'moment';[37m
+         ╵ [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[33mOne or more browsers which are configured in the project's Browserslist configuration will be ignored as ES5 output is not supported by the Angular CLI.
+Ignored browsers: kaios 2.5, op_mini all[39m[22m
+[1m[33m[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mCalling "moment" will crash at run-time because it's an import namespace object, not a function[0m [call-import-namespace]
+
+    src/app/search/search.component.ts:133:31:
+[37m      133 │             const recentDate = [32mmoment[37m(data[0].endtime);
+          ╵                                [32m~~~~~~[0m
+
+  Consider changing "moment" to a default import instead:
+
+    src/app/search/search.component.ts:9:7:
+[37m      9 │ import [32m* as moment[37m from 'moment';
+        │        [32m~~~~~~~~~~~[37m
+        ╵        [32mmoment[0m
+
+[39m[22m
+[1m[31m[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'datasets' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:71:12:
+[37m      71 │             [32m[datasets]="fosByProjBarChartData"[37m
+         ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:19:17:
+[37m      19 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'labels' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:72:12:
+[37m      72 │             [32m[labels]="fosByProjBarChartLabels"[37m
+         ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:19:17:
+[37m      19 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'options' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:73:12:
+[37m      73 │             [32m[options]="fosByProjBarChartOptions"[37m
+         ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:19:17:
+[37m      19 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'legend' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:74:12:
+[37m      74 │             [32m[legend]="fosByProjBarChartLegend"[37m
+         ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:19:17:
+[37m      19 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'chartType' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:75:12:
+[37m      75 │             [32m[chartType]="fosByProjBarChartType"[37m
+         ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:19:17:
+[37m      19 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'colors' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:76:12:
+[37m      76 │             [32m[colors]="fosByProjBarChartColors"[37m>
+         ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:19:17:
+[37m      19 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'datasets' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:82:12:
+[37m      82 │             [32m[datasets]="fosByJobBarChartData"[37m
+         ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:19:17:
+[37m      19 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'labels' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:83:12:
+[37m      83 │             [32m[labels]="fosByJobBarChartLabels"[37m
+         ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:19:17:
+[37m      19 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'options' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:84:12:
+[37m      84 │             [32m[options]="fosByJobBarChartOptions"[37m
+         ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:19:17:
+[37m      19 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'legend' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:85:12:
+[37m      85 │             [32m[legend]="fosByJobBarChartLegend"[37m
+         ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:19:17:
+[37m      19 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'chartType' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:86:12:
+[37m      86 │             [32m[chartType]="fosByJobBarChartType"[37m
+         ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:19:17:
+[37m      19 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'colors' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:87:12:
+[37m      87 │             [32m[colors]="fosByJobBarChartColors"[37m>
+         ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:19:17:
+[37m      19 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'datasets' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:97:12:
+[37m      97 │             [32m[datasets]="fosByNodesBarChartData"[37m
+         ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:19:17:
+[37m      19 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'labels' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:98:12:
+[37m      98 │             [32m[labels]="fosByNodesBarChartLabels"[37m
+         ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:19:17:
+[37m      19 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'options' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:99:12:
+[37m      99 │             [32m[options]="fosByNodesBarChartOptions"[37m
+         ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:19:17:
+[37m      19 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'legend' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:100:12:
+[37m      100 │             [32m[legend]="fosByNodesBarChartLegend"[37m
+          ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:19:17:
+[37m      19 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'chartType' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:101:12:
+[37m      101 │             [32m[chartType]="fosByNodesBarChartType"[37m
+          ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:19:17:
+[37m      19 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'colors' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:102:12:
+[37m      102 │             [32m[colors]="fosByNodesBarChartColors"[37m>
+          ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:19:17:
+[37m      19 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'datasets' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:108:12:
+[37m      108 │             [32m[datasets]="fosByDurationBarChartData"[37m
+          ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:19:17:
+[37m      19 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'labels' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:109:12:
+[37m      109 │             [32m[labels]="fosByDurationBarChartLabels"[37m
+          ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:19:17:
+[37m      19 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'options' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:110:12:
+[37m      110 │             [32m[options]="fosByDurationBarChartOptions"[37m
+          ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:19:17:
+[37m      19 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'legend' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:111:12:
+[37m      111 │             [32m[legend]="fosByDurationBarChartLegend"[37m
+          ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:19:17:
+[37m      19 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'chartType' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:112:12:
+[37m      112 │             [32m[chartType]="fosByDurationBarChartType"[37m
+          ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:19:17:
+[37m      19 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mNG8002: Can't bind to 'colors' since it isn't a known property of 'canvas'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.html:113:12:
+[37m      113 │             [32m[colors]="fosByDurationBarChartColors"[37m>
+          ╵             [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component InfoComponent.
+
+    src/app/detail/info/info.component.ts:19:17:
+[37m      19 │     templateUrl: [32m'./info.component.html'[37m,
+         ╵                  [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type '{}[]' is not assignable to type '_DeepPartialObject<{ type: "time"; } & Omit<CartesianScaleOptions, "min" | "max"> & { min: string | number; max: string | number; suggestedMin: string | number; ... 5 more ...; ticks: TimeScaleTickOptions; }> | ... 4 more ... | _DeepPartialObject<...>'.
+  Type '{}[]' is not assignable to type '_DeepPartialObject<{ type: "radialLinear"; } & CoreScaleOptions & { animate: boolean; startAngle: number; angleLines: { display: boolean; color: Scriptable<Color, ScriptableScaleContext>; lineWidth: Scriptable<...>; borderDash: Scriptable<...>; borderDashOffset: Scriptable<...>; }; ... 7 more ...; ticks: RadialTickO...'.
+    Types of property 'reverse' are incompatible.
+      Type '() => {}[]' is not assignable to type 'boolean'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:39:12:
+[37m      39 │             [32mxAxes[37m: [ { } ],
+         ╵             [32m~~~~~[0m
+
+  The expected type comes from property 'xAxes' which is declared here on type '_DeepPartialObject<{ [key: string]: ScaleOptionsByType<"radialLinear" | keyof CartesianScaleTypeRegistry>; }>'
+
+    node_modules/chart.js/dist/types/utils.d.ts:15:29:
+[37m      15 │ type _DeepPartialObject<T> = [32m{ [P in keyof T]?: DeepPartial<T[P]> }[37m;
+         ╵                              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type '{ ticks: { beginAtZero: true; callback: (value: any, index: any, values: any) => string; }; scaleLabel: { display: true; labelString: string; }; }[]' is not assignable to type '_DeepPartialObject<{ type: "time"; } & Omit<CartesianScaleOptions, "min" | "max"> & { min: string | number; max: string | number; suggestedMin: string | number; ... 5 more ...; ticks: TimeScaleTickOptions; }> | ... 4 more ... | _DeepPartialObject<...>'.
+  Type '{ ticks: { beginAtZero: true; callback: (value: any, index: any, values: any) => string; }; scaleLabel: { display: true; labelString: string; }; }[]' is not assignable to type '_DeepPartialObject<{ type: "radialLinear"; } & CoreScaleOptions & { animate: boolean; startAngle: number; angleLines: { display: boolean; color: Scriptable<Color, ScriptableScaleContext>; lineWidth: Scriptable<...>; borderDash: Scriptable<...>; borderDashOffset: Scriptable<...>; }; ... 7 more ...; ticks: RadialTickO...'.
+    Types of property 'reverse' are incompatible.
+      Type '() => { ticks: { beginAtZero: true; callback: (value: any, index: any, values: any) => string; }; scaleLabel: { display: true; labelString: string; }; }[]' is not assignable to type 'boolean'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:40:12:
+[37m      40 │             [32myAxes[37m:
+         ╵             [32m~~~~~[0m
+
+  The expected type comes from property 'yAxes' which is declared here on type '_DeepPartialObject<{ [key: string]: ScaleOptionsByType<"radialLinear" | keyof CartesianScaleTypeRegistry>; }>'
+
+    node_modules/chart.js/dist/types/utils.d.ts:15:29:
+[37m      15 │ type _DeepPartialObject<T> = [32m{ [P in keyof T]?: DeepPartial<T[P]> }[37m;
+         ╵                              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2353: Object literal may only specify known properties, and 'datalabels' does not exist in type '_DeepPartialObject<PluginOptionsByType<keyof ChartTypeRegistry>>'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:63:12:
+[37m      63 │             [32mdatalabels[37m:
+         ╵             [32m~~~~~~~~~~[0m
+
+  The expected type comes from property 'plugins' which is declared here on type '_DeepPartialObject<CoreChartOptions<keyof ChartTypeRegistry> & ElementChartOptions<keyof ChartTypeRegistry> & PluginChartOptions<...> & DatasetChartOptions<...> & ScaleChartOptions<...>>'
+
+    node_modules/chart.js/dist/types/index.d.ts:2966:2:
+[37m      2966 │   [32mplugins[37m: PluginOptionsByType<TType>;
+           ╵   [32m~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type '{}[]' is not assignable to type '_DeepPartialObject<{ type: "time"; } & Omit<CartesianScaleOptions, "min" | "max"> & { min: string | number; max: string | number; suggestedMin: string | number; ... 5 more ...; ticks: TimeScaleTickOptions; }> | ... 4 more ... | _DeepPartialObject<...>'.
+  Type '{}[]' is not assignable to type '_DeepPartialObject<{ type: "radialLinear"; } & CoreScaleOptions & { animate: boolean; startAngle: number; angleLines: { display: boolean; color: Scriptable<Color, ScriptableScaleContext>; lineWidth: Scriptable<...>; borderDash: Scriptable<...>; borderDashOffset: Scriptable<...>; }; ... 7 more ...; ticks: RadialTickO...'.
+    Types of property 'reverse' are incompatible.
+      Type '() => {}[]' is not assignable to type 'boolean'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:81:12:
+[37m      81 │             [32mxAxes[37m: [ { } ],
+         ╵             [32m~~~~~[0m
+
+  The expected type comes from property 'xAxes' which is declared here on type '_DeepPartialObject<{ [key: string]: ScaleOptionsByType<"radialLinear" | keyof CartesianScaleTypeRegistry>; }>'
+
+    node_modules/chart.js/dist/types/utils.d.ts:15:29:
+[37m      15 │ type _DeepPartialObject<T> = [32m{ [P in keyof T]?: DeepPartial<T[P]> }[37m;
+         ╵                              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type '{ ticks: { beginAtZero: true; callback: (value: any, index: any, values: any) => string; }; scaleLabel: { display: true; labelString: string; }; }[]' is not assignable to type '_DeepPartialObject<{ type: "time"; } & Omit<CartesianScaleOptions, "min" | "max"> & { min: string | number; max: string | number; suggestedMin: string | number; ... 5 more ...; ticks: TimeScaleTickOptions; }> | ... 4 more ... | _DeepPartialObject<...>'.
+  Type '{ ticks: { beginAtZero: true; callback: (value: any, index: any, values: any) => string; }; scaleLabel: { display: true; labelString: string; }; }[]' is not assignable to type '_DeepPartialObject<{ type: "radialLinear"; } & CoreScaleOptions & { animate: boolean; startAngle: number; angleLines: { display: boolean; color: Scriptable<Color, ScriptableScaleContext>; lineWidth: Scriptable<...>; borderDash: Scriptable<...>; borderDashOffset: Scriptable<...>; }; ... 7 more ...; ticks: RadialTickO...'.
+    Types of property 'reverse' are incompatible.
+      Type '() => { ticks: { beginAtZero: true; callback: (value: any, index: any, values: any) => string; }; scaleLabel: { display: true; labelString: string; }; }[]' is not assignable to type 'boolean'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:82:12:
+[37m      82 │             [32myAxes[37m:
+         ╵             [32m~~~~~[0m
+
+  The expected type comes from property 'yAxes' which is declared here on type '_DeepPartialObject<{ [key: string]: ScaleOptionsByType<"radialLinear" | keyof CartesianScaleTypeRegistry>; }>'
+
+    node_modules/chart.js/dist/types/utils.d.ts:15:29:
+[37m      15 │ type _DeepPartialObject<T> = [32m{ [P in keyof T]?: DeepPartial<T[P]> }[37m;
+         ╵                              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2353: Object literal may only specify known properties, and 'datalabels' does not exist in type '_DeepPartialObject<PluginOptionsByType<keyof ChartTypeRegistry>>'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:106:12:
+[37m      106 │             [32mdatalabels[37m:
+          ╵             [32m~~~~~~~~~~[0m
+
+  The expected type comes from property 'plugins' which is declared here on type '_DeepPartialObject<CoreChartOptions<keyof ChartTypeRegistry> & ElementChartOptions<keyof ChartTypeRegistry> & PluginChartOptions<...> & DatasetChartOptions<...> & ScaleChartOptions<...>>'
+
+    node_modules/chart.js/dist/types/index.d.ts:2966:2:
+[37m      2966 │   [32mplugins[37m: PluginOptionsByType<TType>;
+           ╵   [32m~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type '{}[]' is not assignable to type '_DeepPartialObject<{ type: "time"; } & Omit<CartesianScaleOptions, "min" | "max"> & { min: string | number; max: string | number; suggestedMin: string | number; ... 5 more ...; ticks: TimeScaleTickOptions; }> | ... 4 more ... | _DeepPartialObject<...>'.
+  Type '{}[]' is not assignable to type '_DeepPartialObject<{ type: "radialLinear"; } & CoreScaleOptions & { animate: boolean; startAngle: number; angleLines: { display: boolean; color: Scriptable<Color, ScriptableScaleContext>; lineWidth: Scriptable<...>; borderDash: Scriptable<...>; borderDashOffset: Scriptable<...>; }; ... 7 more ...; ticks: RadialTickO...'.
+    Types of property 'reverse' are incompatible.
+      Type '() => {}[]' is not assignable to type 'boolean'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:143:12:
+[37m      143 │             [32mxAxes[37m: [ { } ],
+          ╵             [32m~~~~~[0m
+
+  The expected type comes from property 'xAxes' which is declared here on type '_DeepPartialObject<{ [key: string]: ScaleOptionsByType<"radialLinear" | keyof CartesianScaleTypeRegistry>; }>'
+
+    node_modules/chart.js/dist/types/utils.d.ts:15:29:
+[37m      15 │ type _DeepPartialObject<T> = [32m{ [P in keyof T]?: DeepPartial<T[P]> }[37m;
+         ╵                              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type '{ ticks: { beginAtZero: true; callback: (value: any, index: any, values: any) => string; }; scaleLabel: { display: true; labelString: string; }; }[]' is not assignable to type '_DeepPartialObject<{ type: "time"; } & Omit<CartesianScaleOptions, "min" | "max"> & { min: string | number; max: string | number; suggestedMin: string | number; ... 5 more ...; ticks: TimeScaleTickOptions; }> | ... 4 more ... | _DeepPartialObject<...>'.
+  Type '{ ticks: { beginAtZero: true; callback: (value: any, index: any, values: any) => string; }; scaleLabel: { display: true; labelString: string; }; }[]' is not assignable to type '_DeepPartialObject<{ type: "radialLinear"; } & CoreScaleOptions & { animate: boolean; startAngle: number; angleLines: { display: boolean; color: Scriptable<Color, ScriptableScaleContext>; lineWidth: Scriptable<...>; borderDash: Scriptable<...>; borderDashOffset: Scriptable<...>; }; ... 7 more ...; ticks: RadialTickO...'.
+    Types of property 'reverse' are incompatible.
+      Type '() => { ticks: { beginAtZero: true; callback: (value: any, index: any, values: any) => string; }; scaleLabel: { display: true; labelString: string; }; }[]' is not assignable to type 'boolean'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:144:12:
+[37m      144 │             [32myAxes[37m:
+          ╵             [32m~~~~~[0m
+
+  The expected type comes from property 'yAxes' which is declared here on type '_DeepPartialObject<{ [key: string]: ScaleOptionsByType<"radialLinear" | keyof CartesianScaleTypeRegistry>; }>'
+
+    node_modules/chart.js/dist/types/utils.d.ts:15:29:
+[37m      15 │ type _DeepPartialObject<T> = [32m{ [P in keyof T]?: DeepPartial<T[P]> }[37m;
+         ╵                              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2353: Object literal may only specify known properties, and 'datalabels' does not exist in type '_DeepPartialObject<PluginOptionsByType<keyof ChartTypeRegistry>>'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:167:12:
+[37m      167 │             [32mdatalabels[37m:
+          ╵             [32m~~~~~~~~~~[0m
+
+  The expected type comes from property 'plugins' which is declared here on type '_DeepPartialObject<CoreChartOptions<keyof ChartTypeRegistry> & ElementChartOptions<keyof ChartTypeRegistry> & PluginChartOptions<...> & DatasetChartOptions<...> & ScaleChartOptions<...>>'
+
+    node_modules/chart.js/dist/types/index.d.ts:2966:2:
+[37m      2966 │   [32mplugins[37m: PluginOptionsByType<TType>;
+           ╵   [32m~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type '{}[]' is not assignable to type '_DeepPartialObject<{ type: "time"; } & Omit<CartesianScaleOptions, "min" | "max"> & { min: string | number; max: string | number; suggestedMin: string | number; ... 5 more ...; ticks: TimeScaleTickOptions; }> | ... 4 more ... | _DeepPartialObject<...>'.
+  Type '{}[]' is not assignable to type '_DeepPartialObject<{ type: "radialLinear"; } & CoreScaleOptions & { animate: boolean; startAngle: number; angleLines: { display: boolean; color: Scriptable<Color, ScriptableScaleContext>; lineWidth: Scriptable<...>; borderDash: Scriptable<...>; borderDashOffset: Scriptable<...>; }; ... 7 more ...; ticks: RadialTickO...'.
+    Types of property 'reverse' are incompatible.
+      Type '() => {}[]' is not assignable to type 'boolean'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:204:12:
+[37m      204 │             [32mxAxes[37m: [ { } ],
+          ╵             [32m~~~~~[0m
+
+  The expected type comes from property 'xAxes' which is declared here on type '_DeepPartialObject<{ [key: string]: ScaleOptionsByType<"radialLinear" | keyof CartesianScaleTypeRegistry>; }>'
+
+    node_modules/chart.js/dist/types/utils.d.ts:15:29:
+[37m      15 │ type _DeepPartialObject<T> = [32m{ [P in keyof T]?: DeepPartial<T[P]> }[37m;
+         ╵                              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2322: Type '{ ticks: { beginAtZero: true; callback: (value: any, index: any, values: any) => string; }; scaleLabel: { display: true; labelString: string; }; }[]' is not assignable to type '_DeepPartialObject<{ type: "time"; } & Omit<CartesianScaleOptions, "min" | "max"> & { min: string | number; max: string | number; suggestedMin: string | number; ... 5 more ...; ticks: TimeScaleTickOptions; }> | ... 4 more ... | _DeepPartialObject<...>'.
+  Type '{ ticks: { beginAtZero: true; callback: (value: any, index: any, values: any) => string; }; scaleLabel: { display: true; labelString: string; }; }[]' is not assignable to type '_DeepPartialObject<{ type: "radialLinear"; } & CoreScaleOptions & { animate: boolean; startAngle: number; angleLines: { display: boolean; color: Scriptable<Color, ScriptableScaleContext>; lineWidth: Scriptable<...>; borderDash: Scriptable<...>; borderDashOffset: Scriptable<...>; }; ... 7 more ...; ticks: RadialTickO...'.
+    Types of property 'reverse' are incompatible.
+      Type '() => { ticks: { beginAtZero: true; callback: (value: any, index: any, values: any) => string; }; scaleLabel: { display: true; labelString: string; }; }[]' is not assignable to type 'boolean'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:205:12:
+[37m      205 │             [32myAxes[37m:
+          ╵             [32m~~~~~[0m
+
+  The expected type comes from property 'yAxes' which is declared here on type '_DeepPartialObject<{ [key: string]: ScaleOptionsByType<"radialLinear" | keyof CartesianScaleTypeRegistry>; }>'
+
+    node_modules/chart.js/dist/types/utils.d.ts:15:29:
+[37m      15 │ type _DeepPartialObject<T> = [32m{ [P in keyof T]?: DeepPartial<T[P]> }[37m;
+         ╵                              [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2353: Object literal may only specify known properties, and 'datalabels' does not exist in type '_DeepPartialObject<PluginOptionsByType<keyof ChartTypeRegistry>>'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:228:12:
+[37m      228 │             [32mdatalabels[37m:
+          ╵             [32m~~~~~~~~~~[0m
+
+  The expected type comes from property 'plugins' which is declared here on type '_DeepPartialObject<CoreChartOptions<keyof ChartTypeRegistry> & ElementChartOptions<keyof ChartTypeRegistry> & PluginChartOptions<...> & DatasetChartOptions<...> & ScaleChartOptions<...>>'
+
+    node_modules/chart.js/dist/types/index.d.ts:2966:2:
+[37m      2966 │   [32mplugins[37m: PluginOptionsByType<TType>;
+           ╵   [32m~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2304: Cannot find name 'Label'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:255:36:
+[37m      255 │     public fosByProjBarChartLabels: [32mLabel[37m[] = [];
+          ╵                                     [32m~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2304: Cannot find name 'Color'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:257:37:
+[37m      257 │ ...ic fosByProjBarChartColors : [32mColor[37m[] = [ { backgroundColor : [...
+          ╵                                 [32m~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2304: Cannot find name 'Label'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:260:35:
+[37m      260 │     public fosByJobBarChartLabels: [32mLabel[37m[] = [];
+          ╵                                    [32m~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2304: Cannot find name 'Color'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:262:36:
+[37m      262 │ ...lic fosByJobBarChartColors : [32mColor[37m[] = [ { backgroundColor : [...
+          ╵                                 [32m~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2304: Cannot find name 'Label'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:265:37:
+[37m      265 │     public fosByNodesBarChartLabels: [32mLabel[37m[] = [];
+          ╵                                      [32m~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2304: Cannot find name 'Color'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:267:38:
+[37m      267 │ ...c fosByNodesBarChartColors : [32mColor[37m[] = [ { backgroundColor : [...
+          ╵                                 [32m~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2304: Cannot find name 'Label'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:270:40:
+[37m      270 │     public fosByDurationBarChartLabels: [32mLabel[37m[] = [];
+          ╵                                         [32m~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2304: Cannot find name 'Color'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:272:41:
+[37m      272 │ ...osByDurationBarChartColors : [32mColor[37m[] = [ { backgroundColor : [...
+          ╵                                 [32m~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2304: Cannot find name 'Label'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:409:36:
+[37m      409 │ ...hData( arr : any[], labels : [32mLabel[37m[], dataset : ChartDataset[]...
+          ╵                                 [32m~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2304: Cannot find name 'Color'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/detail/info/info.component.ts:409:94:
+[37m      409 │ ...dataset : ChartDataset[], val : string, colors : [32mColor[37m[] ) : void
+          ╵                                                     [32m~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2349: This expression is not callable.
+  Type 'typeof moment' has no call signatures.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/search/search.component.ts:54:35:
+[37m      54 │                 const recentDate = [32mmoment[37m( data[0].endtime );
+         ╵                                    [32m~~~~~~[0m
+
+  Type originates at this import. A namespace-style import cannot be called or constructed, and will cause a failure at runtime. Consider using a default import or import require here instead.
+
+    src/app/search/search.component.ts:10:0:
+[37m      10 │ [32mimport * as moment from 'moment';[37m
+         ╵ [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[39m[22m

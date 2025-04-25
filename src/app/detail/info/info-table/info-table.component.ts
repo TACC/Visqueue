@@ -1,9 +1,11 @@
 import { Component, OnInit, ViewChild, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatSort, MatSortModule } from '@angular/material/sort';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
 import { SunburstDialogComponent } from 'src/app/sunburst-dialog/sunburst-dialog.component';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 export interface TableInfoElement 
 {
@@ -24,7 +26,14 @@ export interface TableInfoElement
 @Component({
     selector: 'app-info-table',
     templateUrl: './info-table.component.html',
-    styleUrls: ['./info-table.component.scss']
+    styleUrls: ['./info-table.component.scss'],
+    imports: [ 
+        CommonModule,
+        MatSort, 
+        MatPaginator,
+        MatTableModule,
+        MatSortModule,
+        RouterModule ],
 })
 export class InfoTableComponent implements OnInit, OnChanges {
 

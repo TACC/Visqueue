@@ -1,14 +1,17 @@
+
+/* TODO(mdc-migration): The following rule targets internal classes of paginator that may no longer apply for the MDC version. */
 table,
 mat-paginator
 {
     width: 70%;
 }
 
-tr.mat-row:nth-child( even )
+tr.mat-mdc-row:nth-child( even )
 {
     background-color: rgba( 0, 0, 0, .05 );
 }
 
+/* TODO(mdc-migration): The following rule targets internal classes of progress-bar that may no longer apply for the MDC version. */
 mat-progress-bar
 {
     margin: 30px 0px;

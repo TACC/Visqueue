@@ -1,9 +1,69 @@
+div.flex-container
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+div.flex-column
+{
+    display: flex;
+    flex-direction: column;
+    margin: 0px 5vw;
+    text-align: center;
+}
+
+/* TODO(mdc-migration): The following rule targets internal classes of card that may no longer apply for the MDC version. */
 mat-card
 {
     text-align: center;
+    flex: 1 1 100%;
+    max-width: 20%;
 }
 
 app-info-map
 {
     margin: 50px 0px;
+}
+
+mat-card-title
+{
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+mat-card-subtitle
+{
+    font-size: 1.2em;
+    font-weight: 400;
+}
+
+mat-card.jcc
+{   display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+mat-button-toggle-group
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+mat-button-toggle
+{
+    flex: 1 1 100%;
+}
+
+div.space-around
+{
+    justify-content: space-around;
+}
+
+div.chart-element
+{
+
+    flex: 1 1 100%;
+    margin: 0px 30px;
 }

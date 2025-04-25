@@ -1,11 +1,17 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
-import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
-import { Label, Color } from 'ng2-charts';
+import { ChartConfiguration, ChartData, ChartOptions } from 'chart.js';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { InfoTableComponent } from './info-table/info-table.component';
 import { InfoService } from './info.service';
 import { ColorService } from 'src/app/color.service';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
+import { CommonModule } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { BaseChartDirective } from 'ng2-charts';
+import { TimeSeriesGraphComponent } from './time-series-graph/time-series-graph.component';
+import { InfoMapComponent } from './info-map/info-map.component';
 
 enum JobsDisplay 
 {
@@ -15,305 +21,52 @@ enum JobsDisplay
 
 
 @Component({
-    selector    : 'app-info',
-    templateUrl : './info.component.html',
-    styleUrls   : ['./info.component.scss'],
-    providers   : [ InfoService ] 
+    selector: 'app-info',
+    templateUrl: './info.component.html',
+    styleUrls: ['./info.component.scss'],
+    imports: [ 
+        CommonModule,
+        BaseChartDirective,
+        MatCardModule,
+        MatButtonToggleModule,
+        TimeSeriesGraphComponent,
+        InfoTableComponent,
+        InfoMapComponent
+    ],
+    providers: [InfoService]
 })
 export class InfoComponent implements OnInit
 {
-
+    @ViewChildren(BaseChartDirective) charts: QueryList<BaseChartDirective>;
     @ViewChild(InfoTableComponent) infotable;
 
-    public fosByProjBarChartOptions : ChartOptions = 
-    {
-        title : 
-        { 
-            display : true,
-            text    : 'Primary Field of Sciences by # of Projects'
-        },
-        responsive : true,
-        // We use these empty structures as placeholders for dynamic theming.
-        scales: {
-            xAxes: [ { } ],
-            yAxes: 
-            [ 
-                { 
-                    ticks : 
-                    { 
-                        beginAtZero : true,
-                        callback : function(value, index, values )
-                        {
-                            let valStr = <string> value;
+    public fosByProjBarChartOptions     : ChartConfiguration['options'] = {};
+    public fosByJobBarChartOptions      : ChartConfiguration['options'] = {};
+    public fosByNodesBarChartOptions    : ChartConfiguration['options'] = {};
+    public fosByDurationBarChartOptions : ChartConfiguration['options'] = {};
 
-                            return parseInt(valStr).toLocaleString();
-                        }
-                    }, 
-                    scaleLabel : 
-                    { 
-                        display : true, 
-                        labelString : '# Projects' 
-                    }
-                }
-            ]
-        },
-        plugins:
-        {
-            datalabels:
-            {
-                anchor: 'end',
-                align: 'end',
-            }
-        }
-    };
+    public fosByProjBarChartData:     ChartData<'bar'> = { labels: [], datasets: [] };
+    public fosByJobBarChartData:      ChartData<'bar'> = { labels: [], datasets: [] };
+    public fosByNodesBarChartData:    ChartData<'bar'> = { labels: [], datasets: [] };
+    public fosByDurationBarChartData: ChartData<'bar'> = { labels: [], datasets: [] };
 
-    public fosByJobBarChartOptions : ChartOptions = 
-    {
-        title : 
-        { 
-            display : true,
-            text    : 'Primary Field of Sciences by # of Jobs'
-        },
-        responsive : true,
-        // We use these empty structures as placeholders for dynamic theming.
-        scales: {
-            xAxes: [ { } ],
-            yAxes: 
-            [ 
-                { 
-                    ticks : 
-                    { 
-                        beginAtZero : true,
-                        callback : function( value, index, values )
-                        {
-                            let valStr = <string> value;
-
-                            return parseInt(valStr).toLocaleString();
-
-                        }
-                    }, 
-                    scaleLabel : 
-                    { 
-                        display : true, 
-                        labelString : '# Jobs' 
-                    }
-                }
-            ]
-        },
-        plugins:
-        {
-            datalabels:
-            {
-                anchor: 'end',
-                align: 'end',
-            }
-        },
-        tooltips : 
-        {
-            callbacks : 
-            {
-                label : function( tooltipItem, data )
-                {   
-                    let label = data.datasets[tooltipItem.datasetIndex].label || '';
-
-                    if (label) 
-                    {
-                        label += ': ';
-                    }
-                    
-                    label +=  parseInt( <string>tooltipItem.yLabel ).toLocaleString();;
-                
-                    return label;
-                }
-            }
-        }
-    };
-
-    public fosByNodesBarChartOptions : ChartOptions = 
-    {
-        title : 
-        { 
-            display : true,
-            text    : 'Primary Field of Sciences by # of Nodes'
-        },
-        responsive : true,
-        // We use these empty structures as placeholders for dynamic theming.
-        scales: {
-            xAxes: [ { } ],
-            yAxes: 
-            [ 
-                { 
-                    ticks : 
-                    { 
-                        beginAtZero : true,
-                        callback : function( value, index, values )
-                        {
-                            let valStr = <string> value;
-
-                            return parseInt(valStr).toLocaleString();
-                        } 
-                    }, 
-                    scaleLabel : 
-                    { 
-                        display : true, 
-                        labelString : '# Nodes' 
-                    } 
-                }
-            ]
-        },
-        plugins:
-        {
-            datalabels:
-            {
-                anchor: 'end',
-                align: 'end',
-            }
-        },
-        tooltips : 
-        {
-            callbacks : 
-            {
-                label : function( tooltipItem, data )
-                {   
-                    let label = data.datasets[tooltipItem.datasetIndex].label || '';
-
-                    if (label) 
-                    {
-                        label += ': ';
-                    }
-                    
-                    label +=  parseInt( <string>tooltipItem.yLabel ).toLocaleString();;
-                
-                    return label;
-                }
-            }
-        }
-    };
-
-    public fosByDurationBarChartOptions : ChartOptions = 
-    {
-        title : 
-        { 
-            display : true,
-            text    : 'Primary Field of Sciences by Duration'
-        },
-        responsive : true,
-        // We use these empty structures as placeholders for dynamic theming.
-        scales: {
-            xAxes: [ { } ],
-            yAxes: 
-            [ 
-                { 
-                    ticks : 
-                    { 
-                        beginAtZero : true,
-                        callback : function( value, index, values )
-                        {
-                            let valStr = <string> value;
-
-                            return parseInt(valStr).toLocaleString();
-                        } 
-                    }, 
-                    scaleLabel : 
-                    { 
-                        display : true, 
-                        labelString : 'Duration (Hours)' 
-                    } 
-                }
-            ]
-        },
-        plugins:
-        {
-            datalabels:
-            {
-                anchor: 'end',
-                align: 'end',
-            }
-        },
-        tooltips : 
-        {
-            callbacks : 
-            {
-                label : function( tooltipItem, data )
-                {   
-                    let label = data.datasets[tooltipItem.datasetIndex].label || '';
-
-                    if (label) 
-                    {
-                        label += ': ';
-                    }
-                    
-                    label +=  parseInt( <string>tooltipItem.yLabel ).toLocaleString();;
-                
-                    return label;
-                }
-            }
-        }
-    };
-
-    public fosByProjBarChartLabels: Label[] = [];
-    public fosByProjBarChartType: ChartType = 'bar';
-    public fosByProjBarChartColors : Color[] = [ { backgroundColor : [] } ];
-    public fosByProjBarChartLegend = false;
-
-    public fosByJobBarChartLabels: Label[] = [];
-    public fosByJobBarChartType: ChartType = 'bar';
-    public fosByJobBarChartColors : Color[] = [ { backgroundColor : [] } ];
-    public fosByJobBarChartLegend = false;
-
-    public fosByNodesBarChartLabels: Label[] = [];
-    public fosByNodesBarChartType: ChartType = 'bar';
-    public fosByNodesBarChartColors : Color[] = [ { backgroundColor : [] } ];
-    public fosByNodesBarChartLegend = false;
-
-    public fosByDurationBarChartLabels: Label[] = [];
-    public fosByDurationBarChartType: ChartType = 'bar';
-    public fosByDurationBarChartColors : Color[] = [ { backgroundColor : [] } ];
-    public fosByDurationBarChartLegend = false;
-
-    public fosByProjBarChartData: ChartDataSets[] = [
-        {
-            label : '# Projects',
-            data : []
-        }
-    ];
-
-    public fosByJobBarChartData: ChartDataSets[] = [
-        {
-            label : '# Jobs',
-            data : []
-        }
-    ];
-
-    public fosByNodesBarChartData: ChartDataSets[] = [
-        {
-            label : '# Nodes',
-            data : []
-        }
-    ];
-
-    public fosByDurationBarChartData: ChartDataSets[] = [
-        {
-            label : 'Duration(Hours)',
-            data : []
-        }
-    ];
-
-    fosTotal     : number;
-    projTotal    : number;
-    jobTotal     : number;
-    jobCompleted : number;
-    instTotal    : number;
-    hrsTotal     : number;
-    timestamp    : string;
-    
-    JobsDisplayEnum  =  JobsDisplay;
-    jobVal : JobsDisplay;
-
-    fosTableData : any;
-    fosMapData   : any;
+    public barChartLegend = false;
 
     system : string;
+
+    timestamp : string;
+
+    JobsDisplayEnum  =  JobsDisplay;
+    jobVal: JobsDisplay;
+    jobTotal: number;
+    jobCompleted: number;
+
+    hrsTotal     : number;
+    projTotal    : number;
+    instTotal    : number;
+
+    fosTableData : any[ ] = [];
+    fosMapData   : any[ ] = [];
 
     constructor(
         private apiService   : ApiService,
@@ -323,6 +76,10 @@ export class InfoComponent implements OnInit
 
     ngOnInit()
     {
+        this.fosByProjBarChartOptions     = this.getBarChartOptions( 'Field of Science by # of Projects', 'Field of Science', '# Projects' );
+        this.fosByJobBarChartOptions      = this.getBarChartOptions( 'Field of Science by # of Jobs', 'Field of Science', '# Jobs' );
+        this.fosByNodesBarChartOptions    = this.getBarChartOptions( 'Field of Science by # of Nodes', 'Field of Science', '# Nodes' );
+        this.fosByDurationBarChartOptions = this.getBarChartOptions( 'Field of Science by Duration', 'Field of Science', 'Duration (Hours)' );
 
         this.route.paramMap.subscribe( (params : ParamMap ) =>
         {
@@ -330,16 +87,26 @@ export class InfoComponent implements OnInit
             this.system = params.get('name');
 
             this.apiService.postInfo( params.get('name') )
-                .subscribe( ( data : any ) =>
+            .subscribe({
+                next: ( data : any ) =>
                 {
 
-                    this.timestamp = data.timestamp;
+                    data.fos_info.forEach( ( value ) =>
+                        {
+                            value.duration = value.sec_total;
+        
+                            // convert from seconds to minutes
+                            value.duration = value.duration / 60;
+                            
+                            // convert from minutes to hours
+                            value.duration = value.duration / 60;
+                            
+                    });
 
+                    this.timestamp = data.timestamp;  
+                
                     this.jobTotal        = data.job_total;
                     this.jobCompleted    = data.job_completed;
-
-                    this.projTotal       = data.proj_total;
-                    this.instTotal       = data.inst_total;
 
                     this.hrsTotal  = data.sec_total;
 
@@ -348,49 +115,92 @@ export class InfoComponent implements OnInit
                     
                     // convert from minutes to hours
                     this.hrsTotal = this.hrsTotal / 60;
-                    
-                    data.fos_info.forEach( ( value, index ) =>
-                    {
-                        value.duration = value.sec_total;
 
-                        // convert from seconds to minutes
-                        value.duration = value.duration / 60;
-                        
-                        // convert from minutes to hours
-                        value.duration = value.duration / 60;
-                        
-                    });
+                    this.projTotal = data.proj_total;
 
-                    let fosByProjData     = [ ...data.fos_info ];
-                    let fosByJobData      = [ ...data.fos_info ];
-                    let fosByNodesData    = [ ...data.fos_info ];
-                    let fosByDurationData = [ ...data.fos_info ];
+                    this.instTotal = data.inst_total;
 
+
+                    // fos by projects bar chart
+                    let fosByProjData     = [ ...data.fos_info ]; 
 
                     fosByProjData = this.sortArr( fosByProjData, 'proj_total' );
-                    this.pushData( fosByProjData, this.fosByProjBarChartLabels, this.fosByProjBarChartData, 'proj_total', this.fosByProjBarChartColors );
+
+                    this.fosByProjBarChartData.labels   = fosByProjData.map( ( d : any ) => d.abbrev );
+                    
+                    this.fosByProjBarChartData.datasets = [
+                    {
+                        data: fosByProjData.map( ( d : any ) => d.proj_total ),
+                        backgroundColor : fosByProjData.map( ( d : any ) => this.colorService.getColorAbbrev( d.abbrev ) ),
+                    }];
+
+                    // fos By Jobs Bar Chart
+                    let fosByJobData      = [ ...data.fos_info ];
 
                     fosByJobData = this.sortArr( fosByJobData, 'job_total' );
-                    this.pushData( fosByJobData, this.fosByJobBarChartLabels, this.fosByJobBarChartData, 'job_total', this.fosByJobBarChartColors );
+
+                    this.fosByJobBarChartData.labels = fosByJobData.map( ( d : any ) => d.abbrev );
+                    
+                    this.fosByJobBarChartData.datasets = [
+                        {
+                            data: fosByJobData.map( ( d : any ) => d.job_total ),
+                            backgroundColor : fosByJobData.map( ( d : any ) => this.colorService.getColorAbbrev( d.abbrev ) ),
+                        }
+
+                    ];
+
+                    // fos By Nodes Bar Chart
+                    let fosByNodesData     = [ ...data.fos_info ];                        
 
                     fosByNodesData = this.sortArr( fosByNodesData, 'node_total' );
-                    this.pushData( fosByNodesData, this.fosByNodesBarChartLabels, this.fosByNodesBarChartData, 'node_total', this.fosByNodesBarChartColors );
+
+                    this.fosByNodesBarChartData.labels = fosByNodesData.map( ( d : any ) => d.abbrev );
+                                        
+                    this.fosByNodesBarChartData.datasets = [
+                        {
+                            data: fosByNodesData.map( ( d : any ) => d.node_total ),
+                            backgroundColor : fosByNodesData.map( ( d : any ) => this.colorService.getColorAbbrev( d.abbrev ) ),
+                        }
+
+                    ];
+
+                    // fos By Duration Bar Chart
+                    let fosByDurationData     = [ ...data.fos_info ];                        
 
                     fosByDurationData = this.sortArr( fosByDurationData, 'duration' );
-                    this.pushData( fosByDurationData, this.fosByDurationBarChartLabels, this.fosByDurationBarChartData, 'duration', this.fosByDurationBarChartColors );
 
-                    this.fosMapData = data.inst_info;
+                    this.fosByDurationBarChartData.labels = fosByDurationData.map( ( d : any ) => d.abbrev );
+                                        
+                    this.fosByDurationBarChartData.datasets = [
+                        {
+                            data: fosByDurationData.map( ( d : any ) => d.duration ),
+                            backgroundColor : fosByDurationData.map( ( d : any ) => this.colorService.getColorAbbrev( d.abbrev ) ),
+                        }
+
+                    ];
+
+
+                    // table and map data
                     this.fosTableData = data.proj_info;
+                    this.fosMapData = data.inst_info;
 
-                    this.jobVal = JobsDisplay.Total;
-
-                } );
-
+                },
+                error: ( error : any ) =>
+                {
+                    console.log( 'Error: ', error );
+                },
+                complete: () =>
+                {
+                    this.charts.forEach(chart => {
+                        chart.chart?.update();
+                    });
+                }
             });
 
+
+        });
+
     }
-
-
 
     jobsText(newEnum : any ) : void
     {
@@ -405,23 +215,45 @@ export class InfoComponent implements OnInit
         });
     }
 
-    pushData( arr : any[], labels : Label[], dataset : ChartDataSets[], val : string, colors : Color[] ) : void
+    getBarChartOptions( titleText : string, xAxisText : string, yAxisText : string) : ChartOptions<'bar'> 
     {
-        let colorArr = [];
-
-        arr.forEach( ( value, index ) =>
-        {
-
-            let abbrev = arr[ index ][ 'abbrev' ];
-
-            dataset[0].data.push( arr[ index ][ val ] );
-            
-            labels.push( abbrev );
-            colorArr.push( this.colorService.getColorAbbrev( abbrev ) );
-
-        });
-
-        colors[0].backgroundColor = colorArr;
+         return {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: titleText,
+                },
+                datalabels: {
+                    anchor: 'end',
+                    align: 'end',
+                },
+            },
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: xAxisText,
+                    },
+                },
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        callback: function (value) {
+                            return parseInt(value as string).toLocaleString();
+                        },
+                    },
+                    title: {
+                        display: true,
+                        text: yAxisText,
+                    },
+                },
+            },
+         } as ChartOptions<'bar'>;
     }
 
 }

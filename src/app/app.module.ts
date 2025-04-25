@@ -1,18 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 
-import { ChartsModule } from 'ng2-charts';
-import { LeafletModule } from '@asymmetrik/ngx-leaflet';
-import { PlotlyViaCDNModule } from "angular-plotly.js";
+import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
+import { LeafletModule } from '@bluehalo/ngx-leaflet';
 
-PlotlyViaCDNModule.setPlotlyVersion('2.12.1'); // can be `latest` or any version number (i.e.: '1.40.0')
-PlotlyViaCDNModule.setPlotlyBundle('basic'); // optional: can be null (for full) or 'basic', 'cartesian', 'geo', 'gl3d', 'gl2d', 'mapbox' or 'finance'
+import * as PlotlyJS from 'plotly.js-dist-min';
+import { PlotlyModule } from 'angular-plotly.js';
 
+PlotlyModule.plotlyjs = PlotlyJS;
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,41 +34,37 @@ import { TimeSeriesGraphComponent } from './detail/info/time-series-graph/time-s
 import { NodeExplorerComponent } from './detail/info/node-explorer/node-explorer.component';
 
 
-@NgModule({
-    declarations: [
+@NgModule({ declarations: [
         AppComponent,
-        SunburstComponent,
         HomepageComponent,
-        SunburstTableComponent,
         DetailComponent,
         SearchComponent,
         JobDurationPipe,
         BarChartComponent,
-        InfoComponent,
-        InfoTableComponent,
-        InfoMapComponent,
         SunburstDialogComponent,
-        ToolbarComponent,
         FooterComponent,
-        TimeSeriesGraphComponent,
         NodeExplorerComponent
     ],
-    imports: [
-        CommonModule,
+    bootstrap: [AppComponent], 
+    imports: [CommonModule,
         BrowserModule,
-        HttpClientModule,
         BrowserAnimationsModule,
-        FlexLayoutModule,
         FormsModule,
         ReactiveFormsModule,
         MatMomentDateModule,
         AngularMaterialModule,
-        ChartsModule,
         LeafletModule,
-        PlotlyViaCDNModule,
-        AppRoutingModule
-    ],
-    providers: [],
-    bootstrap: [AppComponent]
-})
+        PlotlyModule,
+        ToolbarComponent,
+        InfoComponent,
+        SunburstComponent,
+        SunburstTableComponent,
+        TimeSeriesGraphComponent,
+        InfoTableComponent,
+        InfoMapComponent,
+        AppRoutingModule], 
+    providers: 
+        [provideHttpClient(withInterceptorsFromDi()),
+         provideCharts(withDefaultRegisterables())   
+        ] })
 export class AppModule { }

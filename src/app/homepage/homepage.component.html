@@ -1,16 +1,6 @@
-<div fxLayout="row" fxLayoutAlign="space-around stretch">
-    
-    <div fxLayout="column" fxFlex="45">
-    
-        <app-sunburst dataSrc="stampede3" heightCont="55vh" [showUpper]="true"></app-sunburst>
-        <app-sunburst-table heightCont="30vh" dataSrc="stampede3" [searchActive]="false"></app-sunburst-table>
-    </div>
-    
-    <div fxLayout="column" fxFlex="45">
-        
-        <app-sunburst dataSrc="frontera" heightCont="55vh" [showUpper]="true"></app-sunburst>
-        <app-sunburst-table heightCont="30vh" dataSrc="frontera" [searchActive]="false"></app-sunburst-table>
-    
-    </div>
-
+<div class="flex-container">
+    <app-sunburst dataSrc="stampede3" heightCont="55vh" [showUpper]="true" [showLower]="true"></app-sunburst>
+    <app-sunburst dataSrc="frontera" heightCont="55vh" [showUpper]="true" [showLower]="true"></app-sunburst>
 </div>
+
+    

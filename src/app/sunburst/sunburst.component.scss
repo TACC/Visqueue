@@ -1,26 +1,25 @@
-p, h3
-{
-    text-align: center;
-}
-
 img 
 {
     width  : auto;
-    height : 5vh;
+    height : 10vh;
 }
 
-mat-divider
+.flex-container
 {
-    border-top-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
-div#upperContainer
+@media screen and (max-width: 650px) 
 {
-    padding: 10px 0px;
-}
 
-a#exploreLink
-{
-    background-color: #f4f4f4;
-    font-weight: normal;
+    .flex-container
+    {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+    
 }

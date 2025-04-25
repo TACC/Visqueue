@@ -1,24 +1,21 @@
-<div *ngIf="showUpper" id="upperContainer" fxLayout="row" fxLayoutAlign="space-around center">
-
-    <img src="../assets/images/{{ dataSrc }}.png" alt="System Logo for {{ dataSrc }}">
-
-    <div id="dataContainer" class="mat-small" fxLayout="row" fxLayoutAlign="space-around center">
-        {{ fosCount }} Fields of Science &nbsp; &nbsp; | &nbsp; &nbsp; {{ jobCount }} Jobs &nbsp; &nbsp; | &nbsp; &nbsp; {{ utilization | percent }} Utilization
+<div>
+    <div class="flex-container" *ngIf="showUpper">
+        <img src="../assets/images/{{ dataSrc }}.png" alt="System Logo for {{ dataSrc }}">
     </div>
+    <div class="flex-container" *ngIf="showLower">
+        <div> {{ jobCount }} Jobs </div>
+        <div> {{ utilization | percent: '.2' }} Utilization </div>
+        <a mat-raised-button routerLink="/detail/{{ dataSrc }}"> {{dataSrc | uppercase }} ></a>
 
-    <a id="exploreLink" class="mat-body" mat-stroked-button routerLink="/detail/{{ dataSrc }}"> Explore More {{dataSrc}} ></a>
-
+    </div>
 </div>
-
-
-<mat-divider *ngIf="showUpper"></mat-divider>
 
 <div class="graphCont" #graphCont></div>
 
-<div fxLayout="row" fxLayoutAlign="space-around center" >
-    <span class="mat-body-strong"> 
+<div class="flex-container">
+    <div class="mat-body-strong"> 
         <i>
             timestamp : {{ timestamp | date : 'medium' }}
         </i>
-    </span>
+    </div>
 </div>

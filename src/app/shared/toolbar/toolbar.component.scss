@@ -1,13 +1,38 @@
+@use '@angular/material' as mat;
+
+// Customize the entire app. Change :root to your selector if you want to scope the styles.
+:root {
+    @include mat.toolbar-overrides((
+      container-background-color: orange,
+      container-text-color: red,
+    ));
+  }
+
+.mat-toolbar .mat-mdc-button-base.mat-mdc-button-base.mat-unthemed{
+
+    --mdc-text-button-label-text-color: white;
+}
+
+
 mat-toolbar
 {
     background: #5d5d60;
-    color: #fbf8f8;
     padding: 0px 50px;
 }
 
 mat-toolbar > *
 {
     padding: 0px 40px;
+}
+
+mat-toolbar > a[mat-icon-button] > ng-icon
+{
+    width: 35px;
+    height: 35px;;
+    position: relative;
+    right: 17px;
+    top: 5px;
+    color: white;
 }
 
 span.fill-space
@@ -17,5 +42,5 @@ span.fill-space
 
 .toolbar-buttons
 {
-    font : 500 20px/32px Roboto,"Helvetica Neue",sans-serif;
+    color: #fbf8f8;
 }

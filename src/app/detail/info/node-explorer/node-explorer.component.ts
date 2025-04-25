@@ -6,7 +6,8 @@ import { Rack } from 'src/app/models/rack';
 @Component({
     selector: 'app-node-explorer',
     templateUrl: './node-explorer.component.html',
-    styleUrls: ['./node-explorer.component.scss']
+    styleUrls: ['./node-explorer.component.scss'],
+    standalone: false
 })
 export class NodeExplorerComponent implements OnInit {
 

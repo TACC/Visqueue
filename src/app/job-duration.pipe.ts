@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'jobDuration'
+    name: 'jobDuration',
+    standalone: false
 })
 export class JobDurationPipe implements PipeTransform {
 

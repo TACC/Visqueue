@@ -1,16 +1,26 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { SunburstService } from '../sunburst.service';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { SunburstDialogComponent } from '../sunburst-dialog/sunburst-dialog.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { CommonModule } from '@angular/common';
+import { MatInputModule } from '@angular/material/input';
 
 
 @Component({
     selector: 'app-sunburst-table',
     templateUrl: './sunburst-table.component.html',
-    styleUrls: ['./sunburst-table.component.scss']
+    styleUrls: ['./sunburst-table.component.scss'],
+    imports: [
+        CommonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatTableModule,
+        RouterModule
+    ]
 })
 export class SunburstTableComponent implements OnInit
 {

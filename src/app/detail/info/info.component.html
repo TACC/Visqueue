@@ -1,64 +1,70 @@
-<h1 class="mat-h1">Information</h1>
+<div class="flex-column">
 
-<i>Data current as of {{ timestamp | date }}</i>
+    <h1 class="mat-h1">Information</h1>
+    <i>Data current as of {{ timestamp | date }}</i>
 
-<mat-card class="mat-elevation-z2">
-    <mat-card-title>
-        <ng-container [ngSwitch]="jobVal">
-            <ng-container *ngSwitchCase="'JobsDisplayEnum.Total'">
-                {{ jobTotal | number }}
-            </ng-container>
-            <ng-container *ngSwitchCase="'JobsDisplayEnum.Completed'">
-                {{ jobCompleted | number }}
-            </ng-container>
-            <ng-container *ngSwitchDefault>
-                {{ jobTotal | number }}
-            </ng-container>
-        </ng-container>
-    </mat-card-title>
-    <mat-card-subtitle>
-        Jobs
-    </mat-card-subtitle>
-    <mat-card-footer>
-        <mat-button-toggle-group>
-            <mat-button-toggle (click)="jobsText('JobsDisplayEnum.Total')"     > Total      </mat-button-toggle>
-            <mat-button-toggle (click)="jobsText('JobsDisplayEnum.Completed')" > Completed  </mat-button-toggle>
-        </mat-button-toggle-group>           
-    </mat-card-footer>
-</mat-card>
+    <div class="flex-container">
 
-<br>
+        <mat-card class="mat-elevation-z2 jcc">
+            <mat-card-title>
+                <ng-container [ngSwitch]="jobVal">
+                    <ng-container *ngSwitchCase="'JobsDisplayEnum.Total'">
+                        {{ jobTotal | number }}
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'JobsDisplayEnum.Completed'">
+                        {{ jobCompleted | number }}
+                    </ng-container>
+                    <ng-container *ngSwitchDefault>
+                        {{ jobTotal | number }}
+                    </ng-container>
+                </ng-container>
+            </mat-card-title>
+            <mat-card-subtitle>
+                Jobs
+            </mat-card-subtitle>
+            <mat-card-footer>
+                <mat-button-toggle-group>
+                    <mat-button-toggle (click)="jobsText('JobsDisplayEnum.Total')"     > Total      </mat-button-toggle>
+                    <mat-button-toggle (click)="jobsText('JobsDisplayEnum.Completed')" > Completed  </mat-button-toggle>
+                </mat-button-toggle-group>           
+            </mat-card-footer>
+        </mat-card>
+        
+        
+        <mat-card class="mat-elevation-z2 jcc">
+            <mat-card-title>
+                {{ hrsTotal | number : '1.0-0' }}
+            </mat-card-title>
+            <mat-card-subtitle>
+                Compute Hours
+            </mat-card-subtitle>
+        </mat-card>
+        
+        
+        <mat-card class="mat-elevation-z2 jcc">
+            <mat-card-title>
+                {{ projTotal | number }}
+            </mat-card-title>
+            <mat-card-subtitle>
+                Projects
+            </mat-card-subtitle>
+        </mat-card>
+        
+        
+        <mat-card fxFlex="20" class="mat-elevation-z2 jcc">
+            <mat-card-title>
+                {{ instTotal | number }}
+            </mat-card-title>
+            <mat-card-subtitle>
+                Institutions
+            </mat-card-subtitle>
+        </mat-card>
+    
+    </div>
+</div>
 
-<mat-card class="mat-elevation-z2">
-    <mat-card-title>
-        {{ hrsTotal | number : '1.0-0' }}
-    </mat-card-title>
-    <mat-card-subtitle>
-        Compute Hours
-    </mat-card-subtitle>
-</mat-card>
 
-<br>
 
-<mat-card class="mat-elevation-z2">
-    <mat-card-title>
-        {{ projTotal | number }}
-    </mat-card-title>
-    <mat-card-subtitle>
-        Projects
-    </mat-card-subtitle>
-</mat-card>
-
-<br>
-
-<mat-card fxFlex="20" class="mat-elevation-z2">
-    <mat-card-title>
-        {{ instTotal | number }}
-    </mat-card-title>
-    <mat-card-subtitle>
-        Institutions
-    </mat-card-subtitle>
-</mat-card>
 
 <br>
 

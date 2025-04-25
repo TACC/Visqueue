@@ -2,3 +2,7 @@ mat-form-field
 {
     width: 50%;
 }
+
+::ng-deep mat-form-field .mat-mdc-text-field-wrapper.mdc-text-field.mdc-text-field--filled.mdc-text-field--no-label {
+    background-color: rgba(0, 0, 0, 0.05);
+}

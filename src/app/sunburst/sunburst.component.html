@@ -1,8 +1,8 @@
-<div *ngIf="showUpper">
-    <div class="flex-container">
+<div>
+    <div class="flex-container" *ngIf="showUpper">
         <img src="../assets/images/{{ dataSrc }}.png" alt="System Logo for {{ dataSrc }}">
     </div>
-    <div class="flex-container">
+    <div class="flex-container" *ngIf="showLower">
         <div> {{ jobCount }} Jobs </div>
         <div> {{ utilization | percent: '.2' }} Utilization </div>
         <a mat-raised-button routerLink="/detail/{{ dataSrc }}"> {{dataSrc | uppercase }} ></a>

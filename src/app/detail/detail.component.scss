@@ -8,3 +8,12 @@ mat-divider
     margin-top: 1vh;
     margin-bottom: 10vh;
 }
+
+div.flex-container
+{
+    display: flex;
+    justify-content: space-around;
+    // flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
+}

@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener, ChangeDetectorRef } from '@angular/core';
 import { InfoService } from '../info.service';
 import { ActivatedRoute } from '@angular/router';
 import { FosTimeSeries } from 'src/app/models/fos-time-series';
 import { PlotlyModule } from 'angular-plotly.js';
+import { text } from 'd3';
 
 @Component({
     selector: 'app-time-series-graph',
@@ -16,14 +17,21 @@ export class TimeSeriesGraphComponent implements OnInit {
         data : [],
         layout: 
         { 
-            title: 'Jobs per month (Field of Science)',
+            title: 
+            {
+                text : 'Jobs per Month (Field of Science)',
+                x: 0.5,
+                y: 0.9,
+                xanchor: 'center',
+                yanchor: 'top'
+            },
             showlegend : true,
             xaxis : 
             {
                 type : 'date',
                 tickformat : '%b %y',
                 dtick : 'M1',
-                gridcolor : 'rgba(133, 133, 133, 0.5)'
+                gridcolor : 'rgba(133, 133, 133, 0.5)',
             },
             yaxis : { gridcolor : 'rgba(133, 133, 133, 0.5)' },
             plot_bgcolor  : 'rgba(0,0,0,0)',
@@ -37,11 +45,20 @@ export class TimeSeriesGraphComponent implements OnInit {
 
     constructor(
         private infoService : InfoService,
-        private route       : ActivatedRoute
+        private route       : ActivatedRoute,
+        private cdr         : ChangeDetectorRef
         ) { }
 
     ngOnInit(): void 
     {
+        const screenWidth = window.innerWidth;
+
+        if( screenWidth < 1000 )
+        {
+            this.graph.layout.xaxis['visible'] = false;
+            this.graph.layout.showlegend = false;
+        }
+
         let system =  this.route.snapshot.params[ 'name' ];
 
         this.infoService.getFosTimeSeries( system )
@@ -87,6 +104,12 @@ export class TimeSeriesGraphComponent implements OnInit {
                     }
 
                 })
+
+        
     }
 
+    updatePlot()
+    {
+        this.cdr.detectChanges();
+    }
 }

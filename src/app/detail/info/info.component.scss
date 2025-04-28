@@ -67,3 +67,19 @@ div.chart-element
     flex: 1 1 100%;
     margin: 0px 30px;
 }
+
+@media screen and (max-width: 800px) {
+    
+    div.flex-container
+    {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    mat-card
+    {
+        min-width: 100%;
+    }
+}

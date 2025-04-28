@@ -20,3 +20,15 @@ app-sunburst-table
 {
     flex-grow: 2;
 }
+
+@media screen and (max-width: 1150px) 
+{
+    div.flex-container
+    {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+    
+}

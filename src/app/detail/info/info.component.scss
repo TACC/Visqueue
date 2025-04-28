@@ -68,7 +68,7 @@ div.chart-element
     margin: 0px 30px;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
     
     div.flex-container
     {
@@ -82,4 +82,10 @@ div.chart-element
     {
         min-width: 100%;
     }
+}
+
+canvas 
+{
+    height: 100% !important;
+    width: 100% !important;
 }

@@ -53,7 +53,7 @@ export class TimeSeriesGraphComponent implements OnInit {
     {
         const screenWidth = window.innerWidth;
 
-        if( screenWidth < 1000 )
+        if( screenWidth < 1150 )
         {
             this.graph.layout.xaxis['visible'] = false;
             this.graph.layout.showlegend = false;
@@ -108,8 +108,22 @@ export class TimeSeriesGraphComponent implements OnInit {
         
     }
 
-    updatePlot()
+    @HostListener( 'window:resize', [ '$event' ] )
+    onResize( event : any )
     {
+        const screenWidth = event.target.innerWidth;
+
+        if( screenWidth < 1150 )
+        {
+            this.graph.layout.xaxis['visible'] = false;
+            this.graph.layout.showlegend = false;
+        }
+        else
+        {
+            this.graph.layout.xaxis['visible'] = true;
+            this.graph.layout.showlegend = true;
+        }
+
         this.cdr.detectChanges();
     }
 }

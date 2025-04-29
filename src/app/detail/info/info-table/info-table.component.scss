@@ -2,3 +2,11 @@ table
 {
     width: 100%;
 }
+
+div.flex-container
+{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}

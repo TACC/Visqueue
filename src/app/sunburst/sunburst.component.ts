@@ -25,6 +25,7 @@ export class SunburstComponent implements OnInit, AfterViewInit
 
     @Input() showUpper      = false;
     @Input() showLower      = false;
+    @Input() showLinks      = false;
     @Input() showDialog     = false;
 
     @ViewChild('graphCont') graphCont : ElementRef;

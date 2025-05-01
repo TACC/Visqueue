@@ -2,12 +2,21 @@
     <div class="flex-container" *ngIf="showUpper">
         <img src="../assets/images/{{ dataSrc }}.png" alt="System Logo for {{ dataSrc }}">
     </div>
+    <br>
     <div class="flex-container" *ngIf="showLower">
         <div> {{ jobCount }} Jobs </div>
         <div> {{ utilization | percent: '.2' }} Utilization </div>
-        <a mat-raised-button routerLink="/detail/{{ dataSrc }}"> {{dataSrc | uppercase }} ></a>
-
     </div>
+    <br>
+    <ng-container *ngIf="showLinks">
+        <div class="flex-container">
+            <p>For more details about {{ dataSrc | uppercase }} click the link below </p>
+        </div>
+        <div class="flex-container">
+            <a routerLink="/detail/{{ dataSrc }}">Stampede3 Details ></a>
+        </div>
+        <br>
+    </ng-container>
 </div>
 
 <div class="graphCont" #graphCont></div>

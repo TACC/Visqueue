@@ -6,3 +6,21 @@ mat-form-field
 ::ng-deep mat-form-field .mat-mdc-text-field-wrapper.mdc-text-field.mdc-text-field--filled.mdc-text-field--no-label {
     background-color: rgba(0, 0, 0, 0.05);
 }
+
+div.flex-container
+{
+    display: flex;
+    justify-content: space-around;
+}
+
+@media screen and (max-width: 1150px) 
+{
+    div.flex-container
+    {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+    
+}

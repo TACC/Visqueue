@@ -441,12 +441,24 @@ export class SunburstComponent implements OnInit, AfterViewInit
     openDialog( p : any ) : void
     {
 
+        const screenWidth = window.innerWidth;
 
+        if( screenWidth < 1000 )
+        {
+            this.dialog.open( SunburstDialogComponent, 
+            {
+                width : '95vw',
+                data  : p.data
+            });
+        }
+        else
+        {
         
         this.dialog.open( SunburstDialogComponent, 
             {
                 width : '50vw',
                 data  : p.data
             });
+        }
     }
 }
